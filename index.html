@@ -61,6 +61,81 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-UI-Grid-简介" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/31/UI-Grid-简介/" class="article-date">
+  <time datetime="2017-10-31T08:57:17.000Z" itemprop="datePublished">2017-10-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/31/UI-Grid-简介/">UI-Grid 简介</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原文：<a href="http://ui-grid.info/docs/#/tutorial/101_intro" target="_blank" rel="external">101 intro to UI-Grid</a></p>
+<p>UI-Grid 3.0 (原 ng-grid)是一个不依赖于其他AngularJS，完全独立的 angular 表格系统。它围绕表格的核心设计模块和功能，功能的分层就像是angular的模型和指令。这些让它的核心代码小而精，并且能让你使用它来实现复杂的功能。</p>
+<p>在核心模块中，可以获得： </p>
+<ul>
+<li>虚拟的行和列，视图中可见的行和列才会显示 </li>
+<li>绑定单元格一系列属性和方法 </li>
+<li>列的排序有三种状态：Asc, Desc, None </li>
+<li>列的过滤 </li>
+<li>使用自定义模板更改页眉和单元格内容 </li>
+<li>i18nService 允许标记翻译</li>
+</ul>
+<p>在这个例子中，我们创建了最基本的表格。<br>方法如下：</p>
+<ul>
+<li><p>引入uiGrid的js和css</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;styleSheet&quot; href=&quot;release/ui-grid.min.css&quot;/&gt;</div><div class="line">&lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;/release/ui-grid.min.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>依赖注入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;app&apos;, [&apos;ui.grid&apos;]);</div></pre></td></tr></table></figure>
+</li>
+<li><p>或者使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;app&apos;, [require(&apos;angular-ui-grid&apos;)]);</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加css样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.myGrid &#123;</div><div class="line">    width: 500px;</div><div class="line">    height: 250px;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>$scope中添加数组对象</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$scope.myData = [</div><div class="line">        &#123;</div><div class="line">            &quot;firstName&quot;: &quot;Cox&quot;,</div><div class="line">            &quot;lastName&quot;: &quot;Carney&quot;...</div></pre></td></tr></table></figure>
+<ul>
+<li>使用ui-grid指令并指定json数据到引用的data属性上<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-controller=&quot;MainCtrl&quot;&gt;</div><div class="line">  &lt;div ui-grid=&quot;&#123; data: myData &#125;&quot; class=&quot;myGrid&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>index.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;!doctype html&gt;</div><div class="line">&lt;html ng-app=&quot;app&quot;&gt;</div><div class="line">  &lt;head&gt;</div><div class="line">    &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-touch.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;http://ui-grid.info/docs/grunt-scripts/csv.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;http://ui-grid.info/docs/grunt-scripts/pdfmake.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;/release/ui-grid.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;/release/ui-grid.css&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;</div><div class="line">  &lt;/head&gt;</div><div class="line">  &lt;body&gt;</div><div class="line">    &lt;div ng-controller=&quot;MainCtrl&quot;&gt;</div><div class="line">      &lt;div id=&quot;grid1&quot; ui-grid=&quot;&#123; data: myData &#125;&quot; class=&quot;grid&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p>main.css</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.grid &#123;</div><div class="line">  width: 500px;</div><div class="line">  height: 250px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>app.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;app&apos;, [&apos;ngTouch&apos;, &apos;ui.grid&apos;]);</div><div class="line"></div><div class="line">app.controller(&apos;MainCtrl&apos;, [&apos;$scope&apos;, function ($scope) &#123;</div><div class="line"></div><div class="line">  $scope.myData = [</div><div class="line">    &#123;</div><div class="line">        &quot;firstName&quot;: &quot;Cox&quot;,</div><div class="line">        &quot;lastName&quot;: &quot;Carney&quot;,</div><div class="line">        &quot;company&quot;: &quot;Enormo&quot;,</div><div class="line">        &quot;employed&quot;: true</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        &quot;firstName&quot;: &quot;Lorraine&quot;,</div><div class="line">        &quot;lastName&quot;: &quot;Wise&quot;,</div><div class="line">        &quot;company&quot;: &quot;Comveyer&quot;,</div><div class="line">        &quot;employed&quot;: false</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        &quot;firstName&quot;: &quot;Nancy&quot;,</div><div class="line">        &quot;lastName&quot;: &quot;Waters&quot;,</div><div class="line">        &quot;company&quot;: &quot;Fuelton&quot;,</div><div class="line">        &quot;employed&quot;: false</div><div class="line">    &#125;</div><div class="line">];</div><div class="line">&#125;]);</div></pre></td></tr></table></figure>
+<p><img src="/path/to/img.jpg" alt="Alt text"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/10/31/UI-Grid-简介/" data-id="cj9fe7dru0001ursz8gbsra76" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-项目建立手册" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/10/26/项目建立手册/" class="article-date">
@@ -135,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/26/项目建立手册/" data-id="cj9f0zr0h0000uwszf95zspjo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/26/项目建立手册/" data-id="cj9fe7drx0002urszhfdz16pf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -180,7 +255,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/26/hello-world/" data-id="cj9f0zr0l0001uwszmnnoby2x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/10/26/hello-world/" data-id="cj9fe7drp0000urszlltkt764" class="article-share-link">Share</a>
       
       
     </footer>
@@ -218,6 +293,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/10/31/UI-Grid-简介/">UI-Grid 简介</a>
+          </li>
         
           <li>
             <a href="/2017/10/26/项目建立手册/">项目建立手册</a>
