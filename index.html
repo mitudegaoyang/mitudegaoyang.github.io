@@ -556,51 +556,72 @@
         <h1 id="blog-io"><a href="#blog-io" class="headerlink" title="blog.io"></a>blog.io</h1><blockquote>
 <p>本项目基于hexo+github结构创建</p>
 </blockquote>
-<h2 id="一、安装步骤"><a href="#一、安装步骤" class="headerlink" title="一、安装步骤"></a>一、安装步骤</h2><h3 id="1-创建新文件夹，并执行命令安装Hexo："><a href="#1-创建新文件夹，并执行命令安装Hexo：" class="headerlink" title="1. 创建新文件夹，并执行命令安装Hexo："></a>1. 创建新文件夹，并执行命令安装Hexo：</h3><p>执行如下命令安装Hexo：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g hexo</div></pre></td></tr></table></figure>
-<p>初始化hexo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure>
-<p>生成静态页面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate（hexo g也可以）</div></pre></td></tr></table></figure>
-<p>启动本地服务，进行文章预览调试</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure>
-<p>浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></p>
-<h3 id="2-在github上创建仓库，并保存本地"><a href="#2-在github上创建仓库，并保存本地" class="headerlink" title="2. 在github上创建仓库，并保存本地"></a>2. 在github上创建仓库，并保存本地</h3><ul>
+<h2 id="1-配置环境"><a href="#1-配置环境" class="headerlink" title="1 配置环境"></a>1 配置环境</h2><h3 id="1-1-Node"><a href="#1-1-Node" class="headerlink" title="1.1 Node"></a>1.1 Node</h3><p>用来生成静态页面的，到Node.js<a href="https://nodejs.org/en/" target="_blank" rel="external">官网</a>下载相应平台的最新版本，一路安装即可。</p>
+<h3 id="1-2-Git"><a href="#1-2-Git" class="headerlink" title="1.2 Git"></a>1.2 Git</h3><p>把本地的hexo内容提交到github上去。安装Xcode就自带有Git，我就不多说了。</p>
+<h3 id="1-3-申请GitHub"><a href="#1-3-申请GitHub" class="headerlink" title="1.3 申请GitHub"></a>1.3 申请GitHub</h3><p>是用来做博客的远程创库、域名、服务器之类的，怎么与本地hexo建立连接等下讲。<br>github账号我也不再啰嗦了,没有的话直接申请就行了，跟一般的注册账号差不多，<br>SSH Keys，看你自己了，可以不配制，不配置的话以后每次对自己的博客有改动提交的时候就要手动输入账号密码，<br>配置了就不需要了，怎么配置我就不多说了，网上有很多教程。</p>
+<h3 id="1-4-正式安装HEXO"><a href="#1-4-正式安装HEXO" class="headerlink" title="1.4 正式安装HEXO"></a>1.4 正式安装HEXO</h3><p>Node和Git都安装好后，可执行如下命令安装hexo：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo npm install -g hexo</div></pre></td></tr></table></figure>
+<h3 id="1-5-初始化hexo"><a href="#1-5-初始化hexo" class="headerlink" title="1.5 初始化hexo"></a>1.5 初始化hexo</h3><p>创建一个文件夹，如：Blog，cd到Blog里执行hexo init的。命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure>
+<p>好啦，至此，全部安装工作已经完成！</p>
+<h3 id="1-6-生成静态页面"><a href="#1-6-生成静态页面" class="headerlink" title="1.6 生成静态页面"></a>1.6 生成静态页面</h3><p>继续再Blog目录下执行如下命令，生成静态页面</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate（hexo g也可以）</div></pre></td></tr></table></figure>
+<h3 id="1-7-本地启动"><a href="#1-7-本地启动" class="headerlink" title="1.7 本地启动"></a>1.7 本地启动</h3><p>启动本地服务，进行文章预览调试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure>
+<p>浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 这里可能遇到无法启动的问题，可能是环境未配置好</p>
+<h3 id="1-8-常见的HEXO配置错误"><a href="#1-8-常见的HEXO配置错误" class="headerlink" title="1.8 常见的HEXO配置错误"></a>1.8 常见的HEXO配置错误</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ERROR Plugin load failed: hexo-server</div><div class="line"></div><div class="line">原因： Besides, utilities are separated into a standalone module. hexo.util is not reachable anymore.</div><div class="line"></div><div class="line">解决方法，执行命令：$ sudo npm install hexo-server</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">执行命令hexo server，提示：Usage: hexo&lt;Command&gt; ....</div><div class="line"></div><div class="line">原因：我认为是没有生成本地服务</div><div class="line"></div><div class="line">解决方法，执行命令：$ npm install hexo-server --save</div><div class="line"></div><div class="line">提示：hexo-server@0.1.2 node_modules/hexo-server</div><div class="line">....</div><div class="line"></div><div class="line">表示成功了[参考](https://hexo.io/zh-cn/docs/server.html)</div></pre></td></tr></table></figure>
+<p>这个时候再执行：hexo-server</p>
+<p>得到: INFO Hexo is running at <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>. Press Ctrl+C to stop.</p>
+<p>这个时候再点击<a href="http://0.0.0.0:4000，正常情况下应该是最原始的画面，但是我看到的是：" target="_blank" rel="external">http://0.0.0.0:4000，正常情况下应该是最原始的画面，但是我看到的是：</a><br>白板和Cannot GET / 几个字 原因： 由于2.6以后就更新了，我们需要手动配置些东西，我们需要输入下面三行命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install hexo-renderer-ejs --save</div><div class="line">npm install hexo-renderer-stylus --save</div><div class="line">npm install hexo-renderer-marked --save</div></pre></td></tr></table></figure>
+<p>这个时候再重新生成静态文件，命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate （或hexo g）</div></pre></td></tr></table></figure>
+<p>启动本地服务器：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server （或hexo s）</div></pre></td></tr></table></figure>
+<p>再点击网址<a href="http://0.0.0.0:4000" target="_blank" rel="external">http://0.0.0.0:4000</a> OK终于可以看到属于你自己的blog啦，虽然很简陋，但好歹有了一个属于自己的小窝了。<br><a href="https://blog.gaotianyang.top/" target="_blank" rel="external">参考链接</a>，本地已经简单的设置好了，但是现在域名和服务器都是基于自己的电脑，接下来需要跟github进行关联。</p>
+<h2 id="2-配置Github"><a href="#2-配置Github" class="headerlink" title="2 配置Github"></a>2 配置Github</h2><h3 id="2-1-在github上创建仓库，并clone至本地"><a href="#2-1-在github上创建仓库，并clone至本地" class="headerlink" title="2.1 在github上创建仓库，并clone至本地"></a>2.1 在github上创建仓库，并clone至本地</h3><ul>
 <li>注意：建立与你用户名对应的仓库，仓库名必须为【your_user_name.github.io】，固定写法<br>例如：【mitudegaoyang.github.io】</li>
 </ul>
-<h3 id="3-将Hexo全部内容复制进上一步创建的文件夹中，并提交仓库"><a href="#3-将Hexo全部内容复制进上一步创建的文件夹中，并提交仓库" class="headerlink" title="3. 将Hexo全部内容复制进上一步创建的文件夹中，并提交仓库"></a>3. 将Hexo全部内容复制进上一步创建的文件夹中，并提交仓库</h3><h3 id="4-配置Github仓库"><a href="#4-配置Github仓库" class="headerlink" title="4. 配置Github仓库"></a>4. 配置Github仓库</h3><p>现在我们需要_config.yml文件，来建立关联</p>
+<h3 id="2-2-将Hexo全部内容复制进上一步创建的文件夹中，并提交仓库"><a href="#2-2-将Hexo全部内容复制进上一步创建的文件夹中，并提交仓库" class="headerlink" title="2.2 将Hexo全部内容复制进上一步创建的文件夹中，并提交仓库"></a>2.2 将Hexo全部内容复制进上一步创建的文件夹中，并提交仓库</h3><h3 id="2-3-配置HEXO配置文件-关联仓库"><a href="#2-3-配置HEXO配置文件-关联仓库" class="headerlink" title="2.3 配置HEXO配置文件 关联仓库"></a>2.3 配置HEXO配置文件 关联仓库</h3><p>现在我们需要_config.yml文件，来建立关联</p>
 <p>翻到最下面，改成我这样子的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line"></div><div class="line">     type: git</div><div class="line"></div><div class="line">     repo: git@github.com:mitudegaoyang/mitudegaoyang.github.io.git</div><div class="line"></div><div class="line">     branch: master</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line"></div><div class="line">     type: git</div><div class="line"></div><div class="line">     repo: git@github.com:mitudegaoyang/mitudegaoyang.github.io.git</div><div class="line"></div><div class="line">     branch: master</div></pre></td></tr></table></figure>
 <p>然后执行命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
 <ul>
 <li><p>注意：网上会有很多说法，有的type是github, 还有repository最后面的后缀也不一样，<br>是github.com.git，我也踩了很多坑，我现在的版本是hexo: 3.1.1，执行命令hexo -vsersion就出来了,<br>貌似3.0后全部改成我上面这种格式了。</p>
 </li>
 <li><p>忘了说了，我没用SSH Keys如果你用了SSH Keys的话直接在github里复制SSH的就行了，总共就两种协议，相信你懂的。</p>
 </li>
 </ul>
-<h3 id="5-执行配置命令："><a href="#5-执行配置命令：" class="headerlink" title="5. 执行配置命令："></a>5. 执行配置命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+<h3 id="2-4-执行配置命令"><a href="#2-4-执行配置命令" class="headerlink" title="2.4 执行配置命令"></a>2.4 执行配置命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure>
 <p>然后再浏览器中输入<a href="http://mitudegaoyang.github.io/就行了，我的github的账户叫mitudegaoyang,把这个改成你github的账户名就行了">http://mitudegaoyang.github.io/就行了，我的github的账户叫mitudegaoyang,把这个改成你github的账户名就行了</a></p>
-<h3 id="6-部署步骤"><a href="#6-部署步骤" class="headerlink" title="6. 部署步骤"></a>6. 部署步骤</h3><p>每次部署的步骤，可按以下三步来进行。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line"></div><div class="line">hexo generate</div><div class="line"></div><div class="line">hexo deploy</div></pre></td></tr></table></figure>
-<h3 id="7-一些常用命令："><a href="#7-一些常用命令：" class="headerlink" title="7. 一些常用命令："></a>7. 一些常用命令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">hexo new&quot;postName&quot; #新建文章</div><div class="line"></div><div class="line">hexo new page&quot;pageName&quot; #新建页面</div><div class="line"></div><div class="line">hexo generate #生成静态页面至public目录</div><div class="line"></div><div class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</div><div class="line"></div><div class="line">hexo deploy #将.deploy目录部署到GitHub</div><div class="line"></div><div class="line">hexo help # 查看帮助</div><div class="line"></div><div class="line">hexo version #查看Hexo的版本</div></pre></td></tr></table></figure>
-<h3 id="8-报错总结："><a href="#8-报错总结：" class="headerlink" title="8. 报错总结："></a>8. 报错总结：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ERROR Deployer not found: git 或者 ERROR Deployer not found: github</div></pre></td></tr></table></figure>
-<p>解决方法： npm install hexo-deployer-git –save</p>
+<h3 id="2-5-部署步骤"><a href="#2-5-部署步骤" class="headerlink" title="2.5 部署步骤"></a>2.5 部署步骤</h3><p>每次部署的步骤，可按以下三步来进行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hexo clean</div><div class="line"></div><div class="line">hexo generate</div><div class="line"></div><div class="line">hexo deploy</div></pre></td></tr></table></figure>
+<h3 id="2-6-一些常用命令"><a href="#2-6-一些常用命令" class="headerlink" title="2.6. 一些常用命令"></a>2.6. 一些常用命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">hexo new"postName" #新建文章</div><div class="line"></div><div class="line">hexo new page"pageName" #新建页面</div><div class="line"></div><div class="line">hexo generate #生成静态页面至public目录</div><div class="line"></div><div class="line">hexo server #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</div><div class="line"></div><div class="line">hexo deploy #将.deploy目录部署到GitHub</div><div class="line"></div><div class="line">hexo help # 查看帮助</div><div class="line"></div><div class="line">hexo version #查看Hexo的版本</div></pre></td></tr></table></figure>
+<h2 id="3-其他"><a href="#3-其他" class="headerlink" title="3 其他"></a>3 其他</h2><h3 id="3-1-常见主题"><a href="#3-1-常见主题" class="headerlink" title="3.1 常见主题"></a>3.1 常见主题</h3><p>这里有大量的<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">主题列表</a>使用方法里面 都有详细的介绍，我就不多说了。<br>我这里有几款个人认为不错的主题，免去你们，一个一个的选了，欢迎吐槽我的审美</p>
+<ul>
+<li>Cover - A chic theme with facebook-like cover photo</li>
+<li>Oishi - A white theme based on Landscape plus and Writing.</li>
+<li>Sidebar - Another theme based on Light with a simple sidebar</li>
+<li>TKL - A responsive design theme for Hexo. 一个设计优雅的响应式主题</li>
+<li>Tinnypp - A clean, simple theme based on Tinny</li>
+<li>Writing - A small and simple hexo theme based on Light</li>
+<li>Yilia - Responsive and simple style 优雅简洁响应式主题，我用得就是这个。</li>
+<li>Pacman voidy - A theme with dynamic tagcloud and dynamic snow</li>
+</ul>
+<h3 id="3-2-hexo部署后，CNAME会被自动删除"><a href="#3-2-hexo部署后，CNAME会被自动删除" class="headerlink" title="3.2 hexo部署后，CNAME会被自动删除"></a>3.2 hexo部署后，CNAME会被自动删除</h3><p>将需要上传至github的内容放在source文件夹，例如CNAME、favicon.ico、images等</p>
+<p><img src="/2017/10/26/项目建立手册/CNAME.png" alt="CHNAME"><br><img src="/2017/10/26/项目建立手册/images/CNAME.png" alt="CHNAME"></p>
+<h3 id="3-3-其他报错总结"><a href="#3-3-其他报错总结" class="headerlink" title="3.3 其他报错总结"></a>3.3 其他报错总结</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ERROR Deployer not found: git 或者 ERROR Deployer not found: github</div></pre></td></tr></table></figure>
+<p>解决方法</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
 <p>如发生报错： ERROR Process failed: layout/.DS_Store , 那么进入主题里面layout和_partial目录下，使用删除命令：</p>
-<p>rm-rf.DS_Store</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ERROR Plugin load failed: hexo-server</div></pre></td></tr></table></figure>
-<p>原因：</p>
-<p>Besides,utilities are separated into a standalone module.hexo.util is not reachable anymore.</p>
-<p>解决方法，执行命令：</p>
-<p>sudo npm install hexo-server</p>
-<p>执行命令hexo server，</p>
-<p>提示：Usage: hexo ….</p>
-<p>原因：</p>
-<p>我认为是没有生成本地服务</p>
-<p>解决方法，执行命令：</p>
-<p>npm install hexo-server –save</p>
-<p>提示：hexo-server@0.1.2 node_modules/hexo-server</p>
-<p><a href="http://www.jianshu.com/p/465830080ea9" target="_blank" rel="external">原文链接</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm-rf.DS_Store</div></pre></td></tr></table></figure>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://www.jianshu.com/p/465830080ea9" target="_blank" rel="external">HEXO+Github,搭建属于自己的博客</a></li>
+<li><a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">HEXO主题推荐</a></li>
+<li><a href="https://www.zhihu.com/question/28814437" target="_blank" rel="external">hexo部署后，CNAME会被自动删除</a></li>
+</ul>
 
       
 
