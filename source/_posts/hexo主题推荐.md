@@ -18,6 +18,7 @@ tags: 技术积累
 * [black-blue](#black-blue)
 * [Cube](#Cube)
 * [Varaint](#Varaint)
+* [yilia](#yilia)
 
 ## [Indigo](#Indigo)
 
@@ -128,6 +129,16 @@ tags: 技术积累
 
 ![Varaint](hexo主题推荐/Varaint.png)
 
+## [yilia](#yilia)
+
+* [预览地址](http://litten.me/)
+* [GitHub 项目地址](https://github.com/litten/hexo-theme-yilia)
+* [安装教程](https://github.com/litten/hexo-theme-yilia)
+* 效果图：
+
+![yilia](hexo主题推荐/yilia.png)
+
 ## 参考资料
 
 * [Hexo 好看的主题推荐](https://blog.csdn.net/zgd826237710/article/details/99671027)
+* [hexo yilia 主题](https://davidham3.github.io/blog/2018/07/13/hexo-yilia-%E4%B8%BB%E9%A2%98/)
