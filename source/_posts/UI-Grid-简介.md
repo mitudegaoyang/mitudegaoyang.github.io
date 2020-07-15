@@ -1,7 +1,7 @@
 ---
 title: UI-Grid 简介
 date: 2017-10-31 16:57:17
-tags:
+tags: 技术积累
 ---
 
 原文：[101 intro to UI-Grid](http://ui-grid.info/docs/#/tutorial/101_intro)
