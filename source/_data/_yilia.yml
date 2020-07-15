@@ -2,7 +2,10 @@
 
 menu:
   主页: /
-  随笔: /tags/随笔/
+  技术: /tags/技术积累/
+  练习: /tags/每日一练/
+  面试: /tags/每日一面/
+  读书: /tags/每日一读/
   相册: /tags/相册/
   摄影: /摄影/
 
@@ -20,7 +23,8 @@ subnav:
   #bilibili: "#"
   #acfun: "#"
   mail: "mailto:13683265113@163.com"
-  facebook: "https://www.gitbook.com/@mitudegaoyang"
+  #gitbook: "https://www.gitbook.com/@mitudegaoyang"
+  #facebook: "#"
   #google: "#"
   #twitter: "#"
   #linkedin: "#"
@@ -126,7 +130,7 @@ friends:
   gitbook: https://www.gitbook.com/@mitudegaoyang
   个人简历: https://www.gaotianyang.top/
   个人博客: https://blog.gaotianyang.top/
-  个人博客: https://blog.gaotianyang.top/
+  静博客: https://jss.gaotianyang.top/
   网站demo: https://mitudegaoyang.github.io/kuaiyijian/
 
 aboutme: 知言善行笃学慎思
