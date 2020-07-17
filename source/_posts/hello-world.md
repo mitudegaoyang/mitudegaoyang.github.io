@@ -3,38 +3,58 @@ title: Hello World
 date: 2017-10-26 21:14:40
 tags: 随笔
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
+欢迎来到 [Hexo](https://hexo.io/)！这是你的第一篇Blog。相关的详细信息请查看官方[文档](https://hexo.io/docs/)。
+如果您在使用 Hexo 时遇到任何问题，您可以在[故障排除](https://hexo.io/docs/troubleshooting.html)中找到答案，也可以在 [GitHub](https://github.com/hexojs/hexo/issues) 上询问我。
 
-### Create a new post
+<!-- more -->
 
-``` bash
-$ hexo new "My New Post"
+## 快速开始
+
+### 创建新的blog
+
+```bash
+hexo new "我的博客文章"
 ```
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+更多信息：[Writing](https://hexo.io/zh-cn/docs/commands.html#new)
 
-### Run server
+### 本地预览
 
-``` bash
-$ hexo server
+```bash
+hexo server
 ```
 
-More info: [Server](https://hexo.io/docs/server.html)
+更多信息：[Server](https://hexo.io/zh-cn/docs/commands.html#server)
 
-### Generate static files
+### 清除静态文件
 
-``` bash
-$ hexo generate
+```bash
+hexo clean
 ```
 
-More info: [Generating](https://hexo.io/docs/generating.html)
+更多信息：[Cleaning](https://hexo.io/zh-cn/docs/commands.html#clean)
 
-### Deploy to remote sites
+### 生成静态文件
 
-``` bash
-$ hexo deploy
+```bash
+hexo generate
 ```
 
-More info: [Deployment](https://hexo.io/docs/deployment.html)
+更多信息：[Generating](https://hexo.io/zh-cn/docs/commands.html#generate)
+
+### 部署
+
+```bash
+hexo deploy
+```
+
+更多信息：[Deployment](https://hexo.io/zh-cn/docs/commands.html#deploy)
+
+## 日常部署的三个命令
+
+```bash
+hexo cl(clean的缩写)
+hexo g(generate的缩写)
+hexo d(deploy的缩写)
+```
