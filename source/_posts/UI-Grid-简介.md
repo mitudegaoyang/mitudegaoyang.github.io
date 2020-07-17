@@ -129,6 +129,6 @@ app.controller('MainCtrl', ['$scope', function ($scope) {
 }]);
 ```
 
-![样式](UI-Grid-简介/1.png)
+![样式](https://s1.ax1x.com/2020/07/17/UyFpcR.png)
 
 原文：[101 intro to UI-Grid](http://ui-grid.info/docs/#/tutorial/101_intro)
