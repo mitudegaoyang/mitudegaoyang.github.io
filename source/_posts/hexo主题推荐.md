@@ -5,7 +5,7 @@ tags: [hexo,技术积累]
 toc: true
 ---
 
-![首屏图](https://s1.ax1x.com/2020/07/17/Us1tMT.jpg)
+![首屏图](https://s1.ax1x.com/2020/07/17/Uyk7wV.jpg)
 
 <!-- more -->
 
