@@ -1,8 +1,12 @@
 ---
 title: hexo主题推荐
 date: 2020-07-15 12:01:19
-tags: 技术积累
+tags: [hexo,技术积累]
 ---
+
+![首屏图](https://s1.ax1x.com/2020/07/17/Us3XjK.jpg)
+
+<!-- more -->
 
 ## 目录
 

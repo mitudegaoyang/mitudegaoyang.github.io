@@ -1,8 +1,12 @@
 ---
 title: HTML常见标签
 date: 2020-07-16 16:13:05
-tags: [html,前端]
+tags: [html,前端,技术积累]
 ---
+
+![首屏图](https://s1.ax1x.com/2020/07/17/Us38TH.jpg)
+
+<!-- more -->
 
 ## 目录
 
