@@ -2,29 +2,14 @@
 title: hexo主题推荐
 date: 2020-07-15 12:01:19
 tags: [hexo,技术积累]
+toc: true
 ---
 
-![首屏图](https://s1.ax1x.com/2020/07/17/Us3XjK.jpg)
+![首屏图](https://s1.ax1x.com/2020/07/17/Us1tMT.jpg)
 
 <!-- more -->
 
-## 目录
-
-* [Indigo](#Indigo)
-* [Butterfly](#Butterfly)
-* [Pure](#Pure)
-* [Melody](#Melody)
-* [Nexmoe](#Nexmoe)
-* [Clover](#Clover)
-* [Diaspora](#Diaspora)
-* [Hacker](#Hacker)
-* [Hiker](#Hiker)
-* [black-blue](#black-blue)
-* [Cube](#Cube)
-* [Varaint](#Varaint)
-* [yilia](#yilia)
-
-## [Indigo](#Indigo)
+## Indigo
 
 * [预览地址](https://www.imys.net/)
 * [GitHub 项目地址](https://github.com/yscoder/hexo-theme-indigo)
@@ -33,7 +18,7 @@ tags: [hexo,技术积累]
 
 ![Indigo](hexo主题推荐/Indigo.png)
 
-## [Butterfly](#Butterfly)
+## Butterfly
 
 * [预览地址](https://jerryc.me/)
 * [GitHub 项目地址](https://github.com/jerryc127/hexo-theme-butterfly)
@@ -42,7 +27,7 @@ tags: [hexo,技术积累]
 
 ![Butterfly](https://img-blog.csdnimg.cn/20190816091627682.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pnZDgyNjIzNzcxMA==,size_16,color_FFFFFF,t_70)
 
-## [Pure](#Pure)
+## Pure
 
 * [预览地址](https://blog.cofess.com/)
 * [GitHub 项目地址](https://github.com/cofess/hexo-theme-pure)
@@ -51,7 +36,7 @@ tags: [hexo,技术积累]
 
 ![Pure](https://img-blog.csdnimg.cn/20190816091713359.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pnZDgyNjIzNzcxMA==,size_16,color_FFFFFF,t_70)
 
-## [Melody](#Melody)
+## Melody
 
 * [预览地址](https://molunerfinn.com/)
 * [GitHub 项目地址](https://github.com/Molunerfinn/hexo-theme-melody)
@@ -60,7 +45,7 @@ tags: [hexo,技术积累]
 
 ![Melody](https://img-blog.csdnimg.cn/20190816091738576.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pnZDgyNjIzNzcxMA==,size_16,color_FFFFFF,t_70)
 
-## [Nexmoe](#Nexmoe)
+## Nexmoe
 
 * [预览地址](https://nexmoe.com/)
 * [GitHub 项目地址](https://github.com/nexmoe/hexo-theme-nexmoe)
@@ -69,7 +54,7 @@ tags: [hexo,技术积累]
 
 ![Nexmoe](https://img-blog.csdnimg.cn/20190816091825224.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pnZDgyNjIzNzcxMA==,size_16,color_FFFFFF,t_70)
 
-## [Clover](#Clover)
+## Clover
 
 * [预览地址](https://esappear.github.io/clover/)
 * [GitHub 项目地址](https://github.com/esappear/hexo-theme-clover)
@@ -78,7 +63,7 @@ tags: [hexo,技术积累]
 
 ![Clover](hexo主题推荐/Clover.png)
 
-## [Diaspora](#Diaspora)
+## Diaspora
 
 * [预览地址](https://fech.in/)
 * [GitHub 项目地址](https://github.com/Fechin/hexo-theme-diaspora)
@@ -88,7 +73,7 @@ tags: [hexo,技术积累]
 ![Diaspora1](hexo主题推荐/Diaspora1.jpg)
 ![Diaspora2](https://img-blog.csdnimg.cn/20190816092926768.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pnZDgyNjIzNzcxMA==,size_16,color_FFFFFF,t_70)
 
-## [Hacker](#Hacker)
+## Hacker
 
 * [预览地址](https://blog.daraw.cn/)
 * [GitHub 项目地址](https://github.com/CodeDaraW/Hacker)
@@ -97,7 +82,7 @@ tags: [hexo,技术积累]
 
 ![Hacker](hexo主题推荐/Hacker.jpg)
 
-## [Hiker](#Hiker)
+## Hiker
 
 * [预览地址](https://itimetraveler.github.io/hexo-theme-hiker/)
 * [GitHub 项目地址](https://github.com/iTimeTraveler/hexo-theme-hiker)
@@ -106,7 +91,7 @@ tags: [hexo,技术积累]
 
 ![Hiker](hexo主题推荐/Hiker.png)
 
-## [black-blue](#black-blue)
+## black-blue
 
 * ~~预览地址~~
 * [GitHub 项目地址](https://github.com/maochunguang/black-blue)
@@ -115,7 +100,7 @@ tags: [hexo,技术积累]
 
 ![black-blue](hexo主题推荐/black-blue.png)
 
-## [Cube](#Cube)
+## Cube
 
 * ~~预览地址~~
 * [GitHub 项目地址](https://github.com/ZEROKISEKI/hexo-theme-cube)
@@ -124,7 +109,7 @@ tags: [hexo,技术积累]
 
 ![Cube](https://img-blog.csdnimg.cn/20190816094150954.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pnZDgyNjIzNzcxMA==,size_16,color_FFFFFF,t_70)
 
-## [Varaint](#Varaint)
+## Varaint
 
 * ~~预览地址~~
 * [GitHub 项目地址](https://github.com/justpsvm/hexo-theme-varaint)
@@ -133,7 +118,7 @@ tags: [hexo,技术积累]
 
 ![Varaint](hexo主题推荐/Varaint.png)
 
-## [yilia](#yilia)
+## yilia
 
 * [预览地址](http://litten.me/)
 * [GitHub 项目地址](https://github.com/litten/hexo-theme-yilia)
