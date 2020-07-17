@@ -34,7 +34,7 @@ titlecase: false # 把标题转换为 title case
 external_link: true # 在新标签中打开链接
 filename_case: 0 #把文件名称转换为 (1) 小写或 (2) 大写
 render_drafts: false #是否显示草稿
-post_asset_folder: true #是否启动 Asset 文件夹
+post_asset_folder: false #是否启动 Asset 文件夹
 relative_link: false #把链接改为与根目录的相对位址
 future: true #显示未来的文章
 highlight: #内容中代码块的设置

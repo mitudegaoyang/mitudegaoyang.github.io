@@ -16,7 +16,7 @@ toc: true
 * [安装教程](https://github.com/yscoder/hexo-theme-indigo/wiki)
 * 效果图：
 
-![Indigo](hexo主题推荐/Indigo.png)
+![Indigo](https://s1.ax1x.com/2020/07/17/UsR991.png)
 
 ## Butterfly
 
@@ -25,7 +25,7 @@ toc: true
 * [安装教程](https://jerryc.me/posts/21cfbf15/)
 * 效果图：
 
-![Butterfly](https://img-blog.csdnimg.cn/20190816091627682.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pnZDgyNjIzNzcxMA==,size_16,color_FFFFFF,t_70)
+![Butterfly](https://s1.ax1x.com/2020/07/17/UsRMgP.png)
 
 ## Pure
 
@@ -34,7 +34,7 @@ toc: true
 * [安装教程](https://blog.cofess.com/2017/11/01/hexo-blog-theme-pure-usage-description.html)
 * 效果图：
 
-![Pure](https://img-blog.csdnimg.cn/20190816091713359.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pnZDgyNjIzNzcxMA==,size_16,color_FFFFFF,t_70)
+![Pure](https://s1.ax1x.com/2020/07/17/UsR8Hg.png)
 
 ## Melody
 
@@ -43,7 +43,7 @@ toc: true
 * [安装教程](https://github.com/Molunerfinn/hexo-theme-melody)
 * 效果图：
 
-![Melody](https://img-blog.csdnimg.cn/20190816091738576.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pnZDgyNjIzNzcxMA==,size_16,color_FFFFFF,t_70)
+![Melody](https://s1.ax1x.com/2020/07/17/UsRUCn.png)
 
 ## Nexmoe
 
@@ -52,7 +52,7 @@ toc: true
 * [安装教程](https://nexmoe.com/hexo-theme-nexmoe.html)
 * 效果图：
 
-![Nexmoe](https://img-blog.csdnimg.cn/20190816091825224.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pnZDgyNjIzNzcxMA==,size_16,color_FFFFFF,t_70)
+![Nexmoe](https://s1.ax1x.com/2020/07/17/UsRwvV.png)
 
 ## Clover
 
@@ -61,7 +61,7 @@ toc: true
 * [安装教程](https://github.com/esappear/hexo-theme-clover)
 * 效果图：
 
-![Clover](hexo主题推荐/Clover.png)
+![Clover](https://s1.ax1x.com/2020/07/17/UsRDDU.png)
 
 ## Diaspora
 
@@ -71,7 +71,7 @@ toc: true
 * 效果图：
 
 ![Diaspora1](hexo主题推荐/Diaspora1.jpg)
-![Diaspora2](https://img-blog.csdnimg.cn/20190816092926768.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pnZDgyNjIzNzcxMA==,size_16,color_FFFFFF,t_70)
+![Diaspora2](https://s1.ax1x.com/2020/07/17/UsRc59.png)
 
 ## Hacker
 
@@ -80,7 +80,7 @@ toc: true
 * [安装教程](https://github.com/CodeDaraW/Hacker)
 * 效果图：
 
-![Hacker](hexo主题推荐/Hacker.jpg)
+![Hacker](https://s1.ax1x.com/2020/07/17/UsWnZF.jpg)
 
 ## Hiker
 
@@ -89,7 +89,7 @@ toc: true
 * [安装教程](https://github.com/iTimeTraveler/hexo-theme-hiker/blob/master/README.cn.md)
 * 效果图：
 
-![Hiker](hexo主题推荐/Hiker.png)
+![Hiker](https://s1.ax1x.com/2020/07/17/UsR4KK.png)
 
 ## black-blue
 
@@ -98,7 +98,7 @@ toc: true
 * [安装教程](https://github.com/maochunguang/black-blue)
 * 效果图：
 
-![black-blue](hexo主题推荐/black-blue.png)
+![black-blue](https://s1.ax1x.com/2020/07/17/UsW1R1.png)
 
 ## Cube
 
@@ -107,7 +107,7 @@ toc: true
 * ~~安装教程~~
 * 效果图：
 
-![Cube](https://img-blog.csdnimg.cn/20190816094150954.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pnZDgyNjIzNzcxMA==,size_16,color_FFFFFF,t_70)
+![Cube](https://s1.ax1x.com/2020/07/17/UsW3xx.png)
 
 ## Varaint
 
@@ -116,7 +116,7 @@ toc: true
 * [安装教程](https://github.com/justpsvm/hexo-theme-varaint)
 * 效果图：
 
-![Varaint](hexo主题推荐/Varaint.png)
+![Varaint](https://s1.ax1x.com/2020/07/17/UsWNZD.png)
 
 ## yilia
 
@@ -125,7 +125,7 @@ toc: true
 * [安装教程](https://github.com/litten/hexo-theme-yilia)
 * 效果图：
 
-![yilia](hexo主题推荐/yilia.png)
+![yilia](https://s1.ax1x.com/2020/07/17/UsW0JA.png)
 
 ## 参考资料
 
