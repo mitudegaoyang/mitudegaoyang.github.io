@@ -500,6 +500,8 @@
 
                 };
 
+                console.log(index, galleryElement, pswpElement, options, items)
+
                 // PhotoSwipe opened from URL
                 if (fromURL) {
                     if (options.galleryPIDs) {

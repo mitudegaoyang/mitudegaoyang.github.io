@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.gaotianyang.top">
-  <title>Tag: 随笔 | Blog-Hexo</title>
+  <title>Yilia主题如何添加相册功能 | Blog-Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Blog-Hexo">
-<meta property="og:url" content="https://www.gaotianyang.top/tags/随笔/index.html">
+  <meta name="keywords" content="技术积累,hexo,yilia">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Yilia主题如何添加相册功能">
+<meta property="og:url" content="https://www.gaotianyang.top/2020/07/18/Yilia主题如何添加相册功能/index.html">
 <meta property="og:site_name" content="Blog-Hexo">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/18/UcUf1g.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/19/URbHbD.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/19/URLMlt.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/19/URj80K.png">
+<meta property="og:updated_time" content="2020-07-19T07:38:14.746Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog-Hexo">
+<meta name="twitter:title" content="Yilia主题如何添加相册功能">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/18/UcUf1g.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Blog-Hexo" type="application/atom+xml">
   
@@ -161,60 +168,232 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Yilia主题如何添加相册功能" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/26/hello-world/" class="archive-article-date">
-  	<time datetime="2017-10-26T13:14:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/26/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      Yilia主题如何添加相册功能
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+  
+  <a href="/2020/07/18/Yilia主题如何添加相册功能/" class="archive-article-date">
+  	<time datetime="2020-07-18T01:29:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+</a>
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><img src="https://s1.ax1x.com/2020/07/18/UcUf1g.jpg" alt="首屏图"></p>
+<a id="more"></a>
+<p><a href="/2020/07/17/yilia主题进阶设置/#添加相册功能">返回yilia主题进阶设置</a></p>
+<h2 id="添加相册功能的思路"><a href="#添加相册功能的思路" class="headerlink" title="添加相册功能的思路"></a>添加相册功能的思路</h2><p>仿照Yilia主题的作者 Litten的 <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">github 仓库</a>的相册，<br>实现<a href="http://litten.me/photos/" target="_blank" rel="external">相册</a>功能，再进行订制化处理。</p>
+<ul>
+<li>实现思路</li>
+</ul>
+<ol>
+<li>在主页上必须有一个可供点击的相册连接</li>
+<li>要用 hexo 生成一个 photos.html 文件</li>
+<li>photos.html 中的图片数据来源?因为这是一个静态页面所有要有一个 json 文件</li>
+<li>json 文件中有含有信息，图片的文件名</li>
+<li>图片要有一个完整的路径，把图片放到哪呢？图床，github 的空间，自己的服务器都可以</li>
+<li>怎么上传呢?大量图片当然写脚本传了.不会写咋办?很多人都写好了,改改就是了,脚本也有很多个版本.多数用 nodeJS写的,hexo 就用的 nodeJS.Python也是很不错的选择.</li>
+<li>加载图片太慢怎么办？准备两套图，一套缩略图，一套高清大图。缩略图怎么来？写脚本裁剪图片。</li>
+</ol>
+<p>闲言少叙，顺着思路逐一解决问题吧</p>
+<h2 id="生成相册目录"><a href="#生成相册目录" class="headerlink" title="生成相册目录"></a>生成相册目录</h2><ul>
+<li>进入到你的博客目录下执行 <code>hexo new page &quot;photos&quot;</code>,就会出现一个这样的新目录</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2020/07/19/URbHbD.png" alt="photos新目录"></p>
+<ul>
+<li>在主题配置文件<code>yourBlog/themes/yilia/_config.yml</code>中这样设置</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">menu:</div><div class="line">  主页: /</div><div class="line">  技术: /tags/技术积累/</div><div class="line">  归档: /archives/</div><div class="line">  相册: /photos/</div></pre></td></tr></table></figure>
+<h2 id="生成-photos-html-文件来"><a href="#生成-photos-html-文件来" class="headerlink" title="生成 photos.html 文件来"></a>生成 photos.html 文件来</h2><h3 id="参考主题作者的生成方式"><a href="#参考主题作者的生成方式" class="headerlink" title="参考主题作者的生成方式"></a>参考主题作者的生成方式</h3><p><a href="https://github.com/litten/BlogBackup" target="_blank" rel="external">下载作者的备份博客</a></p>
+<h3 id="模仿他的文件目录结构"><a href="#模仿他的文件目录结构" class="headerlink" title="模仿他的文件目录结构"></a>模仿他的文件目录结构</h3><p><img src="https://s1.ax1x.com/2020/07/19/URLMlt.png" alt="photos参考目录"></p>
+<p>复制作者的文件到你博客相应的目录下。<br>ejs 文件是以后要hexo 文件渲染的文件。<br>assets 目录是放默认图片的也要有。</p>
+<h3 id="定制化调整文件模板"><a href="#定制化调整文件模板" class="headerlink" title="定制化调整文件模板"></a>定制化调整文件模板</h3><p>修改 ejs 模板文件,ins.js 文件设置自己的东西</p>
+<h4 id="index-ejs文件"><a href="#index-ejs文件" class="headerlink" title="index.ejs文件"></a>index.ejs文件</h4><p>可以不用修改</p>
+<h4 id="修改-ins-js-文件"><a href="#修改-ins-js-文件" class="headerlink" title="修改 ins.js 文件"></a>修改 ins.js 文件</h4><p>修改其中的render()函数。这个函数是用来渲染数据的修改图片的路径地址。<br>minSrc是小图的路径。src是大图的路径。修改为自己的图片路径(路过图床，七牛的, github的路径)。</p>
+<p><img src="https://s1.ax1x.com/2020/07/19/URj80K.png" alt="ins.js"></p>
+<h2 id="编辑json文件"><a href="#编辑json文件" class="headerlink" title="编辑json文件"></a>编辑json文件</h2><p>这一步是关键的一步，也是最后一步。</p>
+<p>因为路过图床是自动生成大小图链接的，因此这里省略了使用脚本把图片处理成一套大图和一套小图的操作。<br>将图片的链接整理并编辑图片的<code>yourBlog/source/photos/ins.json</code>文件。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>走到这里所有的所有的准备工作都做好了.<br>进入到你博客目录, 处理ins.json</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">hexo clean (清理之前的 HTML 等)</div><div class="line">hexo g (生成 HTML 文件)</div><div class="line">hexo s (看看效果如何)</div></pre></td></tr></table></figure>
+<p>最后部署到你的博客上.</p>
+<p><a href="/2020/07/17/yilia主题进阶设置/#添加相册功能">返回yilia主题进阶设置</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">Yilia主题的作者 Litten的 github 仓库</a></li>
+<li><a href="https://github.com/litten/BlogBackup" target="_blank" rel="external">Yilia主题作者的备份博客仓库</a></li>
+<li><a href="https://www.jianshu.com/p/a9f309aaa0e0" target="_blank" rel="external">hexo Yilia 主题如何添加相册功能</a></li>
+</ul>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:;" class="page-reward-btn tooltip-top">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术积累</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+    
 
     
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+  <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+  <p>扫一扫，分享到微信</p>
+  <div class="wx-qrcode">
+    <img src="http://qr.liantu.com/api.php?text=https://www.gaotianyang.top/2020/07/18/Yilia主题如何添加相册功能/" alt="微信分享二维码">
+  </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/17/yilia主题进阶设置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">yilia主题进阶设置</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#添加相册功能的思路"><span class="toc-number">1.</span> <span class="toc-text">添加相册功能的思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成相册目录"><span class="toc-number">2.</span> <span class="toc-text">生成相册目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成-photos-html-文件来"><span class="toc-number">3.</span> <span class="toc-text">生成 photos.html 文件来</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考主题作者的生成方式"><span class="toc-number">3.1.</span> <span class="toc-text">参考主题作者的生成方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模仿他的文件目录结构"><span class="toc-number">3.2.</span> <span class="toc-text">模仿他的文件目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定制化调整文件模板"><span class="toc-number">3.3.</span> <span class="toc-text">定制化调整文件模板</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#index-ejs文件"><span class="toc-number">3.3.1.</span> <span class="toc-text">index.ejs文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改-ins-js-文件"><span class="toc-number">3.3.2.</span> <span class="toc-text">修改 ins.js 文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑json文件"><span class="toc-number">4.</span> <span class="toc-text">编辑json文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -237,9 +416,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

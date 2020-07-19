@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Blog-Hexo">
 <meta property="og:image" content="https://s1.ax1x.com/2020/07/17/Us8yDO.jpg">
 <meta property="og:image" content="https://www.gaotianyang.top/2020/07/14/项目建立手册/项目建立手册/CNAME.png">
-<meta property="og:updated_time" content="2020-07-17T23:20:21.277Z">
+<meta property="og:updated_time" content="2020-07-19T08:53:54.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目建立手册">
 <meta name="twitter:image" content="https://s1.ax1x.com/2020/07/17/Us8yDO.jpg">
@@ -47,7 +47,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="" class="profilepic">
-			<img src="/img/timg.jpeg" class="js-avatar">
+			<img src="/assets/img/timg.jpeg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="">迷途的羔羊</a></h1>
@@ -87,7 +87,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/mitudegaoyang" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weixin" target="_blank" href="/img/timg.jpeg" title="weixin"><i class="icon-weixin"></i></a>
+					<a class="weixin" target="_blank" href="/assets/img/timg.jpeg" title="weixin"><i class="icon-weixin"></i></a>
 		        
 					<a class="mail" target="_blank" href="mailto:13683265113@163.com" title="mail"><i class="icon-mail"></i></a>
 		        
@@ -109,7 +109,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/img/timg.jpeg" class="js-avatar">
+				<img src="/assets/img/timg.jpeg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">迷途的羔羊</h1>
@@ -132,7 +132,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/mitudegaoyang" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weixin" target="_blank" href="/img/timg.jpeg" title="weixin"><i class="icon-weixin"></i></a>
+						<a class="weixin" target="_blank" href="/assets/img/timg.jpeg" title="weixin"><i class="icon-weixin"></i></a>
 			        
 						<a class="mail" target="_blank" href="mailto:13683265113@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -275,6 +275,9 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
 <p>如发生报错： ERROR Process failed: layout/.DS_Store , 那么进入主题里面layout和_partial目录下，使用删除命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm-rf.DS_Store</div></pre></td></tr></table></figure>
+<p>如发生报错： 微信分享二维码获取404</p>
+<p>这是因为原主题获取二维码的地址失效了，修改主题的<code>themes/yilia/layout/_partial/post/share.ejs</code>文件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"&lt;%- 'qrcode' in locals ? qrcode(sUrl) : 'http://qr.liantu.com/api.php?text=' + sUrl  %&gt;"</span> <span class="attr">alt</span>=<span class="string">"微信分享二维码"</span>&gt;</span></div></pre></td></tr></table></figure>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
 <li><a href="http://www.jianshu.com/p/465830080ea9" target="_blank" rel="external">HEXO+Github,搭建属于自己的博客</a></li>
 <li><a href="https://blog.csdn.net/taoerchun/article/details/94349910" target="_blank" rel="external">The authenticity of host ‘github.com…</a></li>
@@ -283,6 +286,7 @@
 <li><a href="http://nettee.github.io/posts/2016/Two-Branch-Managing-Blog/" target="_blank" rel="external">Hexo博客的多分支管理方法</a></li>
 <li><a href="https://www.dazhuanlan.com/2019/12/31/5e0b2151a8260/" target="_blank" rel="external">Hexo使用theme/next主题部分无法推送github远程仓库</a></li>
 <li><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">主题hexo-theme-yilia安装</a></li>
+<li><a href="https://github.com/litten/hexo-theme-yilia/issues/776" target="_blank" rel="external">文章分享微信二维码不显示</a></li>
 </ul>
 
     
@@ -376,14 +380,15 @@
 </div>
 
 <div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://www.gaotianyang.top/2020/07/14/项目建立手册/" alt="微信分享二维码">
-    </div>
+  <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+  <p>扫一扫，分享到微信</p>
+  <div class="wx-qrcode">
+    <img src="http://qr.liantu.com/api.php?text=https://www.gaotianyang.top/2020/07/14/项目建立手册/" alt="微信分享二维码">
+  </div>
 </div>
 
 <div class="mask js-mask"></div>
+
     
     <div class="clearfix"></div>
   </div>
@@ -545,6 +550,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">yilia</a>
               </li>
              
               <li class="article-tag-list-item">
