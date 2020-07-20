@@ -7,7 +7,7 @@ title: Blog-Hexo #网站标题
 subtitle: #网站副标题
 description: #网站描述
 author: 迷途的羔羊 #作者
-language: #语言
+language: zh-Hans #语言
 timezone: #网站时区。Hexo 默认使用您电脑的时区。时区列表。比如说：America/New_York, Japan, 和 UTC 。
 
 # URL

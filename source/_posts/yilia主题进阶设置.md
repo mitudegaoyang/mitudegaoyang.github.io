@@ -106,11 +106,70 @@ npm run dist
 
 ### 增加不蒜子统计
 
+利用这个统计，可以知道你博客的访问量
+
 #### 安装不蒜子脚本
+
+在 `themes\yilia\layout\_partial\after-footer.ejs`最后添加，注意以下新的域名才有效，老的已经失效了
+
+```html
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+```
 
 #### 添加统计网站访问量
 
+修改 `themes\yilia\layout\_partial\footer.ejs`，包括访客数和站点访问总量
+
+```html
+# PV方式，单个用户连续点击 n 篇，记录 n 次记录值
+<span id="busuanzi_container_site_pv">  本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+
+# UV方式，单个用户连续点击 n 篇，记录 1 次记录值
+<span id="busuanzi_container_site_uv">  本站访客数<span id="busuanzi_value_site_uv"></span>人次</span>
+```
+
+我的footer.ejs配置
+
+```html
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %>
+      </div>
+      <div class="footer-right">
+        <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      </div>
+    </div>
+    <div calss="count-span">
+      <span id="busuanzi_container_site_pv">
+        总访问量: <span id="busuanzi_value_site_pv"></span>
+      </span>
+
+      <span id="busuanzi_container_site_uv">
+        总访客: <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </div>
+  </div>
+</footer>
+```
+
 #### 单篇文章点击量
+
+`themes\yilia\layout\_partial\article.ejs`中 在 `<%- partial('post/title', {class_name: 'article-title'}) %>` 插入如下代码
+
+```html
+<!--显示阅读次数-->
+<% if (!index && post.comments){ %>
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+    <span class="icon-sort"></span>
+    <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+      阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+    </span>
+  </a>
+<% } %>
+```
 
 ### 添加来必力评论系统
 
@@ -149,3 +208,4 @@ hexo d
 ## 参考资料
 
 * [Hexo yilia 主题一揽子使用方案](https://cloudy-liu.github.io/2018/04/07/Hexo_yilia_%E4%B8%BB%E9%A2%98%E4%B8%80%E6%8F%BD%E5%AD%90%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88/)
+* [hexo yilia 文章浏览量统计](https://codegitz.github.io/2018/04/13/hexo-yilia-%E6%96%87%E7%AB%A0%E6%B5%8F%E8%A7%88%E9%87%8F%E7%BB%9F%E8%AE%A1/)
