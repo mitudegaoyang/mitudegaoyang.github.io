@@ -156,16 +156,15 @@ npm run dist
 
 #### 单篇文章点击量
 
-`themes\yilia\layout\_partial\article.ejs`中 在 `<%- partial('post/title', {class_name: 'article-title'}) %>` 插入如下代码
+`themes\yilia\layout\_partial\article.ejs`中 在 `<%- partial('post/tag') %>` 插入如下代码
 
 ```html
 <!--显示阅读次数-->
 <% if (!index && post.comments){ %>
-  <br/>
-  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-    <span class="icon-sort"></span>
-    <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-      阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  <a class="cloud-tie-join-count" href="<%- url_for(post.path) %>" style="color:gray;font-size:14px;">
+    <span class="icon-book"></span>
+    <span id="busuanzi_container_page_pv">
+      阅读量(<span id="busuanzi_value_page_pv"></span>)
     </span>
   </a>
 <% } %>
