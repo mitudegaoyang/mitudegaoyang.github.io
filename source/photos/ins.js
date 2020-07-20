@@ -116,8 +116,8 @@
                     var data = res.list[j].arr;
                     var liTmpl = "";
                     for (var i = 0, len = data.link.length; i < len; i++) {
-                        var minSrc = 'https://s1.ax1x.com/2020/07/17/' + data.link[i] + '.th.jpg';
-                        var src = 'https://s1.ax1x.com/2020/07/17/' + data.link[i];
+                        var minSrc = 'https://s1.ax1x.com/' + data.link[i] + '.th.jpg';
+                        var src = 'https://s1.ax1x.com/' + data.link[i];
                         var type = data.type[i];
                         var target = src + (type === 'video' ? '.mp4' : '.jpg');
                         var size = data.size[i];
