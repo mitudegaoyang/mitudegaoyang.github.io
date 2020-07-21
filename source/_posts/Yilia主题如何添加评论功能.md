@@ -214,6 +214,8 @@ livere_uid: false
 
 ## 参考资料
 
+* [hexo+yilia+Gitalk添加评论系统](https://www.pianshen.com/article/6042218776/)
+* [hexo+yilia+Gitalk添加评论系统-样式调整](https://my.oschina.net/u/4383702/blog/3678467)
 * [hexo+yilia+Valine添加评论系统](https://blog.csdn.net/qq_43827595/article/details/101450966)
 * [hexo+yilia+Valine添加Valine评论系统](https://mxy493.xyz/2019/01/28/Hexo%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%BB%E9%A2%98%EF%BC%9Ayilia%EF%BC%89%E6%B7%BB%E5%8A%A0Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/#%E5%BA%8F%E8%A8%80)
 * [新增对Valine评论系统的支持 #646](https://github.com/litten/hexo-theme-yilia/pull/646)
@@ -221,4 +223,3 @@ livere_uid: false
 * [hexo+yilia+来必力添加评论系统-注册](https://blog.csdn.net/qwerty200696/article/details/78836421)
 * [hexo+yilia+来必力添加评论系统](https://blog.csdn.net/maosidiaoxian/article/details/90902494)
 * [hexo+yilia+Gitment添加评论系统](https://www.cnblogs.com/liuurick/p/10713709.html)
-* [hexo+yilia+Gitalk添加评论系统](https://www.pianshen.com/article/6042218776/)
