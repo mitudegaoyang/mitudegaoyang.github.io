@@ -102,7 +102,14 @@ gitalk:
 }
 ```
 
-* 这里修改后样式未生效 通过修改编译后的main.css才生效
+* 修改源文件重新build。上述资源对应源文件为 `yilia/source-src/css/comment.scss`，按照如下方式build
+
+```shell
+cd 到 yilia 目录下
+npm install
+npm run dev
+npm run dist
+```
 
 在`yilia/layout/_partial/article.ejs`文件中添加代码：
 
