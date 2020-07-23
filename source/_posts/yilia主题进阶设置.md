@@ -373,7 +373,7 @@ npm run dist
 <!--显示阅读次数-->
 <% if (!index && post.comments){ %>
   <a class="cloud-tie-join-count" href="<%- url_for(post.path) %>" style="color:gray;font-size:14px;">
-    <span class="icon-category"></span>
+    <span class="icon-smile"></span>
     <span id="busuanzi_container_page_pv">
       阅读量(<span id="busuanzi_value_page_pv"></span>)
     </span>
