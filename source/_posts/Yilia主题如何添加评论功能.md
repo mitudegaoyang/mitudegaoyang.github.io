@@ -14,8 +14,8 @@ toc: true
 
 ## 常见的评论系统
 
-* Gitalk(测试通过，可以使用)
-* Valine()
+* Valine(评论不需要账号，数据托管于Leancloud数据库管理)
+* Gitalk(可以使用，评论需要登录GitHub账号)
 * 畅言(搜狐的评论系统,很强大,但需要有备案号)
 * Gitment(登录GitHub账号长时间loading)
 * 来必力(注册受阻，且是韩国服务器，评论系统响应变慢)
@@ -23,6 +23,129 @@ toc: true
 * disqus(国内经常被墙)
 * 网易云跟帖(已经关闭系统)
 * 多说(功能强大，但是已经停止服务)
+
+### Valine
+
+先开始使用的Gitalk，但是这个评论必须拥有GitHub账号才可以，因此转而使用Valine试试。
+
+#### 配置Valine
+
+在`yilia/_config.yml`文件中配置代码：
+
+``` text
+#7、配置Valine
+valine:
+ enable: true #是否启用valine
+ appid: #Leancloud应用的appId
+ appkey: #Leancloud应用的appKey
+ verify: false #验证码，verify和notify这两个最好就别动了
+ notify: false #评论回复提醒
+ avatar: mm #评论列表头像样式：''/mm/identicon/monsterid/wavatar/retro/hide
+ placeholder: Just go go #评论框占位符
+```
+
+拷贝如下三个地址的`av-min.js`、`Valine.min.js`和`jquery.min.js`到`yilia/source/lib/valine`目录（没有的话新建文件）
+
+* [av-min.js](https://cdn1.lncld.net/static/js/3.0.4/av-min.js)
+* [Valine.min.js](https://unpkg.com/valine/dist/Valine.min.js)
+* [jquery.min.js](https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js)
+
+在`theme/yilia/layout/_partial/post`文件夹下新建文件`valine.ejs`，
+
+``` html
+<div id="vcomment" class="comment"></div>
+<script>
+    var notify = '<%= theme.valine.notify %>' == true ? true : false;
+    var verify = '<%= theme.valine.verify %>' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "<%= theme.valine.appid %>",
+        app_key: "<%= theme.valine.appkey %>",
+        placeholder: "<%= theme.valine.placeholder %>",
+        avatar:"<%= theme.valine.avatar %>",
+    });
+</script>
+```
+
+在`layout/_partial/article.ejs`文件中的结尾添加如下代码(可以参考其他评论代码)：
+
+``` html
+<% if (!index && theme.valine && theme.valine.enable && theme.valine.appid && theme.valine.appkey){ %>
+<section id="comments" class="comments">
+  <style>
+    .comments {
+      margin: 30px;
+      padding: 10px;
+      background: #fff
+    }
+
+    @media screen and (max-width:800px) {
+      .comments {
+        margin: auto;
+        padding: 10px;
+        background: #fff
+      }
+    }
+  </style>
+  <%- partial('post/valine', {
+            key: post.slug,
+            title: post.title,
+            url: config.url+url_for(post.path)
+            }) %>
+</section>
+<% } %>
+```
+
+在`yilia/layout/_partial/head.ejs`文件中添加代码：
+
+``` text
+<% if (theme.valine && theme.valine.enable){ %>
+  <script src="/lib/valine/av-min.js"></script>
+  <script src='/lib/valine/Valine.min.js'></script>
+  <script src="/lib/valine/jquery.min.js"></script>
+<% } %>
+```
+
+#### 配置评论仓库
+
+接下来就要使用到[Leancloud](https://www.leancloud.cn/)了，大概就是作为我们Valine评论系统的服务器，
+因为Valine首页就介绍了Valine是“一款快速、简洁且高效的无后端评论系统”，自行注册一个账号并登录。
+
+创建一个应用，应用名看个人喜好。
+
+![创建应用](https://s1.ax1x.com/2020/07/23/ULsmct.jpg)
+
+选择刚刚创建的**应用>设置>应用Key**，然后你就能看到你的App ID和App Key了，参考下图：
+
+![获取App ID和App Key](https://s1.ax1x.com/2020/07/23/ULyK2R.png)
+
+分别复制**App ID**和**App Key**粘贴到前面设置的主题根目录下的`_config.yml`里对应位置，注意“:”后面必须要有一个空格，如图：
+
+![配置_config.yml](https://s1.ax1x.com/2020/07/23/ULyOzR.png)
+
+为了数据安全，再填写一下安全域名，**应用>设置>安全设置**中的**Web 安全域名**，
+如果是Hexo一般填写自己博客主页的地址和`http://localhost:4000/`就可以了，如下图：
+
+![安全域名](https://s1.ax1x.com/2020/07/23/ULsnjP.png)
+
+到这里，你的valine评论系统就已经可以工作了
+
+当然修改了相关代码需要重新部署博客，三步操作：
+
+```shell
+hexo clean
+hexo g
+hexo s #本地测试用http://localhost:4000/访问即可，也可以hexo d部署到云端
+```
+
+自己写条评论试试呢，评论的数据会保存到Leancloud你创建的应用里，
+具体可以登录Leancloud，选择**应用>存储>Comment**，评论的所有相关信息都可以在这儿看到：
+
+![数据库查看](https://s1.ax1x.com/2020/07/23/UL60fJ.png)
+
+到此如果没有更多的需求已经可以结束不折腾了，进一步的下面介绍实现邮件通知的功能
 
 ### Gitalk
 
@@ -226,11 +349,10 @@ livere_uid: false
 
 ## 参考资料
 
+* [hexo+yilia+Valine添加评论系统](https://blog.csdn.net/qq_43827595/article/details/101450966)
+* [新增对Valine评论系统的支持 #646](https://github.com/litten/hexo-theme-yilia/pull/646)
 * [hexo+yilia+Gitalk添加评论系统](https://www.pianshen.com/article/6042218776/)
 * [hexo+yilia+Gitalk添加评论系统-样式调整](https://my.oschina.net/u/4383702/blog/3678467)
-* [hexo+yilia+Valine添加评论系统](https://blog.csdn.net/qq_43827595/article/details/101450966)
-* [hexo+yilia+Valine添加Valine评论系统](https://mxy493.xyz/2019/01/28/Hexo%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%BB%E9%A2%98%EF%BC%9Ayilia%EF%BC%89%E6%B7%BB%E5%8A%A0Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/#%E5%BA%8F%E8%A8%80)
-* [新增对Valine评论系统的支持 #646](https://github.com/litten/hexo-theme-yilia/pull/646)
 * [hexo+yilia+畅言添加评论系统](https://blog.csdn.net/qq_40910541/article/details/80659127)
 * [hexo+yilia+来必力添加评论系统-注册](https://blog.csdn.net/qwerty200696/article/details/78836421)
 * [hexo+yilia+来必力添加评论系统](https://blog.csdn.net/maosidiaoxian/article/details/90902494)
