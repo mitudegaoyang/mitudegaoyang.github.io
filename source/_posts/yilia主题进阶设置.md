@@ -279,7 +279,7 @@ toc: true
 
 再次访问categories，达到了预期效果，如下图：
 
-![多级分类](https://s1.ax1x.com/2020/07/23/ULEmyF.png)
+![多级分类](https://s1.ax1x.com/2020/07/23/ULeeQf.png)
 
 ### 增加tags菜单
 
