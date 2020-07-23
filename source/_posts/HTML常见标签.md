@@ -1,7 +1,8 @@
 ---
 title: HTML常见标签
 date: 2020-07-16 16:13:05
-tags: [html,前端,技术积累]
+tags: [技术积累,前端,html]
+categories: [技术积累,前端,html]
 toc: true
 ---
 

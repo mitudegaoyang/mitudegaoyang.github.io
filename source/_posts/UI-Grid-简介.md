@@ -1,7 +1,8 @@
 ---
 title: UI-Grid 简介
 date: 2017-10-31 16:57:17
-tags: 技术积累
+tags: [技术积累,前端,UI-Grid]
+categories: [技术积累,前端,UI-Grid]
 ---
 
 UI-Grid 3.0 (原 ng-grid)是一个不依赖于其他AngularJS，完全独立的 angular 表格系统。它围绕表格的核心设计模块和功能，功能的分层就像是angular的模型和指令。这些让它的核心代码小而精，并且能让你使用它来实现复杂的功能。

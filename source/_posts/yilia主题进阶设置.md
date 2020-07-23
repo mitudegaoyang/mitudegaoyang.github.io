@@ -1,7 +1,8 @@
 ---
 title: yilia主题进阶设置
 date: 2020-07-17 11:30:27
-tags: [hexo,技术积累]
+tags: [技术积累,hexo,yilia]
+categories: [技术积累,hexo,yilia]
 toc: true
 ---
 
@@ -69,6 +70,216 @@ menu:
     主页:  /
     归档:  /archives/index.html
 ```
+
+### 增加分类菜单
+
+#### 添加分类链接
+
+修改`themes/yilia/_config.yml`
+
+```text
+menu:
+    主页:  /
+    分类:  /categories/index.html
+    归档:  /archives/index.html
+```
+
+#### 分类页面的构建
+
+* 新建 categories 页面
+
+```shell
+hexo new page categories
+```
+
+该命令在 source 目录下生成一个 categories 目录，categories 目录下有一个 index.md 文件。
+
+* 修改 categories/index.md 为：
+
+```html
+---
+title: 文章分类
+date: 2018-06-11 10:13:21
+type: "categories"
+comments: false
+---
+```
+
+* 生成 html
+
+```shell
+hexo g
+hexo s
+```
+
+访问`http://localhost:4000/categories/` ，即可看到 categories 页面，只不过现在的页面只有标题。
+
+#### 修改主题
+
+修改 `yilia/source-src/css/main.scss`，将下面的内容添加进去
+
+```css
+@import "./category";
+```
+
+在 `yilia/source-src/css/`目录下添加`category.scss`，并将下面的内容添加进去
+
+```css
+.category-all-page {
+    margin: 30px 40px 30px 40px;
+    position: relative;
+    min-height: 70vh;
+}
+.category-all-page h2 {
+    margin: 20px 0;
+}
+.category-all-page .category-all-title {
+    text-align: center;
+}
+.category-all-page .category-all {
+    margin-top: 20px;
+}
+.category-all-page .category-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.category-all-page .category-list-item-list-item {
+    margin: 10px 15px;
+}
+.category-all-page .category-list-item-list-count {
+    color: #999;
+}
+.category-all-page .category-list-item-list-count:before {
+    display: inline;
+    content: " (";
+}
+.category-all-page .category-list-item-list-count:after {
+    display: inline;
+    content: ") ";
+}
+.category-all-page .category-list-item {
+    margin: 10px 10px;
+}
+.category-all-page .category-list-count {
+    color: #999;
+}
+.category-all-page .category-list-count:before {
+    display: inline;
+    content: " (";
+}
+.category-all-page .category-list-count:after {
+    display: inline;
+    content: ") ";
+}
+.category-all-page .category-list-child {
+    padding-left: 10px;
+}
+```
+
+生成编译文件
+
+```shell
+# cd 到 yilia 目录下
+npm install
+npm run dev
+npm run dist
+```
+
+新建 `yilia/layout/categories.ejs`，输入：
+
+```html
+<article class="article article-type-post show">
+    <header class="article-header" style="border-bottom: 1px solid #ccc">
+        <h1 class="article-title" itemprop="name">
+            <%= page.title %>
+        </h1>
+    </header>
+
+    <% if (site.categories.length){ %>
+    <div class="category-all-page article-type-post show">
+        <h2>共计&nbsp;<%= site.categories.length %>&nbsp;个分类</h2>
+        <ul class="category-list">
+            <% site.categories.sort('name').each(function(item){ %>
+            <% if(item.posts.length){ %>
+            <li class="category-list-item">
+                <a href="<%- config.root %><%- item.path %>"
+                    title="<%= item.name %>"><%= item.name %>[<%= item.posts.length %>]</a>
+            </li>
+            <% } %>
+            <% }); %>
+        </ul>
+    </div>
+    <% } %>
+</article>
+```
+
+#### 使用分类
+
+修改文章头部
+
+```html
+---
+title: yilia主题进阶设置
+date: 2020-07-17 11:30:27
+tags: [hexo,技术积累]
+categories: [hexo,技术积累]
+toc: true
+---
+```
+
+效果如下
+
+![分类](https://s1.ax1x.com/2020/07/23/ULEmyF.png)
+
+#### 多层分类
+
+以上，已经完成了categories分类页面，但是只有一层分类。假设，现在有一篇文章的分类为多层分类
+
+例如：
+
+```text
+title: yilia主题进阶设置
+date: 2020-07-17 11:30:27
+tags: [hexo,技术积累]
+categories: [hexo,技术积累]
+toc: true
+```
+
+显示的效果为所有类别平级显示，不是我们想要的效果，如下图：
+
+![分类](https://s1.ax1x.com/2020/07/23/ULEmyF.png)
+
+本节就实现多层分类的显示效果，具体操作如下：
+
+修改 `yilia/layout/categories.ejs`，输入：
+
+```html
+<article class="article article-type-post show">
+  <header class="article-header" style="border-bottom: 1px solid #ccc">
+  <h1 class="article-title" itemprop="name">
+    <%= page.title %>
+  </h1>
+  </header>
+
+  <% if (site.categories.length){ %>
+  <div class="category-all-page">
+    <h2>共计&nbsp;<%= site.categories.length %>&nbsp;个分类</h2>
+    <%- list_categories(site.categories, {
+      show_count: true,
+      class: 'category-list-item',
+      style: 'list',
+      depth: 3, # 显示的层级
+      separator: ''
+    }) %>
+  </div>
+  <% } %>
+</article>
+```
+
+再次访问categories，达到了预期效果，如下图：
+
+![多级分类](https://s1.ax1x.com/2020/07/23/ULEmyF.png)
 
 ### 增加tags菜单
 
@@ -212,3 +423,5 @@ hexo d
 
 * [Hexo yilia 主题一揽子使用方案](https://cloudy-liu.github.io/2018/04/07/Hexo_yilia_%E4%B8%BB%E9%A2%98%E4%B8%80%E6%8F%BD%E5%AD%90%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88/)
 * [hexo yilia 文章浏览量统计](https://codegitz.github.io/2018/04/13/hexo-yilia-%E6%96%87%E7%AB%A0%E6%B5%8F%E8%A7%88%E9%87%8F%E7%BB%9F%E8%AE%A1/)
+* [Hexo-Yilia 进阶笔记](https://tding.top/archives/9a232bbe.html)
+* [Hexo添加categories页面](https://www.voidking.com/dev-hexo-categories/)

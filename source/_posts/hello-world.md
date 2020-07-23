@@ -2,6 +2,7 @@
 title: Hello World
 date: 2017-10-26 21:14:40
 tags: 随笔
+categories: [随笔]
 ---
 
 欢迎来到 [Hexo](https://hexo.io/)！这是你的第一篇Blog。相关的详细信息请查看官方[文档](https://hexo.io/docs/)。

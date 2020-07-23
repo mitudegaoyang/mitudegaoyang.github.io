@@ -1,7 +1,8 @@
 ---
 title: hexo主题推荐
 date: 2020-07-15 12:01:19
-tags: [hexo,技术积累]
+tags: [技术积累,hexo]
+categories: [技术积累,hexo]
 toc: true
 ---
 

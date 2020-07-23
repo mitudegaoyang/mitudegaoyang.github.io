@@ -1,7 +1,8 @@
 ---
 title: Yilia主题如何添加相册功能
 date: 2020-07-18 09:29:07
-tags: [hexo,yilia,技术积累]
+tags: [技术积累,hexo,yilia]
+categories: [技术积累,hexo,yilia]
 toc: true
 ---
 
