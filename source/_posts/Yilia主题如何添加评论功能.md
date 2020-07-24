@@ -192,7 +192,7 @@ Web 二级域名用于评论后台管理，如`https://gty.avosapps.us`
 SMTP_SERVICE建议用QQ，目前我用的QQ邮箱没有任何问题，163邮箱在我设置的过程中似乎有不能发送邮件的问题，
 应该是网易邮箱那边的限制所以无关你设置得对不对，Gmail似乎是因为被墙了会连接超时，其它我没试过。
 
-|变量|示例|说明|
+|环境变量|示例|说明|
 |---|---|---|
 |SITE_NAME|Deserts|[必填]博客名称|
 |SITE_URL|`https://mxy493.github.io/`|[必填]首页地址|
@@ -223,7 +223,149 @@ SMTP_SERVICE建议用QQ，目前我用的QQ邮箱没有任何问题，163邮箱�
 
 ##### 设置定时任务
 
+进入**云引擎>定时任务**，创建定时器，创建两个定时任务。
+
+* 半小时自动唤醒
+
+选择self-wake云函数，Cron表达式为`0 0/30 7-23 * * ?`，表示每天早7点到晚23点每隔30分钟访问云引擎，确定环境变量ADMIN_URL设置正确：
+
+![自动唤醒](https://s1.ax1x.com/2020/07/24/Ujm1oD.png)
+
+* 八点叫我发邮件
+
+选择resend-mails云函数，Cron表达式为`0 0 8 * * ?`，表示每天早8点检查过去24小时内漏发的通知邮件并补发：
+
+![定时检查](https://s1.ax1x.com/2020/07/24/Ujm8Fe.png)
+
+至此 `Valine Admin` 已经可以正常工作，更多以下是可选的进阶**配置**
+
 #### 邮件通知模板
+
+这一部分可选，懒得折腾可以到此为止！
+
+邮件通知模板在**云引擎环境变量**中设定，可自定义通知邮件标题及内容模板。
+
+邮件通知包含两种，分别是“**被@通知**”和“**博主通知**”，这两种模板都可以完全自定义。默认使用经典的蓝色风格模板（样式来源未知）。
+
+|环境变量|示例|说明|
+|---|---|---|
+|MAIL_TEMPLATE_ADMIN|`见下文`|[可选]**博主邮件通知**内容模板(别人在你博客评论后，邮箱通知显示的模板)|
+|MAIL_SUBJECT_ADMIN|${SITE_NAME}上有新评论了|[可选]**博主邮件通知**主题模板|
+|MAIL_TEMPLATE|`见下文`|[可选]**被@通知**邮件内容模板(别人回复评论后，邮箱显示的模板)|
+|MAIL_SUBJECT|PARENTNICK，您在{SITE_NAME}上的评论收到了回复|[可选]**被@通知**邮件主题（标题）模板|
+
+##### 默认**MAIL_TEMPLATE**
+
+* 默认博主通知邮件内容模板：
+
+```html
+<div style="border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;"><h2 style="border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;">您在<a style="text-decoration:none;color: #12ADDB;" href="${SITE_URL}" target="_blank">${SITE_NAME}</a>上的文章有了新的评论</h2><p><strong>${NICK}</strong>回复说：</p><div style="background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;"> ${COMMENT}</div><p>您可以点击<a style="text-decoration:none; color:#12addb" href="${POST_URL}" target="_blank">查看回复的完整內容</a><br></p></div></div>
+```
+
+博主通知邮件模板中的可用变量与@通知中的基本一致，`PARENT_NICK` 和 `PARENT_COMMENT` 变量不再可用。
+
+##### 默认**MAIL_TEMPLATE_ADMIN**
+
+* 默认**被@通知邮件内容模板**：
+
+```html
+<div style="border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;"><h2 style="border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;">您在<a style="text-decoration:none;color: #12ADDB;" href="${SITE_URL}" target="_blank">            ${SITE_NAME}</a>上的评论有了新的回复</h2> ${PARENT_NICK} 同学，您曾发表评论：<div style="padding:0 12px 0 12px;margin-top:18px"><div style="background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;">            ${PARENT_COMMENT}</div><p><strong>${NICK}</strong>回复说：</p><div style="background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;"> ${COMMENT}</div><p>您可以点击<a style="text-decoration:none; color:#12addb" href="${POST_URL}" target="_blank">查看回复的完整內容</a>，欢迎再次光临<a style="text-decoration:none; color:#12addb" href="${SITE_URL}" target="_blank">${SITE_NAME}</a>。<br></p></div></div>
+```
+
+效果如图：
+
+![默认邮件](https://s1.ax1x.com/2020/07/24/UjgJhT.png)
+
+##### 彩虹风**MAIL_TEMPLATE**
+
+* 彩虹风格的通知邮件内容模板如下：
+
+```html
+<div style="border-radius: 10px 10px 10px 10px;font-size:13px;    color: #555555;width: 666px;font-family:'Century Gothic','Trebuchet MS','Hiragino Sans GB',微软雅黑,'Microsoft Yahei',Tahoma,Helvetica,Arial,'SimSun',sans-serif;margin:50px auto;border:1px solid #eee;max-width:100%;background: #ffffff repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);"><div style="width:100%;background:#49BDAD;color:#ffffff;border-radius: 10px 10px 0 0;background-image: -moz-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));background-image: -webkit-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));height: 66px;"><p style="font-size:15px;word-break:break-all;padding: 23px 32px;margin:0;background-color: hsla(0,0%,100%,.4);border-radius: 10px 10px 0 0;">您在<a style="text-decoration:none;color: #ffffff;" href="${SITE_URL}"> ${SITE_NAME}</a>上的留言有新回复啦！</p></div><div style="margin:40px auto;width:90%"><p>${PARENT_NICK} 同学，您曾在文章上发表评论：</p><div style="background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:14px;color:#555555;">${PARENT_COMMENT}</div><p>${NICK} 给您的回复如下：</p><div style="background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:14px;color:#555555;">${COMMENT}</div><p>您可以点击<a style="text-decoration:none; color:#12addb" href="${POST_URL}#comments">查看回复的完整內容</a>，欢迎再次光临<a style="text-decoration:none; color:#12addb"                href="${SITE_URL}"> ${SITE_NAME}</a>。</p><style type="text/css">a:link{text-decoration:none}a:visited{text-decoration:none}a:hover{text-decoration:none}a:active{text-decoration:none}</style></div></div>
+```
+
+为方便修改我把上面的模板格式化了
+
+```html
+<div style="border-radius: 10px 10px 10px 10px;font-size:13px;    color: #555555;width: 666px;font-family:'Century Gothic','Trebuchet MS','Hiragino Sans GB',微软雅黑,'Microsoft Yahei',Tahoma,Helvetica,Arial,'SimSun',sans-serif;margin:50px auto;border:1px solid #eee;max-width:100%;background: #ffffff repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);">
+    <div style="width:100%;background:#49BDAD;color:#ffffff;border-radius: 10px 10px 0 0;background-image: -moz-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));background-image: -webkit-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));height: 66px;">
+        <p style="font-size:15px;word-break:break-all;padding: 23px 32px;margin:0;background-color: hsla(0,0%,100%,.4);border-radius: 10px 10px 0 0;">您在<a style="text-decoration:none;color: #ffffff;" href="${SITE_URL}"> ${SITE_NAME}</a>上的留言有新回复啦！</p>
+    </div>
+    <div style="margin:40px auto;width:90%">
+        <p>${PARENT_NICK} 同学，您曾在文章上发表评论：</p>
+        <div style="background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:14px;color:#555555;">${PARENT_COMMENT}</div>
+        <p>${NICK} 给您的回复如下：</p>
+        <div style="background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:14px;color:#555555;">${COMMENT}</div>
+        <p>您可以点击<a style="text-decoration:none; color:#12addb" href="${POST_URL}#comments">查看回复的完整內容</a>，欢迎再次光临<a style="text-decoration:none; color:#12addb" href="${SITE_URL}"> ${SITE_NAME}</a>。</p>
+        <style type="text/css">
+            a:link {
+                text-decoration: none
+            }
+            a:visited {
+                text-decoration: none
+            }
+            a:hover {
+                text-decoration: none
+            }
+            a:active {
+                text-decoration: none
+            }
+        </style>
+    </div>
+</div>
+```
+
+* 彩虹风格的通知邮件内容模板 效果如图：
+
+##### **MAIL_TEMPLATE_ADMIN**
+
+```html
+<div style="border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;"><h2 style="border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;">您在<a style="text-decoration:none;color: #12ADDB;" href="${SITE_URL}" target="_blank">${SITE_NAME}</a>上的文章有了新的评论</h2><p><strong>${NICK}</strong>回复说：</p><div style="background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;"> ${COMMENT}</div><p>您可以点击<a style="text-decoration:none; color:#12addb" href="${POST_URL}" target="_blank">查看回复的完整內容</a><br></p></div></div>
+```
+
+为方便修改我把上面的模板格式化了
+
+```html
+<div style="border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;">
+    <h2 style="border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;">您在
+        <a style="text-decoration:none;color: #12ADDB;" href="${SITE_URL}" target="_blank">${SITE_NAME}</a> 上的文章有了新的评论
+    </h2>
+    <p>
+        <strong>${NICK}</strong> 回复说：
+    </p>
+    <div style="background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;"> ${COMMENT}</div>
+    <p>您可以点击
+        <a style="text-decoration:none; color:#12addb" href="${POST_URL}" target="_blank">查看回复的完整內容</a>
+        <br>
+    </p>
+</div>
+</div>
+```
+
+效果如图：
+
+![彩虹邮件](https://s1.ax1x.com/2020/07/24/UjgrAx.png)
+
+* 通知模板中的可用变量如下：
+
+> **注**：(这是邮件模板变量，虽然一眼望去感觉，变量名与云引擎环境变量名很接近但还是有区别的，请勿与云引擎环境变量混淆)
+
+|环境变量|说明|
+|---|---|
+|SITE_NAME|博客名称|
+|SITE_URL|博客首页地址|
+|POST_URL|文章地址（完整路径）|
+|PARENT_NICK|收件人昵称（被@者，父级评论人）|
+|PARENT_COMMENT|父级评论内容|
+|NICK|新评论者昵称|
+|COMMENT|新评论内容|
+
+有需求代码部分可以自定义，没有需求的话直接复制**博主邮件通知**代码到`MAIL_TEMPLATE_ADMIN`，
+复制**被@通知代码**到`MAIL_TEMPLATE`，保存即可。
+
+> **注**：修改了环境变量需要重启实例。
+
+至此 `Valine Admin`的邮箱提醒 已经可以正常工作
 
 ### Gitalk
 
