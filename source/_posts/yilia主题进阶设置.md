@@ -387,9 +387,59 @@ npm run dist
 
 [Yilia主题如何添加评论功能](/2020/07/21/Yilia主题如何添加评论功能)
 
-### 添加版权信息
-
 ### 插入网易云音乐
+
+#### 网易云音乐外链播放器生成
+
+登录网页版网易云音乐，打开一首歌，点击 “生成外链播放器”(找首没版权限制的歌曲好难)。
+
+#### 侧栏添加背景音乐
+
+打开 `/hexo/themes/yilia/layout/_partial/left-col.ejs` 文件，
+把音乐 HTML 代码粘贴进去，可以添加样式，改变大小，这是我的代码：
+
+```html
+<nav class="header-nav">
+    <div class="social">
+        <% for (var i in theme.subnav){ %>
+            <a class="<%= i %>" target="_blank" href="<%- url_for(theme.subnav[i]) %>" title="<%= i %>"><i class="icon-<%= i %>"></i></a>
+        <%}%>
+    </div>
+
+    <% if(theme.music.enable){ %>
+    <!--音乐播放插件-->
+      <div style="margin-top:30px;">
+        <iframe
+          frameborder="no"
+          border="<%=theme.music.border%>"
+          marginwidth="<%=theme.music.marginwidth%>"
+          marginheight="<%=theme.music.marginheight%>"
+          width="<%=theme.music.width%>"
+          height="<%=theme.music.height%>"
+          src="<%=theme.music.src%>"
+        >
+        </iframe>
+      </div>
+    <%}%>
+</nav>
+```
+
+打开 `/hexo/themes/yilia/_config.yml` 文件，
+把音乐播放器的配置添加上。注意“music:”后面必须要有一个空格，如图：
+
+```text
+# 配置网易云音乐
+music: 
+  enable: true #是否展示
+  src: '//music.163.com/outchain/player?type=2&id=470795480&auto=1&height=32' #网易云音乐外链地址
+  border: 0
+  marginwidth: 0
+  marginheight: 0
+  width: 240
+  height: 52
+```
+
+### 添加版权信息
 
 ### 百度/Google统计/SEO
 
@@ -404,6 +454,18 @@ npm run dist
 #### 上传图片到七牛云
 
 #### 使用 PicGo 自动生成外链
+
+### 文章字数/阅读时长
+
+### 网站运行时间
+
+### 鼠标点击小红心设置
+
+### 代码块行号错乱问题解决
+
+### RSS 功能添加
+
+### 谷歌统计添加
 
 ### Demo测试
 
@@ -421,7 +483,8 @@ hexo d
 
 ## 参考资料
 
-* [Hexo yilia 主题一揽子使用方案](https://cloudy-liu.github.io/2018/04/07/Hexo_yilia_%E4%B8%BB%E9%A2%98%E4%B8%80%E6%8F%BD%E5%AD%90%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88/)
-* [hexo yilia 文章浏览量统计](https://codegitz.github.io/2018/04/13/hexo-yilia-%E6%96%87%E7%AB%A0%E6%B5%8F%E8%A7%88%E9%87%8F%E7%BB%9F%E8%AE%A1/)
 * [Hexo-Yilia 进阶笔记](https://tding.top/archives/9a232bbe.html)
+* [Hexo yilia 主题一揽子使用方案](https://blog.csdn.net/liuyunjay66/article/details/79845944)
+* [hexo yilia 文章浏览量统计](https://codegitz.github.io/2018/04/13/hexo-yilia-%E6%96%87%E7%AB%A0%E6%B5%8F%E8%A7%88%E9%87%8F%E7%BB%9F%E8%AE%A1/)
+* [Hexo 添加分类及标签](https://juejin.im/post/5cc11c41f265da038f7745b5)
 * [Hexo添加categories页面](https://www.voidking.com/dev-hexo-categories/)
