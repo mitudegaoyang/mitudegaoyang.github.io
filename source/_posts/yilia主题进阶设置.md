@@ -439,6 +439,10 @@ music:
   height: 52
 ```
 
+添加后效果如图
+
+![添加效果](https://s1.ax1x.com/2020/07/30/auaQD1.png)
+
 ### 添加版权信息
 
 ### 百度/Google统计/SEO
