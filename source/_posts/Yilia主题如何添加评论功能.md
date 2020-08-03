@@ -1,16 +1,23 @@
 ---
 title: Yilia主题如何添加评论功能
-date: 2020-07-21 10:22:17
-tags: [技术积累,hexo,yilia]
-categories: [技术积累,hexo,yilia]
+tags:
+  - 技术积累
+  - hexo
+  - yilia
+categories:
+  - 技术积累
+  - hexo
+  - yilia
 toc: true
+abbrlink: 7dfdd292
+date: 2020-07-21 10:22:17
 ---
 
 ![首屏图](https://s1.ax1x.com/2020/07/21/U5XM4K.jpg)
 
 <!-- more -->
 
-[返回yilia主题进阶设置](/2020/07/17/yilia主题进阶设置/#添加评论系统)
+[返回yilia主题进阶设置](/archives/e10c0cde.html#添加评论系统)
 
 ## 常见的评论系统
 
@@ -557,7 +564,7 @@ livere_uid: false
 
 如上三步，修改完成。如果要启用，修改主题的 `_config.yml` 文件，将 `livere_uid` 的值改为自己的来必力 `uid` 即可，注意冒号之后有空格。
 
-[返回yilia主题进阶设置](/2020/07/17/yilia主题进阶设置/#添加评论系统)
+[返回yilia主题进阶设置](/archives/e10c0cde.html#添加评论系统)
 
 ## 参考资料
 

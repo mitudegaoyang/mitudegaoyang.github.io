@@ -1,9 +1,14 @@
 ---
 title: hexo主题推荐
-date: 2020-07-15 12:01:19
-tags: [技术积累,hexo]
-categories: [技术积累,hexo]
+tags:
+  - 技术积累
+  - hexo
+categories:
+  - 技术积累
+  - hexo
 toc: true
+abbrlink: c2350bb4
+date: 2020-07-15 12:01:19
 ---
 
 ![首屏图](https://s1.ax1x.com/2020/07/17/Uyk7wV.jpg)

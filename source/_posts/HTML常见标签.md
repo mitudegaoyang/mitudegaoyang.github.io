@@ -1,9 +1,16 @@
 ---
 title: HTML常见标签
-date: 2020-07-16 16:13:05
-tags: [技术积累,前端,html]
-categories: [技术积累,前端,html]
+tags:
+  - 技术积累
+  - 前端
+  - html
+categories:
+  - 技术积累
+  - 前端
+  - html
 toc: true
+abbrlink: '98767319'
+date: 2020-07-16 16:13:05
 ---
 
 ![首屏图](https://s1.ax1x.com/2020/07/17/Us38TH.jpg)

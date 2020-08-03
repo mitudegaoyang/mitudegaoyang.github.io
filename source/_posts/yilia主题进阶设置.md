@@ -1,9 +1,16 @@
 ---
 title: yilia主题进阶设置
-date: 2020-07-17 11:30:27
-tags: [技术积累,hexo,yilia]
-categories: [技术积累,hexo,yilia]
+tags:
+  - 技术积累
+  - hexo
+  - yilia
+categories:
+  - 技术积累
+  - hexo
+  - yilia
 toc: true
+abbrlink: e10c0cde
+date: 2020-07-17 11:30:27
 ---
 
 ![首屏图](https://s1.ax1x.com/2020/07/17/UssPcF.jpg)
@@ -313,7 +320,7 @@ npm run dist
 
 > 实现相册功能内容较多 以单独一篇文章来记录
 
-[Yilia主题如何添加相册功能](/2020/07/18/Yilia主题如何添加相册功能)
+[Yilia主题如何添加相册功能](/archives/f57a1917.html)
 
 ### 增加不蒜子统计
 
@@ -385,7 +392,7 @@ npm run dist
 
 > 实现评论功能内容较多 以单独一篇文章来记录
 
-[Yilia主题如何添加评论功能](/2020/07/21/Yilia主题如何添加评论功能)
+[Yilia主题如何添加评论功能](/archives/7dfdd292.html)
 
 ### 插入网易云音乐
 
@@ -525,6 +532,28 @@ npm i –save hexo-wordcount
 # 是否开启字数统计
 #不需要使用，直接设置值为false，或注释掉
 word_count: True
+```
+
+### Url 持久化
+
+我们可以发现 hexo 默认生成的文章地址路径是 `【网站名称／年／月／日／文章名称】`。
+
+这种链接对搜索爬虫是很不友好的，它的 url 结构超过了三层，太深了。
+
+下面我推荐安装 `hexo-abbrlink` 插件：
+
+```shell
+npm install hexo-abbrlink --save
+```
+
+然后配置_config.yml
+
+```text
+# permalink: :title/
+permalink: archives/:abbrlink.html
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex
 ```
 
 ### 网站运行时间

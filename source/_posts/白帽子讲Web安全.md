@@ -1,7 +1,8 @@
 ---
 title: 白帽子讲Web安全
-date: 2017-11-06 18:01:47
 tags: 读书会
+abbrlink: f1b4373b
+date: 2017-11-06 18:01:47
 ---
 
 WEB安全

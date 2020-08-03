@@ -1,16 +1,23 @@
 ---
 title: Yilia主题如何添加相册功能
-date: 2020-07-18 09:29:07
-tags: [技术积累,hexo,yilia]
-categories: [技术积累,hexo,yilia]
+tags:
+  - 技术积累
+  - hexo
+  - yilia
+categories:
+  - 技术积累
+  - hexo
+  - yilia
 toc: true
+abbrlink: f57a1917
+date: 2020-07-18 09:29:07
 ---
 
 ![首屏图](https://s1.ax1x.com/2020/07/19/UWeCUH.jpg)
 
 <!-- more -->
 
-[返回yilia主题进阶设置](/2020/07/17/yilia主题进阶设置/#添加相册功能)
+[返回yilia主题进阶设置](/archives/e10c0cde.html#添加相册功能)
 
 ## 添加相册功能的思路
 
@@ -101,7 +108,7 @@ hexo s (看看效果如何)
 
 最后部署到你的博客上.
 
-[返回yilia主题进阶设置](/2020/07/17/yilia主题进阶设置/#添加相册功能)
+[返回yilia主题进阶设置](/archives/e10c0cde.html#添加相册功能)
 
 ## 参考资料
 
