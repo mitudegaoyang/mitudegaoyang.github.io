@@ -16,12 +16,18 @@ url: https://www.gaotianyang.top/ #你的站点Url
 root: / #站点的根目录
 # permalink: :year/:month/:day/:title/ #文章的 永久链接 格式
 # permalink_defaults: #永久链接中各部分的默认值
-
 # permalink: :title/
-permalink: archives/:abbrlink.html
+permalink: archives/:year:month:day:abbrlink/
 abbrlink:
   alg: crc32  # 算法：crc16(default) and crc32
   rep: hex    # 进制：dec(default) and hex
+  # 下面几项可以省略
+  drafts: false #(true)Process draft,(false)Do not process draft
+  # Generate categories from directory-tree
+  # depth: the max_depth of directory-tree you want to generate, should > 0
+  auto_category:
+     enable: false
+     depth:
 
 # Directory
 source_dir: source #资源文件夹，这个文件夹用来存放内容

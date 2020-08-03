@@ -17,7 +17,7 @@ date: 2020-07-18 09:29:07
 
 <!-- more -->
 
-[返回yilia主题进阶设置](/archives/e10c0cde.html#添加相册功能)
+[返回yilia主题进阶设置](/archives/20200717e10c0cde/#添加相册功能)
 
 ## 添加相册功能的思路
 
@@ -108,7 +108,7 @@ hexo s (看看效果如何)
 
 最后部署到你的博客上.
 
-[返回yilia主题进阶设置](/archives/e10c0cde.html#添加相册功能)
+[返回yilia主题进阶设置](/archives/20200717e10c0cde/#添加相册功能)
 
 ## 参考资料
 

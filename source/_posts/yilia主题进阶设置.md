@@ -320,7 +320,7 @@ npm run dist
 
 > 实现相册功能内容较多 以单独一篇文章来记录
 
-[Yilia主题如何添加相册功能](/archives/f57a1917.html)
+[Yilia主题如何添加相册功能](/archives/20200718f57a1917/)
 
 ### 增加不蒜子统计
 
@@ -392,7 +392,7 @@ npm run dist
 
 > 实现评论功能内容较多 以单独一篇文章来记录
 
-[Yilia主题如何添加评论功能](/archives/7dfdd292.html)
+[Yilia主题如何添加评论功能](/archives/202007217dfdd292/)
 
 ### 插入网易云音乐
 
@@ -534,27 +534,11 @@ npm i –save hexo-wordcount
 word_count: True
 ```
 
-### Url 持久化
+### Url持久化
 
-我们可以发现 hexo 默认生成的文章地址路径是 `【网站名称／年／月／日／文章名称】`。
+> 实现Url持久化 以单独一篇文章来记录
 
-这种链接对搜索爬虫是很不友好的，它的 url 结构超过了三层，太深了。
-
-下面我推荐安装 `hexo-abbrlink` 插件：
-
-```shell
-npm install hexo-abbrlink --save
-```
-
-然后配置_config.yml
-
-```text
-# permalink: :title/
-permalink: archives/:abbrlink.html
-abbrlink:
-  alg: crc32  # 算法：crc16(default) and crc32
-  rep: hex    # 进制：dec(default) and hex
-```
+[Yilia主题生成永久短连接](/archives/20200803e0185335/)
 
 ### 网站运行时间
 

@@ -17,7 +17,7 @@ date: 2020-07-21 10:22:17
 
 <!-- more -->
 
-[返回yilia主题进阶设置](/archives/e10c0cde.html#添加评论系统)
+[返回yilia主题进阶设置](/archives/20200717e10c0cde/#添加评论系统)
 
 ## 常见的评论系统
 
@@ -564,7 +564,7 @@ livere_uid: false
 
 如上三步，修改完成。如果要启用，修改主题的 `_config.yml` 文件，将 `livere_uid` 的值改为自己的来必力 `uid` 即可，注意冒号之后有空格。
 
-[返回yilia主题进阶设置](/archives/e10c0cde.html#添加评论系统)
+[返回yilia主题进阶设置](/archives/20200717e10c0cde/#添加评论系统)
 
 ## 参考资料
 
