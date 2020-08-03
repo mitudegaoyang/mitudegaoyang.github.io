@@ -74,6 +74,10 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: yilia #主题名称
 
+# 是否开启字数统计
+# 不需要使用，直接设置值为false，或注释掉
+word_count: true
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 #  部署部分的设置

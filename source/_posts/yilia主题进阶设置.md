@@ -461,6 +461,72 @@ music:
 
 ### 文章字数/阅读时长
 
+#### 安装 hexo-wordcount
+
+在博客目录下打开 Git Bash，输入命令
+
+```shell
+npm i –save hexo-wordcount
+```
+
+#### 文件配置
+
+在 `theme\yilia\layout\_partial\post` 下创建 word.ejs 文件：
+
+```html
+<div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count"><%= wordcount(post.content) %>字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count"><%= min2read(post.content) %>分</span>
+      </span>
+    </span>
+</div>
+```
+
+然后在 `themes/yilia/layout/_partial/article.ejs` 中添加
+
+```html
+<div class="article-inner">
+    <% if (post.link || post.title){ %>
+      <header class="article-header">
+        <%- partial('post/title', {class_name: 'article-title'}) %>
+        <% if (!post.noDate){ %>
+        <%- partial('post/date', {class_name: 'archive-article-date', date_format: null}) %>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        <% if(theme.word_count && !post.no_word_count){%>
+          <%- partial('post/word') %>
+          <% } %>
+        <!-- 添加完成 -->
+
+        <% } %>
+      </header>
+      <!-- 省略剩余代码 -->
+    <% } %>
+</div>
+```
+
+#### 开启功能
+
+在站点的（不是主题的）_config.yml 中添加下面代码
+
+```text
+# 是否开启字数统计
+#不需要使用，直接设置值为false，或注释掉
+word_count: True
+```
+
 ### 网站运行时间
 
 ### 鼠标点击小红心设置
