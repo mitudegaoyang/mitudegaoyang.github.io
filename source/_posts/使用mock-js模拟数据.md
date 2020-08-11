@@ -26,6 +26,8 @@ date: 2020-08-04 18:12:29
 使用npm安装: `npm install mockjs`;
 或直接`<script src="http://mockjs.com/dist/mock.js"></script>;`
 
+> 这里安装时注意是`mockjs`不是`mock` 不要问我是怎么知道还有`mock`的
+
 ## 数据模板格式
 
 ```text
@@ -269,6 +271,177 @@ console.log(Mock.valid(tempObj, realData));
 ```js
 var tempObj = { "user|1-3": [{ 'name': '@cname', 'id|18-28': 88 } ]};
 console.log(Mock.toJSONSchema(tempObj));
+```
+
+## 示例代码
+
+```js
+const data = Mock.mock({
+      "data|10-20": [
+        {
+          "key|10": '@string', // 随机10位字符串
+          "id": /\s\S{5,10}/,
+          "name": '@name(1,2)', // 随机英文名
+          "uname": '@cname()', // 随机中文名
+          "age|18-50": 30, // 随机数字
+          "phone": /1[3-9]\d{9}/, // 正则手机号
+          "email": '@email', // 随机邮箱
+          "province": '@province', // 随机省份
+          "city": '@city', // 随机城市
+          "type|1": ['线上', '线下', '三方支付'], // 随机选取 1 个元素
+          'price': '@integer(100,2000)', //随机价格
+          "created_at": '@datetime', //随机时间
+        }]
+    })
+```
+
+得到的结果
+
+```js
+{
+    "data": [
+        {
+            "age": 45,
+            "city": "澳门半岛",
+            "created_at": "1971-03-20 17:38:04",
+            "email": "d.rqeifdlpx@yvcxt.tz",
+            "id": "TlNgYW7",
+            "key": "jKi8&ZSWBEnnNzlMwSyLK$sB8UUp@H*[c2[b!ieZfg#*34LSM[u1z",
+            "name": "Margaret Helen Robinson",
+            "phone": "13687356217",
+            "price": 598,
+            "province": "广东省",
+            "type": "三方支付",
+            "uname": "龚娟"
+        },
+        {
+            "age": 40,
+            "city": "日喀则地区",
+            "created_at": "1985-03-26 06:13:03",
+            "email": "x.kikgtslgk@ynqeirb.fo",
+            "id": "\fPv28ds",
+            "key": "j6kjQ%$Z37F$]$mHU&)M2PJnLtk3YtNkDCM!6ij^lfO3&@FkjpJ7vZ@",
+            "name": "Lisa Brenda Thompson",
+            "phone": "19031788181",
+            "price": 1393,
+            "province": "香港特别行政区",
+            "type": "线下",
+            "uname": "戴平"
+        },
+        {
+            "age": 40,
+            "city": "三沙市",
+            "created_at": "2009-05-22 01:51:03",
+            "email": "c.zvgixnmovq@pdwps.lt",
+            "id": " kaQd2",
+            "key": "F)5VNx83YJ26]AygiiLWBHRIk1ANy9%NH$Mq$P8FbhF#x)tJLVH4",
+            "name": "John Jennifer Johnson",
+            "phone": "17315544215",
+            "price": 590,
+            "province": "海南省",
+            "type": "线下",
+            "uname": "范杰"
+        },
+        {
+            "age": 20,
+            "city": "上海市",
+            "created_at": "1998-02-15 09:35:36",
+            "email": "w.igoupuxm@mxnclekk.ci",
+            "id": "rb065M",
+            "key": "B^KDv(I3OiPkVV]25YMP&]eL4BE8bFD^Ja6aSJhEbjrjdyzrsI@GFT4",
+            "name": "Michelle Thomas Davis",
+            "phone": "15374035812",
+            "price": 1098,
+            "province": "贵州省",
+            "type": "线上",
+            "uname": "蔡刚"
+        },
+        {
+            "age": 36,
+            "city": "雅安市",
+            "created_at": "1972-02-27 20:45:27",
+            "email": "k.sdyep@kwxwdydy.ni",
+            "id": "\tu8Ctp",
+            "key": "zmKd&W^c0HDwAlvp^GWtQEo@&r4#nAatcM)S(2Y*(",
+            "name": "Eric Cynthia Moore",
+            "phone": "15893736095",
+            "price": 1435,
+            "province": "辽宁省",
+            "type": "线下",
+            "uname": "锺丽"
+        },
+        {
+            "age": 32,
+            "city": "石嘴山市",
+            "created_at": "2018-05-27 04:44:36",
+            "email": "f.tdbp@rkovt.ng",
+            "id": " KSvKQ",
+            "key": "B((6cMzcAkVrmrr4^fA0ENos5@VE0gq#lJcZT6EhoZ4Mk2lWvI",
+            "name": "Joseph Anthony White",
+            "phone": "13036692471",
+            "price": 878,
+            "province": "江西省",
+            "type": "三方支付",
+            "uname": "锺静"
+        },
+        {
+            "age": 50,
+            "city": "石嘴山市",
+            "created_at": "1978-04-12 13:56:37",
+            "email": "n.ticof@dosvgos.tg",
+            "id": "\tLi7Jql2a",
+            "key": "3&2t#dvTXD1sExrrXAHf0CSRkj5qn5fi(EOyTA$lK8O!F1gW^@&&xE",
+            "name": "Betty Angela Hernandez",
+            "phone": "19265388448",
+            "price": 1995,
+            "province": "黑龙江省",
+            "type": "三方支付",
+            "uname": "于磊"
+        },
+        {
+            "age": 27,
+            "city": "北京市",
+            "created_at": "2001-09-24 16:28:19",
+            "email": "t.xlqvfk@xthi.li",
+            "id": " DB77FKVI",
+            "key": "*(x9D[ugXmw2WCPFqUpbzsNVZzOoY2drdEa@ZdPFSDnLtqV(pxVEk",
+            "name": "Helen Elizabeth Walker",
+            "phone": "16227805422",
+            "price": 550,
+            "province": "湖北省",
+            "type": "线上",
+            "uname": "于丽"
+        },
+        {
+            "age": 43,
+            "city": "上海市",
+            "created_at": "1975-06-10 19:44:33",
+            "email": "e.fxlfi@wmbm.mh",
+            "id": "fwOxTCW",
+            "key": "x8^j#!qNzPCY!zz88NNNsWU*NboVlAa$fTWalQim0EmiZxAsAkJTR",
+            "name": "Laura Mary Thompson",
+            "phone": "14594487251",
+            "price": 456,
+            "province": "新疆维吾尔自治区",
+            "type": "三方支付",
+            "uname": "胡秀英"
+        },
+        {
+            "age": 22,
+            "city": "桃园县",
+            "created_at": "2006-03-08 07:29:42",
+            "email": "h.bviyekl@vlrgak.nc",
+            "id": "tJ4F1tC",
+            "key": "40NF#V[qfM3#PJN3[PKP7vKY8514Yu[lr5q0pycMpBwg7SQgjO7o",
+            "name": "Carol Steven Hernandez",
+            "phone": "15263737372",
+            "price": 1664,
+            "province": "广西壮族自治区",
+            "type": "线上",
+            "uname": "郝静"
+        }
+    ]
+}
 ```
 
 ## 参考资料
