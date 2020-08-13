@@ -179,14 +179,14 @@ dayjs().subtract(value : Number, unit : String);
 dayjs().subtract(1, 'months'); //在当前基础上减少1个月
 ```
 
-返回当前时间的开头时间的 Dayjs() 对象，如月份的第一天。
+返回当前时间的开头时间的 Dayjs() 对象，如本月份的第一天。
 
 ```js
 dayjs().startOf(unit : String);
 dayjs().startOf('month'); // 获取本月初
 ```
 
-返回当前时间的末尾时间的 Dayjs() 对象，如月份的最后一天。
+返回当前时间的末尾时间的 Dayjs() 对象，如本年的最后一天。
 
 ```js
 dayjs().endOf(unit : String);
