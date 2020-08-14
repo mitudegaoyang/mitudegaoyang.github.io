@@ -558,11 +558,52 @@ word_count: True
 
 ### 代码块行号错乱问题解决
 
+### sitemap 功能添加
+
+```shell
+npm install hexo-generator-sitemap --save
+hexo clean
+hexo g
+```
+
+查看 public 文件夹，可以看到 `sitemap.xml` 文件。
+
+sitemap 的初衷是给搜索引擎看的，为了提高搜索引擎对自己站点的收录效果，我们最好手动到 Google 和百度等搜索引擎提交 `sitemap.xml`。
+
 ### RSS 功能添加
+
+#### 安装 RSS 插件
+
+注意一定要安装到 blog 的根目录
+
+```shell
+npm install --save hexo-generator-feed
+```
+
+#### 更改配置文件
+
+在你的项目的`_config.yml` 配置文件下找到 `Extensions` 添加如下内容：
+
+```text
+# Extensions  #插件和主题
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+#RSS订阅
+plugins: hexo-generater-feed
+```
+
+在主题配置文件里，在 rss 位置，添加 `/atom.xml`
+
+```text
+subnav:
+  #github: "#"
+  #weibo: "#"
+  rss: "/atom.xml"
+```
 
 ### 谷歌统计添加
 
-### Demo测试
+### 部署命令
 
 修改配置后，输入以下三条命令即可部署
 

@@ -1007,6 +1007,14 @@ hexo-generator-category@^0.1.3:
     hexo-pagination "0.0.2"
     object-assign "^2.0.0"
 
+hexo-generator-feed@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/hexo-generator-feed/-/hexo-generator-feed-3.0.0.tgz#4126ef5e308264c42599fb0efdaf88ed11fa599e"
+  integrity sha512-Jo35VSRSNeMitS2JmjCq3OHAXXYU4+JIODujHtubdG/NRj2++b3Tgyz9pwTmROx6Yxr2php/hC8og5AGZHh8UQ==
+  dependencies:
+    hexo-util "^2.1.0"
+    nunjucks "^3.0.0"
+
 hexo-generator-index@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/hexo-generator-index/-/hexo-generator-index-0.2.1.tgz#9042229fcac79aaf700575da19332bf3f7ee5c5d"
@@ -1022,6 +1030,15 @@ hexo-generator-json-content@^3.0.1:
     hexo-util latest
     keyword-extractor latest
     moment latest
+
+hexo-generator-sitemap@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/hexo-generator-sitemap/-/hexo-generator-sitemap-2.1.0.tgz#efd938049ddbf9a961a077fcc5947918ba5b213a"
+  integrity sha512-3+gF9lFdTJ67A65Z2f517DGmtloDX7ZwMmJUJxvv2tF+a8Hr6Kg9K/DXqOBpM39A/y9eqoGfQ3bmLlBx9rynTg==
+  dependencies:
+    hexo-util "^2.1.0"
+    micromatch "^4.0.2"
+    nunjucks "^3.1.6"
 
 hexo-generator-tag@^0.2.0:
   version "0.2.0"
@@ -1128,7 +1145,7 @@ hexo-util@^2.0.0:
     strip-indent "^3.0.0"
     striptags "^3.1.1"
 
-hexo-util@^2.2.0:
+hexo-util@^2.1.0, hexo-util@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/hexo-util/-/hexo-util-2.3.0.tgz#e1f04f18d3790f5999415769e9278cfb1ab4205c"
   integrity sha512-TmS88BiCrAoqiPDM0ebvxZU/EYjyD5hrKPkJ1wUcHEnm2d14NhXxHzYULzE9EgbdHSUaXgMZC5yg2WMxDiYOLg==
@@ -1699,7 +1716,7 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
-nunjucks@^3.2.1:
+nunjucks@^3.0.0, nunjucks@^3.1.6, nunjucks@^3.2.1:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/nunjucks/-/nunjucks-3.2.2.tgz#45f915fef0f89fbab38c489dc85025f64859f466"
   integrity sha512-KUi85OoF2NMygwODAy28Lh9qHmq5hO3rBlbkYoC8v377h4l8Pt5qFjILl0LWpMbOrZ18CzfVVUvIHUIrtED3sA==
