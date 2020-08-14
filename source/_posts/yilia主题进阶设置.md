@@ -560,15 +560,9 @@ word_count: True
 
 ### sitemap 功能添加
 
-```shell
-npm install hexo-generator-sitemap --save
-hexo clean
-hexo g
-```
+> 实现sitemap功能 以单独一篇文章来记录
 
-查看 public 文件夹，可以看到 `sitemap.xml` 文件。
-
-sitemap 的初衷是给搜索引擎看的，为了提高搜索引擎对自己站点的收录效果，我们最好手动到 Google 和百度等搜索引擎提交 `sitemap.xml`。
+[hexo添加sitemap功能](/archives/20200814f023bd8e/)
 
 ### RSS 功能添加
 
