@@ -4,33 +4,33 @@
 
 ## 一、安装步骤
 
-### 1. 创建新文件夹，并执行命令安装Hexo：
+### 1. 创建新文件夹，并执行命令安装Hexo
 
 执行如下命令安装Hexo：
 
-```angular2html
+```shell
 sudo npm install -g hexo
 ```
 
 初始化hexo
 
-```angular2html
+```shell
 hexo init
 ```
 
 生成静态页面
 
-```angular2html
+```shell
 hexo generate（hexo g也可以）
 ```
 
 启动本地服务，进行文章预览调试
 
-```angular2html
+```shell
 hexo server
 ```
 
-浏览器输入http://localhost:4000
+浏览器输入`http://localhost:4000`
 
 ### 2. 在github/码云上创建仓库，并保存本地
 
@@ -44,7 +44,7 @@ hexo server
 
 翻到最下面，改成我这样子的
 
-```angular2html
+```text
 deploy:
 
      type: git
@@ -53,9 +53,10 @@ deploy:
 
      branch: master
 ```
+
 然后执行命令：
 
-```angular2html
+```shell
 npm install hexo-deployer-git --save
 ```
 
@@ -65,48 +66,48 @@ npm install hexo-deployer-git --save
 
 * 忘了说了，我没用SSH Keys如果你用了SSH Keys的话直接在github里复制SSH的就行了，总共就两种协议，相信你懂的。
 
-### 5. 执行配置命令：
+### 5. 执行配置命令
 
-```angular2html
+```shell
 hexo deploy
 ```
 
-然后再浏览器中输入http://mitudegaoyang.github.io/就行了，我的github的账户叫mitudegaoyang,把这个改成你github的账户名就行了
+然后再浏览器中输入`http://mitudegaoyang.github.io/`就行了，我的github的账户叫mitudegaoyang,把这个改成你github的账户名就行了
 
 ### 6. 部署步骤
 
 每次部署的步骤，可按以下三步来进行。
 
-```angular2html
-    hexo clean
-    
-    hexo generate
-    
-    hexo deploy
+```shell
+hexo clean
+
+hexo generate
+
+hexo deploy
 ```
 
-### 7. 一些常用命令：
+### 7. 一些常用命令
 
-```angular2html
-    hexo new"postName" #新建文章
-    
-    hexo new page"pageName" #新建页面
-    
-    hexo generate #生成静态页面至public目录
-    
-    hexo server #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）
-    
-    hexo deploy #将.deploy目录部署到GitHub
-    
-    hexo help # 查看帮助
-    
-    hexo version #查看Hexo的版本
+```shell
+hexo new"postName" #新建文章
+
+hexo new page"pageName" #新建页面
+
+hexo generate #生成静态页面至public目录
+
+hexo server #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）
+
+hexo deploy #将.deploy目录部署到GitHub
+
+hexo help # 查看帮助
+
+hexo version #查看Hexo的版本
 ```
 
-### 8. 报错总结：
+### 8. 报错总结
 
-```angular2html
-    ERROR Deployer not found: git 或者 ERROR Deployer not found: github
+```shell
+ERROR Deployer not found: git 或者 ERROR Deployer not found: github
 ```
 
 解决方法： npm install hexo-deployer-git --save
@@ -115,8 +116,8 @@ hexo deploy
 
 rm-rf.DS_Store
 
-```angular2html
-    ERROR Plugin load failed: hexo-server
+```shell
+ERROR Plugin load failed: hexo-server
 ```
 
 原因：
