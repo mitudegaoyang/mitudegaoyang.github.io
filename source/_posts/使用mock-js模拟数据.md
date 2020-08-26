@@ -13,7 +13,7 @@ abbrlink: c3af7d0b
 date: 2020-08-04 18:12:29
 ---
 
-![首屏图](https://s1.ax1x.com/2020/08/04/awruy8.jpg)
+![首屏图](https://s1.ax1x.com/2020/08/24/dDO8v8.png)
 
 <!-- more -->
 
