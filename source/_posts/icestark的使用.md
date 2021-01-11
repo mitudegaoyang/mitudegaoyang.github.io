@@ -61,41 +61,9 @@ icestark 在保证一个系统的操作体验基础上，实现各个子应用�
 
 ## 快速上手
 
-本章演示如何快速创建微前端的应用，以下模板均使用了 icejs，通过 icejs 的插件机制可以更加简单的接入微前端能力。
+[快速上手](https://ice.work/docs/icestark/start)
 
-### 初始化主应用
-
-```shell
-# 基于 React 的主应用
-$ npm init ice icestark-layout @icedesign/stark-layout-scaffold
-# 或者基于 Vue 的主应用
-$ npm init ice icestark-layout @vue-materials/icestark-layout-app
-
-$ cd icestark-layout
-$ npm install
-$ npm start
-```
-
-即可通过浏览器预览整个应用：
-
-![预览](https://s3.ax1x.com/2021/01/06/sEqUv8.png)
-
-打开 `src/app.tsx` 即可看到默认注册的几个微应用。
-
-### 初始化微应用
-
-```shell
-# 基于 React 的微应用
-$ npm init ice icestark-child @icedesign/stark-child-scaffold
-# 基于 Vue 的微应用
-$ npm init ice icestark-child @vue-materials/icestark-child-app
-
-$ cd icestark-child
-$ npm install
-$ npm run start
-```
-
-接着可以在主应用的 `src/app.tsx` 中增加对应的微应用配置。
+[icestark最佳实践](/archives/202101115b56e29a/)
 
 ## 版本升级
 
