@@ -259,11 +259,107 @@ export default function PageTitle(props: PageTitleProps) {
 }
 ```
 
+#### 使用 history API
+
+在微应用的`src/detail/index.tsx`引入`history`方法，声明返回方法并调用`history`，将返回按钮传入`PageTitle`组件。
+
+![详情页使用history跳转](https://s3.ax1x.com/2021/01/12/sYCU0I.png)
+
 ### 微应用间跳转
 
-#### 使用 history API
+#### 使用 appHistory
+
+在 A 微应用里需要跳转到 B 微应用时，如果使用 react-router/vue-router 提供的 Link 组件，
+一般会强行在 path 上追加 basename，因此推荐使用 appHistory/AppLink 来跳转：
+
+注意：AppLink 仅支持在基于 React 的微应用中使用，appHistory 不限制微应用的框架类型
+
+```js
+import React from 'react';
+import { appHistory, AppLink } from '@ice/stark-app';
+
+export default function FrameworkLayout() {
+  return (
+    <>
+      <span
+        onClick={() => {
+          appHistory.push('/seller/list');
+        }}
+      >
+        seller
+      </span>
+      <AppLink to="/waiter/list">waiter</AppLink>
+    </>
+  );
+}
+```
+
+> 在示例项目中使用如下
+
+![详情页使用appHistory跳转](https://s3.ax1x.com/2021/01/12/sYP2xe.png)
+
+#### 使用 AppLink
+
+> 直接使用ice中的AppLink会报错，需要自己封装个AppLink来跳转。
+
+##### 封装 AppLink
+
+在`src/utils/AppLink.tsx`封装
+
+```js
+import * as React from "react";
+
+export type AppLinkProps = {
+    to: string;
+    message?: string;
+    children?: React.ReactNode;
+} & React.AnchorHTMLAttributes<any>;
+
+// tslint:disable-next-line:variable-name
+const AppLink: React.SFC<AppLinkProps> = (props: AppLinkProps) => {
+    const { to, message, children, ...rest } = props;
+    return (
+        <a
+            {...rest}
+            href={to}
+            onClick={(e) => {
+                e.preventDefault();
+                if (message && window.confirm(message) === false) {
+                    return false;
+                }
+
+                window.history.pushState(
+                    {
+                        forceRender: true
+                    },
+                    "",
+                    to
+                );
+            }}
+        >
+            {children}
+        </a>
+    );
+};
+
+export default AppLink;
+```
+
+在`src/utils/index.tsx`声明`AppLink`
+
+```js
+export { default as AppLink } from "./AppLink";
+```
+
+##### 调用 AppLink
+
+![详情页使用AppLink跳转](https://s3.ax1x.com/2021/01/12/sYF6je.png)
 
 ## 参考资料
 
 * [icestark快速上手](https://ice.work/docs/icestark/start)
 * [路由运行时配置](https://ice.work/docs/guide/basic/router#%E8%BF%90%E8%A1%8C%E6%97%B6%E9%85%8D%E7%BD%AE)
+* [Link](https://ice.work/docs/guide/basic/api#Link)
+* [useHistory](https://ice.work/docs/guide/basic/api#useHistory)
+* [history](https://ice.work/docs/guide/basic/api#history)
+* [微应用间跳转](https://ice.work/docs/icestark/guide/child-app#%E5%BE%AE%E5%BA%94%E7%94%A8%E9%97%B4%E8%B7%B3%E8%BD%AC)
