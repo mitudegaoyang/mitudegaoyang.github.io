@@ -95,9 +95,115 @@ const appConfig: IAppConfig = {
 runApp(appConfig);
 ```
 
-## 微应用内跳转及传参
+## 路由跳转
 
-## 微应用间跳转及传参
+### 微应用内跳转
+
+#### 使用Link组件
+
+通过 `<Link />` 标签组件可实现路由跳转，使用方式：
+
+```js
+import { Link } from 'ice';
+
+function Demo() {
+  return (
+    <div>
+      <Link to='/courses?sort=name' />
+
+      {/* 可以携带额外的数据 `state` 到路由中。 */}
+      <Link
+        to={{
+          pathname: '/courses',
+          search: '?sort=name',
+          hash: '#the-hash',
+          state: { fromDashboard: true },
+        }}
+      />
+    </div>
+  )
+}
+```
+
+> 在示例项目中使用如下
+
+##### 修改详情页路由
+
+修改微应用 `src/routes.tsx` 的详情页路由
+
+```js
+import { renderNotFound, isInIcestark } from '@ice/stark-app';
+import BasicLayout from '@/layouts/BasicLayout';
+import Detail from '@/pages/Detail';
+import Home from '@/pages/Home';
+import List from '@/pages/List';
+import NotFound from '@/components/NotFound';
+
+const routerConfig = [
+  {
+    path: '/',
+    component: BasicLayout,
+    children: [
+      {
+        path: '/',
+        exact: true,
+        component: Home,
+      },
+      {
+        path: '/list',
+        exact: true,
+        component: List,
+      },
+      {
+        path: '/list/detail/:contractId',
+        component: Detail,
+      },
+      {
+        // 微应用独立运行 404 路由渲染 NotFound 组件
+        component: isInIcestark() ? () => renderNotFound() : NotFound,
+      },
+    ],
+  },
+];
+
+export default routerConfig;
+```
+
+##### 修改Link组件传参
+
+修改微应用 `src/list.tsx` 的列表页Link组件，添加传参
+
+```js
+<Table.Column
+  title="操作"
+  dataIndex="detail"
+  key="detail"
+  width={200}
+  cell={(value, index, record) => (
+    <div>
+      <a className={styles.link} onClick={() => Message.success('暂不支持修改合同')}>
+        修改
+      </a>
+      <span className={styles.separator} />
+      <Link className={styles.link} to={`/list/detail/${data[index].id}`}>
+        查看
+      </Link>
+    </div>
+  )}
+/>
+```
+
+##### 详情页接收参数
+
+引入`useRouteMatch`并获取`contractId`
+
+![详情页接收参数](https://s3.ax1x.com/2021/01/12/sGzbE8.png)
+
+#### 使用 useHistory API
+
+### 微应用间跳转
+
+#### 使用 history API
 
 ## 参考资料
 
