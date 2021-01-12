@@ -171,7 +171,7 @@ export default routerConfig;
 
 ##### 修改Link组件传参
 
-修改微应用 `src/list.tsx` 的列表页Link组件，添加传参
+修改微应用 `src/list/index.tsx` 的列表页Link组件，添加传参
 
 ```js
 <Table.Column
@@ -200,6 +200,64 @@ export default routerConfig;
 ![详情页接收参数](https://s3.ax1x.com/2021/01/12/sGzbE8.png)
 
 #### 使用 useHistory API
+
+useHistory hook 用于获取 history 实例。
+
+```js
+import { useHistory } from 'ice';
+
+function HomeButton() {
+  const history = useHistory();
+
+  function handleClick() {
+    history.push('/home');
+  }
+
+  return (
+    <button type='button' onClick={handleClick}>
+      Go home
+    </button>
+  );
+}
+```
+
+> 在示例项目中使用如下
+
+##### 详情页添加返回按钮
+
+在微应用的`src/detail/index.tsx`引入`useHistory`方法，声明返回方法并调用`useHistory`，将返回按钮传入`PageTitle`组件。
+
+![详情页添加返回按钮](https://s3.ax1x.com/2021/01/12/sJyR8s.png)
+
+改造微应用的`/src/components/PageTitle/index.tsx`文件，扩展`PageTitle`组件接收subTitle参数。
+
+```js
+import React from 'react';
+import styles from './index.module.scss';
+
+// 原组件
+// export default ({ title, subTitle }) => {
+//     <h5 className={styles.title}>
+//         <span>{title}</span>
+//         <span>{subTitle}</span>
+//     </h5>
+// };
+
+export interface PageTitleProps {
+    title?: any;
+    subTitle?: any;
+}
+
+export default function PageTitle(props: PageTitleProps) {
+    let { title, subTitle } = props;
+    return (
+        <h5 className={styles.title}>
+            <span>{title}</span>
+            <span className={styles.subTitle}>{subTitle}</span>
+        </h5>
+    );
+}
+```
 
 ### 微应用间跳转
 
