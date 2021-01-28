@@ -17,7 +17,32 @@ toc: true
 
 <!-- more -->
 
-本章演示如何快速创建微前端的应用，以下模板均使用了 icejs，通过 icejs 的插件机制可以更加简单的接入微前端能力。
+本文演示如何快速创建微前端的应用及改造已有应用接入微前端，基座创建使用的是 icejs，微应用是使用的 icejs、create-react-app分别创建。
+
+## 环境搭建
+
+创建项目，并拉取到本地。在根目录分别创建package.json、和packages文件夹。
+
+初始化package.json将项目对应名称填写完整
+
+```json
+{
+    "name": "icestark-demo",
+    "private": true,
+    "workspaces": [
+        "packages/icestark-layout",
+        "packages/icestark-child-icejs",
+        "packages/icestark-child-react",
+        "packages/icestark-child-vue"
+    ]
+}
+```
+
+进入项目目录
+
+```shell
+cd packages/
+```
 
 ## 初始化主应用
 
@@ -26,19 +51,32 @@ toc: true
 $ npm init ice icestark-layout @icedesign/stark-layout-scaffold
 # 或者基于 Vue 的主应用
 $ npm init ice icestark-layout @vue-materials/icestark-layout-app
+```
 
-$ cd icestark-layout
-$ npm install
-$ npm start
+> 注意需要将主应用中`package.json`的name改为`icestark-layout`
+
+## 安装依赖
+
+回到根目录执行yarn命令
+
+```shell
+# 安装依赖
+$ yarn
+# 预览主应用
+$ yarn workspaces icestark-layout start
 ```
 
 即可通过浏览器预览整个应用：
 
-![主应用预览](https://s3.ax1x.com/2021/01/11/s8JZJe.png)
+![主应用预览](https://s3.ax1x.com/2021/01/28/ypQBDK.gif)
 
-打开 `src/app.tsx` 即可看到默认注册的几个微应用。
+打开主应用 `src/app.tsx` 即可看到默认注册的几个微应用。
+
+![默认注册微应用](https://s3.ax1x.com/2021/01/28/yp1rfH.png)
 
 ## 初始化微应用
+
+### 基于icejs初始化微应用
 
 ```shell
 # 基于 React 的微应用
@@ -52,6 +90,61 @@ $ npm run start
 ```
 
 可以在主应用的 `src/app.tsx` 中增加对应的微应用配置。
+
+### 基于create-react-app改造微应用
+
+```shell
+# 使用npm初始化app
+$ npm create-react-app icestark-child --template typescript
+$ # 或者使用yarn初始化
+$ yarn create react-app icestark-child --template typescript
+
+$ cd icestark-child
+$ # 引入ice/stark-app
+$ yarn add @ice/stark-app
+$ yarn start
+```
+
+### 应用入口适配
+
+将 React 应用改造为微应用，仅仅只需要导出对应的生命周期即可：
+
+修改微应用 `src/index.tsx` 的微应用入口
+
+```js
+import ReactDOM from 'react-dom';
+import { isInIcestark } from '@ice/stark-app';
+import App from './App';
+
+export function mount(props) {
+  const { container, customProps } = props;
+  ReactDOM.render(<App {...customProps} />, container);
+}
+
+export function unmount(props) {
+  const { container } = props;
+  ReactDOM.unmountComponentAtNode(container);
+}
+
+if (isInIcestark()) {
+  console.log('app is running in framework app');
+} else {
+  ReactDOM.render(<App />, document.getElementById('ice-container'));
+}
+```
+
+### 定义基准路由
+
+正常情况下，注册微应用时会为每个微应用分配一个基准路由比如 /seller，
+当前微应用的所有路由需要定义在基准路由之下，社区常见的路由库都可以通过参数非常简单的实现该功能。
+微应用可以通过 getBasename() API 获取自身的基准路由。
+
+React 项目中使用 react-router-dom：
+
+```shell
+# 引入react-router-dom
+$ yarn add react-router-dom
+```
 
 ## 微应用本地调试
 
