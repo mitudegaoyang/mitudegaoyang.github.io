@@ -38,7 +38,7 @@ toc: true
 }
 ```
 
-进入项目目录
+进入项目目录`packages`
 
 ```shell
 cd packages/
@@ -78,34 +78,96 @@ $ yarn workspaces icestark-layout start
 
 ### 基于icejs初始化微应用
 
+进入项目目录`packages`
+
 ```shell
 # 基于 React 的微应用
-$ npm init ice icestark-child @icedesign/stark-child-scaffold
+$ npm init ice icestark-child-icejs @icedesign/stark-child-scaffold
 # 基于 Vue 的微应用
-$ npm init ice icestark-child @vue-materials/icestark-child-app
+$ npm init ice icestark-child-icejs @vue-materials/icestark-child-app
 
-$ cd icestark-child
-$ npm install
-$ npm run start
+# 回到根目录安装icejs微应用依赖 ./icestark-demo/
+
+# 安装依赖
+$ yarn
+# 预览微应用
+$ yarn workspaces icestark-child-icejs start
 ```
+
+> 注意这里也需要将微应用中`package.json`的name改为`icestark-child-icejs`
 
 可以在主应用的 `src/app.tsx` 中增加对应的微应用配置。
 
+如果不需要改造现有项目，可直接跳过基于create-react-app改造微应用和基于vue cli改造微应用。
+直接查看[微应用本地调试](/archives/202101115b56e29a/#微应用本地调试)。
+
 ### 基于create-react-app改造微应用
+
+#### create-react-app创建react应用
+
+进入项目目录`packages`
 
 ```shell
 # 使用npm初始化app
-$ npm create-react-app icestark-child --template typescript
+$ npm create-react-app icestark-child-react --template typescript
 $ # 或者使用yarn初始化
-$ yarn create react-app icestark-child --template typescript
+$ yarn create react-app icestark-child-react --template typescript
 
-$ cd icestark-child
-$ # 引入ice/stark-app
+# 在icestark-child-react引入ice/stark-app
+# ./icestark-demo/icestark-child-react/
 $ yarn add @ice/stark-app
-$ yarn start
+
+# 回到根目录安装react微应用依赖
+# ./icestark-demo/
+# 安装依赖
+$ yarn
+# 预览微应用
+$ yarn workspaces icestark-child-react start
 ```
 
-### 应用入口适配
+> 更改微应用name为`icestark-child-react`
+
+此时会出现缺少babel-loader的报错提示
+
+![缺少babel-loader@8.1.0](https://s3.ax1x.com/2021/01/28/y9Ya4K.png)
+
+```shell
+# 在icestark-child-react引入babel-loader
+# ./icestark-demo/icestark-child-react/
+$ yarn add babel-loader@8.1.0
+```
+
+再次启动提示eslint版本不正确
+
+![缺少eslint^7.11.0](https://s3.ax1x.com/2021/01/28/y9N4mj.png)
+
+```shell
+# 在icestark-child-react引入eslint
+# ./icestark-demo/icestark-child-react/
+$ yarn add eslint --dev
+```
+
+由于workspaces的依赖判断问题，导致运行icestark-child-react时，没有使用子项目中的eslint版本，此时需要将高版本的eslint存储到外层的公共node_modules中。
+
+修改根目录的package.json后再次执行yarn
+
+```json
+{
+    "name": "icestark-demo",
+    "private": true,
+    "workspaces": [
+        "packages/icestark-layout",
+        "packages/icestark-child-icejs",
+        "packages/icestark-child-react",
+        "packages/icestark-child-vue"
+    ],
+    "devDependencies": {
+        "eslint": "^7.11.0"
+    }
+}
+```
+
+#### 应用入口适配
 
 将 React 应用改造为微应用，仅仅只需要导出对应的生命周期即可：
 
@@ -133,18 +195,7 @@ if (isInIcestark()) {
 }
 ```
 
-### 定义基准路由
-
-正常情况下，注册微应用时会为每个微应用分配一个基准路由比如 /seller，
-当前微应用的所有路由需要定义在基准路由之下，社区常见的路由库都可以通过参数非常简单的实现该功能。
-微应用可以通过 getBasename() API 获取自身的基准路由。
-
-React 项目中使用 react-router-dom：
-
-```shell
-# 引入react-router-dom
-$ yarn add react-router-dom
-```
+### 基于vue cli改造微应用
 
 ## 微应用本地调试
 
@@ -186,6 +237,19 @@ const appConfig: IAppConfig = {
 };
 
 runApp(appConfig);
+```
+
+### 定义基准路由
+
+正常情况下，注册微应用时会为每个微应用分配一个基准路由比如 /seller，
+当前微应用的所有路由需要定义在基准路由之下，社区常见的路由库都可以通过参数非常简单的实现该功能。
+微应用可以通过 getBasename() API 获取自身的基准路由。
+
+React 项目中使用 react-router-dom：
+
+```shell
+# 引入react-router-dom
+$ yarn add react-router-dom
 ```
 
 ## 路由跳转
@@ -447,6 +511,13 @@ export { default as AppLink } from "./AppLink";
 ##### 调用 AppLink
 
 ![详情页使用AppLink跳转](https://s3.ax1x.com/2021/01/12/sYF6je.png)
+
+## 问题汇总
+
+### @ice/stark^2.0.0版本问题
+
+当项目安装的@ice/stark是2.1.0时，会出现entry的地址获取js、css路径不正确。
+此时需将版本降至2.0.2即可修复。可通过复制并整体替换处理。
 
 ## 参考资料
 
