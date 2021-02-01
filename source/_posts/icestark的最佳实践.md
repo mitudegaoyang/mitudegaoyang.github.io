@@ -199,6 +199,8 @@ if (isInIcestark()) {
 
 ## 微应用本地调试
 
+### 本地调试icejs微应用
+
 单独微应用开发时只能看到自身的内容，无法关注到在主应用下的表现，这时候本地如果需要再启动一个主应用，
 开发起来就很繁琐。针对这种情况，我们推荐通过主应用的日常/线上环境调试本地微应用。
 
@@ -239,9 +241,11 @@ const appConfig: IAppConfig = {
 runApp(appConfig);
 ```
 
-### 定义基准路由
+### 本地调试react微应用
 
-正常情况下，注册微应用时会为每个微应用分配一个基准路由比如 /seller，
+#### 定义基准路由
+
+正常情况下，注册微应用时会为每个微应用分配一个基准路由比如 `/waiter`，
 当前微应用的所有路由需要定义在基准路由之下，社区常见的路由库都可以通过参数非常简单的实现该功能。
 微应用可以通过 getBasename() API 获取自身的基准路由。
 
@@ -251,6 +255,76 @@ React 项目中使用 react-router-dom：
 # 引入react-router-dom
 $ yarn add react-router-dom
 ```
+
+修改icestark-child-react/src/App.tsx
+
+```js
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { getBasename, renderNotFound } from '@ice/stark-app';
+import Home from './routes/Home'
+import List from './routes/List'
+import Detail from './routes/Detail'
+import './App.css';
+
+// #原有代码
+// function App() {
+//   return (
+//     <div className="App">
+//       <header className="App-header">
+//         <img src={logo} className="App-logo" alt="logo" />
+//         <p>
+//           Edit <code>src/App.tsx</code> and save to reload.
+//         </p>
+//         <a
+//           className="App-link"
+//           href="https://reactjs.org"
+//           target="_blank"
+//           rel="noopener noreferrer"
+//         >
+//           Learn React
+//         </a>
+//       </header>
+//     </div>
+//   );
+// }
+
+// #因tslint规定<Route>的component必须是JSX而添加的改动
+function notFound(props: any) {
+  return (
+    <>
+      {renderNotFound()}
+    </>
+  )
+}
+
+function App(props: any) {
+  return (
+    <Router basename={getBasename()}>
+      <Switch>
+        <Route exact path="/" component={Home}></Route>
+        <Route exact path="/list" component={List}></Route>
+        <Route exact path="/list/detail/:contractId" component={Detail} />
+        <Route
+          component={notFound}
+        />
+      </Switch>
+    </Router>
+  );
+}
+
+export default App;
+```
+
+查看微应用的端口地址
+
+![查看微应用端口地址](https://s3.ax1x.com/2021/02/01/yZvbk9.png)
+
+在主应用的 src/app.tsx 中覆盖对应的微应用配置的路径
+
+![覆盖微应用路径](https://s3.ax1x.com/2021/02/01/yZx3pq.png)
+
+> 这里无法使用src获取到react微应用，需要使用entry来自动匹配微应用资源。
 
 ## 路由跳转
 
@@ -453,11 +527,15 @@ export default function FrameworkLayout() {
 
 > 在示例项目中使用如下
 
-![详情页使用appHistory跳转](https://s3.ax1x.com/2021/01/12/sYP2xe.png)
+![微应用间跳转](https://s3.ax1x.com/2021/02/01/yeA8IK.png)
+
+![微应用间跳转](https://s3.ax1x.com/2021/02/01/yeEpFK.gif)
 
 #### 使用 AppLink
 
-> 直接使用ice中的AppLink会报错，需要自己封装个AppLink来跳转。
+> ~~直接使用ice中的AppLink会报错，需要自己封装个AppLink来跳转。~~
+
+示例在上个章节已介绍。
 
 ##### 封装 AppLink
 
@@ -512,12 +590,26 @@ export { default as AppLink } from "./AppLink";
 
 ![详情页使用AppLink跳转](https://s3.ax1x.com/2021/01/12/sYF6je.png)
 
+## 微应用打包部署
+
+### 微应用打包
+
+### 主应用连接部署后的微应用
+
+## 主应用打包部署
+
 ## 问题汇总
 
 ### @ice/stark^2.0.0版本问题
 
 当项目安装的@ice/stark是2.1.0时，会出现entry的地址获取js、css路径不正确。
 此时需将版本降至2.0.2即可修复。可通过复制并整体替换处理。
+
+处理方法
+
+* 先正常yarn项目
+* 打开根目录的node_modules/@ice/stark
+* 将2.0.2版本的ice-stark整体替换至改目录下即可
 
 ## 参考资料
 
