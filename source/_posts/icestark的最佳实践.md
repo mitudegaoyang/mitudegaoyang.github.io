@@ -19,6 +19,9 @@ toc: true
 
 本文演示如何快速创建微前端的应用及改造已有应用接入微前端，基座创建使用的是 icejs，微应用是使用的 icejs、create-react-app分别创建。
 
+> [项目demo仓库地址](https://github.com/mitudegaoyang/icestark-demo)
+> [项目demo预览地址](https://www.gaotianyang.top/icestark-demo)
+
 ## 环境搭建
 
 创建项目，并拉取到本地。在根目录分别创建package.json、和packages文件夹。
@@ -592,11 +595,154 @@ export { default as AppLink } from "./AppLink";
 
 ## 微应用打包部署
 
+项目结构如下
+
+```text
+icestark-demo
+├─node_modules                 # 公共依赖文件
+├─docs                         # 项目部署后静态资源地址
+|    ├─subapp                  # 子项目静态资源包
+|    |   ├icestark-child-icejs # icejs子项目静态资源包
+|    |   ├icestark-child-react # creat-react-app子项目静态资源包
+|    |   ├icestark-child-vue   # vue cli子项目静态资源包
+|    ├─index.html              # 基座打包后入口文件
+├─.gitignore                   # 忽略文件
+├─README.md                    # 项目介绍
+├─package.json                 # 项目依赖
+├─packages                     # 项目文件
+|    ├─icestark-layout         # 基座
+|    |    ├─node_modules       # 子项目依赖文件
+|    ├─icestark-child-icejs    # icejs创建子项目
+|    ├─icestark-child-react    # creat-react-app创建子项目
+|    ├─icestark-child-vue      # vue cli创建子项目
+```
+
 ### 微应用打包
+
+#### icejs微应用打包
+
+在项目根目录执行build命令
+
+```shell
+# 执行打包命令
+$ yarn workspace icestark-child-icejs build
+```
+
+执行完毕后，微应用目录下生成build文件夹。
+
+将其拷贝至根目录docs/subapp/icestark-child-icejs文件下
+
+#### react微应用打包
+
+在项目根目录执行build命令
+
+```shell
+# 执行打包命令
+$ yarn workspace icestark-child-react build
+```
+
+执行完毕后，微应用目录下生成build文件夹。
+
+将其拷贝至根目录docs/subapp/icestark-child-react文件下
 
 ### 主应用连接部署后的微应用
 
+将项目推送至远端
+
+此时还无法获取到微应用资源，需将github仓库进行github page修改
+
+如下图所示
+
+![微应用部署](https://s3.ax1x.com/2021/02/02/ymf3ZV.gif)
+
+修改后`http://www.gaotianyang.top/icestark-demo/`地址就指向了项目根目录的docs文件夹
+
+修改主应用的 src/app.tsx 中覆盖对应的微应用配置的路径
+
+![微应用路径配置](https://s3.ax1x.com/2021/02/02/ymhOhD.png)
+
 ## 主应用打包部署
+
+在项目根目录执行build命令
+
+```shell
+# 执行打包命令
+$ yarn workspace icestark-layout build
+```
+
+将build文件复制到项目docs根目录
+
+可访问[https://www.gaotianyang.top/icestark-demo/](https://www.gaotianyang.top/icestark-demo/)进行查看
+
+> 注意这里打包需要解决资源获取路径为相对路径的问题。修改主应用的build.json的publicPath，将资源路径改为相对路径即可。
+
+```json
+{
+  "publicPath": ".",
+  "plugins": [
+    [
+      "build-plugin-icestark",
+      {
+        "uniqueName": "frameworkJsonp"
+      }
+    ],
+    [
+      "build-plugin-fusion",
+      {
+        "themePackage": "@alifd/theme-design-pro",
+        "themeConfig": {
+          "nextPrefix": "next-icestark-"
+        }
+      }
+    ],
+    [
+      "build-plugin-moment-locales",
+      {
+        "locales": [
+          "zh-cn"
+        ]
+      }
+    ]
+  ]
+}
+```
+
+### 主应用配置二级路由
+
+因为项目部署在github page中，项目地址为二级域名`https://www.gaotianyang.top/icestark-demo`
+因此项目中的路由配置及跳转信息需要额外配置`icestark-demo`方可正常显示。
+
+解决方案如下
+
+#### 获取应用状态并存储二级路由
+
+在主应用获取当前应用是处于预览还是打包，并将路由存储在localStorage中。
+
+在`icestark-demo/packages/icestark-layout/src/app.tsx`修改微应用path
+
+```js
+localStorage.setItem("baseUrl", process.env.NODE_ENV === "development" ? "" : "/icestark-demo")
+
+const baseUrl = localStorage.baseUrl
+```
+
+![微应用path配置二级路由](https://s3.ax1x.com/2021/02/02/ynLxhR.png)
+
+#### 修改主应用路由
+
+在`icestark-demo/packages/icestark-layout/src/routes.ts`修改主应用路由
+
+![主应用路由配置二级路由](https://s3.ax1x.com/2021/02/02/ynOLxP.png)
+
+#### 修改主应用菜单
+
+在`icestark-demo/packages/icestark-layout/src/layouts/BasicLayout/menuConfig.ts`修改主应用菜单
+
+![主应用菜单配置二级路由](https://s3.ax1x.com/2021/02/02/ynOLxP.png)
+
+#### 修改微应用跳转
+
+![微应用跳转路径](https://s3.ax1x.com/2021/02/02/ynXRij.png)
 
 ## 问题汇总
 
@@ -619,3 +765,5 @@ export { default as AppLink } from "./AppLink";
 * [useHistory](https://ice.work/docs/guide/basic/api#useHistory)
 * [history](https://ice.work/docs/guide/basic/api#history)
 * [微应用间跳转](https://ice.work/docs/icestark/guide/child-app#%E5%BE%AE%E5%BA%94%E7%94%A8%E9%97%B4%E8%B7%B3%E8%BD%AC)
+* [主应用打包后资源改为相对路径](https://ice.work/docs/guide/basic/build#publicPath)
+* [框架API-环境变量](https://ice.work/docs/guide/basic/api#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
