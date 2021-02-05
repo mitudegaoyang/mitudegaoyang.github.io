@@ -746,6 +746,68 @@ const baseUrl = localStorage.baseUrl
 
 ## 问题汇总
 
+### GitHub-page 刷新找不到二级域名下的路由地址
+
+因为GitHub-page只能存放静态资源。并且不支持.htaccess，
+所以用webpack构建出来的单页应用，
+直接将dist文件推送到GitHub-page分支，
+在切换路由之后，手动刷新是会出现404的。
+
+![找不到项目](https://s3.ax1x.com/2021/02/05/yGrZZR.png)
+
+处理方法
+
+* 给站点根目录添加404.html
+
+一般也就是dist目录下（GitHub-page找不到的路径会自动访问这个404.html）
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+      sessionStorage.redirect = location.href;
+    </script>
+    <meta http-equiv="refresh" content="0;URL='/icestark-demo/'">
+  </head>
+  <body>
+      
+  </body>
+</html>
+```
+
+> 这里使用的知识点是`<meta http-equiv="refresh" content="0;URL='/icestark-demo/'">`
+
+常见的几种使用场景
+
+```html
+<!-- 这个表示当前页面每5秒钟刷一下，刷一下~ -->
+<meta http-equiv="refresh" content="5">
+
+<!-- 这个表示当前页面2秒后跳到首页 -->
+<meta http-equiv="refresh" content="2; url='/'">
+
+<!-- 页面直接跳转到腾讯网 -->
+<meta http-equiv="refresh" content="0; url='http://www.qq.com/'">
+```
+
+* 给index.html添加重定向逻辑
+
+```html
+<script>
+  // 这段代码要放在其他js的前面
+  (function(){
+    var redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    if (redirect && redirect != location.href) {
+      history.replaceState(null, null, redirect);
+    }
+  })();
+</script>
+```
+
 ### @ice/stark^2.0.0版本问题
 
 当项目安装的@ice/stark是2.1.0时，会出现entry的地址获取js、css路径不正确。
@@ -767,3 +829,5 @@ const baseUrl = localStorage.baseUrl
 * [微应用间跳转](https://ice.work/docs/icestark/guide/child-app#%E5%BE%AE%E5%BA%94%E7%94%A8%E9%97%B4%E8%B7%B3%E8%BD%AC)
 * [主应用打包后资源改为相对路径](https://ice.work/docs/guide/basic/build#publicPath)
 * [框架API-环境变量](https://ice.work/docs/guide/basic/api#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
+* [单页应用在gh-pages动态路由刷新后404解决方案](https://segmentfault.com/a/1190000012951274)
+* [使用meta实现页面的定时刷新或跳转](https://www.zhangxinxu.com/wordpress/2015/03/meta-http-equiv-refresh-content/)
