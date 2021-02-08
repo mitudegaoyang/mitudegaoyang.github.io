@@ -564,6 +564,12 @@ word_count: True
 
 [hexo添加sitemap功能](/archives/20200814f023bd8e/)
 
+### SubNav图标拓展
+
+> 实现SubNav图标拓展 以单独一篇文章来记录
+
+[Yilia主题如何添加左侧SubNav图标](/archives/20210205e928c2fc/)
+
 ### RSS 功能添加
 
 #### 安装 RSS 插件
