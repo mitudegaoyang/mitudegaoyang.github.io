@@ -1,12 +1,14 @@
 ---
-title: Dart Flutter教程
+title: Dart教程
 abbrlink: 9c01b81e
 date: 2021-02-22 14:37:13
 tags:
   - 技术积累
+  - dart
   - flutter
 categories:
   - 技术积累
+  - dart
   - flutter
 toc: true
 ---
@@ -195,7 +197,7 @@ dart中存在类型校验 下面三种情况均会报错
 1. 变量的名字是区分大小写的：如age和Age是不同的变量。在实际的运用中，也建议不要用一个
 1. 标识符(变量名称)一定要见名思意：变量名称建议用名词，方法名称建议用动词
 
-### Dart的数据类型
+### 数据类型
 
 #### 常用数据类型
 
@@ -453,6 +455,313 @@ main() {
   }
 }
 ```
+
+### 条件判断
+
+#### 算数运算符
+
+```dart
+void main(){
+  // +    -    *    /     ~/ (取整)     %（取余）
+  int a=13;
+  int b=5;
+
+  print(a+b);   //加
+  print(a-b);   //减
+  print(a*b);   //乘
+  print(a/b);   //除
+  print(a%b);   //其余
+  print(a~/b);  //取整
+
+  var c=a*b;
+  print('--------');
+  print(c);
+  
+}
+```
+
+#### 关系运算符
+
+```dart
+void main(){
+  //  ==    !=   >    <    >=    <=
+
+  int a=5;
+  int b=3;
+
+  print(a==b);   //判断是否相等
+  print(a!=b);   //判断是否不等
+  print(a>b);   //判断是否大于
+  print(a<b);   //判断是否小于
+  print(a>=b);   //判断是否大于等于
+  print(a<=b);   //判断是否小于等于
+
+  if(a>b){
+    print('a大于b');
+  }else{
+    print('a小于b');
+  }
+
+}
+```
+
+#### 逻辑运算符
+
+```dart
+void main(){
+  /* ! 取反 */ 
+  bool flag=false;
+  print(!flag);   //取反
+
+  /* &&并且:全部为true的话值为true 否则值为false */ 
+  bool a = true;
+  bool b = false;
+  print(a && b);
+  
+  /* ||或者：全为false的话值为false 否则值为true */ 
+  bool c = false;
+  bool d = false;
+  print(c || d);
+
+  // 如果一个人的年龄是20 并且 sex是女的话我们打印这个人
+  int age = 20;
+  String sex = "女";
+  if (age == 20 && sex == "女") {
+    print("$age --- $sex");
+  } else {
+    print("不打印");
+  }
+
+  int age2 = 30;
+  String sex2 = "女";
+  if (age2 == 20 && sex2 == "女") {
+    print("$age2 --- $sex2");
+  } else {
+    print("不打印");
+  }
+
+  //如果一个人的年龄是20 或者 sex是女的话我们打印这个人
+
+  int age3 = 30;
+  String sex3 = "女";
+  if (age3 == 20 || sex3 == "女") {
+    print("$age3 --- $sex3");
+  } else {
+    print("不打印");
+  }
+}
+```
+
+#### 赋值运算符
+
+```dart
+void main(){
+  //  1、基础赋值运算符   =   ??=
+  int a = 10;
+  int b = 3;
+  print(a);
+  int c = a + b; //从右向左
+  
+  // b ??= 23;  表示如果b为空的话把 23赋值给b
+  int d = 10;
+  d ??= 23;
+  print(d);
+
+  int e;
+  e ??= 23;
+  print(e);
+
+  // 2、复合赋值运算符   +=  -=  *=   /=   %=  ~/=
+  var f = 12;
+  f = f + 10;
+  print(f);
+
+  var g = 13;
+  g += 10; //g=g+10
+  print(g);
+
+  var h = 4;
+  h *= 3; //h=h*3;
+  print(h);
+
+  var i = 7;
+  i %= 3; //i=i%3;
+  print(i);
+
+  var j = 7;
+  j ~/= 3; //j=(j~/3);
+  print(j);
+}
+```
+
+#### 条件表达式
+
+```dart
+void main(){
+  // 1、if  else   switch case
+  bool flag = true;
+  if (flag) {
+    print('true');
+  } else {
+    print('false');
+  }
+  
+  // 判断一个人的成绩 如果大于60 显示及格   如果大于 70显示良好  如果大于90显示优秀
+  var score = 41;
+  if (score > 90) {
+    print('优秀');
+  } else if (score > 70) {
+    print('良好');
+  } else if (score >= 60) {
+    print('及格');
+  } else {
+    print('不及格');
+  }
+
+  var sex = "女";
+  switch (sex) {
+    case "男":
+      print('性别是男');
+      break;
+    case "女":
+      print('性别是女');
+      print('性别是女2');
+      break;
+    default:
+      print('传入参数错误');
+      break;
+  }
+
+  // 2、三目运算符
+  var falg = true;
+  var a;
+  if (falg) {
+    a = '我是true';
+  } else {
+    a = "我是false";
+  }
+  print(a);
+
+  bool flag2 = false;
+  String b = flag2 ? '我是true' : '我是false';
+  print(b);
+
+  //3  ??运算符
+  var c;
+  var d = c ?? 10;
+  print(d); // 10
+
+  var e = 22;
+  var f = e ?? 10;
+  print(f); // 22
+}
+```
+
+#### Dart类型转换
+
+```dart
+void main(){
+  // 1、Number与String类型之间的转换
+  // Number类型转换成String类型 toString()
+  // String类型转成Number类型  int.parse()
+  String str = '123';
+  var myNum = int.parse(str);
+  print(myNum is int);
+  
+  String str2 = '123.1';
+  var myNum2 = double.parse(str2);
+  print(myNum2 is double);
+
+  // 价格从字符串转数字时推荐使用浮点型避免报错
+  String price = '12'; // String price = '12.5'
+  var myNum3 = double.parse(price);
+  print(myNum3);
+  print(myNum3 is double);
+
+  // 报错
+  String price2 = '';
+  var myNum4 = double.parse(price2);
+  print(myNum4);
+  print(myNum4 is double);
+
+  // try  ... catch
+  String price3 = '';
+  try {
+    var myNum = double.parse(price3);
+    print(myNum);
+  } catch (err) {
+    print(0);
+  }
+
+  // 空值预处理
+  String price4 = '';
+  price4 = (price4 == '') ? '0' : price4;
+  var myNum5 = double.parse(price4);
+  print(myNum5);
+  print(myNum5 is double);
+
+  var myNum5 = 12;
+  var str3 = myNum5.toString();
+  print(str3 is String);
+
+
+  // 2、其他类型转换成Booleans类型
+  // isEmpty:判断字符串是否为空
+  var str4 = '';
+  if (str4.isEmpty) {
+    print('str4空');
+  } else {
+    print('str4不为空');
+  }
+
+  var myNum6 = 123;
+  if (myNum6 == 0) {
+    print('0');
+  } else {
+    print('非0');
+  }
+
+  var myNum7;
+  if (myNum7 == 0) {
+    print('0');
+  } else {
+    print('非0');
+  }
+
+  var myNum8;
+  if (myNum8 == null) {
+    print('空');
+  } else {
+    print('非空');
+  }
+
+  var myNum9 = 0 / 0;
+  print(myNum9);
+  if (myNum9.isNaN) {
+    print('myNum9是NaN');
+  }
+}
+```
+
+### 循环语句
+
+### 集合类型
+
+### 函数
+
+### 箭头函数和匿名函数
+
+### 对象
+
+### 类
+
+### 抽象类
+
+### 一个类多个接口
+
+### 泛型
+
+### 库
 
 ## 参考资料
 
