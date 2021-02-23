@@ -195,6 +195,265 @@ dart中存在类型校验 下面三种情况均会报错
 1. 变量的名字是区分大小写的：如age和Age是不同的变量。在实际的运用中，也建议不要用一个
 1. 标识符(变量名称)一定要见名思意：变量名称建议用名词，方法名称建议用动词
 
+### Dart的数据类型
+
+#### 常用数据类型
+
+* Number(数值)
+  * int
+  * double
+* Strings(字符串)
+  * String
+* Booleans(布尔)
+  * bool
+* List(数组)
+  * 在Dart中，数组是列表对象，所以大多数人只是称它们为列表
+* Maps(字典)
+  * 通常来说，Map是一个键值对相关的对象。键和值可以是任何类型的对象。每个键只出现一次，而一个值则可以出现多次。映射是动态集合。换句话说，Maps可以在运行时增长和缩小。dart:core库中的Map类提供了相同的支持。
+
+##### 字符串类型
+
+```dart
+void main(){
+  // 1、字符串定义的几种方式
+  var str = 'this is str';
+
+  var str2 = "this is str2";
+
+  print(str);
+  print(str2);
+
+  String str3 = 'this is str3';
+
+  String str4 = 'this is str4';
+
+  print(str3);
+  print(str4);
+
+  String str5 = '''this is str5''';
+  print(str5);
+
+  String str6 = '''this is str6
+  this is str6
+  this is str6
+  ''';
+  print(str6);
+
+  String str7 = """this is str7
+  this is str7
+  this is str7
+  """;
+  print(str7);
+  // 2、字符串的拼接
+  String str8 = 'this is';
+  String str9 = 'str9';
+  print(str8 + " " + str9);
+  print("$str8 $str9");
+}
+```
+
+##### 数值类型
+
+```dart
+void main(){
+  // 1.int 必须是整型
+  int a = 123;
+  // a = 45.5; 不可以赋浮点型
+  a = 12;
+  print(a);
+  // 2.double 既可以是整型 也可是浮点型
+  double b = 23.5;
+  b = 24;
+  print(b);
+  // 3.运算符
+  // + - * / %
+  var c = a + b;
+  print(c); // 12 + 24.0 = 36.0
+  int d = 12;
+  var e = a + d;
+  print(e); // 12 + 12 = 24
+  // e = 12.5; // 错误 e现前计算时为整型不可再次赋值浮点型
+}
+```
+
+##### 布尔类型
+
+```dart
+/*
+bool 值true/false
+*/
+void main(){
+  // 1.bool
+  bool flag = true;
+  print(flag);
+  bool flag2 = false;
+  print(flag2);
+  // bool flag3 = 123; // 不能赋非布尔的值
+
+  // 2.条件判断语句
+  if (flag) {
+    print("真");
+  } else {
+    print("假");
+  }
+
+  var a = 123;
+  var b = 456;
+  if (a == b) {
+    print("a==b");
+  } else {
+    print("a!=b");
+  }
+  // a!=b
+
+  var c = '123';
+  if (a == c) {
+    print("a==c");
+  } else {
+    print("a!=c");
+  }
+  // a!=c
+
+  var d = 123;
+  if (a == d) {
+    print("a==d");
+  } else {
+    print("a!=d");
+  }
+  // a==d
+
+  double e = 123.0;
+  if (a == e) {
+    print("a==e");
+  } else {
+    print("a!=e");
+  }
+  // a==e
+}
+```
+
+##### 数组/集合类型
+
+```dart
+void main(){
+  // 1.第一种定义List的方式
+  var list = ['1', '2', '3', '4', '5'];
+  print(list);
+  print(list.length);
+  print(list[2]);
+
+  // 2.第二种定义List的方式
+  var list2 = new List();
+  list2.add('a');
+  list2.add('b');
+  list2.add('c');
+  print(list2);
+  print(list2.length);
+  print(list2[1]);
+
+  // 3.定义List指定类型
+   var list3 = new List<String>();
+  list3.add('张三');
+  // list3.add(123); // 不能添加非字符串类型
+  print(list3);
+}
+```
+
+##### Map类型
+
+```dart
+void main(){
+  //第一种定义 Maps的方式
+  var person = {
+    "name": "John",
+    "age": 21,
+    "works": ["程序猿", "测试员"],
+    "married": false
+  };
+  print(person);
+  print(person["name"]);
+  print(person["age"]);
+  print(person["works"]);
+  print(person["married"]);
+
+  //第二种定义 Maps的方式
+  var person2 = new Map();
+  person2["name"] = "Bob";
+  person2["age"] = 26;
+  person2["works"] = ["UI设计", "测试员"];
+  person2["married"] = true;
+  print(person2);
+  print(person2["name"]);
+  print(person2["age"]);
+  print(person2["works"]);
+  print(person2["married"]);
+}
+```
+
+#### 不常用数据类型
+
+* Runes
+  * Runes是指UTF-32编码的字符串。它可以通过文字转换成符号表情或者代表特定的文字。
+
+```dart
+main() {
+  var clapping = '\u{1f44f}';
+  print(clapping);
+  print(clapping.codeUnits);
+  print(clapping.runes.toList());
+
+  Runes input = new Runes(
+      '\u2665  \u{1f605}  \u{1f60e}  \u{1f47b}  \u{1f596}  \u{1f44d}');
+  print(new String.fromCharCodes(input));
+}
+```
+
+* Symbols
+  * Symbols对象表示在Dart程序中声明运算符或标识符。您可能永远不需要使用符号，但它们对于按名称引用标识符的API非常有用，因为缩小会更改标识符名称而不会更改标识符符号。要获取标识符的符号，请使用符号文字，它只是＃后跟标识符。
+
+> 在 Dart 中符号用 # 开头来表示，入门阶段不需要了解这东西，可能永远也用不上。
+
+#### 类型判断
+
+```dart
+main() {
+/*
+  is 关键词来判断类型
+*/
+  var str = 'str';
+
+  if (str is String) {
+    print("$str 是字符串类型");
+  } else if (str is num) {
+    print("$str 是数字类型");
+  } else {
+    print("$str 是其他类型");
+  }
+
+  var number = 123;
+
+  if (number is String) {
+    print("$number 是字符串类型");
+  } else if (number is num) {
+    print("$number 是数字类型");
+  } else {
+    print("$number 是其他类型");
+  }
+
+  var doubleNum = 123.5;
+
+  if (doubleNum is String) {
+    print("$doubleNum 是字符串类型");
+  } else if (doubleNum is int) {
+    print("$doubleNum 是整数类型");
+  } else if (doubleNum is double) {
+    print("$doubleNum 是浮点数类型");
+  } else {
+    print("$doubleNum 是其他类型");
+  }
+}
+```
+
 ## 参考资料
 
 * [B站-Dart Flutter教程_Dart Flutter入门实战视频教程-2020年新出-第14讲以后是Flutter教程](https://www.bilibili.com/video/BV1S4411E7LY?from=search&seid=18237173814777031437)
