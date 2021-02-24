@@ -1025,6 +1025,7 @@ void main(){
 * 常用方法：  
   * add         增加
   * addAll      拼接数组
+  * contains    查找  传入具体值  返回true/false
   * indexOf     查找  传入具体值
   * remove      删除  传入具体值
   * removeAt    删除  传入索引值
@@ -1201,6 +1202,7 @@ void main(){
 
   // 修改myList2每一项
   List myList2 = [1, 3, 5];
+  // List newList = [];
   List newList = new List();
   for (var i = 0; i < myList2.length; i++) {
     newList.add(myList2[i] * 2);
@@ -1261,17 +1263,315 @@ void main(){
 
 ### 函数
 
-```dart
-void main(){
+* 内置方法/函数：
+  * print();
+* 自定义方法：
+  * 自定义方法的基本格式：
 
+```text
+返回类型 方法名称（参数1，参数2,...）{
+  方法体
+  return 返回值;
 }
 ```
 
-### 箭头函数和匿名函数
+#### 函数的定义、变量及作用域
+
+```dart
+void printInfo() {
+  print('我是一个自定义方法');
+}
+
+int getNum() {
+  var myNum = 123;
+  return myNum;
+}
+
+String printUserInfo() {
+  return 'this is str';
+}
+
+List getList() {
+  return ['111', '2222', '333'];
+}
+
+void main(){
+  print('调用系统内置的方法');
+
+  printInfo();
+
+  var n = getNum();
+  print(n);
+
+  print(printUserInfo());
+
+  print(getList());
+
+  // print(getList());
+
+  //演示方法的作用域
+  void xxx() {
+    aaa() {
+      print(getList());
+      print('aaa');
+    }
+    aaa();
+  }
+  // aaa();  // 错误写法
+  xxx(); // 调用方法
+}
+```
+
+#### 函数的传参、默认参数及可选参数
 
 ```dart
 void main(){
+  // 1、定义一个方法 求1到这个数的所有数的和 60 1+2+3+。。。+60
+  int sumNum(int n) {
+    var sum = 0;
+    for (var i = 1; i <= n; i++) {
+      sum += i;
+    }
+    return sum;
+  }
 
+  var n1 = sumNum(5);
+  print(n1);
+  var n2 = sumNum(100);
+  print(n2);
+
+  // 2、定义一个方法然后打印用户信息
+  String printUserInfo(String username, int age) { // 形参
+    return "姓名:$username---年龄:$age";
+  }
+  print(printUserInfo('张三', 20)); // 实参
+
+  // 3、定义一个带可选参数的方法
+  String printUserInfo2(String username, [int age]) {
+    //行参
+    if (age != null) {
+      return "姓名:$username---年龄:$age";
+    }
+    return "姓名:$username---年龄保密";
+  }
+  print(printUserInfo2('张三', 21)); //实参
+  print(printUserInfo2('张三'));
+
+  // 4、定义一个带默认参数的方法
+  String printUserInfo3(String username, [String sex = '男', int age]) {
+    //行参
+    if (age != null) {
+      return "姓名:$username---性别:$sex--年龄:$age";
+    }
+    return "姓名:$username---性别:$sex--年龄保密";
+  }
+  print(printUserInfo3('张三'));
+  print(printUserInfo3('小李', '女'));
+  print(printUserInfo3('小李', '女', 30));
+
+  // 5、定义一个命名参数的方法
+  String printUserInfo4(String username, {int age, String sex = '男'}) {
+    //行参
+    if (age != null) {
+      return "姓名:$username---性别:$sex--年龄:$age";
+    }
+    return "姓名:$username---性别:$sex--年龄保密";
+  }
+  // 命名参数同时也是可选参数
+  print(printUserInfo4('小李', sex: '未知'));
+  print(printUserInfo4('张三', age: 20, sex: '未知'));
+
+  // 6、实现一个 把方法当做参数的方法
+  var fn = () {
+    print('我是一个匿名方法');
+  };
+  fn();
+  // 方法1
+  fn1() {
+    print('fn1');
+  }
+  // 方法2
+  fn2(fn) {
+    fn();
+  }
+  // 调用fn2这个方法 把fn1这个方法当做参数传入
+  fn2(fn1);
+}
+```
+
+#### 箭头函数
+
+```dart
+void main(){
+  // 1. 需求：使用forEach打印下面List里面的数据
+  List list = ['苹果', '香蕉', '西瓜'];
+  list.forEach((value) {
+    print(value);
+  });
+  list.forEach((value) => print(value));
+  list.forEach((value) => {
+    print(value)
+  });
+
+  // 2. 需求：修改下面List里面的数据，让数组中大于2的值乘以2
+  List list2 = [4, 1, 2, 3, 4];
+  var newList = list2.map((value) {
+    if (value > 2) {
+      return value * 2;
+    }
+    return value;
+  });
+  print(newList.toList());
+
+  var newList2 = list.map((value) => value > 2 ? value * 2 : value);
+  print(newList2.toList());
+
+  /*
+  需求： 1、定义一个方法isEvenNumber来判断一个数是否是偶数  
+        2、定义一个方法打印1-n以内的所有偶数
+  */
+
+  // 定义一个方法isEvenNumber来判断一个数是否是偶数
+  bool isEvenNumber(int n) {
+    if (n % 2 == 0) {
+      return true;
+    }
+    return false;
+  }
+
+  // 定义一个方法打印1-n以内的所有偶数
+  printNum(int n) {
+    for (var i = 1; i <= n; i++) {
+      if (isEvenNumber(i)) {
+        print(i);
+      }
+    }
+  }
+  printNum(10);
+}
+```
+
+#### 匿名函数
+
+```dart
+int getNum(int n) {
+  return n;
+}
+void main(){
+  print(getNum(12));
+
+  // 匿名函数
+  var printNum = () {
+    print(123);
+  };
+  printNum();
+
+  var printNum2 = (int n) {
+    print(n + 2);
+  };
+  printNum2(12);
+}
+```
+
+#### 自执行函数
+
+```dart
+void main(){
+  (() {
+    print('我是自执行方法');
+  })();
+
+  // 传参
+  ((int n) {
+    print(n);
+    print('我是自执行方法');
+  })(12);
+}
+```
+
+#### 方法的递归
+
+```dart
+void main(){
+  var sum = 1;
+  fn(n) {
+    sum *= n;
+    if (n == 1) {
+      return;
+    }
+    fn(n - 1);
+  }
+
+  fn(5);
+  print(sum);
+
+  // 通过方法的递归 求1-100的和
+  var sum1 = 0;
+  fn1(int n) {
+    sum1 += n;
+    if (n == 0) {
+      return;
+    }
+    fn1(n - 1);
+  }
+
+  fn1(100);
+  print(sum1);
+}
+```
+
+#### 闭包
+
+变量的特点
+
+1. 全局变量特点: 全局变量常驻内存、全局变量污染全局
+2. 局部变量的特点: 不常驻内存会被垃圾机制回收、不会污染全局  
+
+想实现的功能：
+
+1. 常驻内存
+2. 不污染全局
+
+> 产生了闭包,闭包可以解决这个问题.....  
+> 闭包: 函数嵌套函数, 内部函数会调用外部函数的变量或参数, 变量或参数不会被系统回收(不会释放内存)
+> 闭包的写法: 函数嵌套函数，并`return`里面的函数，这样就形成了闭包。
+
+```dart
+/*全局变量*/
+var a=123;
+
+void main(){
+  print(a);  // 123
+  fn() {
+    a++;
+    print(a);
+  }
+  fn();  // 124
+  fn();  // 125
+  fn();  // 126
+
+  // 局部变量
+  printInfo() {
+    var myNum = 123;
+    myNum++;
+    print(myNum);
+  }
+  printInfo();  // 124
+  printInfo();  // 124
+  printInfo();  // 124
+
+  // 闭包
+  fn2() {
+    var a = 123; /*不会污染全局 常驻内存*/
+    return () {
+      a++;
+      print(a);
+    };
+  }
+  var b = fn2();
+  b();  // 124
+  b();  // 125
+  b();  // 126
 }
 ```
 
