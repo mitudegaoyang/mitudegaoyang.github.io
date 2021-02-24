@@ -1013,21 +1013,315 @@ void main(){
 
 ### 集合类型
 
+#### List
+
+> List里面常用的属性和方法：
+
+* 常用属性：
+  * length          长度
+  * reversed        翻转
+  * isEmpty         是否为空
+  * isNotEmpty      是否不为空
+* 常用方法：  
+  * add         增加
+  * addAll      拼接数组
+  * indexOf     查找  传入具体值
+  * remove      删除  传入具体值
+  * removeAt    删除  传入索引值
+  * fillRange(start,end,value)   修改
+  * insert(index,value);            指定位置插入
+  * insertAll(index,list)           指定位置插入List
+  * toList()    其他类型转换成List  
+  * join()      List转换成字符串
+  * split()     字符串转化成List
+  * forEach
+  * map
+  * where
+  * any
+  * every
+
+```dart
+void main(){
+  // 声明List的两种方式
+  List myList = ['香蕉', '苹果', '西瓜'];
+  print(myList[1]);
+
+  var list = new List();
+  list.add('111');
+  list.add('222');
+  print(list);
+
+  // List里面的属性：
+  List myList2 = ['香蕉', '苹果', '西瓜'];
+  print(myList2); //List
+  print(myList2.length); //长度
+  print(myList2.isEmpty); // 判断为空
+  print(myList2.isNotEmpty); // 判断非空
+  print(myList2.reversed); // 对列表倒序排序 输出对象是元组 ('西瓜', '苹果', '香蕉')
+  var newMyList = myList2.reversed.toList();
+  print(newMyList);
+
+  // List里面的方法：
+
+  // 添加
+  List myList3 = ['香蕉', '苹果', '西瓜'];
+  myList3.add('桃子'); //增加数据  增加一个
+  print(myList3);
+  // 拼接
+  myList3.addAll(['李子', '葡萄']); //拼接数组
+  print(myList3);
+
+  // 查找
+  print(myList3.indexOf('苹果')); //indexOf查找数据 查找不到返回-1  查找到返回索引值
+  print(myList3.indexOf('苹x果')); //indexOf查找数据 查找不到返回-1  查找到返回索引值
+
+  // 移除某个值
+  myList3.remove('西瓜');
+  print(myList3);
+
+  // 移除某个索引值
+  myList3.removeAt(1);
+  print(myList3);
+
+  // 修改 插入
+  List myList4 = ['香蕉', '苹果', '西瓜'];
+
+  myList4.fillRange(1, 2, 'aaa'); // 修改
+  myList4.fillRange(1, 3, 'aaa');
+
+  myList4.insert(1, 'aaa'); //插入  一个
+  myList4.insertAll(1, ['aaa', 'bbb']); //插入 多个
+
+  // 数组转换成字符串
+  List myList5 = ['香蕉', '苹果', '西瓜'];
+  var str = myList5.join('-'); //list转换成字符串
+  print(str);
+  print(str is String); //true
+
+  // 字符串按-切割成数组
+  var str2 = '香蕉-苹果-西瓜';
+  var myList6 = str2.split('-');
+  print(myList6);
+  print(myList6 is List);
+}
+```
+
+#### Set
+
+```dart
+void main(){
+  //用它最主要的功能就是去除数组重复内容
+  //Set是没有顺序且不能重复的集合，所以不能通过索引去获取值
+  var s = new Set();
+  s.add('香蕉');
+  s.add('苹果');
+  s.add('苹果');
+  print(s); // {香蕉, 苹果}
+  print(s.toList()); // [香蕉, 苹果]
+
+  // 将数组去重
+  List myList = ['香蕉', '苹果', '西瓜', '香蕉', '苹果', '香蕉', '苹果'];
+  var s1 = new Set();
+  s1.addAll(myList);
+  print(s1); // {香蕉, 苹果, 西瓜}
+  print(s1.toList()); // [香蕉, 苹果, 西瓜]
+}
+```
+
+#### Map
+
+> 映射(Maps)是无序的键值对：
+
+* 常用属性：
+  * keys            获取所有的key值
+  * values          获取所有的value值
+  * isEmpty         是否为空
+  * isNotEmpty      是否不为空
+* 常用方法:
+  * remove(key)     删除指定key的数据
+  * addAll({...})   合并映射  给映射内增加属性
+  * containsValue   查看映射内的值  返回true/false
+  * forEach
+  * map
+  * where
+  * any
+  * every
+
+```dart
+void main(){
+  Map person = {
+    "name": "张三",
+    "age": 20
+  };
+  var m = new Map();
+  m["name"] = "李四";
+  print(person);
+  print(m);
+
+  
+  //常用属性：
+  Map person2 = {"name": "张三", "age": 20, "sex": "男"};
+  print(person2.keys.toList());
+  print(person2.values.toList());
+  print(person2.isEmpty);
+  print(person2.isNotEmpty);
+
+  //常用方法：
+  Map person3 = {"name": "张三", "age": 20, "sex": "男"};
+  person3.addAll({
+    "work": ['敲代码', '送外卖'],
+    "height": 160
+  });
+  print(person3);
+  person3.remove("sex");
+  print(person3);
+  print(person3.containsValue('张三')); // 查看映射内的值
+}
+```
+
+#### 通用方法
+
+> forEach map where any every
+
+##### List中使用
+
+```dart
+void main(){
+  // 循环输出myList
+  List myList = ['香蕉', '苹果', '西瓜'];
+  for (var i = 0; i < myList.length; i++) {
+    print(myList[i]);
+  }
+  for (var item in myList) {
+    print(item);
+  }
+  myList.forEach((value) {
+    print("$value");
+  });
+
+  // 修改myList2每一项
+  List myList2 = [1, 3, 5];
+  List newList = new List();
+  for (var i = 0; i < myList2.length; i++) {
+    newList.add(myList2[i] * 2);
+  }
+  print(newList);
+
+  var newList2 = myList.map((value) {
+    return value * 2;
+  });
+  print(newList2.toList());
+
+  // 查找符合条件的值
+  List myList3 = [1, 3, 4, 5, 7, 8, 9];
+  var newList3 = myList3.where((value) {
+    return value > 5;
+  });
+  print(newList3.toList());
+
+  // 判断是否存在符合条件的值 true/false
+  List myList4 = [1, 3, 4, 5, 7, 8, 9];
+  var f = myList4.any((value) {
+    //只要集合里面有满足条件的就返回true
+    return value > 5;
+  });
+  print(f);
+
+  // 判断是否存都是符合条件的值 true/false
+  List myList5 = [1, 3, 4, 5, 7, 8, 9];
+  var f2 = myList5.every((value) {
+    //每一个都满足条件返回true  否则返回false
+    return value > 5;
+  });
+  print(f2);
+}
+```
+
+##### Set中使用
+
+```dart
+void main(){
+  // 循环输出Set的值
+  var s = new Set();
+  s.addAll([1, 222, 333]);
+  s.forEach((value) => print(value));
+}
+```
+
+##### Map中使用
+
+```dart
+void main(){
+  Map person = {"name": "张三", "age": 20};
+  person.forEach((key, value) {
+    print("$key---$value");
+  });
+}
+```
+
 ### 函数
+
+```dart
+void main(){
+
+}
+```
 
 ### 箭头函数和匿名函数
 
+```dart
+void main(){
+
+}
+```
+
 ### 对象
+
+```dart
+void main(){
+
+}
+```
 
 ### 类
 
+```dart
+void main(){
+
+}
+```
+
 ### 抽象类
+
+```dart
+void main(){
+
+}
+```
 
 ### 一个类多个接口
 
+```dart
+void main(){
+
+}
+```
+
 ### 泛型
 
+```dart
+void main(){
+
+}
+```
+
 ### 库
+
+```dart
+void main(){
+
+}
+```
 
 ## 参考资料
 
