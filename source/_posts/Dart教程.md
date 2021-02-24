@@ -594,6 +594,48 @@ void main(){
 }
 ```
 
+#### 自增自减运算
+
+```dart
+void main(){
+  /*
+    ++  --   表示自增 自减 1
+    在赋值运算里面 如果++ -- 写在前面 这时候先运算 再赋值，如果++ --写在后面 先赋值后运行运算
+  */
+  var a = 10;
+  a++; //a=a+1;
+  print(a);
+
+  var b = 10;
+  b--; //b=b-1;
+  print(b);
+
+  var c = 10;
+  var d = a++;
+  print(c); //11
+  print(d); //10
+
+  var e = 10;
+  var f = ++a;
+  print(e); //11
+  print(f); //11
+
+  var g = 10;
+  var h = --a;
+  print(g); //9
+  print(h); //9
+
+  var i = 10;
+  var j = a--;
+  print(i); //9
+  print(j); //10
+
+  var k = 10;
+  ++k;
+  print(k);
+}
+```
+
 #### 条件表达式
 
 ```dart
@@ -744,6 +786,230 @@ void main(){
 ```
 
 ### 循环语句
+
+#### for循环语句
+
+```dart
+void main(){
+  /*
+    // for基本语法
+    for (int i = 1; i<=100; i++) {   
+      print(i);
+    }
+
+    //第一步，声明变量int i = 1;
+    //第二步，判断i <=100
+    //第三步，print(i);
+    //第四步，i++
+    //第五步 从第二步再来，直到判断为false
+  */
+
+  for (int i = 1; i <= 10; i++) {
+    print(i);
+  }
+
+  // 1、打印0-50所有的偶数
+  for (int i = 0; i <= 50; i++) {
+    if (i % 2 == 0) {
+      print(i);
+    }
+  }
+
+  // 2、求 1+2+3+4 +...100的和
+  var sum = 0;
+  for (var i = 1; i <= 100; i++) {
+    sum += i;
+  }
+  print(sum);
+
+  // 3、计算5的阶乘   (1*2*3*4*5    n的阶乘1*2……*n)
+  var sum2 = 1;
+  for (var i = 1; i <= 5; i++) {
+    sum2 *= i;
+  }
+  print(sum2);
+
+  // 4、打印List  ['张三','李四','王五'] 里面的内容
+  List list = ['张三', '李四', '王五'];
+  print(list[1]);
+  for (var i = 0; i < list.length; i++) {
+    print(list[i]);
+  }
+
+  // 5、打印List中item的title
+  List list2 = [
+    {"title": "新闻111"},
+    {"title": "新闻222"},
+    {"title": "新闻333"}
+  ];
+  print(list2[1]);
+  for (var i = 0; i < list.length; i++) {
+    print(list[i]['title']);
+  }
+
+  // 6、定义一个二维数组 打印里面的内容
+  List list3 = [
+    {
+      "cate": '国内',
+      "news": [
+        {"title": "国内新闻1"},
+        {"title": "国内新闻2"},
+        {"title": "国内新闻3"}
+      ]
+    },
+    {
+      "cate": '国际',
+      "news": [
+        {"title": "国际新闻1"},
+        {"title": "国际新闻2"},
+        {"title": "国际新闻3"}
+      ]
+    }
+  ];
+   /*
+    国内
+    -------------
+    国内新闻1
+    国内新闻2
+    国内新闻3
+    国际
+    -------------
+    国际新闻1
+    国际新闻2
+    国际新闻3
+  */
+  for (var i = 0; i < list3.length; i++) {
+    print(list3[i]["cate"]);
+    print('-------------');
+    for (var j = 0; j < list3[i]["news"].length; j++) {
+      print(list3[i]["news"][j]["title"]);
+    }
+  }
+}
+```
+
+#### while do...while循环语句
+
+```dart
+void main(){
+/*
+语法格式:
+
+  while(表达式/循环条件){
+
+  }
+
+  do{
+    语句/循环体
+  }while(表达式/循环条件);
+
+  注意： 1、最后的分号不要忘记
+        2、循环条件中使用的变量需要经过初始化
+        3、循环体中，应有结束循环的条件，否则会造成死循环。
+*/
+
+/*
+  int i=1;
+  while(i<=10){
+
+      print(i);
+  }
+  //死循环
+ */
+
+  int i = 1;
+  while (i <= 10) {
+    print(i);
+    i++;
+  }
+
+  // 1、求1+2+3+4 ...+100的和
+  int j = 1;
+  var sum = 0;
+  while (j <= 100) {
+    sum += j;
+    j++;
+  }
+  print(sum);
+
+  int k = 1;
+  var sum2 = 0;
+  do {
+    sum += k;
+    k++;
+  } while (k <= 100);
+  print(sum2);
+
+  //  while 和 do while的区别   第一次循环条件不成立的情况下
+  int l = 10;
+  while (l < 2) {
+    print('执行代码');
+  }
+
+  var m = 10;
+  do {
+    print('执行代码');
+  } while (m < 2);
+}
+```
+
+#### break和continue关键词
+
+```dart
+void main(){
+  for (var i = 1; i <= 10; i++) {
+    print(i);
+  }
+  
+  // 1、如果i等于4的话跳过
+  for (var i = 1; i <= 10; i++) {
+    if (i == 4) {
+      continue; /*跳过当前循环体 然后循环还会继续执行*/
+    }
+    print(i);
+  }
+
+  // 2、如果 i等于4的话跳出循环
+  for (var i = 1; i <= 10; i++) {
+    if (i == 4) {
+      break; /*跳出循环体*/
+    }
+    print(i);
+  }
+
+  // 3、break语句只能向外跳出一层
+  for (var i = 0; i < 5; i++) {
+    print('外层---$i');
+    for (var j = 0; j < 3; j++) {
+      if (j == 1) {
+        break;
+      }
+      print('里层$j');
+    }
+  }
+
+  // 4、while循环 break跳出循环
+  var i = 1;
+  while (i <= 10) {
+    if (i == 4) {
+      break;
+    }
+    print(i);
+    i++;
+  }
+
+  var sex = "男";
+  switch (sex) {
+    case "男":
+      print('男');
+      break;
+    case "女":
+      print('男');
+      break;
+    default:
+  }
+}
+```
 
 ### 集合类型
 
