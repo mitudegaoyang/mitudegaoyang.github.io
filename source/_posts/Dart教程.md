@@ -1577,13 +1577,357 @@ void main(){
 
 ### 对象
 
-```dart
-void main(){
+#### 面向对象概念
 
+面向对象编程(OOP)的三个基本特征是：封装、继承、多态
+
+* 封装：封装是对象和类概念的主要特性。封装，把客观事物封装成抽象的类，并且把自己的部分属性和方法提供给其他对象调用, 而一部分属性和方法则隐藏。
+* 继承：面向对象编程 (OOP) 语言的一个主要功能就是“继承”。继承是指这样一种能力：它可以使用现有类的功能，并在无需重新编写原来的类的情况下对这些功能进行扩展。
+* 多态：允许将子类类型的指针赋值给父类类型的指针, 同一个函数调用会有不同的执行效果 。
+
+Dart所有的东西都是对象，所有的对象都继承自Object类。
+
+Dart是一门使用类和单继承的面向对象语言，所有的对象都是类的实例，并且所有的类都是Object的子类
+
+一个类通常由属性和方法组成。
+
+```dart
+// dart内置的类
+void main(){
+  // List
+  List list=new List();
+  list.isEmpty;
+  list.add('香蕉');
+  list.add('香蕉1');
+
+  // Map
+  Map m=new Map();
+  m["username"]="张三";
+  m.addAll({"age":20});
+  m.isEmpty;
+
+  // Object
+  Object a=123;
+  Object v=true;
+  print(a);
+  print(v);
 }
 ```
 
-### 类
+#### 定义类
+
+> Dart是一门使用类和单继承的面向对象语言，所有的对象都是类的实例，并且所有的类都是Object的子类
+
+```dart
+class Person {
+  String name = "张三";
+  int age = 23;
+  void getInfo() {
+    // print("$name----$age");
+    print("${this.name}----${this.age}");
+  }
+
+  void setInfo(int age) {
+    this.age = age;
+  }
+}
+void main(){
+  // 实例化
+  var p1 = new Person();
+  print(p1.name);
+  p1.getInfo();
+
+  // 实例化类的类型
+  Person p2 = new Person();
+  print(p2.name);
+  
+  // 调用类里的方法
+  p2.setInfo(28);
+  p2.getInfo();
+}
+```
+
+#### 构造函数
+
+#### 默认构造函数
+
+> 构造函数的写法
+
+```dart
+class Person {
+  String name = '张三';
+  int age = 20;
+  // 默认构造函数
+  Person() {
+    print('这是构造函数里面的内容 这个方法在实例化的时候触发');
+  }
+  void printInfo() {
+    print("${this.name}----${this.age}");
+  }
+}
+
+void main(){
+  var p1 = new Person();
+}
+```
+
+> 使用构造函数初始化类的属性
+
+```dart
+class Person {
+  String name;
+  int age;
+  //默认构造函数
+  Person(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
+  void printInfo() {
+    print("${this.name}----${this.age}");
+  }
+}
+
+void main(){
+  Person p1 = new Person('张三', 20);
+  p1.printInfo();
+  
+  Person p2 = new Person('李四', 25);
+  p2.printInfo();
+}
+```
+
+> 默认构造函数的简写
+
+```dart
+class Person {
+  String name;
+  int age;
+  //默认构造函数的简写
+  Person(this.name, this.age);
+  void printInfo() {
+    print("${this.name}----${this.age}");
+  }
+}
+
+void main(){
+  Person p1 = new Person('张三', 20);
+  p1.printInfo();
+  
+  Person p2 = new Person('李四', 25);
+  p2.printInfo();
+}
+```
+
+#### 命名构造函数
+
+dart里面命名构造函数可以写多个
+
+```dart
+class Person {
+  String name;
+  int age;
+  //默认构造函数的简写
+  Person(this.name, this.age);
+
+  Person.now() {
+    print('我是命名构造函数');
+  }
+
+  Person.setInfo(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  void printInfo() {
+    print("${this.name}----${this.age}");
+  }
+}
+
+void main() {
+  var d = new DateTime.now(); // 实例化DateTime调用它的命名构造函数
+  print(d);
+
+  Person p1 = new Person('张三', 20); // 默认实例化类的时候调用的是 默认构造函数
+  p1.printInfo();
+
+  Person p2 = new Person.now(); // 调用命名构造函数
+
+  Person p3 = new Person.setInfo('李四', 30);
+  p3.printInfo();
+}
+```
+
+#### 将类抽离成一个模块
+
+`index.dart`
+
+```dart
+import 'lib/Person.dart';
+
+void main(){
+  Person p1=new Person.setInfo('李四1',30);
+  p1.printInfo(); 
+}
+```
+
+`lib/Person.dart`
+
+```dart
+class Person{
+  String name;
+  int age; 
+  //默认构造函数的简写
+  Person(this.name,this.age);
+  
+  Person.now(){
+    print('我是命名构造函数');
+  }
+
+  Person.setInfo(String name,int age){
+    this.name=name;
+    this.age=age;
+  }
+
+  void printInfo(){   
+    print("${this.name}----${this.age}");
+  }
+}
+```
+
+#### 类的私有属性和方法
+
+Dart和其他面向对象语言不一样，Data中没有`public` `private` `protected`这些访问修饰符合
+
+但是我们可以使用`_`把一个属性或者方法定义成私有(类必须在单独的文件中，才能将属性或方法私有)。
+
+`index.dart`
+
+```dart
+import 'lib/Animal.dart';
+
+void main(){
+  Animal a = new Animal('小狗', 3);
+  print(a.age); // 间接的获取私有属性
+  print(a.getName()); // 间接的获取私有属性
+  a.execRun(); // 间接的调用私有方法
+}
+```
+
+`lib/Animal.dart`
+
+```dart
+class Animal {
+  String _name; // 私有属性
+  int age;
+  // 默认构造函数的简写
+  Animal(this._name, this.age);
+
+  void printInfo() {
+    print("${this._name}----${this.age}");
+  }
+
+  String getName() {
+    return this._name;
+  }
+
+  void _run() {
+    print('这是一个私有方法');
+  }
+
+  execRun() {
+    this._run(); // 类里面方法的相互调用
+  }
+}
+```
+
+#### 类的getter和setter
+
+获取矩形的面积
+
+* 使用方法获取
+
+```dart
+class Rect {
+  num height;
+  num width;
+
+  Rect(this.height, this.width);
+  area() {
+    return this.height * this.width;
+  }
+}
+
+void main() {
+  Rect r = new Rect(10, 4);
+  print("面积:${r.area()}");
+}
+```
+
+* 使用get获取(计算属性)
+
+```dart
+class Rect {
+  num height;
+  num width;
+  Rect(this.height, this.width);
+  get area {
+    return this.height * this.width;
+  }
+}
+
+void main() {
+  Rect r = new Rect(10, 2);
+  print("面积:${r.area}"); // 注意调用直接通过访问属性的方式访问area
+}
+```
+
+* 使用set存储
+
+```dart
+class Rect {
+  num height;
+  num width;
+
+  Rect(this.height, this.width);
+  get area {
+    return this.height * this.width;
+  }
+
+  set areaHeight(value) {
+    this.height = value;
+  }
+}
+
+void main() {
+  Rect r = new Rect(10, 4);
+  r.areaHeight = 6;
+  print("面积:${r.area}"); // 注意调用直接通过访问属性的方式访问area
+}
+```
+
+#### 类的初始化列表
+
+Dart中我们也可以在构造函数体运行之前初始化实例变量
+
+```dart
+class Rect{
+  int height;
+  int width;
+  Rect():height=2,width=10{
+    print("${this.height}---${this.width}");
+  }
+  getArea(){
+    return this.height*this.width;
+  } 
+}
+
+void main(){
+  Rect r=new Rect();
+  print(r.getArea()); 
+}
+```
+
+### 类的静态成员、操作符和类的继承
 
 ```dart
 void main(){
