@@ -2725,15 +2725,217 @@ void main() {
   print(c is B); //true
 
   var a = new A();
-  print(a is Object); //true a也是Object的子类型，因为所有的类都是Object
+  print(a is Object); //true a也是Object的子类型，因为所有的类都继承于Object类
 }
 ```
 
 ## 泛型
 
+通俗理解：泛型就是解决 类 接口 方法的复用性、以及对不特定数据类型的支持(类型校验)
+
+### 泛型方法
+
+> 期望方法传入什么类型返回什么类型
+
+* 传入string返回string
+
+```dart
+// 只能返回string类型的数据
+String getData(String value) {
+  return value;
+}
+```
+
+* 定义多个方法，A传入string返回string，B传入int返回int
+
+```dart
+// 同时支持返回 string类型 和int类型  （代码冗余）
+String getData1(String value) {
+  return value;
+}
+
+int getData2(int value) {
+  return value;
+}
+```
+
+* 不指定类型
+
+```dart
+// 同时返回 string类型 和number类型 不指定类型可以解决这个问题 但放弃了类型校验
+getData3(value) {
+  return value;
+}
+
+```
+
+* 泛型使用
+
+不指定类型放弃了类型检查。我们现在想实现的是传入什么 返回什么。
+比如:传入`number`类型必须返回`number`类型，传入`string`类型必须返回`string`类型。
+
+```dart
+T getData4<T>(T value) {
+  return value;
+}
+
+void main(){
+  print(getData4(21));
+  print(getData4('xxx'));
+  print(getData4<String>('你好')); // 指定类型
+  print(getData4<int>(123));      // 指定类型
+}
+```
+
+### 泛型类
+
 ```dart
 void main(){
+  // 不指定类的类型
+  List list = new List();
+  list.add(12);
+  list.add("你好");
+  print(list);
 
+  // 指定类的类型为String
+  List list2 = new List<String>();
+  // list2.add(12); //错误的写法
+  list2.add('你好');
+  list2.add('你好1');
+  print(list2);
+
+  // 指定类的类型为int
+  List list3 = new List<int>();
+  // list3.add("你好"); //错误写法
+  list3.add(12);
+  print(list3);
+}
+```
+
+案例：把下面类转换成泛型类，要求List里面可以增加int类型的数据，也可以增加String类型的数据。但是每次调用增加的类型要统一
+
+```dart
+class PrintClass {
+  List list = new List<int>();
+  void add(int value) {
+    this.list.add(value);
+  }
+
+  void printInfo() {
+    for (var i = 0; i < this.list.length; i++) {
+      print(this.list[i]);
+    }
+  }
+}
+
+void main(){
+  PrintClass p = new PrintClass();
+  p.add(1);
+  p.add(12);
+  p.add(5);
+  p.printInfo();
+}
+```
+
+* 修改泛型类后
+
+```dart
+class PrintClass<T> {
+  List list = new List<T>();
+  void add(T value) {
+    this.list.add(value);
+  }
+
+  void printInfo() {
+    for (var i = 0; i < this.list.length; i++) {
+      print(this.list[i]);
+    }
+  }
+}
+
+void main(){
+  PrintClass p = new PrintClass();
+  p.add(11);
+  p.add('xxx');
+  p.add(22);
+  p.printInfo();
+
+  PrintClass p1 = new PrintClass<int>();
+  p1.add(1);
+  p1.add(2);
+  p1.add(3);
+  p1.printInfo();
+
+  PrintClass p2 = new PrintClass<String>();
+  p2.add('你好');
+  p2.add('泛型');
+  p2.add('类');
+  p2.printInfo();
+}
+```
+
+### 泛型接口
+
+官方示例：可将`ObjectCache`和`StringCache`通过泛型接口实现为`Cache`
+
+```dart
+abstract class ObjectCache {
+  getByKey(String key);
+  void setByKey(String key, Object value);
+}
+
+abstract class StringCache {
+  getByKey(String key);
+  void setByKey(String key, String value);
+}
+
+abstract class Cache<T> {
+  getByKey(String key);
+  void setByKey(String key, T value);
+}
+```
+
+实现数据缓存的功能：有文件缓存、和内存缓存。内存缓存和文件缓存按照接口约束实现。
+
+1. 定义一个泛型接口 约束实现它的子类必须有getByKey(key) 和 setByKey(key,value)
+2. 要求setByKey的时候的value的类型和实例化子类的时候指定的类型一致
+
+```dart
+abstract class Cache<T> {
+  getByKey(String key);
+  void setByKey(String key, T value);
+}
+
+class FileCache<T> extends Cache<T> {
+  @override
+  getByKey(String key) {
+    throw UnimplementedError();
+  }
+
+  @override
+  void setByKey(String key, T value) {
+    print('this is FileCache key=${key} value=${value}');
+  }
+}
+
+class MemoryCache<T> extends Cache<T> {
+  @override
+  getByKey(String key) {
+    throw UnimplementedError();
+  }
+
+  @override
+  void setByKey(String key, T value) {
+    print('this is MemoryCache key=${key} value=${value}');
+  }
+}
+
+void main() {
+  MemoryCache m = new MemoryCache<String>();
+  m.setByKey('index', '首页数据');
+
+  MemoryCache m1 = new MemoryCache<Map>();
+  m1.setByKey('index', {"name": "张三", "age": 20});
 }
 ```
 
