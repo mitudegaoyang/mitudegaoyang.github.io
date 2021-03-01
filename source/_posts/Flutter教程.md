@@ -260,9 +260,7 @@ class MyApp extends StatelessWidget {
 
 执行r进行重新加载
 
-### Center组件
-
-### Text组件
+### Text组件简单介绍
 
 给文字调整字号和颜色
 
@@ -298,7 +296,237 @@ class MyApp extends StatelessWidget {
 
 ### MaterialApp组件
 
+MaterialApp 是一个方便的 Widget，它封装了应用程序实现 Material Design 所需要的 一些 Widget。一般作为顶层(根) widget 使用。
+
+常用的属性：
+
+* home（主页）
+* title（标题）
+* color（颜色）
+* theme（主题）
+* routes（路由）
+* ...
+
 ### Scaffold组件
+
+Scaffold 是 Material Design 布局结构的基本实现。此类提供了用于显示 drawer、 snackbar 和底部 sheet 的 API。
+
+Scaffold 有下面几个主要属性：
+
+* appBar - 显示在界面顶部的一个 AppBar。
+* body - 当前界面所显示的主要内容 Widget。
+* drawer - 抽屉菜单控件。
+* ...
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+//自定义组件
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text('Flutter Demo')),
+        body: HomeContent(),
+      ),
+      theme: ThemeData(primarySwatch: Colors.yellow),
+    );
+  }
+}
+
+//
+class HomeContent extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Center(
+        child: Text(
+      '你好Flutter 111',
+      textDirection: TextDirection.ltr,
+      style: TextStyle(
+        fontSize: 40.0,
+        color: Colors.yellow,
+        // color: Color.fromRGBO(244, 233, 121, 0.5),
+      ),
+    ));
+  }
+}
+```
+
+![使用MaterialApp及Scaffold](https://s3.ax1x.com/2021/03/01/6Pvkxx.png)
+
+## Flutter组件
+
+### Container组件
+
+|名称|功能|
+|:--:|:--:|
+|alignment|topCenter：顶部居中对齐</br>topLeft：顶部左对齐</br>topRight：顶部右对齐</br>center：水平垂直居中对齐</br>centerLeft：垂直居中水平居左对齐</br>centerRight：垂直居中水平居右对齐</br>bottomCenter 底部居中对齐</br>bottomLeft：底部居左对齐</br>bottomRight：底部居右对齐|
+|decoration|decoration: BoxDecoration( color: Colors.blue, border: Border.all( color: Colors.red, width: 2.0, ),borderRadius: BorderRadius.all( Radius.circular(8.0) ) )|
+|margin|margin 属性是表示 Container 与外部其他 组件的距离。</br>EdgeInsets.all(20.0),|
+|padding|padding 就 是 Container 的 内 边 距 ， 指 Container 边缘与 Child 之间的距离</br>padding: EdgeInsets.all(10.0)|
+|transform|让 Container 容易进行一些旋转之类的</br>transform: Matrix4.rotationZ(0.2)|
+|height|容器高度|
+|width|容器宽度|
+|child|容器子元素|
+
+[更多参数](https://api.flutter.dev/flutter/widgets/Container-class.html)
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('home'),
+        ),
+        body: HomeContent(),
+      ),
+      theme: ThemeData(primarySwatch: Colors.lightBlue),
+    );
+  }
+}
+
+class HomeContent extends StatelessWidget {
+  build(BuildContext context) {
+    return Center(
+      child: Container(
+        child: Text(
+          '我是超长长长长长长长长长长长文本',
+          textAlign: TextAlign.center,
+          overflow: TextOverflow.ellipsis,
+          maxLines: 1,
+          textScaleFactor: 2,
+          style: TextStyle(
+            fontSize: 16.0,
+            color: Colors.red,
+            // color: Color.fromARGB(a, r, g, b),
+            fontWeight: FontWeight.w800,
+            fontStyle: FontStyle.italic,
+            decoration: TextDecoration.lineThrough,
+            decorationColor: Colors.green,
+            decorationStyle: TextDecorationStyle.dashed,
+            letterSpacing: 5.0,
+          ),
+        ),
+        height: 300.0,
+        width: 300.0,
+        decoration: BoxDecoration(
+          color: Colors.yellow,
+          border: Border.all(
+            color: Colors.blue,
+            width: 2.0,
+          ),
+          borderRadius: BorderRadius.all(
+            // Radius.circular(150), // 圆形
+            Radius.circular(50),
+          ),
+        ),
+        // padding: EdgeInsets.all(20),
+        padding: EdgeInsets.fromLTRB(10, 10, 5, 5),
+        margin: EdgeInsets.fromLTRB(10, 10, 5, 5),
+        // transform: Matrix4.translationValues(100, 10, 10),  // 位移
+        // transform: Matrix4.rotationZ(0.3),  // 旋转
+        // transform: Matrix4.diagonal3Values(1.3, 1, 1), // 缩放
+        alignment: Alignment.center,
+      ),
+    );
+  }
+}
+```
+
+![使用Container组件](https://s3.ax1x.com/2021/03/01/6iG5O1.png)
+
+### Text组件
+
+|名称|功能|
+|:--:|:--:|
+|textAlign|文本对齐方式（center 居中，left 左 对齐，right 右对齐，justfy 两端对齐）|
+|textDirection|文本方向（ltr 从左至右，rtl 从右至 左）|
+|overflow|文字超出屏幕之后的处理方式（clip 裁剪，fade 渐隐，ellipsis 省略号）|
+|textScaleFactor|字体显示倍率|
+|maxLines|文字显示最大行数|
+|style|字体的样式设置|
+
+下面是 TextStyle 的参数
+
+|名称|功能|
+|:--:|:--:|
+|decoration|文字装饰线（none 没有线，lineThrough 删除线，overline 上划线，underline 下划线）|
+|decorationColor|文字装饰线颜色|
+|decorationStyle|文字装饰线风格（[dashed,dotted]虚线， double 两根线，solid 一根实线，wavy 波浪 线）|
+|wordSpacing|单词间隙（如果是负值，会让单词变得更紧凑）|
+|letterSpacing|字母间隙（如果是负值，会让字母变得更紧凑）|
+|fontStyle|文字样式（italic 斜体，normal 正常体）|
+|fontSize|文字大小|
+|color|文字颜色|
+|fontWeight|字体粗细（bold 粗体，normal 正常体）|
+
+[更多参数](https://api.flutter.dev/flutter/painting/TextStyle-class.html)
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('home'),
+        ),
+        body: HomeContent(),
+      ),
+      theme: ThemeData(primarySwatch: Colors.lightBlue),
+    );
+  }
+}
+
+class HomeContent extends StatelessWidget {
+  build(BuildContext context) {
+    return Center(
+      child: Container(
+        child: Text(
+          '我是文本',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 16.0,
+          ),
+        ),
+        height: 300.0,
+        width: 300.0,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: Colors.yellow,
+          border: Border.all(
+            color: Colors.blue,
+            width: 2.0,
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+![使用Text组件](https://s3.ax1x.com/2021/03/01/6PzWx1.png)
 
 ## 参考资料
 
