@@ -114,10 +114,11 @@
                 var ulTmpl = "";
                 for (var j = 0, len2 = res.list.length; j < len2; j++) {
                     var data = res.list[j].arr;
+                    var host = res.hostList[data.hostNum];
                     var liTmpl = "";
                     for (var i = 0, len = data.link.length; i < len; i++) {
-                        var minSrc = 'https://s1.ax1x.com/' + data.link[i] + '.th.jpg';
-                        var src = 'https://s1.ax1x.com/' + data.link[i];
+                        var minSrc = host + data.link[i] + '.th.jpg';
+                        var src = host + data.link[i];
                         var type = data.type[i];
                         var target = src + (type === 'video' ? '.mp4' : '.jpg');
                         var size = data.size[i];
