@@ -14,7 +14,6 @@ toc: true
 ---
 
 ![首屏图](https://s3.ax1x.com/2021/03/01/6iYQbt.png)
-<!-- ![首屏图](https://s3.ax1x.com/2021/02/22/y7Le4x.jpg) -->
 
 <!-- more -->
 
