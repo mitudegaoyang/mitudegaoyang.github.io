@@ -528,6 +528,32 @@ class HomeContent extends StatelessWidget {
 
 ![使用Text组件](https://s3.ax1x.com/2021/03/01/6PzWx1.png)
 
+### 图片组件
+
+[更多参数](https://api.flutter.dev/flutter/widgets/Image-class.html)
+
+#### 图片引入
+
+##### 引入线上图片
+
+##### 引入本地图片
+
+#### 原型/圆角图片实现
+
+##### 使用Container实现
+
+##### 使用ClipOval组件实现
+
+### ListView组件
+
+[更多参数](https://api.flutter.dev/flutter/widgets/Image-class.html)
+
+#### ListTile组件
+
+### ListView2组件
+
+[更多参数](https://api.flutter.dev/flutter/widgets/Image-class.html)
+
 ## 参考资料
 
 * [B站-Dart Flutter教程_Dart Flutter入门实战视频教程-2020年新出-第14讲以后是Flutter教程](https://www.bilibili.com/video/BV1S4411E7LY?from=search&seid=18237173814777031437)

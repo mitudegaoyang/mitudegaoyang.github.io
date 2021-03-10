@@ -1036,6 +1036,7 @@ void main(){
   * join()      List转换成字符串
   * split()     字符串转化成List
   * forEach
+  * asMap       获取数组每一项的索引值
   * map
   * where
   * any
