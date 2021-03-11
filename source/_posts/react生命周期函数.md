@@ -47,10 +47,10 @@ categories:
 > 总结如下
 
 1. `componentWillMount` 被初始化替代 无意义 `不可以`
-1. `componentDidMount` 执行两次 `可以`
-1. `componentWillUnmount` 不执行 无意义 `不可以`
-1. `shouldComponentUpdate` 和 `componentWillUpdate` `不可以`
-1. `componentDidUpdate` 执行两次 `可以`
+1. `componentDidMount` 连续渲染两遍 `可以`
+1. `componentWillUnmount` 不生效 无意义 `不可以`
+1. `shouldComponentUpdate` 和 `componentWillUpdate` 死循环 `不可以`
+1. `componentDidUpdate` 连续渲染两遍 `可以`
 1. `componentWillReceiveProps` `可以`
 
 回到[前端知识积累](/archives/2021021570ca98d5/#生命周期函数)
