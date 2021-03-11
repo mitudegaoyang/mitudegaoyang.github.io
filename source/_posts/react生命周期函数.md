@@ -53,6 +53,8 @@ categories:
 1. `componentDidUpdate` 执行两次 `可以`
 1. `componentWillReceiveProps` `可以`
 
+回到[前端知识积累](/archives/2021021570ca98d5/#生命周期函数)
+
 ## 参考资料
 
 * [React 生命周期中 对setState的调用](https://blog.csdn.net/yh_ang_eng/article/details/98958474)
