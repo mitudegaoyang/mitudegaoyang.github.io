@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://z3.ax1x.com/2021/03/29/c9bSAS.png">
 <meta property="og:image" content="https://z3.ax1x.com/2021/03/29/c9bptg.png">
 <meta property="article:published_time" content="2021-03-29T02:27:35.000Z">
-<meta property="article:modified_time" content="2021-03-29T15:30:15.891Z">
+<meta property="article:modified_time" content="2021-03-29T15:31:55.188Z">
 <meta property="article:author" content="迷途的羔羊">
 <meta property="article:tag" content="技术积累">
 <meta property="article:tag" content="前端">
@@ -288,7 +288,17 @@
 <h4 id="git提交的时候习惯用命令还是图形化管理工具"><a href="#git提交的时候习惯用命令还是图形化管理工具" class="headerlink" title="git提交的时候习惯用命令还是图形化管理工具"></a>git提交的时候习惯用命令还是图形化管理工具</h4><h5 id="sourseTree的校验如何实现的"><a href="#sourseTree的校验如何实现的" class="headerlink" title="sourseTree的校验如何实现的"></a>sourseTree的校验如何实现的</h5><h5 id="git插件如何提交"><a href="#git插件如何提交" class="headerlink" title="git插件如何提交"></a>git插件如何提交</h5><h4 id="eslint是否了解"><a href="#eslint是否了解" class="headerlink" title="eslint是否了解"></a>eslint是否了解</h4><p>指定规范</p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ad1e46faaea2">Eslint 超简单入门教程</a></p>
 <h4 id="小程序是否接触过"><a href="#小程序是否接触过" class="headerlink" title="小程序是否接触过"></a>小程序是否接触过</h4><p>做了一版小程序</p>
-<h5 id="小程序如何获取token"><a href="#小程序如何获取token" class="headerlink" title="小程序如何获取token"></a>小程序如何获取token</h5><p><a target="_blank" rel="noopener" href="https://www.dazhuanlan.com/2019/12/16/5df6867423c68/">小程序开发之获取token值</a></p>
+<h5 id="小程序如何获取token"><a href="#小程序如何获取token" class="headerlink" title="小程序如何获取token"></a>小程序如何获取token</h5><ol>
+<li>微信小程序通过访问wx.login获得一个code，返回给后台</li>
+<li>后台拿着这个code，调用腾讯的接口，获取到openid、seesion-key等信息，openid是用户唯一的</li>
+<li>后台拿着openid去数据库中检查，该用户是否是第一次登陆<ol>
+<li>如果是第一次登陆，那么就新建一个用户–UserAcount；如果不是第一次登陆，就修改该用户的最后登录时间</li>
+<li>不管是不是第一次登录，都有了一个用户</li>
+</ol>
+</li>
+<li>然后根据用户的信息利用JWT生成token，下发给微信小程序</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://www.dazhuanlan.com/2019/12/16/5df6867423c68/">小程序开发之获取token值</a></p>
 <h4 id="混合开发用过什么-与原生交互如蓝牙图片等"><a href="#混合开发用过什么-与原生交互如蓝牙图片等" class="headerlink" title="混合开发用过什么 与原生交互如蓝牙图片等"></a>混合开发用过什么 与原生交互如蓝牙图片等</h4><h3 id="浏览器相关"><a href="#浏览器相关" class="headerlink" title="浏览器相关"></a>浏览器相关</h3><h4 id="cookie-SessionStorage-LocalStorage的差别"><a href="#cookie-SessionStorage-LocalStorage的差别" class="headerlink" title="cookie SessionStorage LocalStorage的差别"></a>cookie SessionStorage LocalStorage的差别</h4><p>相同点：</p>
 <ul>
 <li>都是存储数据，存储在web端，并且都是同源</li>
@@ -971,10 +981,6 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color4">Mac</a>
-            </li>
-            
-            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">前端</a>
             </li>
             
@@ -984,6 +990,10 @@
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">js</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color4">Mac</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -1023,11 +1033,11 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color5">两数之和</a>
+              <a href="javascript:void(0)" class="js-tag color5">两数相加</a>
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">简单</a>
+              <a href="javascript:void(0)" class="js-tag color3">中等</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -1035,11 +1045,11 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color5">两数相加</a>
+              <a href="javascript:void(0)" class="js-tag color5">两数之和</a>
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">中等</a>
+              <a href="javascript:void(0)" class="js-tag color3">简单</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -1099,11 +1109,11 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">天津</a>
+              <a href="javascript:void(0)" class="js-tag color1">无重复字符的最长子串</a>
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color1">无重复字符的最长子串</a>
+              <a href="javascript:void(0)" class="js-tag color3">天津</a>
             </li>
             
             <li class="article-tag-list-item">
