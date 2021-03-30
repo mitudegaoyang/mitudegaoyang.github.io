@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://z3.ax1x.com/2021/03/29/c9bSAS.png">
 <meta property="og:image" content="https://z3.ax1x.com/2021/03/29/c9bptg.png">
 <meta property="article:published_time" content="2021-03-29T02:27:35.000Z">
-<meta property="article:modified_time" content="2021-03-30T01:39:53.303Z">
+<meta property="article:modified_time" content="2021-03-30T01:55:31.164Z">
 <meta property="article:author" content="迷途的羔羊">
 <meta property="article:tag" content="技术积累">
 <meta property="article:tag" content="前端">
@@ -241,7 +241,7 @@
 <p>遇到了什么问题及怎么处理的。</p>
 <h4 id="是否封装过组件，封装的过程是什么"><a href="#是否封装过组件，封装的过程是什么" class="headerlink" title="是否封装过组件，封装的过程是什么"></a>是否封装过组件，封装的过程是什么</h4><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/111873208">React组件封装技巧（HOC、Render Props、Hook）</a></p>
 <h4 id="H5项目做过什么"><a href="#H5项目做过什么" class="headerlink" title="H5项目做过什么"></a>H5项目做过什么</h4><h5 id="屏幕尺寸适配"><a href="#屏幕尺寸适配" class="headerlink" title="屏幕尺寸适配"></a>屏幕尺寸适配</h5><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904029898670088">都2020移动端适配你还用flexible.js吗？vw+rem一行代码搞定</a></p>
-<p>优点：不需要引入新的 js，一行代码搞定适配问题<br>缺点：浏览器兼容性差，IE9 以下不支持，但现代浏览器，特别是移动端，基本都支持3</p>
+<p>优点：不需要引入新的 js，一行代码搞定适配问题<br>缺点：浏览器兼容性差，IE9 以下不支持，但现代浏览器，特别是移动端，基本都支持</p>
 <h5 id="em和rem的区别"><a href="#em和rem的区别" class="headerlink" title="em和rem的区别"></a>em和rem的区别</h5><p>两者都是相对尺寸</p>
 <p>em继承父级元素的字体大小<br>rem是相对HTML根元素</p>
 <h4 id="防抖和节流"><a href="#防抖和节流" class="headerlink" title="防抖和节流"></a>防抖和节流</h4><p>函数防抖（debounce）：当持续触发事件时，一定时间段内没有再触发事件，事件处理函数才会执行一次，如果设定的时间到来之前，又一次触发了事件，就重新开始延时。<br>函数节流（throttle）：当持续触发事件时，保证一定时间段内只调用一次事件处理函数。</p>
@@ -331,6 +331,12 @@
 </ol>
 <p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000010400892">cookie、sessionStorage、localStorage 详解及应用场景</a></p>
 <h5 id="AB相同页面LocalStorage是否相互影响"><a href="#AB相同页面LocalStorage是否相互影响" class="headerlink" title="AB相同页面LocalStorage是否相互影响"></a>AB相同页面LocalStorage是否相互影响</h5><p>A页面改变LocalStorageB页面如何监听到</p>
+<ul>
+<li>同一浏览器打开了两个同源页面</li>
+<li>其中一个网页修改了 localStorage</li>
+<li>另一网页注册了 storage 事件</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/519a1b42d659">监听localStorage变化</a></p>
 <h4 id="H5缓存"><a href="#H5缓存" class="headerlink" title="H5缓存"></a>H5缓存</h4><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000004132566">H5 缓存机制浅析 - 移动端 Web 加载性能优化</a></p>
 <h4 id="资源缓存有哪些类型"><a href="#资源缓存有哪些类型" class="headerlink" title="资源缓存有哪些类型"></a>资源缓存有哪些类型</h4><p>HTML<br>JavaScript<br>CSS、SCSS<br>图片<br>SVG<br>视频、音频和字幕<br>字体文件</p>
 <h4 id="为什么会出现缓存200和304是怎么发生的"><a href="#为什么会出现缓存200和304是怎么发生的" class="headerlink" title="为什么会出现缓存200和304是怎么发生的"></a>为什么会出现缓存200和304是怎么发生的</h4><p>请求200还是请求304是根据什么区分的</p>
@@ -368,6 +374,18 @@
 <li>componentDidUpdate    在组件完成更新后立即调用。在初始化时不会被调用。</li>
 <li>componentWillUnmount  在组件从 DOM 中移除之前立刻被调用。</li>
 </ul>
+<p>即将弃用：</p>
+<ul>
+<li>componentWillMount</li>
+<li>componentWillReceiveProps</li>
+<li>componentWillUpdate</li>
+</ul>
+<p>新增：</p>
+<ul>
+<li>getDerivedStateFromProps</li>
+<li>getSnapshotBeforeUpdate</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904005152276487">React 的生命周期变化</a></p>
 <h4 id="Hook"><a href="#Hook" class="headerlink" title="Hook"></a>Hook</h4><p>useState 扁平化存储数据<br>useEffect 初始化时、监听某个或某几个值变化、监听卸载</p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/88593858">谈谈react hooks的优缺点</a></p>
 <h4 id="react渲染虚拟dom的过程"><a href="#react渲染虚拟dom的过程" class="headerlink" title="react渲染虚拟dom的过程"></a>react渲染虚拟dom的过程</h4><h4 id="react列表的keys的作用是什么"><a href="#react列表的keys的作用是什么" class="headerlink" title="react列表的keys的作用是什么"></a>react列表的keys的作用是什么</h4><p>Keys 可以在 DOM 中的某些元素被增加或删除的时候帮助 React 识别哪些元素发生了变化。因此你应当给数组中的每一个元素赋予一个确定的标识。</p>
@@ -1018,15 +1036,15 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">flutter</a>
-            </li>
-            
-            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">前端</a>
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">UI-Grid</a>
+              <a href="javascript:void(0)" class="js-tag color5">html</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">flutter</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -1034,7 +1052,7 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color5">html</a>
+              <a href="javascript:void(0)" class="js-tag color3">UI-Grid</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -1066,6 +1084,22 @@
             </li>
             
             <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color4">西山国家森林公园</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color4">鬼笑石</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color1">太阳宫公园</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color4">随手拍</a>
+            </li>
+            
+            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
             </li>
             
@@ -1082,31 +1116,15 @@
             </li>
             
             <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">故宫</a>
+            </li>
+            
+            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color5">两数相加</a>
             </li>
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">中等</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">故宫</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color4">西山国家森林公园</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color4">鬼笑石</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color1">太阳宫公园</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color4">随手拍</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -1162,10 +1180,6 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">十渡</a>
-            </li>
-            
-            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color4">读书会</a>
             </li>
             
@@ -1174,11 +1188,15 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color4">阳台山</a>
+              <a href="javascript:void(0)" class="js-tag color3">十渡</a>
             </li>
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color5">南锣鼓巷</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color4">阳台山</a>
             </li>
             
             <li class="article-tag-list-item">
