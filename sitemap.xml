@@ -247,14 +247,14 @@
   </url>
   
   <url>
-    <loc>https://www.gaotianyang.top/archives/20200719da1a79f6/</loc>
+    <loc>https://www.gaotianyang.top/archives/20200607c314148a/</loc>
     
     <lastmod>2020-08-12</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.gaotianyang.top/archives/20200607c314148a/</loc>
+    <loc>https://www.gaotianyang.top/archives/20200719da1a79f6/</loc>
     
     <lastmod>2020-08-12</lastmod>
     
@@ -310,14 +310,14 @@
   </url>
   
   <url>
-    <loc>https://www.gaotianyang.top/archives/201710264a17b156/</loc>
+    <loc>https://www.gaotianyang.top/archives/20200715c2350bb4/</loc>
     
     <lastmod>2020-08-12</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.gaotianyang.top/archives/20200715c2350bb4/</loc>
+    <loc>https://www.gaotianyang.top/archives/201710264a17b156/</loc>
     
     <lastmod>2020-08-12</lastmod>
     
@@ -382,13 +382,6 @@
   </url>
   
   <url>
-    <loc>https://www.gaotianyang.top/tags/Mac/</loc>
-    <lastmod>2021-03-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.gaotianyang.top/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2021-03-30</lastmod>
     <changefreq>daily</changefreq>
@@ -397,6 +390,13 @@
   
   <url>
     <loc>https://www.gaotianyang.top/tags/html/</loc>
+    <lastmod>2021-03-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gaotianyang.top/tags/Mac/</loc>
     <lastmod>2021-03-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -515,20 +515,6 @@
   </url>
   
   <url>
-    <loc>https://www.gaotianyang.top/tags/%E5%A4%AA%E9%98%B3%E5%AE%AB%E5%85%AC%E5%9B%AD/</loc>
-    <lastmod>2021-03-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.gaotianyang.top/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D/</loc>
-    <lastmod>2021-03-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.gaotianyang.top/tags/%E8%A5%BF%E5%B1%B1%E5%9B%BD%E5%AE%B6%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9B%AD/</loc>
     <lastmod>2021-03-30</lastmod>
     <changefreq>daily</changefreq>
@@ -537,6 +523,20 @@
   
   <url>
     <loc>https://www.gaotianyang.top/tags/%E9%AC%BC%E7%AC%91%E7%9F%B3/</loc>
+    <lastmod>2021-03-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gaotianyang.top/tags/%E5%A4%AA%E9%98%B3%E5%AE%AB%E5%85%AC%E5%9B%AD/</loc>
+    <lastmod>2021-03-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gaotianyang.top/tags/%E9%9A%8F%E6%89%8B%E6%8B%8D/</loc>
     <lastmod>2021-03-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -706,14 +706,14 @@
   </url>
   
   <url>
-    <loc>https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/Mac/</loc>
+    <loc>https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2021-03-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/Mac/</loc>
     <lastmod>2021-03-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
