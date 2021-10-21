@@ -14,16 +14,16 @@
 <meta property="og:url" content="https://www.gaotianyang.top/archives/202103112a3f29d/index.html">
 <meta property="og:site_name" content="Blog-Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s3.ax1x.com/2021/03/11/6Y5OyV.jpg">
-<meta property="og:image" content="https://s3.ax1x.com/2021/03/11/6Y5CKf.jpg">
+<meta property="og:image" content="https://z3.ax1x.com/2021/03/11/6Y5OyV.jpg">
+<meta property="og:image" content="https://z3.ax1x.com/2021/03/11/6Y5CKf.jpg">
 <meta property="article:published_time" content="2021-03-11T02:42:26.000Z">
-<meta property="article:modified_time" content="2021-03-13T06:12:04.876Z">
+<meta property="article:modified_time" content="2021-10-20T04:15:54.916Z">
 <meta property="article:author" content="迷途的羔羊">
 <meta property="article:tag" content="技术积累">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="react">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s3.ax1x.com/2021/03/11/6Y5OyV.jpg">
+<meta name="twitter:image" content="https://z3.ax1x.com/2021/03/11/6Y5OyV.jpg">
   
   <link rel="alternative" href="/atom.xml" title="Blog-Hexo" type="application/atom+xml">
   
@@ -230,10 +230,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><img src="https://s3.ax1x.com/2021/03/11/6Y5OyV.jpg" alt="首屏图"></p>
+    <p><img src="https://z3.ax1x.com/2021/03/11/6Y5OyV.jpg" alt="首屏图"></p>
 <a id="more"></a>
-<h2 id="React生命周期函数"><a href="#React生命周期函数" class="headerlink" title="React生命周期函数"></a>React生命周期函数</h2><blockquote>
-<p>react哪些生命周期可以执行setState</p>
+<h2 id="React-生命周期函数"><a href="#React-生命周期函数" class="headerlink" title="React 生命周期函数"></a>React 生命周期函数</h2><blockquote>
+<p>react 哪些生命周期可以执行 setState</p>
 </blockquote>
 <ul>
 <li>挂载或卸载过程涉及到三个函数：<ul>
@@ -251,12 +251,12 @@
 </ul>
 </li>
 </ul>
-<p><img src="https://s3.ax1x.com/2021/03/11/6Y5CKf.jpg" alt="react生命周期"></p>
+<p><img src="https://z3.ax1x.com/2021/03/11/6Y5CKf.jpg" alt="react生命周期"></p>
 <h3 id="生命周期函数里可以-setState-吗？什么时候-setState-合适？"><a href="#生命周期函数里可以-setState-吗？什么时候-setState-合适？" class="headerlink" title="生命周期函数里可以 setState 吗？什么时候 setState 合适？"></a>生命周期函数里可以 setState 吗？什么时候 setState 合适？</h3><ol>
-<li>在 <code>componentWillMount</code>中执行 setState 是无意义的，应该将这里的 setState 放到初始化 this.state 的地方去（如 constructor）直接作为 state 的初始值。 <code>不可以</code><br>原因：组件只挂载一次，在 componentWillMount里 setState 会但是仅会更新 state 一次，而且会和 constructor 里的初始化 state 合并执行，因此这是无意义的 setState。</li>
+<li>在 <code>componentWillMount</code>中执行 setState 是无意义的，应该将这里的 setState 放到初始化 this.state 的地方去（如 constructor）直接作为 state 的初始值。 <code>不可以</code><br>原因：组件只挂载一次，在 componentWillMount 里 setState 会但是仅会更新 state 一次，而且会和 constructor 里的初始化 state 合并执行，因此这是无意义的 setState。</li>
 <li>在 <code>componentDidMount</code> 中执行 setState 会导致组件在初始化的时候就触发了更新，渲染了两遍。<code>可以</code></li>
 <li>在 <code>componentWillUnmount</code>中执行 setState 不会更新 state，是不生效而且无意义的。<code>不可以</code></li>
-<li>禁止在 <code>shouldComponentUpdate</code> 和 <code>componentWillUpdate</code>中调用setState，这会造成循环调用，直至耗光浏览器内存后崩溃。<code>不可以</code><br>shouldComponentUpdate` 或者 componentWillUpdate里调用 setState 会再次触发这两个函数，然后在两个函数又触发了 setState，然后再次触发这两个函数。从而死循环。</li>
+<li>禁止在 <code>shouldComponentUpdate</code> 和 <code>componentWillUpdate</code>中调用 setState，这会造成循环调用，直至耗光浏览器内存后崩溃。<code>不可以</code><br>shouldComponentUpdate` 或者 componentWillUpdate 里调用 setState 会再次触发这两个函数，然后在两个函数又触发了 setState，然后再次触发这两个函数。从而死循环。</li>
 <li>在 <code>componentDidUpdate</code> 中执行 setState 会导致组件刚刚完成更新，又要再更新一次，连续渲染两遍（和在 componentDidMount 中执行 setState 类似）。<code>可以</code></li>
 <li>在 <code>componentWillReceiveProps</code>中可以 setState，不会造成二次渲染。由于只有 props 的变化才会触发 componentWillReceiveProps 事件，因为在这个事件里 setState 不会造成不停触发组件更新的死循环，可以放心在这个函数里 setState。<code>可以</code></li>
 </ol>
@@ -273,7 +273,7 @@
 </ol>
 <p>回到<a href="/archives/2021021570ca98d5/#生命周期函数">前端知识积累</a></p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/yh_ang_eng/article/details/98958474">React 生命周期中 对setState的调用</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/yh_ang_eng/article/details/98958474">React 生命周期中 对 setState 的调用</a></li>
 </ul>
 
     
@@ -609,11 +609,11 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">flutter</a>
+              <a href="javascript:void(0)" class="js-tag color3">前端</a>
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              <a href="javascript:void(0)" class="js-tag color5">html</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -622,10 +622,6 @@
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">UI-Grid</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color5">html</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -673,14 +669,6 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color4">西山国家森林公园</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color4">鬼笑石</a>
-            </li>
-            
-            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color5">两数相加</a>
             </li>
             
@@ -689,7 +677,11 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">故宫</a>
+              <a href="javascript:void(0)" class="js-tag color4">西山国家森林公园</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color4">鬼笑石</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -698,6 +690,18 @@
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color4">随手拍</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">故宫</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">北京画院美术馆</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color4">黄永玉版画艺术展</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -717,10 +721,6 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color4">面试题</a>
-            </li>
-            
-            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">天坛</a>
             </li>
             
@@ -733,19 +733,11 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">北京画院美术馆</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color4">黄永玉版画艺术展</a>
+              <a href="javascript:void(0)" class="js-tag color1">无重复字符的最长子串</a>
             </li>
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">算法</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color1">无重复字符的最长子串</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -765,11 +757,23 @@
             </li>
             
             <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+            </li>
+            
+            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color5">南锣鼓巷</a>
             </li>
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color4">阳台山</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">flutter</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color4">面试题</a>
             </li>
             
             <li class="article-tag-list-item">

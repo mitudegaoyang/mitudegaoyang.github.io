@@ -14,17 +14,17 @@
 <meta property="og:url" content="https://www.gaotianyang.top/archives/202102129ea2dc77/index.html">
 <meta property="og:site_name" content="Blog-Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s3.ax1x.com/2021/02/22/y7Le4x.jpg">
-<meta property="og:image" content="https://s3.ax1x.com/2021/03/12/6UUi2d.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/03/12/6UUErt.jpg">
+<meta property="og:image" content="https://z3.ax1x.com/2021/02/22/y7Le4x.jpg">
+<meta property="og:image" content="https://z3.ax1x.com/2021/03/12/6UUi2d.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/03/12/6UUErt.jpg">
 <meta property="article:published_time" content="2021-02-12T10:06:54.000Z">
-<meta property="article:modified_time" content="2021-03-13T06:12:04.877Z">
+<meta property="article:modified_time" content="2021-10-20T04:15:54.782Z">
 <meta property="article:author" content="迷途的羔羊">
 <meta property="article:tag" content="技术积累">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s3.ax1x.com/2021/02/22/y7Le4x.jpg">
+<meta name="twitter:image" content="https://z3.ax1x.com/2021/02/22/y7Le4x.jpg">
   
   <link rel="alternative" href="/atom.xml" title="Blog-Hexo" type="application/atom+xml">
   
@@ -231,10 +231,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><img src="https://s3.ax1x.com/2021/02/22/y7Le4x.jpg" alt="首屏图"></p>
+    <p><img src="https://z3.ax1x.com/2021/02/22/y7Le4x.jpg" alt="首屏图"></p>
 <a id="more"></a>
-<h2 id="递归基础知识"><a href="#递归基础知识" class="headerlink" title="递归基础知识"></a>递归基础知识</h2><h3 id="什么是递归"><a href="#什么是递归" class="headerlink" title="什么是递归"></a>什么是递归</h3><p>在JavaScript程序中，函数直接或间接调用自己。通过某个条件判断跳出结构，有了跳出才有结果。</p>
-<p><img src="https://s3.ax1x.com/2021/03/12/6UUi2d.png" alt="递归"></p>
+<h2 id="递归基础知识"><a href="#递归基础知识" class="headerlink" title="递归基础知识"></a>递归基础知识</h2><h3 id="什么是递归"><a href="#什么是递归" class="headerlink" title="什么是递归"></a>什么是递归</h3><p>在 JavaScript 程序中，函数直接或间接调用自己。通过某个条件判断跳出结构，有了跳出才有结果。</p>
+<p><img src="https://z3.ax1x.com/2021/03/12/6UUi2d.png" alt="递归"></p>
 <h3 id="递归的步骤-技巧"><a href="#递归的步骤-技巧" class="headerlink" title="递归的步骤(技巧)"></a>递归的步骤(技巧)</h3><ol>
 <li>假设递归函数已经写好</li>
 <li>寻找递推关系</li>
@@ -242,42 +242,42 @@
 <li>将临界条件加入到递归体中（一定要加临界条件，某则陷入死循环，内存泄漏）</li>
 </ol>
 <h2 id="简单递归示例"><a href="#简单递归示例" class="headerlink" title="简单递归示例"></a>简单递归示例</h2><p>通过简单的示例先来了解熟悉一下递归，看看如何使用递归？</p>
-<h3 id="求1-100的和"><a href="#求1-100的和" class="headerlink" title="求1-100的和"></a>求1-100的和</h3><p>假设让你来，你是否会这样写？</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>; i&lt;=<span class="number">100</span>; i++)&#123;</span><br><span class="line">  sum += i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum); <span class="comment">// 5050</span></span><br></pre></td></tr></table></figure>
-<p>JavaScript用递归如何计算求1-100的和了？</p>
+<h3 id="求-1-100-的和"><a href="#求-1-100-的和" class="headerlink" title="求 1-100 的和"></a>求 1-100 的和</h3><p>假设让你来，你是否会这样写？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span>; i++) &#123;</span><br><span class="line">  sum += i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum); <span class="comment">// 5050</span></span><br></pre></td></tr></table></figure>
+<p>JavaScript 用递归如何计算求 1-100 的和了？</p>
 <blockquote>
 <p>分析:</p>
 </blockquote>
-<p>1.假设递归函数已经写好，既sum(100)，就是求1-100的和。寻找递推关系: 就是 n 与 n-1 ,或 n-2 之间的关系：</p>
+<p>1.假设递归函数已经写好，既 sum(100)，就是求 1-100 的和。寻找递推关系: 就是 n 与 n-1 ,或 n-2 之间的关系：</p>
 <blockquote>
 <p>sum(n) == sum(n-1) + n</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> resulst = sum(<span class="number">100</span>);</span><br><span class="line"><span class="keyword">var</span> resulst = sum(<span class="number">99</span>) + <span class="number">100</span>;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>2.这时候我们差一个重要的步骤，也就是临界值，来阻止程序死循环</p>
-<p>将临界条件加入到递归中<br>求100 转换为 求99<br>求99 转换为 求98<br>求98 转换为 求97<br>…<br>求2 转换为 求1<br>求1 转换为 求1<br>即 sum(1) = 1</p>
+<p>将临界条件加入到递归中<br>求 100 转换为 求 99<br>求 99 转换为 求 98<br>求 98 转换为 求 97<br>…<br>求 2 转换为 求 1<br>求 1 转换为 求 1<br>即 sum(1) = 1</p>
 <p>3.递归函数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> sum(n<span class="number">-1</span>) + n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> amount = sum(<span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(amount); <span class="comment">// 5050</span></span><br></pre></td></tr></table></figure>
-<h3 id="求-2-4-6-8-10…-第n项与前n项之和"><a href="#求-2-4-6-8-10…-第n项与前n项之和" class="headerlink" title="求 2,4,6,8,10… 第n项与前n项之和"></a>求 2,4,6,8,10… 第n项与前n项之和</h3><blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> sum(n - <span class="number">1</span>) + n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> amount = sum(<span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(amount); <span class="comment">// 5050</span></span><br></pre></td></tr></table></figure>
+<h3 id="求-2-4-6-8-10…-第-n-项与前-n-项之和"><a href="#求-2-4-6-8-10…-第-n-项与前-n-项之和" class="headerlink" title="求 2,4,6,8,10… 第 n 项与前 n 项之和"></a>求 2,4,6,8,10… 第 n 项与前 n 项之和</h3><blockquote>
 <p>分析</p>
 </blockquote>
-<p>假设已知函数 fn(n)为第n项,sum(n)为前n项之和</p>
+<p>假设已知函数 fn(n)为第 n 项,sum(n)为前 n 项之和</p>
 <p>递归关系</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fn(n) = fn(n<span class="number">-1</span>) + <span class="number">2</span></span><br><span class="line">sum(n) = fn(n) + sum(n<span class="number">-1</span>)</span><br><span class="line">递归体</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> fn(n) = (n<span class="number">-1</span>) + <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> sum(n) = fn(n) + sum(n<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这时候我们同样差一个重要的步骤，也就是临界值，来阻止程序死循环</p>
 <p>1、临界条件</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fn(<span class="number">0</span>) = <span class="number">2</span></span><br><span class="line">sum(<span class="number">0</span>) = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
 <p>2、递归函数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">return</span> fn(n<span class="number">-1</span>) + <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">return</span> fn(n) + sum(n<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> amount = sum(<span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(amount); <span class="comment">// 10302</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">return</span> fn(n - <span class="number">1</span>) + <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">return</span> fn(n) + sum(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> amount = sum(<span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(amount); <span class="comment">// 10302</span></span><br></pre></td></tr></table></figure>
 <h2 id="递归的应用"><a href="#递归的应用" class="headerlink" title="递归的应用"></a>递归的应用</h2><p>实际项目中用到递归的有哪些地方？</p>
-<p><img src="https://s3.ax1x.com/2021/03/12/6UUErt.jpg" alt="树形结构"></p>
+<p><img src="https://z3.ax1x.com/2021/03/12/6UUErt.jpg" alt="树形结构"></p>
 <h3 id="遍历树形结构的数据"><a href="#遍历树形结构的数据" class="headerlink" title="遍历树形结构的数据"></a>遍历树形结构的数据</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = [&#123;</span><br><span class="line">  name: <span class="string">&#x27;第一代&#x27;</span>,</span><br><span class="line">  child: [&#123;</span><br><span class="line">    name: <span class="string">&#x27;第二代&#x27;</span>,</span><br><span class="line">    child: [&#123;</span><br><span class="line">      name: <span class="string">&#x27;第三代&#x27;</span>,</span><br><span class="line">      child: [&#123;</span><br><span class="line">        ...</span><br><span class="line">        ...</span><br><span class="line">      &#125;]</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">      name: <span class="string">&#x27;第三代&#x27;</span></span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;,&#123;</span><br><span class="line">    name: <span class="string">&#x27;第二代&#x27;</span></span><br><span class="line">  &#125;,&#123;</span><br><span class="line">    name: <span class="string">&#x27;第二代&#x27;</span></span><br><span class="line">  &#125;]</span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
-<p>这样的数据结构，你就需要一个递归函数来解决问题了，因为你不知道有多少个child，有多少层级在里面，可能是100，也可能是1亿，所以就递归直到没有child后来终止程序。</p>
-<h3 id="接口调用"><a href="#接口调用" class="headerlink" title="接口调用"></a>接口调用</h3><p>根据上一个接口返回数据条数n，调用n次，虽然很不科学，但是小编实际遇到过这样的需求</p>
+<p>这样的数据结构，你就需要一个递归函数来解决问题了，因为你不知道有多少个 child，有多少层级在里面，可能是 100，也可能是 1 亿，所以就递归直到没有 child 后来终止程序。</p>
+<h3 id="接口调用"><a href="#接口调用" class="headerlink" title="接口调用"></a>接口调用</h3><p>根据上一个接口返回数据条数 n，调用 n 次，虽然很不科学，但是小编实际遇到过这样的需求</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(...).then(<span class="function">(<span class="params">data</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// data是数组</span></span><br><span class="line">  <span class="keyword">let</span> fun = <span class="function">(<span class="params">index</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> params = data[index];</span><br><span class="line">    $.ajax(...params).then(...)</span><br><span class="line">    <span class="comment">// 如果index小于data.length就继续执行fun函数</span></span><br><span class="line">    <span class="keyword">if</span>(index&lt;data.length) fun(index+<span class="number">1</span>);</span><br><span class="line">    <span class="comment">// 这时候index&lt;data.length就是临界值，来阻止程序死循环</span></span><br><span class="line">  &#125;</span><br><span class="line">  data &amp;&amp; data.length &amp;&amp; fun(<span class="number">0</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>递归在很多语言中都很常见，它能解决很多你不知道深度</p>
 <p>同时本文重申三遍的问题，大家一定要记住。</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_32549035/article/details/112729055">树形结构递归_JavaScript中如何使用递归？</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_32549035/article/details/112729055">树形结构递归_JavaScript 中如何使用递归？</a></li>
 </ul>
 
     
@@ -459,7 +459,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">递归基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%80%92%E5%BD%92"><span class="toc-number">1.1.</span> <span class="toc-text">什么是递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E7%9A%84%E6%AD%A5%E9%AA%A4-%E6%8A%80%E5%B7%A7"><span class="toc-number">1.2.</span> <span class="toc-text">递归的步骤(技巧)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E9%80%92%E5%BD%92%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">简单递归示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%821-100%E7%9A%84%E5%92%8C"><span class="toc-number">2.1.</span> <span class="toc-text">求1-100的和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%82-2-4-6-8-10%E2%80%A6-%E7%AC%ACn%E9%A1%B9%E4%B8%8E%E5%89%8Dn%E9%A1%B9%E4%B9%8B%E5%92%8C"><span class="toc-number">2.2.</span> <span class="toc-text">求 2,4,6,8,10… 第n项与前n项之和</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">递归的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">3.1.</span> <span class="toc-text">遍历树形结构的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text">接口调用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">递归基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%80%92%E5%BD%92"><span class="toc-number">1.1.</span> <span class="toc-text">什么是递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E7%9A%84%E6%AD%A5%E9%AA%A4-%E6%8A%80%E5%B7%A7"><span class="toc-number">1.2.</span> <span class="toc-text">递归的步骤(技巧)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E9%80%92%E5%BD%92%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">简单递归示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%82-1-100-%E7%9A%84%E5%92%8C"><span class="toc-number">2.1.</span> <span class="toc-text">求 1-100 的和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%82-2-4-6-8-10%E2%80%A6-%E7%AC%AC-n-%E9%A1%B9%E4%B8%8E%E5%89%8D-n-%E9%A1%B9%E4%B9%8B%E5%92%8C"><span class="toc-number">2.2.</span> <span class="toc-text">求 2,4,6,8,10… 第 n 项与前 n 项之和</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">递归的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">3.1.</span> <span class="toc-text">遍历树形结构的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text">接口调用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -626,11 +626,11 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">flutter</a>
+              <a href="javascript:void(0)" class="js-tag color3">前端</a>
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              <a href="javascript:void(0)" class="js-tag color5">html</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -639,10 +639,6 @@
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">UI-Grid</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color5">html</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -690,14 +686,6 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color4">西山国家森林公园</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color4">鬼笑石</a>
-            </li>
-            
-            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color5">两数相加</a>
             </li>
             
@@ -706,7 +694,11 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">故宫</a>
+              <a href="javascript:void(0)" class="js-tag color4">西山国家森林公园</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color4">鬼笑石</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -715,6 +707,18 @@
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color4">随手拍</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">故宫</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">北京画院美术馆</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color4">黄永玉版画艺术展</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -734,10 +738,6 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color4">面试题</a>
-            </li>
-            
-            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">天坛</a>
             </li>
             
@@ -750,19 +750,11 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">北京画院美术馆</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color4">黄永玉版画艺术展</a>
+              <a href="javascript:void(0)" class="js-tag color1">无重复字符的最长子串</a>
             </li>
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">算法</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color1">无重复字符的最长子串</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -782,11 +774,23 @@
             </li>
             
             <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+            </li>
+            
+            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color5">南锣鼓巷</a>
             </li>
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color4">阳台山</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">flutter</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color4">面试题</a>
             </li>
             
             <li class="article-tag-list-item">
