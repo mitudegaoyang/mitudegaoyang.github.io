@@ -13,7 +13,7 @@ categories:
 toc: true
 ---
 
-![首屏图](https://s3.ax1x.com/2021/01/12/sG4KfS.jpg)
+![首屏图](https://z3.ax1x.com/2021/01/12/sG4KfS.jpg)
 
 <!-- more -->
 
@@ -27,8 +27,8 @@ toc: true
   </animated.div>
 ```
 
-> !useSpring不可加入数组 typeScript报错
+> !useSpring 不可加入数组 typeScript 报错
 
 ## 参考资料
 
-* [用react-spring以react hook组件的形式编写动画](https://juejin.cn/post/6844903988383449096)
+- [用 react-spring 以 react hook 组件的形式编写动画](https://juejin.cn/post/6844903988383449096)

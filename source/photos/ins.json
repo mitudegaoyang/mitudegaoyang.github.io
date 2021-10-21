@@ -1,7 +1,6 @@
 {
     "hostList": [
         "https://s1.ax1x.com/",
-        "https://s3.ax1x.com/",
         "https://z3.ax1x.com/"
     ],
     "list": [
@@ -40,7 +39,7 @@
                     "",
                     ""
                 ],
-                "hostNum": 2,
+                "hostNum": 1,
                 "link": [
                     "2021/07/08/ROvqyQ",
                     "2021/07/08/ROvjwn",
@@ -188,7 +187,7 @@
                     "",
                     ""
                 ],
-                "hostNum": 2,
+                "hostNum": 1,
                 "link": [
                     "2021/07/08/Rq7FQP",
                     "2021/07/08/Rq7AL8",
@@ -286,7 +285,7 @@
                     "",
                     ""
                 ],
-                "hostNum": 2,
+                "hostNum": 1,
                 "link": [
                     "2021/07/01/Rs5L9S",
                     "2021/07/01/Rs5O1g",
@@ -340,7 +339,7 @@
                     "",
                     ""
                 ],
-                "hostNum": 2,
+                "hostNum": 1,
                 "link": [
                     "2021/07/01/RshRUK",
                     "2021/07/01/RshW4O",
@@ -381,7 +380,7 @@
                     "",
                     ""
                 ],
-                "hostNum": 2,
+                "hostNum": 1,
                 "link": [
                     "2021/07/01/Rsfgfg",
                     "2021/07/01/RsfRpQ",

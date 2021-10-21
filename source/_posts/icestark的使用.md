@@ -13,57 +13,57 @@ categories:
 toc: true
 ---
 
-![首屏图](https://s3.ax1x.com/2021/01/12/sG4nFf.jpg)
+![首屏图](https://z3.ax1x.com/2021/01/12/sG4nFf.jpg)
 
 <!-- more -->
 
-## 关于icestark
+## 关于 icestark
 
 ### 介绍
 
 [icestark](https://github.com/ice-lab/icestark) 是一个面向大型系统的微前端解决方案，适用于以下业务场景：
 
-* 后台比较分散，体验差别大，因为要频繁跳转导致操作效率低，希望能统一收口的一个系统内
-* 单页面应用非常庞大，多人协作成本高，开发/构建时间长，依赖升级回归成本高
-* 系统有二方/三方接入的需求
+- 后台比较分散，体验差别大，因为要频繁跳转导致操作效率低，希望能统一收口的一个系统内
+- 单页面应用非常庞大，多人协作成本高，开发/构建时间长，依赖升级回归成本高
+- 系统有二方/三方接入的需求
 
 icestark 在保证一个系统的操作体验基础上，实现各个子应用的独立开发和发版，主应用通过 icestark 管理微应用的注册和渲染，将整个系统彻底解耦。
 
 ### 特性
 
-* 主应用和微应用皆支持 React/Vue/Angular... 等不同框架
-* 主应用只需依赖 npm 包 `@ice/stark`，不耦合任何工程体系
-* 微应用独立开发、不耦合任何框架以及工程体系，已有应用迁移成本极低
-* 整个系统用户体验好，跟 SPA 应用基本一致
-* 微应用只需发布前端资源 bundle 即可，主应用通过 bundle 渲染微应用
+- 主应用和微应用皆支持 React/Vue/Angular... 等不同框架
+- 主应用只需依赖 npm 包 `@ice/stark`，不耦合任何工程体系
+- 微应用独立开发、不耦合任何框架以及工程体系，已有应用迁移成本极低
+- 整个系统用户体验好，跟 SPA 应用基本一致
+- 微应用只需发布前端资源 bundle 即可，主应用通过 bundle 渲染微应用
 
 ### 架构设计
 
-![icestark架构设计](https://s3.ax1x.com/2021/01/06/sEIxV1.png)
+![icestark架构设计](https://z3.ax1x.com/2021/01/06/sEIxV1.png)
 
-* 按照 UI 结构进行主应用、微应用的拆分
-* 主应用：负责微应用的注册与渲染，公共内容展示（Common Header、Common Sidebar、Common Footer等）
-* 微应用：负责自身业务相关的内容展示
+- 按照 UI 结构进行主应用、微应用的拆分
+- 主应用：负责微应用的注册与渲染，公共内容展示（Common Header、Common Sidebar、Common Footer 等）
+- 微应用：负责自身业务相关的内容展示
 
 ### 使用案例
 
 #### 阿里创作者平台
 
-![阿里创作者平台](https://s3.ax1x.com/2021/01/06/sE7ngS.png)
+![阿里创作者平台](https://z3.ax1x.com/2021/01/06/sE7ngS.png)
 
 #### 阿里健康-熙牛医疗云医院信息系统
 
-![阿里健康](https://s3.ax1x.com/2021/01/06/sE7H8f.png)
+![阿里健康](https://z3.ax1x.com/2021/01/06/sE7H8f.png)
 
 #### 淘系小二工作台
 
-![淘系小二工作台](https://s3.ax1x.com/2021/01/06/sEH9P0.png)
+![淘系小二工作台](https://z3.ax1x.com/2021/01/06/sEH9P0.png)
 
 ## 快速上手
 
 [快速上手](https://ice.work/docs/icestark/start)
 
-[icestark最佳实践](/archives/202101115b56e29a/)
+[icestark 最佳实践](/archives/202101115b56e29a/)
 
 ## 版本升级
 
@@ -71,8 +71,8 @@ icestark 在保证一个系统的操作体验基础上，实现各个子应用�
 
 > icestark@2.0.0 于 2020 年 12 月发布，Changelog
 
-* 支持以 API 的方式初始化主应用，主应用不再限制 React/Vue/Angular 等不同框架
-* 支持加载 UMD 格式的子应用产物
+- 支持以 API 的方式初始化主应用，主应用不再限制 React/Vue/Angular 等不同框架
+- 支持加载 UMD 格式的子应用产物
 
 注意：`@ice/stark` 2.0.0 完全兼容 1.0.0 版本的 API，因此主应用可以非常低成本的升级 2.0.0 版本。
 
@@ -115,8 +115,8 @@ regsiterMicroApps([
 
 > icestark@1.0.0 于 2019 年 10 月发布，Changelog
 
-* 将微应用相关 API 拆成独立的包 `@ice/stark-app`，保证兼容不同框架的微应用
-* 支持 `onAppEnter/onAppLeave` 相关 API
+- 将微应用相关 API 拆成独立的包 `@ice/stark-app`，保证兼容不同框架的微应用
+- 支持 `onAppEnter/onAppLeave` 相关 API
 
 #### 迁移步骤
 
@@ -126,9 +126,9 @@ regsiterMicroApps([
 
 ##### 微应用
 
-* 移除 `@ice/stark` 依赖：`npm rm @ice/stark --save`
-* 安装 `@ice/stark-app` 依赖：`npm i @ice/stark-app --save`
-* 批量替换代码中 `@ice/stark` 为 `@ice/stark-app`
+- 移除 `@ice/stark` 依赖：`npm rm @ice/stark --save`
+- 安装 `@ice/stark-app` 依赖：`npm i @ice/stark-app --save`
+- 批量替换代码中 `@ice/stark` 为 `@ice/stark-app`
 
 ## 核心概念与原理
 
@@ -170,16 +170,16 @@ import BasicLayout from '@/layouts/BasicLayout';
 
 export default class App extends React.Component {
   state = {
-    pathname: '',
-  }
+    pathname: ''
+  };
 
   handleRouteChange = (pathname) => {
     console.log('route change', pathname);
     // 如有需求，可根据 pathname 切换 layout 的形态
     this.setState({
-      pathname,
+      pathname
     });
-  }
+  };
 
   render() {
     const { pathname } = this.state;
@@ -192,11 +192,10 @@ export default class App extends React.Component {
           onRouteChange={this.handleRouteChange}
         >
           <AppRoute
-            
             title="商家平台"
             url={[
               '//unpkg.com/icestark-child-seller/build/js/index.js',
-              '//unpkg.com/icestark-child-seller/build/css/index.css',
+              '//unpkg.com/icestark-child-seller/build/css/index.css'
             ]}
           />
           <AppRoute
@@ -255,18 +254,9 @@ export default class App extends React.Component {
   render() {
     return (
       <AppRouter>
-        {
-          (window.appConfig || []).map((item) => {
-            return (
-              <AppRoute
-                key={idx}
-                path={item.path}
-                title={item.title}
-                url={item.url}
-              />
-            );
-          })
-        }
+        {(window.appConfig || []).map((item) => {
+          return <AppRoute key={idx} path={item.path} title={item.title} url={item.url} />;
+        })}
       </AppRouter>
     );
   }
@@ -303,7 +293,7 @@ export default function AuthAppRoute(props) {
 
   return (
     <div>
-      //  注意要将 ...others 透传给 AppRoute
+      // 注意要将 ...others 透传给 AppRoute
       <AppRoute {...props} />
     </div>
   );
@@ -325,10 +315,7 @@ export default class App extends React.Component {
   render() {
     return (
       <BasicLayout>
-        <AppRouter
-          NotFoundComponent={NotFound}
-          LoadingComponent={PageLoading}
-        >
+        <AppRouter NotFoundComponent={NotFound} LoadingComponent={PageLoading}>
           {/* 注意：path/url/entry 等配置信息配置在组件外层，AppRouter 的直接子元素上 */}
           <AuthAppRoute
             path={['/', '/message', '/about']}
@@ -336,7 +323,7 @@ export default class App extends React.Component {
             title="主页"
             url={[
               '//unpkg.com/icestark-child-common/build/js/index.js',
-              '//unpkg.com/icestark-child-common/build/css/index.css',
+              '//unpkg.com/icestark-child-common/build/css/index.css'
             ]}
           />
         </AppRouter>
@@ -374,7 +361,7 @@ export default class App extends React.Component {
 
 ### @ice/stark
 
-Vue版API[详见](https://ice.work/docs/icestark/reference/api)
+Vue 版 API[详见](https://ice.work/docs/icestark/reference/api)
 
 ### @ice/stark-app
 
@@ -382,29 +369,29 @@ Vue版API[详见](https://ice.work/docs/icestark/reference/api)
 
 判断当前运行环境，是否运行在 icestark 环境中，返回值类型：boolean
 
-* 类型：`function`
-* 示例代码详见 `registerAppLeave`
+- 类型：`function`
+- 示例代码详见 `registerAppLeave`
 
 #### getBasename
 
 配置微应用 `React Router` 中的 `basename` 参数的方法，根据 `AppRoute` 中的 `basename` 或者 `path` 配置生成最终结果
 
-* 类型：`function`
-* 默认值：`() => basename || (Array.isArray(path) ? path[0] : path)) || "/"`
+- 类型：`function`
+- 默认值：`() => basename || (Array.isArray(path) ? path[0] : path)) || "/"`
 
 #### getMountNode
 
 根据微应用运行环境，返回微应用渲染节点
 
-* 类型：`function`
-* 默认值：`<div id="ice-container"></div>`
-* 使用规则：方法支持传参，传参代表默认渲染的 DOM 节点，默认节点只在微应用单独启动时生效。支持 `string | HTMLElement | function`， `string` 表示默认 DOM 节点的 `id`，`function` 支持函数返回值作为默认 DOM 节点
+- 类型：`function`
+- 默认值：`<div id="ice-container"></div>`
+- 使用规则：方法支持传参，传参代表默认渲染的 DOM 节点，默认节点只在微应用单独启动时生效。支持 `string | HTMLElement | function`， `string` 表示默认 DOM 节点的 `id`，`function` 支持函数返回值作为默认 DOM 节点
 
 #### renderNotFound
 
 微应用触发渲染全局 404 的方法
 
-* 类型：`function`
+- 类型：`function`
 
 #### appHistory
 
@@ -412,8 +399,8 @@ Vue版API[详见](https://ice.work/docs/icestark/reference/api)
 
 ##### appHistory.push
 
-* 类型：`function`
-* 代码示例：
+- 类型：`function`
+- 代码示例：
 
 ```js
 import React from 'react';
@@ -436,22 +423,22 @@ export default class SelfLink extends React.Component {
 
 ##### appHistory.replace
 
-* 类型：`function`
-* 代码示例参考 `appHistory.push`
+- 类型：`function`
+- 代码示例参考 `appHistory.push`
 
 #### registerAppEnter
 
 提供快速注册当前应用加载前的回调事件
 
-* 类型：`function`
-* 示例代码详见 `registerAppLeave`
+- 类型：`function`
+- 示例代码详见 `registerAppLeave`
 
 #### registerAppLeave
 
 提供快速注册当前应用卸载前的回调事件
 
-* 类型：`function`
-* 代码示例：
+- 类型：`function`
+- 代码示例：
 
 ```js
 // src/index.js
@@ -475,4 +462,4 @@ if (isInIcestark()) {
 
 ## 参考资料
 
-* [关于 icestark](https://ice.work/docs/icestark/about)
+- [关于 icestark](https://ice.work/docs/icestark/about)

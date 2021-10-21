@@ -13,23 +13,23 @@ categories:
 toc: true
 ---
 
-![首屏图](https://s3.ax1x.com/2021/03/01/6iYQbt.png)
+![首屏图](https://z3.ax1x.com/2021/03/01/6iYQbt.png)
 
 <!-- more -->
 
-## Dart介绍
+## Dart 介绍
 
-Dart是由谷歌开发的计算机编程语言，它可以用于web、服务器、移动应用和物联网等领域的开发。
+Dart 是由谷歌开发的计算机编程语言，它可以用于 web、服务器、移动应用和物联网等领域的开发。
 
-Dart 诞生于2011年，号称起到javaScript/但是过去的几年中一直不温不火。知道Flutter的出现人们重新重视。
+Dart 诞生于 2011 年，号称起到 javaScript/但是过去的几年中一直不温不火。知道 Flutter 的出现人们重新重视。
 
-要学习Flutter的话我们必须首先得会[Dart](https://dart.dev)。
+要学习 Flutter 的话我们必须首先得会[Dart](https://dart.dev)。
 
-## Dart环境搭建
+## Dart 环境搭建
 
-### Windows系统安装Dart
+### Windows 系统安装 Dart
 
-* 命令行安装
+- 命令行安装
 
 ```shell
 # 安装dart-sdk
@@ -38,11 +38,11 @@ $  choco install dart-sdk
 $  choco upgrade dart-sdk
 ```
 
-* 软件安装SDK(推荐)
+- 软件安装 SDK(推荐)
 
-[下载dart的SDK软件](https://gekorm.com/dart-windows/)
+[下载 dart 的 SDK 软件](https://gekorm.com/dart-windows/)
 
-### Mac系统安装Dart
+### Mac 系统安装 Dart
 
 ```shell
 # 跟新追踪brew的包管理信息，扩展可安装软件的选择
@@ -51,23 +51,23 @@ $ brew tap dart-lang/dart
 $ brew install dart
 ```
 
-[dart官网下载地址](https://dart.dev/get-dart)
+[dart 官网下载地址](https://dart.dev/get-dart)
 
-> 注： 如果没有安装brew工具，需先[安装Homebrew](https://brew.sh/)
+> 注： 如果没有安装 brew 工具，需先[安装 Homebrew](https://brew.sh/)
 
-## Dart开发工具
+## Dart 开发工具
 
-Dark常见的开发工具有：IntelliJ IDEA、Webstorm、Atom、Vscode等
+Dark 常见的开发工具有：IntelliJ IDEA、Webstorm、Atom、Vscode 等
 
-* Dart的提示插件
+- Dart 的提示插件
 
-![Dart的VScode插件](https://s3.ax1x.com/2021/02/22/y7xdBD.png)
+![Dart的VScode插件](https://z3.ax1x.com/2021/02/22/y7xdBD.png)
 
-* Dart的运行插件code runner
+- Dart 的运行插件 code runner
 
-![code-runner](https://s3.ax1x.com/2021/02/22/y7zOzt.png)
+![code-runner](https://z3.ax1x.com/2021/02/22/y7zOzt.png)
 
-## Dart的初次编写
+## Dart 的初次编写
 
 ```dart
 main() {
@@ -75,15 +75,15 @@ main() {
 }
 ```
 
-![运行首个Dart文件](https://s3.ax1x.com/2021/02/22/yHSo60.png)
+![运行首个Dart文件](https://z3.ax1x.com/2021/02/22/yHSo60.png)
 
-## Dart方法介绍
+## Dart 方法介绍
 
-### Dart入口方法
+### Dart 入口方法
 
-所有需要被执行的方法需放置在main方法中
+所有需要被执行的方法需放置在 main 方法中
 
-共有两种main的写法，分别是基本用法和无返回值的用法
+共有两种 main 的写法，分别是基本用法和无返回值的用法
 
 ```dart
 <!-- 基本用法 -->
@@ -97,7 +97,7 @@ void main() {
 }
 ```
 
-### Dart打印
+### Dart 打印
 
 上面的例子中使用到了打印方法
 
@@ -108,7 +108,7 @@ main() {
 }
 ```
 
-### Dart注释
+### Dart 注释
 
 ```dart
 // main() {
@@ -130,14 +130,14 @@ main() {
 }
 ```
 
-### Dart变量
+### Dart 变量
 
-dart是一个强大的脚本类语言，可以不预先定义变量类型，自动会类型推断
+dart 是一个强大的脚本类语言，可以不预先定义变量类型，自动会类型推断
 
-dart中定义变量可以通过var关键字或类型关键字来申明变量
+dart 中定义变量可以通过 var 关键字或类型关键字来申明变量
 
-* 字符串类型：String
-* 数字类型：int
+- 字符串类型：String
+- 数字类型：int
 
 ```dart
     var str = 'this is var';
@@ -150,9 +150,9 @@ dart中定义变量可以通过var关键字或类型关键字来申明变量
     print(mynum2);
 ```
 
-> 注：var不要和类型关键字一起使用
+> 注：var 不要和类型关键字一起使用
 
-dart中存在类型校验 下面三种情况均会报错
+dart 中存在类型校验 下面三种情况均会报错
 
 ```dart
     var str = '';
@@ -166,13 +166,13 @@ dart中存在类型校验 下面三种情况均会报错
     print(mynum2);
 ```
 
-此时赋值操作会出现报错提示，因为声明时推断str为字符串类型
+此时赋值操作会出现报错提示，因为声明时推断 str 为字符串类型
 
-### Dart常量
+### Dart 常量
 
 常量只能进行一次赋值操作
 
-* const常量
+- const 常量
 
 ```dart
     const PI = 3.14159;
@@ -185,33 +185,33 @@ dart中存在类型校验 下面三种情况均会报错
     print(now);
 ```
 
-* final常量
+- final 常量
 
-区别：final不仅有const的编译时常量的特性，最重要的是它是运行时常量，并且final是惰性初始化，即在运行时第一次使用前才初始化
+区别：final 不仅有 const 的编译时常量的特性，最重要的是它是运行时常量，并且 final 是惰性初始化，即在运行时第一次使用前才初始化
 
-### Dart命名规则
+### Dart 命名规则
 
 1. 变量名称必须由数字、字母、下划线和$符组成
 1. 注意：标识符开头不能是数字
 1. 标识符不能是保留字和关键字
-1. 变量的名字是区分大小写的：如age和Age是不同的变量。在实际的运用中，也建议不要用一个
+1. 变量的名字是区分大小写的：如 age 和 Age 是不同的变量。在实际的运用中，也建议不要用一个
 1. 标识符(变量名称)一定要见名思意：变量名称建议用名词，方法名称建议用动词
 
 ## 数据类型
 
 ### 常用数据类型
 
-* Number(数值)
-  * int
-  * double
-* Strings(字符串)
-  * String
-* Booleans(布尔)
-  * bool
-* List(数组)
-  * 在Dart中，数组是列表对象，所以大多数人只是称它们为列表
-* Maps(字典)
-  * 通常来说，Map是一个键值对相关的对象。键和值可以是任何类型的对象。每个键只出现一次，而一个值则可以出现多次。映射是动态集合。换句话说，Maps可以在运行时增长和缩小。dart:core库中的Map类提供了相同的支持。
+- Number(数值)
+  - int
+  - double
+- Strings(字符串)
+  - String
+- Booleans(布尔)
+  - bool
+- List(数组)
+  - 在 Dart 中，数组是列表对象，所以大多数人只是称它们为列表
+- Maps(字典)
+  - 通常来说，Map 是一个键值对相关的对象。键和值可以是任何类型的对象。每个键只出现一次，而一个值则可以出现多次。映射是动态集合。换句话说，Maps 可以在运行时增长和缩小。dart:core 库中的 Map 类提供了相同的支持。
 
 #### 字符串类型
 
@@ -361,7 +361,7 @@ void main(){
 }
 ```
 
-#### Map类型
+#### Map 类型
 
 ```dart
 void main(){
@@ -394,8 +394,8 @@ void main(){
 
 ### 不常用数据类型
 
-* Runes
-  * Runes是指UTF-32编码的字符串。它可以通过文字转换成符号表情或者代表特定的文字。
+- Runes
+  - Runes 是指 UTF-32 编码的字符串。它可以通过文字转换成符号表情或者代表特定的文字。
 
 ```dart
 main() {
@@ -410,8 +410,8 @@ main() {
 }
 ```
 
-* Symbols
-  * Symbols对象表示在Dart程序中声明运算符或标识符。您可能永远不需要使用符号，但它们对于按名称引用标识符的API非常有用，因为缩小会更改标识符名称而不会更改标识符符号。要获取标识符的符号，请使用符号文字，它只是＃后跟标识符。
+- Symbols
+  - Symbols 对象表示在 Dart 程序中声明运算符或标识符。您可能永远不需要使用符号，但它们对于按名称引用标识符的 API 非常有用，因为缩小会更改标识符名称而不会更改标识符符号。要获取标识符的符号，请使用符号文字，它只是＃后跟标识符。
 
 > 在 Dart 中符号用 # 开头来表示，入门阶段不需要了解这东西，可能永远也用不上。
 
@@ -476,7 +476,7 @@ void main(){
   var c=a*b;
   print('--------');
   print(c);
-  
+
 }
 ```
 
@@ -509,16 +509,16 @@ void main(){
 
 ```dart
 void main(){
-  /* ! 取反 */ 
+  /* ! 取反 */
   bool flag=false;
   print(!flag);   //取反
 
-  /* &&并且:全部为true的话值为true 否则值为false */ 
+  /* &&并且:全部为true的话值为true 否则值为false */
   bool a = true;
   bool b = false;
   print(a && b);
-  
-  /* ||或者：全为false的话值为false 否则值为true */ 
+
+  /* ||或者：全为false的话值为false 否则值为true */
   bool c = false;
   bool d = false;
   print(c || d);
@@ -561,7 +561,7 @@ void main(){
   int b = 3;
   print(a);
   int c = a + b; //从右向左
-  
+
   // b ??= 23;  表示如果b为空的话把 23赋值给b
   int d = 10;
   d ??= 23;
@@ -647,7 +647,7 @@ void main(){
   } else {
     print('false');
   }
-  
+
   // 判断一个人的成绩 如果大于60 显示及格   如果大于 70显示良好  如果大于90显示优秀
   var score = 41;
   if (score > 90) {
@@ -699,7 +699,7 @@ void main(){
 }
 ```
 
-### Dart类型转换
+### Dart 类型转换
 
 ```dart
 void main(){
@@ -709,7 +709,7 @@ void main(){
   String str = '123';
   var myNum = int.parse(str);
   print(myNum is int);
-  
+
   String str2 = '123.1';
   var myNum2 = double.parse(str2);
   print(myNum2 is double);
@@ -787,13 +787,13 @@ void main(){
 
 ## 循环语句
 
-### for循环语句
+### for 循环语句
 
 ```dart
 void main(){
   /*
     // for基本语法
-    for (int i = 1; i<=100; i++) {   
+    for (int i = 1; i<=100; i++) {
       print(i);
     }
 
@@ -888,7 +888,7 @@ void main(){
 }
 ```
 
-### while do...while循环语句
+### while do...while 循环语句
 
 ```dart
 void main(){
@@ -953,14 +953,14 @@ void main(){
 }
 ```
 
-### break和continue关键词
+### break 和 continue 关键词
 
 ```dart
 void main(){
   for (var i = 1; i <= 10; i++) {
     print(i);
   }
-  
+
   // 1、如果i等于4的话跳过
   for (var i = 1; i <= 10; i++) {
     if (i == 4) {
@@ -1015,32 +1015,32 @@ void main(){
 
 ### List
 
-> List里面常用的属性和方法：
+> List 里面常用的属性和方法：
 
-* 常用属性：
-  * length          长度
-  * reversed        翻转
-  * isEmpty         是否为空
-  * isNotEmpty      是否不为空
-* 常用方法：  
-  * add         增加
-  * addAll      拼接数组
-  * contains    查找  传入具体值  返回true/false
-  * indexOf     查找  传入具体值
-  * remove      删除  传入具体值
-  * removeAt    删除  传入索引值
-  * fillRange(start,end,value)   修改
-  * insert(index,value);            指定位置插入
-  * insertAll(index,list)           指定位置插入List
-  * toList()    其他类型转换成List  
-  * join()      List转换成字符串
-  * split()     字符串转化成List
-  * forEach
-  * asMap       获取数组每一项的索引值
-  * map
-  * where
-  * any
-  * every
+- 常用属性：
+  - length 长度
+  - reversed 翻转
+  - isEmpty 是否为空
+  - isNotEmpty 是否不为空
+- 常用方法：
+  - add 增加
+  - addAll 拼接数组
+  - contains 查找 传入具体值 返回 true/false
+  - indexOf 查找 传入具体值
+  - remove 删除 传入具体值
+  - removeAt 删除 传入索引值
+  - fillRange(start,end,value) 修改
+  - insert(index,value); 指定位置插入
+  - insertAll(index,list) 指定位置插入 List
+  - toList() 其他类型转换成 List
+  - join() List 转换成字符串
+  - split() 字符串转化成 List
+  - forEach
+  - asMap 获取数组每一项的索引值
+  - map
+  - where
+  - any
+  - every
 
 ```dart
 void main(){
@@ -1134,20 +1134,20 @@ void main(){
 
 > 映射(Maps)是无序的键值对：
 
-* 常用属性：
-  * keys            获取所有的key值
-  * values          获取所有的value值
-  * isEmpty         是否为空
-  * isNotEmpty      是否不为空
-* 常用方法:
-  * remove(key)     删除指定key的数据
-  * addAll({...})   合并映射  给映射内增加属性
-  * containsValue   查看映射内的值  返回true/false
-  * forEach
-  * map
-  * where
-  * any
-  * every
+- 常用属性：
+  - keys 获取所有的 key 值
+  - values 获取所有的 value 值
+  - isEmpty 是否为空
+  - isNotEmpty 是否不为空
+- 常用方法:
+  - remove(key) 删除指定 key 的数据
+  - addAll({...}) 合并映射 给映射内增加属性
+  - containsValue 查看映射内的值 返回 true/false
+  - forEach
+  - map
+  - where
+  - any
+  - every
 
 ```dart
 void main(){
@@ -1160,7 +1160,7 @@ void main(){
   print(person);
   print(m);
 
-  
+
   //常用属性：
   Map person2 = {"name": "张三", "age": 20, "sex": "男"};
   print(person2.keys.toList());
@@ -1185,7 +1185,7 @@ void main(){
 
 > forEach map where any every
 
-#### List中使用
+#### List 中使用
 
 ```dart
 void main(){
@@ -1240,7 +1240,7 @@ void main(){
 }
 ```
 
-#### Set中使用
+#### Set 中使用
 
 ```dart
 void main(){
@@ -1251,7 +1251,7 @@ void main(){
 }
 ```
 
-#### Map中使用
+#### Map 中使用
 
 ```dart
 void main(){
@@ -1264,10 +1264,10 @@ void main(){
 
 ## 函数
 
-* 内置方法/函数：
-  * print();
-* 自定义方法：
-  * 自定义方法的基本格式：
+- 内置方法/函数：
+  - print();
+- 自定义方法：
+  - 自定义方法的基本格式：
 
 ```text
 返回类型 方法名称（参数1，参数2,...）{
@@ -1428,7 +1428,7 @@ void main(){
   print(newList2.toList());
 
   /*
-  需求： 1、定义一个方法isEvenNumber来判断一个数是否是偶数  
+  需求： 1、定义一个方法isEvenNumber来判断一个数是否是偶数
         2、定义一个方法打印1-n以内的所有偶数
   */
 
@@ -1526,7 +1526,7 @@ void main(){
 变量的特点
 
 1. 全局变量特点: 全局变量常驻内存、全局变量污染全局
-2. 局部变量的特点: 不常驻内存会被垃圾机制回收、不会污染全局  
+2. 局部变量的特点: 不常驻内存会被垃圾机制回收、不会污染全局
 
 想实现的功能：
 
@@ -1582,13 +1582,13 @@ void main(){
 
 面向对象编程(OOP)的三个基本特征是：封装、继承、多态
 
-* 封装：封装是对象和类概念的主要特性。封装，把客观事物封装成抽象的类，并且把自己的部分属性和方法提供给其他对象调用, 而一部分属性和方法则隐藏。
-* 继承：面向对象编程 (OOP) 语言的一个主要功能就是“继承”。继承是指这样一种能力：它可以使用现有类的功能，并在无需重新编写原来的类的情况下对这些功能进行扩展。
-* 多态：允许将子类类型的指针赋值给父类类型的指针, 同一个函数调用会有不同的执行效果 。
+- 封装：封装是对象和类概念的主要特性。封装，把客观事物封装成抽象的类，并且把自己的部分属性和方法提供给其他对象调用, 而一部分属性和方法则隐藏。
+- 继承：面向对象编程 (OOP) 语言的一个主要功能就是“继承”。继承是指这样一种能力：它可以使用现有类的功能，并在无需重新编写原来的类的情况下对这些功能进行扩展。
+- 多态：允许将子类类型的指针赋值给父类类型的指针, 同一个函数调用会有不同的执行效果 。
 
-Dart所有的东西都是对象，所有的对象都继承自Object类。
+Dart 所有的东西都是对象，所有的对象都继承自 Object 类。
 
-Dart是一门使用类和单继承的面向对象语言，所有的对象都是类的实例，并且所有的类都是Object的子类
+Dart 是一门使用类和单继承的面向对象语言，所有的对象都是类的实例，并且所有的类都是 Object 的子类
 
 一个类通常由属性和方法组成。
 
@@ -1617,7 +1617,7 @@ void main(){
 
 ### 定义类
 
-> Dart是一门使用类和单继承的面向对象语言，所有的对象都是类的实例，并且所有的类都是Object的子类
+> Dart 是一门使用类和单继承的面向对象语言，所有的对象都是类的实例，并且所有的类都是 Object 的子类
 
 ```dart
 class Person {
@@ -1641,7 +1641,7 @@ void main(){
   // 实例化类的类型
   Person p2 = new Person();
   print(p2.name);
-  
+
   // 调用类里的方法
   p2.setInfo(28);
   p2.getInfo();
@@ -1691,7 +1691,7 @@ class Person {
 void main(){
   Person p1 = new Person('张三', 20);
   p1.printInfo();
-  
+
   Person p2 = new Person('李四', 25);
   p2.printInfo();
 }
@@ -1713,7 +1713,7 @@ class Person {
 void main(){
   Person p1 = new Person('张三', 20);
   p1.printInfo();
-  
+
   Person p2 = new Person('李四', 25);
   p2.printInfo();
 }
@@ -1721,7 +1721,7 @@ void main(){
 
 ### 命名构造函数
 
-dart里面命名构造函数可以写多个
+dart 里面命名构造函数可以写多个
 
 ```dart
 class Person {
@@ -1767,7 +1767,7 @@ import 'lib/Person.dart';
 
 void main(){
   Person p1=new Person.setInfo('李四1',30);
-  p1.printInfo(); 
+  p1.printInfo();
 }
 ```
 
@@ -1776,10 +1776,10 @@ void main(){
 ```dart
 class Person{
   String name;
-  int age; 
+  int age;
   //默认构造函数的简写
   Person(this.name,this.age);
-  
+
   Person.now(){
     print('我是命名构造函数');
   }
@@ -1789,7 +1789,7 @@ class Person{
     this.age=age;
   }
 
-  void printInfo(){   
+  void printInfo(){
     print("${this.name}----${this.age}");
   }
 }
@@ -1797,7 +1797,7 @@ class Person{
 
 ### 类的私有属性和方法
 
-Dart和其他面向对象语言不一样，Data中没有`public` `private` `protected`这些访问修饰符合
+Dart 和其他面向对象语言不一样，Data 中没有`public` `private` `protected`这些访问修饰符合
 
 但是我们可以使用`_`把一个属性或者方法定义成私有(类必须在单独的文件中，才能将属性或方法私有)。
 
@@ -1841,11 +1841,11 @@ class Animal {
 }
 ```
 
-### 类的getter和setter
+### 类的 getter 和 setter
 
 获取矩形的面积
 
-* 使用方法获取
+- 使用方法获取
 
 ```dart
 class Rect {
@@ -1864,7 +1864,7 @@ void main() {
 }
 ```
 
-* 使用get获取(计算属性)
+- 使用 get 获取(计算属性)
 
 ```dart
 class Rect {
@@ -1882,7 +1882,7 @@ void main() {
 }
 ```
 
-* 使用set存储
+- 使用 set 存储
 
 ```dart
 class Rect {
@@ -1908,7 +1908,7 @@ void main() {
 
 ### 类的初始化列表
 
-Dart中我们也可以在构造函数体运行之前初始化实例变量
+Dart 中我们也可以在构造函数体运行之前初始化实例变量
 
 ```dart
 class Rect{
@@ -1919,18 +1919,18 @@ class Rect{
   }
   getArea(){
     return this.height*this.width;
-  } 
+  }
 }
 
 void main(){
   Rect r=new Rect();
-  print(r.getArea()); 
+  print(r.getArea());
 }
 ```
 
 ### 静态成员
 
-1. 使用static 关键字来实现类级别的变量和函数
+1. 使用 static 关键字来实现类级别的变量和函数
 2. 静态方法不能访问非静态成员，非静态方法可以访问静态成员
 
 ```dart
@@ -2002,10 +2002,10 @@ void main(){
 
 ### 操作符
 
-* ?     条件运算符 （了解）
-* as    类型转换
-* is    类型判断
-* ..    级联操作 （连缀）  (记住)
+- ? 条件运算符 （了解）
+- as 类型转换
+- is 类型判断
+- .. 级联操作 （连缀） (记住)
 
 #### 条件运算符
 
@@ -2103,9 +2103,9 @@ void main(){
 
 #### 简单继承
 
-1. 子类使用extends关键词来继承父类
+1. 子类使用 extends 关键词来继承父类
 2. 子类会继承父类里面可见的属性和方法 但是不会继承构造函数
-3. 子类能复写父类的方法 getter和setter
+3. 子类能复写父类的方法 getter 和 setter
 
 ```dart
 class Person {
@@ -2127,7 +2127,7 @@ main() {
 }
 ```
 
-#### super关键词的使用
+#### super 关键词的使用
 
 ```dart
 class Person {
@@ -2174,7 +2174,7 @@ class Web extends Person {
   Web(String name, num age, String sex) : super(name, age) {
     this.sex = sex;
   }
-  
+
   run() {
     print("${this.name}---${this.age}--${this.sex}");
   }
@@ -2193,7 +2193,7 @@ void main(){
 }
 ```
 
-> super给命名构造函数传参
+> super 给命名构造函数传参
 
 ```dart
 class Person {
@@ -2303,25 +2303,25 @@ main() {
 
 ### 创建抽象类
 
-Dart抽象类主要用于定义标准，子类可以继承抽象类，也可以实现抽象类接口。
+Dart 抽象类主要用于定义标准，子类可以继承抽象类，也可以实现抽象类接口。
 
-1. 抽象类通过abstract 关键字来定义
-2. Dart中的抽象方法不能用abstract声明，Dart中没有方法体的方法我们称为抽象方法。
+1. 抽象类通过 abstract 关键字来定义
+2. Dart 中的抽象方法不能用 abstract 声明，Dart 中没有方法体的方法我们称为抽象方法。
 3. 如果子类继承抽象类必须得实现里面的抽象方法
 4. 如果把抽象类当做接口实现的话必须得实现抽象类里面定义的所有属性和方法。
 5. 抽象类不能被实例化，只有继承它的子类可以
 
-extends抽象类 和 implements的区别：
+extends 抽象类 和 implements 的区别：
 
-1. 如果要复用抽象类里面的方法，并且要用抽象方法约束自类的话我们就用extends继承抽象类
-2. 如果只是把抽象类当做标准的话我们就用implements实现抽象类
+1. 如果要复用抽象类里面的方法，并且要用抽象方法约束自类的话我们就用 extends 继承抽象类
+2. 如果只是把抽象类当做标准的话我们就用 implements 实现抽象类
 
 ```dart
 // 案例：定义一个Animal 类要求它的子类必须包含eat方法
 abstract class Animal {
   eat(); //抽象方法
   run(); //抽象方法
-  
+
   printInfo() {
     print('我是一个抽象类里面的普通方法');
   }
@@ -2332,7 +2332,7 @@ class Dog extends Animal {
   eat() {
     print('小狗在吃骨头');
   }
-  
+
   @override
   run() {
     // TODO: implement run
@@ -2346,7 +2346,7 @@ class Cat extends Animal {
     // TODO: implement eat
     print('小猫在吃老鼠');
   }
-  
+
   @override
   run() {
     // TODO: implement run
@@ -2377,7 +2377,7 @@ void main(){
 
 ```dart
 abstract class Animal{
-  eat();   //抽象方法 
+  eat();   //抽象方法
 }
 
 class Dog extends Animal{
@@ -2391,7 +2391,7 @@ class Dog extends Animal{
 }
 class Cat extends Animal{
   @override
-  eat() {   
+  eat() {
     print('小猫在吃老鼠');
   }
   run(){
@@ -2425,7 +2425,7 @@ main() {
 同样使用`implements`关键字进行实现。
 
 但是`dart`的接口有点奇怪，如果实现的类是普通类，会将普通类和抽象中的属性的方法全部需要覆写一遍。
-而因为抽象类可以定义抽象方法，普通类不可以，所以一般如果要实现像Java接口那样的方式，一般会使用抽象类。
+而因为抽象类可以定义抽象方法，普通类不可以，所以一般如果要实现像 Java 接口那样的方式，一般会使用抽象类。
 建议使用抽象类定义接口。
 
 ```dart
@@ -2513,24 +2513,24 @@ abstract class Db{   //当做接口   接口：就是约定 、规范
 import 'Db.dart';
 
 class Mysql implements Db{
-  
+
   @override
   String uri;
 
   Mysql(this.uri);
 
   @override
-  add(data) {   
+  add(data) {
     print('这是mysql的add方法'+data);
   }
 
   @override
-  delete() {   
+  delete() {
     return null;
   }
 
   @override
-  save() {   
+  save() {
     return null;
   }
 
@@ -2618,10 +2618,10 @@ void main(){
 
 因为`mixins`使用的条件，随着`Dart`版本一直在变，这里讲的是`Dart2.x`中使用`mixins`的条件：
 
-1. 作为mixins的类只能继承自Object，不能继承其他类
-2. 作为mixins的类不能有构造函数
-3. 一个类可以mixins多个mixins类
-4. mixins绝不是继承，也不是接口，而是一种全新的特性
+1. 作为 mixins 的类只能继承自 Object，不能继承其他类
+2. 作为 mixins 的类不能有构造函数
+3. 一个类可以 mixins 多个 mixins 类
+4. mixins 绝不是继承，也不是接口，而是一种全新的特性
 
 ### 类仅混入
 
@@ -2738,7 +2738,7 @@ void main() {
 
 > 期望方法传入什么类型返回什么类型
 
-* 传入string返回string
+- 传入 string 返回 string
 
 ```dart
 // 只能返回string类型的数据
@@ -2747,7 +2747,7 @@ String getData(String value) {
 }
 ```
 
-* 定义多个方法，A传入string返回string，B传入int返回int
+- 定义多个方法，A 传入 string 返回 string，B 传入 int 返回 int
 
 ```dart
 // 同时支持返回 string类型 和int类型  （代码冗余）
@@ -2760,7 +2760,7 @@ int getData2(int value) {
 }
 ```
 
-* 不指定类型
+- 不指定类型
 
 ```dart
 // 同时返回 string类型 和number类型 不指定类型可以解决这个问题 但放弃了类型校验
@@ -2770,7 +2770,7 @@ getData3(value) {
 
 ```
 
-* 泛型使用
+- 泛型使用
 
 不指定类型放弃了类型检查。我们现在想实现的是传入什么 返回什么。
 比如:传入`number`类型必须返回`number`类型，传入`string`类型必须返回`string`类型。
@@ -2813,7 +2813,7 @@ void main(){
 }
 ```
 
-案例：把下面类转换成泛型类，要求List里面可以增加int类型的数据，也可以增加String类型的数据。但是每次调用增加的类型要统一
+案例：把下面类转换成泛型类，要求 List 里面可以增加 int 类型的数据，也可以增加 String 类型的数据。但是每次调用增加的类型要统一
 
 ```dart
 class PrintClass {
@@ -2838,7 +2838,7 @@ void main(){
 }
 ```
 
-* 修改泛型类后
+- 修改泛型类后
 
 ```dart
 class PrintClass<T> {
@@ -2898,8 +2898,8 @@ abstract class Cache<T> {
 
 实现数据缓存的功能：有文件缓存、和内存缓存。内存缓存和文件缓存按照接口约束实现。
 
-1. 定义一个泛型接口 约束实现它的子类必须有getByKey(key) 和 setByKey(key,value)
-2. 要求setByKey的时候的value的类型和实例化子类的时候指定的类型一致
+1. 定义一个泛型接口 约束实现它的子类必须有 getByKey(key) 和 setByKey(key,value)
+2. 要求 setByKey 的时候的 value 的类型和实例化子类的时候指定的类型一致
 
 ```dart
 abstract class Cache<T> {
@@ -2948,15 +2948,15 @@ void main() {
 
 `library`指令可以创建一个库，每个`Dart`文件都是一个库，即使没有使用`library`指令来指定。
 
-Dart中的库主要有三种：
+Dart 中的库主要有三种：
 
-* 我们自定义的库
+- 我们自定义的库
 
 ```dart
 import 'lib/xxx.dart';
 ```
 
-* 系统内置库
+- 系统内置库
 
 ```dart
 import 'dart:math';
@@ -2964,14 +2964,14 @@ import 'dart:io';
 import 'dart:convert';
 ```
 
-* Pub包管理系统中的库  
+- Pub 包管理系统中的库  
   `https://pub.dev/packages`
   `https://pub.flutter-io.cn/packages`
   `https://pub.dartlang.org/flutter/`
-  * 需要在自己想项目根目录新建一个pubspec.yaml
-  * 在pubspec.yaml文件 然后配置名称 、描述、依赖等信息
-  * 然后运行 pub get 获取包下载到本地  
-  * 项目中引入库 import 'package:http/http.dart' as http; 看文档使用
+  - 需要在自己想项目根目录新建一个 pubspec.yaml
+  - 在 pubspec.yaml 文件 然后配置名称 、描述、依赖等信息
+  - 然后运行 pub get 获取包下载到本地
+  - 项目中引入库 import 'package:http/http.dart' as http; 看文档使用
 
 ### 自定义库
 
@@ -3015,7 +3015,7 @@ class Animal {
 
 ### 系统内置库
 
-#### 系统内置math库
+#### 系统内置 math 库
 
 ```dart
 // import 'dart:io';
@@ -3026,7 +3026,7 @@ main() {
 }
 ```
 
-#### 系统内置io库
+#### 系统内置 io 库
 
 ```dart
 import 'dart:io';       // 请求相关
@@ -3035,7 +3035,7 @@ import 'dart:convert';  // 转换编码格式
 //api接口： http://news-at.zhihu.com/api/3/stories/latest
 getDataFromZhihuAPI() async{
   //1、创建HttpClient对象
-  var httpClient = new HttpClient();  
+  var httpClient = new HttpClient();
   //2、创建Uri对象
   var uri = new Uri.http('news-at.zhihu.com','/api/3/stories/latest');
   //3、发起请求，等待请求
@@ -3052,14 +3052,14 @@ void main() async{
 }
 ```
 
-### async和await
+### async 和 await
 
 这两个关键字的使用只需要记住两点：
 
-* 只有async方法才能使用await关键字调用方法
-* 如果调用别的async方法必须使用await关键字
+- 只有 async 方法才能使用 await 关键字调用方法
+- 如果调用别的 async 方法必须使用 await 关键字
 
-> async是让方法变成异步。await是等待异步方法执行完成。
+> async 是让方法变成异步。await 是等待异步方法执行完成。
 
 原方法
 
@@ -3089,26 +3089,26 @@ void main() async{
 
 ### 引入第三方模块
 
-dart的三方库都是用pub包管理系统进行管理的。
+dart 的三方库都是用 pub 包管理系统进行管理的。
 
 1、**从下面网址找到要用的库**
 
-  `https://pub.dev/packages`
-  `https://pub.flutter-io.cn/packages`
-  `https://pub.dartlang.org/flutter/`
+`https://pub.dev/packages`
+`https://pub.flutter-io.cn/packages`
+`https://pub.dartlang.org/flutter/`
 
-2、**创建一个pubspec.yaml文件，内容如下**
+2、**创建一个 pubspec.yaml 文件，内容如下**
 
 ```yaml
 name: xxx
 description: A new flutter module project.
-dependencies:  
+dependencies:
   http: ^0.12.0+2
   date_format: ^1.0.6
 ```
 
-3、**配置dependencies**
-4、**运行pub get 获取远程库**
+3、**配置 dependencies**
+4、**运行 pub get 获取远程库**
 5、**看文档引入库使用**
 
 ```dart
@@ -3136,9 +3136,9 @@ main() async {
 ### 库的重命名
 
 冲突解决：当引入两个库中有相同名称标识符的时候，
-如果是java通常我们通过写上完整的包名路径来指定使用的具体标识符，
-甚至不用import都可以，但是Dart里面是必须import的。
-当冲突的时候，可以使用as关键字来指定库的前缀。如下例子所示：
+如果是 java 通常我们通过写上完整的包名路径来指定使用的具体标识符，
+甚至不用 import 都可以，但是 Dart 里面是必须 import 的。
+当冲突的时候，可以使用 as 关键字来指定库的前缀。如下例子所示：
 
 `./index.dart`
 
@@ -3155,16 +3155,16 @@ lib2.Person p2 = new lib2.Person(); // Uses Person from Person2.
 ```dart
 class Person{
   String name;
-  int age; 
+  int age;
   //默认构造函数的简写
-  Person(this.name,this.age);  
+  Person(this.name,this.age);
 
   Person.setInfo(String name,int age){
     this.name=name;
     this.age=age;
   }
 
-  void printInfo(){   
+  void printInfo(){
     print("Person1:${this.name}----${this.age}");
   }
 }
@@ -3175,16 +3175,16 @@ class Person{
 ```dart
 class Person{
   String name;
-  int age; 
+  int age;
   //默认构造函数的简写
-  Person(this.name,this.age);  
+  Person(this.name,this.age);
 
   Person.setInfo(String name,int age){
     this.name=name;
     this.age=age;
   }
 
-  void printInfo(){   
+  void printInfo(){
     print("Person1:${this.name}----${this.age}");
   }
 }
@@ -3194,10 +3194,10 @@ class Person{
 
 如果只需要导入库的一部分，有两种模式：
 
-* 模式一：只导入需要的部分，使用show关键字，如下例子所示：
+- 模式一：只导入需要的部分，使用 show 关键字，如下例子所示：
   `import 'package:lib1/lib1.dart' show foo;`
 
-* 模式二：隐藏不需要的部分，使用hide关键字，如下例子所示：
+- 模式二：隐藏不需要的部分，使用 hide 关键字，如下例子所示：
   `import 'package:lib2/lib2.dart' hide foo;`
 
 #### 默认导入
@@ -3283,13 +3283,13 @@ void getSex(){
 ### 延迟加载
 
 也称为懒加载，可以在需要的时候再进行加载。
-懒加载的最大好处是可以减少APP的启动时间。
+懒加载的最大好处是可以减少 APP 的启动时间。
 
-懒加载使用deferred as关键字来指定，如下例子所示：
+懒加载使用 deferred as 关键字来指定，如下例子所示：
 
 `import 'package:deferred/hello.dart' deferred as hello;`
 
-当需要使用的时候，需要使用loadLibrary()方法来加载：
+当需要使用的时候，需要使用 loadLibrary()方法来加载：
 
 ```dart
 import 'package:deferred/hello.dart' deferred as hello;
@@ -3301,4 +3301,4 @@ greet() async {
 
 ## 参考资料
 
-* [B站-Dart Flutter教程_Dart Flutter入门实战视频教程-2020年新出-第14讲以后是Flutter教程](https://www.bilibili.com/video/BV1S4411E7LY?from=search&seid=18237173814777031437)
+- [B 站-Dart Flutter 教程\_Dart Flutter 入门实战视频教程-2020 年新出-第 14 讲以后是 Flutter 教程](https://www.bilibili.com/video/BV1S4411E7LY?from=search&seid=18237173814777031437)

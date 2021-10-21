@@ -13,31 +13,30 @@ categories:
 toc: true
 ---
 
-![首屏图](https://s3.ax1x.com/2021/01/12/sG4eTP.jpg)
+![首屏图](https://z3.ax1x.com/2021/01/12/sG4eTP.jpg)
 
 <!-- more -->
 
-本文演示如何快速创建微前端的应用及改造已有应用接入微前端，基座创建使用的是 icejs，微应用是使用的 icejs、create-react-app分别创建。
+本文演示如何快速创建微前端的应用及改造已有应用接入微前端，基座创建使用的是 icejs，微应用是使用的 icejs、create-react-app 分别创建。
 
-> [项目demo仓库地址](https://github.com/mitudegaoyang/icestark-demo)
-> [项目demo预览地址](https://www.gaotianyang.top/icestark-demo)
+> [项目 demo 仓库地址](https://github.com/mitudegaoyang/icestark-demo) > [项目 demo 预览地址](https://www.gaotianyang.top/icestark-demo)
 
 ## 环境搭建
 
-创建项目，并拉取到本地。在根目录分别创建package.json、和packages文件夹。
+创建项目，并拉取到本地。在根目录分别创建 package.json、和 packages 文件夹。
 
-初始化package.json将项目对应名称填写完整
+初始化 package.json 将项目对应名称填写完整
 
 ```json
 {
-    "name": "icestark-demo",
-    "private": true,
-    "workspaces": [
-        "packages/icestark-layout",
-        "packages/icestark-child-icejs",
-        "packages/icestark-child-react",
-        "packages/icestark-child-vue"
-    ]
+  "name": "icestark-demo",
+  "private": true,
+  "workspaces": [
+    "packages/icestark-layout",
+    "packages/icestark-child-icejs",
+    "packages/icestark-child-react",
+    "packages/icestark-child-vue"
+  ]
 }
 ```
 
@@ -56,11 +55,11 @@ $ npm init ice icestark-layout @icedesign/stark-layout-scaffold
 $ npm init ice icestark-layout @vue-materials/icestark-layout-app
 ```
 
-> 注意需要将主应用中`package.json`的name改为`icestark-layout`
+> 注意需要将主应用中`package.json`的 name 改为`icestark-layout`
 
 ## 安装依赖
 
-回到根目录执行yarn命令
+回到根目录执行 yarn 命令
 
 ```shell
 # 安装依赖
@@ -71,15 +70,15 @@ $ yarn workspaces icestark-layout start
 
 即可通过浏览器预览整个应用：
 
-![主应用预览](https://s3.ax1x.com/2021/01/28/ypQBDK.gif)
+![主应用预览](https://z3.ax1x.com/2021/01/28/ypQBDK.gif)
 
 打开主应用 `src/app.tsx` 即可看到默认注册的几个微应用。
 
-![默认注册微应用](https://s3.ax1x.com/2021/01/28/yp1rfH.png)
+![默认注册微应用](https://z3.ax1x.com/2021/01/28/yp1rfH.png)
 
 ## 初始化微应用
 
-### 基于icejs初始化微应用
+### 基于 icejs 初始化微应用
 
 进入项目目录`packages`
 
@@ -97,16 +96,16 @@ $ yarn
 $ yarn workspaces icestark-child-icejs start
 ```
 
-> 注意这里也需要将微应用中`package.json`的name改为`icestark-child-icejs`
+> 注意这里也需要将微应用中`package.json`的 name 改为`icestark-child-icejs`
 
 可以在主应用的 `src/app.tsx` 中增加对应的微应用配置。
 
-如果不需要改造现有项目，可直接跳过基于create-react-app改造微应用和基于vue cli改造微应用。
+如果不需要改造现有项目，可直接跳过基于 create-react-app 改造微应用和基于 vue cli 改造微应用。
 直接查看[微应用本地调试](/archives/202101115b56e29a/#微应用本地调试)。
 
-### 基于create-react-app改造微应用
+### 基于 create-react-app 改造微应用
 
-#### create-react-app创建react应用
+#### create-react-app 创建 react 应用
 
 进入项目目录`packages`
 
@@ -128,11 +127,11 @@ $ yarn
 $ yarn workspaces icestark-child-react start
 ```
 
-> 更改微应用name为`icestark-child-react`
+> 更改微应用 name 为`icestark-child-react`
 
-此时会出现缺少babel-loader的报错提示
+此时会出现缺少 babel-loader 的报错提示
 
-![缺少babel-loader@8.1.0](https://s3.ax1x.com/2021/01/28/y9Ya4K.png)
+![缺少babel-loader@8.1.0](https://z3.ax1x.com/2021/01/28/y9Ya4K.png)
 
 ```shell
 # 在icestark-child-react引入babel-loader
@@ -140,9 +139,9 @@ $ yarn workspaces icestark-child-react start
 $ yarn add babel-loader@8.1.0
 ```
 
-再次启动提示eslint版本不正确
+再次启动提示 eslint 版本不正确
 
-![缺少eslint^7.11.0](https://s3.ax1x.com/2021/01/28/y9N4mj.png)
+![缺少eslint^7.11.0](https://z3.ax1x.com/2021/01/28/y9N4mj.png)
 
 ```shell
 # 在icestark-child-react引入eslint
@@ -150,23 +149,23 @@ $ yarn add babel-loader@8.1.0
 $ yarn add eslint --dev
 ```
 
-由于workspaces的依赖判断问题，导致运行icestark-child-react时，没有使用子项目中的eslint版本，此时需要将高版本的eslint存储到外层的公共node_modules中。
+由于 workspaces 的依赖判断问题，导致运行 icestark-child-react 时，没有使用子项目中的 eslint 版本，此时需要将高版本的 eslint 存储到外层的公共 node_modules 中。
 
-修改根目录的package.json后再次执行yarn
+修改根目录的 package.json 后再次执行 yarn
 
 ```json
 {
-    "name": "icestark-demo",
-    "private": true,
-    "workspaces": [
-        "packages/icestark-layout",
-        "packages/icestark-child-icejs",
-        "packages/icestark-child-react",
-        "packages/icestark-child-vue"
-    ],
-    "devDependencies": {
-        "eslint": "^7.11.0"
-    }
+  "name": "icestark-demo",
+  "private": true,
+  "workspaces": [
+    "packages/icestark-layout",
+    "packages/icestark-child-icejs",
+    "packages/icestark-child-react",
+    "packages/icestark-child-vue"
+  ],
+  "devDependencies": {
+    "eslint": "^7.11.0"
+  }
 }
 ```
 
@@ -198,27 +197,27 @@ if (isInIcestark()) {
 }
 ```
 
-### 基于vue cli改造微应用
+### 基于 vue cli 改造微应用
 
 ## 微应用本地调试
 
-### 本地调试icejs微应用
+### 本地调试 icejs 微应用
 
 单独微应用开发时只能看到自身的内容，无法关注到在主应用下的表现，这时候本地如果需要再启动一个主应用，
 开发起来就很繁琐。针对这种情况，我们推荐通过主应用的日常/线上环境调试本地微应用。
 
-查看微应用的js、css资源路径。
+查看微应用的 js、css 资源路径。
 
-![查看微应用js路径](https://s3.ax1x.com/2021/01/11/s8dUlF.png)
-![查看微应用css路径](https://s3.ax1x.com/2021/01/11/s8dhmd.png)
+![查看微应用js路径](https://z3.ax1x.com/2021/01/11/s8dUlF.png)
+![查看微应用css路径](https://z3.ax1x.com/2021/01/11/s8dhmd.png)
 
 在主应用的 `src/app.tsx` 中覆盖对应的微应用配置的路径
 
-![覆盖微应用路径](https://s3.ax1x.com/2021/01/11/s8djmj.png)
+![覆盖微应用路径](https://z3.ax1x.com/2021/01/11/s8djmj.png)
 
-此时打开主应用的对应微应用模块，会发现微应用没有正常显示，原因是微应用没有获取正确的basename。
+此时打开主应用的对应微应用模块，会发现微应用没有正常显示，原因是微应用没有获取正确的 basename。
 
-![微应用不显示](https://s3.ax1x.com/2021/01/11/s8Ba6S.png)
+![微应用不显示](https://z3.ax1x.com/2021/01/11/s8Ba6S.png)
 
 参考[运行时配置](https://ice.work/docs/guide/basic/router#%E8%BF%90%E8%A1%8C%E6%97%B6%E9%85%8D%E7%BD%AE)
 
@@ -237,14 +236,14 @@ const appConfig: IAppConfig = {
     }
   },
   icestark: {
-    type: 'child',
-  },
+    type: 'child'
+  }
 };
 
 runApp(appConfig);
 ```
 
-### 本地调试react微应用
+### 本地调试 react 微应用
 
 #### 定义基准路由
 
@@ -259,15 +258,15 @@ React 项目中使用 react-router-dom：
 $ yarn add react-router-dom
 ```
 
-修改icestark-child-react/src/App.tsx
+修改 icestark-child-react/src/App.tsx
 
 ```js
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { getBasename, renderNotFound } from '@ice/stark-app';
-import Home from './routes/Home'
-import List from './routes/List'
-import Detail from './routes/Detail'
+import Home from './routes/Home';
+import List from './routes/List';
+import Detail from './routes/Detail';
 import './App.css';
 
 // #原有代码
@@ -294,11 +293,7 @@ import './App.css';
 
 // #因tslint规定<Route>的component必须是JSX而添加的改动
 function notFound(props: any) {
-  return (
-    <>
-      {renderNotFound()}
-    </>
-  )
+  return <>{renderNotFound()}</>;
 }
 
 function App(props: any) {
@@ -308,9 +303,7 @@ function App(props: any) {
         <Route exact path="/" component={Home}></Route>
         <Route exact path="/list" component={List}></Route>
         <Route exact path="/list/detail/:contractId" component={Detail} />
-        <Route
-          component={notFound}
-        />
+        <Route component={notFound} />
       </Switch>
     </Router>
   );
@@ -321,19 +314,19 @@ export default App;
 
 查看微应用的端口地址
 
-![查看微应用端口地址](https://s3.ax1x.com/2021/02/01/yZvbk9.png)
+![查看微应用端口地址](https://z3.ax1x.com/2021/02/01/yZvbk9.png)
 
 在主应用的 src/app.tsx 中覆盖对应的微应用配置的路径
 
-![覆盖微应用路径](https://s3.ax1x.com/2021/02/01/yZx3pq.png)
+![覆盖微应用路径](https://z3.ax1x.com/2021/02/01/yZx3pq.png)
 
-> 这里无法使用src获取到react微应用，需要使用entry来自动匹配微应用资源。
+> 这里无法使用 src 获取到 react 微应用，需要使用 entry 来自动匹配微应用资源。
 
 ## 路由跳转
 
 ### 微应用内跳转
 
-#### 使用Link组件
+#### 使用 Link 组件
 
 通过 `<Link />` 标签组件可实现路由跳转，使用方式：
 
@@ -343,7 +336,7 @@ import { Link } from 'ice';
 function Demo() {
   return (
     <div>
-      <Link to='/courses?sort=name' />
+      <Link to="/courses?sort=name" />
 
       {/* 可以携带额外的数据 `state` 到路由中。 */}
       <Link
@@ -351,11 +344,11 @@ function Demo() {
           pathname: '/courses',
           search: '?sort=name',
           hash: '#the-hash',
-          state: { fromDashboard: true },
+          state: { fromDashboard: true }
         }}
       />
     </div>
-  )
+  );
 }
 ```
 
@@ -381,31 +374,31 @@ const routerConfig = [
       {
         path: '/',
         exact: true,
-        component: Home,
+        component: Home
       },
       {
         path: '/list',
         exact: true,
-        component: List,
+        component: List
       },
       {
         path: '/list/detail/:contractId',
-        component: Detail,
+        component: Detail
       },
       {
         // 微应用独立运行 404 路由渲染 NotFound 组件
-        component: isInIcestark() ? () => renderNotFound() : NotFound,
-      },
-    ],
-  },
+        component: isInIcestark() ? () => renderNotFound() : NotFound
+      }
+    ]
+  }
 ];
 
 export default routerConfig;
 ```
 
-##### 修改Link组件传参
+##### 修改 Link 组件传参
 
-修改微应用 `src/list/index.tsx` 的列表页Link组件，添加传参
+修改微应用 `src/list/index.tsx` 的列表页 Link 组件，添加传参
 
 ```js
 <Table.Column
@@ -431,7 +424,7 @@ export default routerConfig;
 
 引入`useRouteMatch`并获取`contractId`
 
-![详情页接收参数](https://s3.ax1x.com/2021/01/12/sGzbE8.png)
+![详情页接收参数](https://z3.ax1x.com/2021/01/12/sGzbE8.png)
 
 #### 使用 useHistory API
 
@@ -448,7 +441,7 @@ function HomeButton() {
   }
 
   return (
-    <button type='button' onClick={handleClick}>
+    <button type="button" onClick={handleClick}>
       Go home
     </button>
   );
@@ -461,9 +454,9 @@ function HomeButton() {
 
 在微应用的`src/detail/index.tsx`引入`useHistory`方法，声明返回方法并调用`useHistory`，将返回按钮传入`PageTitle`组件。
 
-![详情页添加返回按钮](https://s3.ax1x.com/2021/01/12/sJyR8s.png)
+![详情页添加返回按钮](https://z3.ax1x.com/2021/01/12/sJyR8s.png)
 
-改造微应用的`/src/components/PageTitle/index.tsx`文件，扩展`PageTitle`组件接收subTitle参数。
+改造微应用的`/src/components/PageTitle/index.tsx`文件，扩展`PageTitle`组件接收 subTitle 参数。
 
 ```js
 import React from 'react';
@@ -478,18 +471,18 @@ import styles from './index.module.scss';
 // };
 
 export interface PageTitleProps {
-    title?: any;
-    subTitle?: any;
+  title?: any;
+  subTitle?: any;
 }
 
 export default function PageTitle(props: PageTitleProps) {
-    let { title, subTitle } = props;
-    return (
-        <h5 className={styles.title}>
-            <span>{title}</span>
-            <span className={styles.subTitle}>{subTitle}</span>
-        </h5>
-    );
+  let { title, subTitle } = props;
+  return (
+    <h5 className={styles.title}>
+      <span>{title}</span>
+      <span className={styles.subTitle}>{subTitle}</span>
+    </h5>
+  );
 }
 ```
 
@@ -497,7 +490,7 @@ export default function PageTitle(props: PageTitleProps) {
 
 在微应用的`src/detail/index.tsx`引入`history`方法，声明返回方法并调用`history`，将返回按钮传入`PageTitle`组件。
 
-![详情页使用history跳转](https://s3.ax1x.com/2021/01/12/sYCU0I.png)
+![详情页使用history跳转](https://z3.ax1x.com/2021/01/12/sYCU0I.png)
 
 ### 微应用间跳转
 
@@ -530,13 +523,13 @@ export default function FrameworkLayout() {
 
 > 在示例项目中使用如下
 
-![微应用间跳转](https://s3.ax1x.com/2021/02/01/yeA8IK.png)
+![微应用间跳转](https://z3.ax1x.com/2021/02/01/yeA8IK.png)
 
-![微应用间跳转](https://s3.ax1x.com/2021/02/01/yeEpFK.gif)
+![微应用间跳转](https://z3.ax1x.com/2021/02/01/yeEpFK.gif)
 
 #### 使用 AppLink
 
-> ~~直接使用ice中的AppLink会报错，需要自己封装个AppLink来跳转。~~
+> ~~直接使用 ice 中的 AppLink 会报错，需要自己封装个 AppLink 来跳转。~~
 
 示例在上个章节已介绍。
 
@@ -545,39 +538,39 @@ export default function FrameworkLayout() {
 在`src/utils/AppLink.tsx`封装
 
 ```js
-import * as React from "react";
+import * as React from 'react';
 
 export type AppLinkProps = {
-    to: string;
-    message?: string;
-    children?: React.ReactNode;
+  to: string,
+  message?: string,
+  children?: React.ReactNode
 } & React.AnchorHTMLAttributes<any>;
 
 // tslint:disable-next-line:variable-name
 const AppLink: React.SFC<AppLinkProps> = (props: AppLinkProps) => {
-    const { to, message, children, ...rest } = props;
-    return (
-        <a
-            {...rest}
-            href={to}
-            onClick={(e) => {
-                e.preventDefault();
-                if (message && window.confirm(message) === false) {
-                    return false;
-                }
+  const { to, message, children, ...rest } = props;
+  return (
+    <a
+      {...rest}
+      href={to}
+      onClick={(e) => {
+        e.preventDefault();
+        if (message && window.confirm(message) === false) {
+          return false;
+        }
 
-                window.history.pushState(
-                    {
-                        forceRender: true
-                    },
-                    "",
-                    to
-                );
-            }}
-        >
-            {children}
-        </a>
-    );
+        window.history.pushState(
+          {
+            forceRender: true
+          },
+          '',
+          to
+        );
+      }}
+    >
+      {children}
+    </a>
+  );
 };
 
 export default AppLink;
@@ -586,12 +579,12 @@ export default AppLink;
 在`src/utils/index.tsx`声明`AppLink`
 
 ```js
-export { default as AppLink } from "./AppLink";
+export { default as AppLink } from './AppLink';
 ```
 
 ##### 调用 AppLink
 
-![详情页使用AppLink跳转](https://s3.ax1x.com/2021/01/12/sYF6je.png)
+![详情页使用AppLink跳转](https://z3.ax1x.com/2021/01/12/sYF6je.png)
 
 ## 微应用打包部署
 
@@ -619,62 +612,62 @@ icestark-demo
 
 ### 微应用打包
 
-#### icejs微应用打包
+#### icejs 微应用打包
 
-在项目根目录执行build命令
+在项目根目录执行 build 命令
 
 ```shell
 # 执行打包命令
 $ yarn workspace icestark-child-icejs build
 ```
 
-执行完毕后，微应用目录下生成build文件夹。
+执行完毕后，微应用目录下生成 build 文件夹。
 
-将其拷贝至根目录docs/subapp/icestark-child-icejs文件下
+将其拷贝至根目录 docs/subapp/icestark-child-icejs 文件下
 
-#### react微应用打包
+#### react 微应用打包
 
-在项目根目录执行build命令
+在项目根目录执行 build 命令
 
 ```shell
 # 执行打包命令
 $ yarn workspace icestark-child-react build
 ```
 
-执行完毕后，微应用目录下生成build文件夹。
+执行完毕后，微应用目录下生成 build 文件夹。
 
-将其拷贝至根目录docs/subapp/icestark-child-react文件下
+将其拷贝至根目录 docs/subapp/icestark-child-react 文件下
 
 ### 主应用连接部署后的微应用
 
 将项目推送至远端
 
-此时还无法获取到微应用资源，需将github仓库进行github page修改
+此时还无法获取到微应用资源，需将 github 仓库进行 github page 修改
 
 如下图所示
 
-![微应用部署](https://s3.ax1x.com/2021/02/02/ymf3ZV.gif)
+![微应用部署](https://z3.ax1x.com/2021/02/02/ymf3ZV.gif)
 
-修改后`http://www.gaotianyang.top/icestark-demo/`地址就指向了项目根目录的docs文件夹
+修改后`http://www.gaotianyang.top/icestark-demo/`地址就指向了项目根目录的 docs 文件夹
 
 修改主应用的 src/app.tsx 中覆盖对应的微应用配置的路径
 
-![微应用路径配置](https://s3.ax1x.com/2021/02/02/ymhOhD.png)
+![微应用路径配置](https://z3.ax1x.com/2021/02/02/ymhOhD.png)
 
 ## 主应用打包部署
 
-在项目根目录执行build命令
+在项目根目录执行 build 命令
 
 ```shell
 # 执行打包命令
 $ yarn workspace icestark-layout build
 ```
 
-将build文件复制到项目docs根目录
+将 build 文件复制到项目 docs 根目录
 
 可访问[https://www.gaotianyang.top/icestark-demo/](https://www.gaotianyang.top/icestark-demo/)进行查看
 
-> 注意这里打包需要解决资源获取路径为相对路径的问题。修改主应用的build.json的publicPath，将资源路径改为相对路径即可。
+> 注意这里打包需要解决资源获取路径为相对路径的问题。修改主应用的 build.json 的 publicPath，将资源路径改为相对路径即可。
 
 ```json
 {
@@ -698,9 +691,7 @@ $ yarn workspace icestark-layout build
     [
       "build-plugin-moment-locales",
       {
-        "locales": [
-          "zh-cn"
-        ]
+        "locales": ["zh-cn"]
       }
     ]
   ]
@@ -709,72 +700,70 @@ $ yarn workspace icestark-layout build
 
 ### 主应用配置二级路由
 
-因为项目部署在github page中，项目地址为二级域名`https://www.gaotianyang.top/icestark-demo`
+因为项目部署在 github page 中，项目地址为二级域名`https://www.gaotianyang.top/icestark-demo`
 因此项目中的路由配置及跳转信息需要额外配置`icestark-demo`方可正常显示。
 
 解决方案如下
 
 #### 获取应用状态并存储二级路由
 
-在主应用获取当前应用是处于预览还是打包，并将路由存储在localStorage中。
+在主应用获取当前应用是处于预览还是打包，并将路由存储在 localStorage 中。
 
-在`icestark-demo/packages/icestark-layout/src/app.tsx`修改微应用path
+在`icestark-demo/packages/icestark-layout/src/app.tsx`修改微应用 path
 
 ```js
-localStorage.setItem("baseUrl", process.env.NODE_ENV === "development" ? "" : "/icestark-demo")
+localStorage.setItem('baseUrl', process.env.NODE_ENV === 'development' ? '' : '/icestark-demo');
 
-const baseUrl = localStorage.baseUrl
+const baseUrl = localStorage.baseUrl;
 ```
 
-![微应用path配置二级路由](https://s3.ax1x.com/2021/02/02/ynLxhR.png)
+![微应用path配置二级路由](https://z3.ax1x.com/2021/02/02/ynLxhR.png)
 
 #### 修改主应用路由
 
 在`icestark-demo/packages/icestark-layout/src/routes.ts`修改主应用路由
 
-![主应用路由配置二级路由](https://s3.ax1x.com/2021/02/02/ynOLxP.png)
+![主应用路由配置二级路由](https://z3.ax1x.com/2021/02/02/ynOLxP.png)
 
 #### 修改主应用菜单
 
 在`icestark-demo/packages/icestark-layout/src/layouts/BasicLayout/menuConfig.ts`修改主应用菜单
 
-![主应用菜单配置二级路由](https://s3.ax1x.com/2021/02/02/ynOLxP.png)
+![主应用菜单配置二级路由](https://z3.ax1x.com/2021/02/02/ynOLxP.png)
 
 #### 修改微应用跳转
 
-![微应用跳转路径](https://s3.ax1x.com/2021/02/02/ynXRij.png)
+![微应用跳转路径](https://z3.ax1x.com/2021/02/02/ynXRij.png)
 
 ## 问题汇总
 
 ### GitHub-page 刷新找不到二级域名下的路由地址
 
-因为GitHub-page只能存放静态资源。并且不支持.htaccess，
-所以用webpack构建出来的单页应用，
-直接将dist文件推送到GitHub-page分支，
-在切换路由之后，手动刷新是会出现404的。
+因为 GitHub-page 只能存放静态资源。并且不支持.htaccess，
+所以用 webpack 构建出来的单页应用，
+直接将 dist 文件推送到 GitHub-page 分支，
+在切换路由之后，手动刷新是会出现 404 的。
 
-![找不到项目](https://s3.ax1x.com/2021/02/05/yGrZZR.png)
+![找不到项目](https://z3.ax1x.com/2021/02/05/yGrZZR.png)
 
 处理方法
 
-* 给站点根目录添加404.html
+- 给站点根目录添加 404.html
 
-一般也就是dist目录下（GitHub-page找不到的路径会自动访问这个404.html）
+一般也就是 dist 目录下（GitHub-page 找不到的路径会自动访问这个 404.html）
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
       sessionStorage.redirect = location.href;
     </script>
-    <meta http-equiv="refresh" content="0;URL='/icestark-demo/'">
+    <meta http-equiv="refresh" content="0;URL='/icestark-demo/'" />
   </head>
-  <body>
-      
-  </body>
+  <body></body>
 </html>
 ```
 
@@ -784,21 +773,21 @@ const baseUrl = localStorage.baseUrl
 
 ```html
 <!-- 这个表示当前页面每5秒钟刷一下，刷一下~ -->
-<meta http-equiv="refresh" content="5">
+<meta http-equiv="refresh" content="5" />
 
 <!-- 这个表示当前页面2秒后跳到首页 -->
-<meta http-equiv="refresh" content="2; url='/'">
+<meta http-equiv="refresh" content="2; url='/'" />
 
 <!-- 页面直接跳转到腾讯网 -->
-<meta http-equiv="refresh" content="0; url='http://www.qq.com/'">
+<meta http-equiv="refresh" content="0; url='http://www.qq.com/'" />
 ```
 
-* 给index.html添加重定向逻辑
+- 给 index.html 添加重定向逻辑
 
 ```html
 <script>
   // 这段代码要放在其他js的前面
-  (function(){
+  (function () {
     var redirect = sessionStorage.redirect;
     delete sessionStorage.redirect;
     if (redirect && redirect != location.href) {
@@ -808,26 +797,26 @@ const baseUrl = localStorage.baseUrl
 </script>
 ```
 
-### @ice/stark^2.0.0版本问题
+### @ice/stark^2.0.0 版本问题
 
-当项目安装的@ice/stark是2.1.0时，会出现entry的地址获取js、css路径不正确。
-此时需将版本降至2.0.2即可修复。可通过复制并整体替换处理。
+当项目安装的@ice/stark 是 2.1.0 时，会出现 entry 的地址获取 js、css 路径不正确。
+此时需将版本降至 2.0.2 即可修复。可通过复制并整体替换处理。
 
 处理方法
 
-* 先正常yarn项目
-* 打开根目录的node_modules/@ice/stark
-* 将2.0.2版本的ice-stark整体替换至改目录下即可
+- 先正常 yarn 项目
+- 打开根目录的 node_modules/@ice/stark
+- 将 2.0.2 版本的 ice-stark 整体替换至改目录下即可
 
 ## 参考资料
 
-* [icestark快速上手](https://ice.work/docs/icestark/start)
-* [路由运行时配置](https://ice.work/docs/guide/basic/router#%E8%BF%90%E8%A1%8C%E6%97%B6%E9%85%8D%E7%BD%AE)
-* [Link](https://ice.work/docs/guide/basic/api#Link)
-* [useHistory](https://ice.work/docs/guide/basic/api#useHistory)
-* [history](https://ice.work/docs/guide/basic/api#history)
-* [微应用间跳转](https://ice.work/docs/icestark/guide/child-app#%E5%BE%AE%E5%BA%94%E7%94%A8%E9%97%B4%E8%B7%B3%E8%BD%AC)
-* [主应用打包后资源改为相对路径](https://ice.work/docs/guide/basic/build#publicPath)
-* [框架API-环境变量](https://ice.work/docs/guide/basic/api#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
-* [单页应用在gh-pages动态路由刷新后404解决方案](https://segmentfault.com/a/1190000012951274)
-* [使用meta实现页面的定时刷新或跳转](https://www.zhangxinxu.com/wordpress/2015/03/meta-http-equiv-refresh-content/)
+- [icestark 快速上手](https://ice.work/docs/icestark/start)
+- [路由运行时配置](https://ice.work/docs/guide/basic/router#%E8%BF%90%E8%A1%8C%E6%97%B6%E9%85%8D%E7%BD%AE)
+- [Link](https://ice.work/docs/guide/basic/api#Link)
+- [useHistory](https://ice.work/docs/guide/basic/api#useHistory)
+- [history](https://ice.work/docs/guide/basic/api#history)
+- [微应用间跳转](https://ice.work/docs/icestark/guide/child-app#%E5%BE%AE%E5%BA%94%E7%94%A8%E9%97%B4%E8%B7%B3%E8%BD%AC)
+- [主应用打包后资源改为相对路径](https://ice.work/docs/guide/basic/build#publicPath)
+- [框架 API-环境变量](https://ice.work/docs/guide/basic/api#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
+- [单页应用在 gh-pages 动态路由刷新后 404 解决方案](https://segmentfault.com/a/1190000012951274)
+- [使用 meta 实现页面的定时刷新或跳转](https://www.zhangxinxu.com/wordpress/2015/03/meta-http-equiv-refresh-content/)
