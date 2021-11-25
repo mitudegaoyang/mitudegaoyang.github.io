@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/08/19/dlrqER.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/08/19/dlrLU1.png">
 <meta property="article:published_time" content="2020-08-18T06:49:51.000Z">
-<meta property="article:modified_time" content="2021-11-25T01:58:26.234Z">
+<meta property="article:modified_time" content="2021-11-25T02:12:32.857Z">
 <meta property="article:author" content="迷途的羔羊">
 <meta property="article:tag" content="技术积累">
 <meta property="article:tag" content="LeetCode">
@@ -255,13 +255,13 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 创建空数组及最大长度0</span></span><br><span class="line">  <span class="keyword">let</span> arr = [],</span><br><span class="line">    max = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">// 遍历字符串</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; s.length; i++) &#123;</span><br><span class="line">    <span class="comment">// 获取当前字符在数组中的下标(-1则不存在)</span></span><br><span class="line">    <span class="keyword">let</span> index = arr.indexOf(s[i]);</span><br><span class="line">    <span class="comment">// 当前字符存在时删除数组中与当前字符相同的字符之前的元素</span></span><br><span class="line">    <span class="keyword">if</span> (index !== <span class="number">-1</span>) &#123;</span><br><span class="line">      arr.splice(<span class="number">0</span>, index + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将当前字符push进数组</span></span><br><span class="line">    arr.push(s.charAt(i)); <span class="comment">// charAt() 方法可返回指定位置的字符。</span></span><br><span class="line">    <span class="comment">// 存储最大值(若当前数组的长度比最大值大则存储)</span></span><br><span class="line">    max = <span class="built_in">Math</span>.max(arr.length, max);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> max;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>代码优化</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> arr = [],</span><br><span class="line">    max = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; s.length; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> index = arr.indexOf(s[i]);</span><br><span class="line">    <span class="keyword">if</span> (index !== <span class="number">-1</span>) &#123;</span><br><span class="line">      <span class="comment">// 只有当数组需要删除相同元素时才做最大值的存储</span></span><br><span class="line">      max = <span class="built_in">Math</span>.max(arr.length, max);</span><br><span class="line">      arr.splice(<span class="number">0</span>, index + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    arr.push(s.charAt(i));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 若字符串中所有字符均不同 至少进行一次最大值的存储</span></span><br><span class="line">  max = <span class="built_in">Math</span>.max(arr.length, max);</span><br><span class="line">  <span class="keyword">return</span> max;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>时间复杂度：</strong>O(n^2^)， 其中<code>arr.indexOf()</code>时间复杂度为 O(n)，<code>arr.splice(0, index+1)</code>的时间复杂度也为 O(n)</p>
+<p><strong>时间复杂度：</strong>O(n<sup>2</sup>)， 其中<code>arr.indexOf()</code>时间复杂度为 O(n)，<code>arr.splice(0, index+1)</code>的时间复杂度也为 O(n)</p>
 <p><strong>空间复杂度：</strong>O(n)</p>
 <h4 id="解法二-维护下标"><a href="#解法二-维护下标" class="headerlink" title="解法二: 维护下标"></a>解法二: 维护下标</h4><p><strong>解题思路：</strong>使用下标来维护滑动窗口</p>
 <p><strong>代码实现：</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lengthOfLongestSubstring = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 初始化下标值0及最大长度0</span></span><br><span class="line">  <span class="keyword">let</span> index = <span class="number">0</span>,</span><br><span class="line">    max = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">// i为滑动窗口最左侧的元素下标 j为最右侧元素下标 遍历字符串</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, j = <span class="number">0</span>; j &lt; s.length; j++) &#123;</span><br><span class="line">    <span class="comment">// 查看当前元素是否存在于滑动窗口中</span></span><br><span class="line">    index = s.substring(i, j).indexOf(s[j]); <span class="comment">// substring() 方法用于提取字符串中介于两个指定下标之间的字符。</span></span><br><span class="line">    <span class="comment">// 若存在 将最左侧元素的下标 更新为与当前元素相同的最左侧元素下标+1</span></span><br><span class="line">    <span class="keyword">if</span> (index !== <span class="number">-1</span>) &#123;</span><br><span class="line">      i = i + index + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 记录最大值 滑动窗口最右侧下标-最左侧下标+1</span></span><br><span class="line">    max = <span class="built_in">Math</span>.max(max, j - i + <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> max;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>时间复杂度：O(n^2^)</p>
+<li><p>时间复杂度：O(n<sup>2</sup>)</p>
 </li>
 <li><p>空间复杂度：O(n)</p>
 </li>
@@ -633,11 +633,15 @@
             </li>
             
             <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color5">html</a>
+            </li>
+            
+            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">js</a>
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color5">html</a>
+              <a href="javascript:void(0)" class="js-tag color3">UI-Grid</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -646,10 +650,6 @@
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color1">yilia</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">UI-Grid</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -681,6 +681,14 @@
             </li>
             
             <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">游记</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color2">东郊湿地公园</a>
+            </li>
+            
+            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color5">两数之和</a>
             </li>
             
@@ -689,19 +697,11 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color5">两数相加</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">游记</a>
-            </li>
-            
-            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">故宫</a>
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color2">东郊湿地公园</a>
+              <a href="javascript:void(0)" class="js-tag color5">两数相加</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -753,10 +753,6 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">工具</a>
-            </li>
-            
-            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">天津</a>
             </li>
             
@@ -765,7 +761,7 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color1">无重复字符的最长子串</a>
+              <a href="javascript:void(0)" class="js-tag color3">工具</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -773,11 +769,11 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color2">最长回文子串</a>
+              <a href="javascript:void(0)" class="js-tag color3">十渡</a>
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">十渡</a>
+              <a href="javascript:void(0)" class="js-tag color2">最长回文子串</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -798,6 +794,10 @@
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color4">阳台山</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color1">无重复字符的最长子串</a>
             </li>
             
             <li class="article-tag-list-item">
