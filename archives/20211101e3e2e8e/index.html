@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://z3.ax1x.com/2021/11/02/IikjQ1.jpg">
 <meta property="og:image" content="https://z3.ax1x.com/2021/11/15/Ig46G6.gif">
 <meta property="article:published_time" content="2021-11-01T11:59:46.000Z">
-<meta property="article:modified_time" content="2021-11-15T03:44:01.309Z">
+<meta property="article:modified_time" content="2021-11-25T01:41:49.837Z">
 <meta property="article:author" content="迷途的羔羊">
 <meta property="article:tag" content="技术积累">
 <meta property="article:tag" content="LeetCode">
@@ -250,7 +250,7 @@
 <li><code>1 &lt;= numRows &lt;= 1000</code></li>
 </ul>
 <h4 id="解法一-公式枚举法"><a href="#解法一-公式枚举法" class="headerlink" title="解法一: 公式枚举法"></a>解法一: 公式枚举法</h4><ul>
-<li>时间复杂度 O(n<sup>3</sup>)</li>
+<li>时间复杂度 O(n^3^)</li>
 <li>空间复杂度 O(1)</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">numRows</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> convert = <span class="function"><span class="keyword">function</span> (<span class="params">s, numRows</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 特殊情况处理</span></span><br><span class="line">  <span class="keyword">if</span> (numRows === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 初始化数据</span></span><br><span class="line">  <span class="keyword">let</span> arr = [];</span><br><span class="line">  <span class="keyword">let</span> str = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; numRows; i++) &#123;</span><br><span class="line">    arr[i] = [];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 按结构推入数据</span></span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; s.length; i++) &#123;</span><br><span class="line">    <span class="comment">// 获取%的值</span></span><br><span class="line">    <span class="keyword">let</span> m = i % (<span class="number">2</span> * numRows - <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">if</span> (m &lt; numRows) &#123;</span><br><span class="line">      arr[m].push(s.charAt(i));</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      arr[<span class="number">2</span> * (numRows - <span class="number">1</span>) - m].push(s.charAt(i));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 拼接数据</span></span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; numRows; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; arr[i].length; j++) &#123;</span><br><span class="line">      str += arr[i][j];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 返回新数据</span></span><br><span class="line">  <span class="keyword">return</span> str;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -427,6 +427,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/archives/20211121e3e2e8e/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          整数反转
+        
+      </div>
+    </a>
   
   
     <a href="/archives/20211025c746f65b/" id="article-nav-older" class="article-nav-link-wrap">
@@ -615,15 +624,11 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color5">html</a>
-            </li>
-            
-            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">js</a>
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">UI-Grid</a>
+              <a href="javascript:void(0)" class="js-tag color5">html</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -635,7 +640,7 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              <a href="javascript:void(0)" class="js-tag color3">UI-Grid</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -655,23 +660,15 @@
             </li>
             
             <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+            </li>
+            
+            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color4">微服务</a>
             </li>
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color1">react</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">游记</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color2">东郊湿地公园</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color5">两数相加</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -683,7 +680,19 @@
             </li>
             
             <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color5">两数相加</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">游记</a>
+            </li>
+            
+            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">故宫</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color2">东郊湿地公园</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -735,11 +744,15 @@
             </li>
             
             <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">工具</a>
+            </li>
+            
+            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">天津</a>
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              <a href="javascript:void(0)" class="js-tag color5">整数反转</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -755,15 +768,15 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color2">蟒山森林公园</a>
-            </li>
-            
-            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">十渡</a>
             </li>
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color4">读书会</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color2">蟒山森林公园</a>
             </li>
             
             <li class="article-tag-list-item">
