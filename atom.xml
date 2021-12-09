@@ -6,7 +6,7 @@
   <link href="https://www.gaotianyang.top/atom.xml" rel="self"/>
   
   <link href="https://www.gaotianyang.top/"/>
-  <updated>2021-11-25T02:09:24.137Z</updated>
+  <updated>2021-12-09T04:02:45.540Z</updated>
   <id>https://www.gaotianyang.top/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>http-server使用</title>
+    <link href="https://www.gaotianyang.top/archives/2021120964e0b1f7/"/>
+    <id>https://www.gaotianyang.top/archives/2021120964e0b1f7/</id>
+    <published>2021-12-09T01:33:49.000Z</published>
+    <updated>2021-12-09T04:02:45.540Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://s1.ax1x.com/2021/12/09/ofeKKK.jpg" alt="首屏图"></p><a id="more"></a><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在很多情况下，需要在本地开启 http 服务器来测试。所以就需要一个简单的省事好用的 http 服务器。<br>以前的时候，都是使用 php 的本地环境，但是，自从学了 nodejs，发现了 http-server 好东西。<br>不用配置直接在当前文件夹内打开 cmd，就能够使用，简单易用，轻松方便。</p><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><code>http-server</code> 是一个简单的零配置命令行 http 服务器。<br>它对于生产使用来说是足够强大的，但它的测试，本地开发和学习足够简单易用。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装通过 npm 进行全局安装</p><p><code>npm install http-server -g</code></p><p>这将 <code>http-server</code> 全局安装，以便它可以从命令行运行。</p><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>打开 cmd，移动进入当前文件夹，在当前文件夹内输入命令即可</p><p><code>http-server [path] [options]</code></p><p><code>[path]</code>默认为<code>./public</code> (若文件夹存在)，否则为<code>./</code>。</p><p>现在，您可以访问 <code>http://localhost:8080</code> 来查看您的服务器</p><h2 id="可选配置"><a href="#可选配置" class="headerlink" title="可选配置"></a>可选配置</h2><table><thead><tr><th>命令</th><th>描述</th><th>默认值</th></tr></thead><tbody><tr><td><code>-p</code> 或 <code>--port</code></td><td>要使用的端口</td><td>8080</td></tr><tr><td><code>-a</code></td><td>要使用的地址</td><td>0.0.0.0</td></tr><tr><td><code>-d</code></td><td>显示目录列表</td><td><code>true</code></td></tr><tr><td><code>-i</code></td><td>显示自动索引</td><td><code>true</code></td></tr><tr><td><code>-g</code> 或<code>--gzip</code></td><td>启用时，它将用于<code>./public/some-file.js.gz</code> 代替<code>./public/some-file.js</code>zip 压缩版本的文件，并且该请求接受 gzip 编码。如果 brotli 也被启用，它会首先尝试服务 brotli。</td><td><code>false</code></td></tr><tr><td><code>-b</code> 或<code>--brotli</code></td><td>启用时，它将用于<code>./public/some-file.js.br</code> 代替<code>./public/some-file.js</code>zip 压缩版本的文件，并且该请求接受 br 编码。如果 gzip 也被启用，它会首先尝试服务 brotli。</td><td><code>false</code></td></tr><tr><td><code>-e</code> 或<code>--ext</code></td><td>默认文件扩展名（如果没有提供）（默认为’html’）</td><td><code>html</code></td></tr><tr><td><code>-s</code> 或<code>--silent</code></td><td>从输出中抑制日志消息</td><td></td></tr><tr><td><code>--cors</code></td><td>通过 <code>Access-Control-Allow-Origin</code> 标题启用 CORS</td><td></td></tr><tr><td><code>-o</code> [path]</td><td>启动服务器后打开浏览器窗口 例如：<code>-o /other/dir/</code></td><td></td></tr><tr><td><code>-c</code></td><td>设置缓存控制 max-age 头的缓存时间（以秒为单位），例如-c10 10 秒。要禁用缓存，请使用-c-1。</td><td><code>3600</code></td></tr><tr><td><code>-U</code> 或<code>--utc</code></td><td>在日志消息中使用 UTC 时间格式。</td><td></td></tr><tr><td><code>--log-ip</code></td><td>启用客户端 IP 地址的日志记录</td><td><code>false</code></td></tr><tr><td><code>-P</code> 或<code>--proxy</code></td><td>将所有无法在本地解析到给定 url 的请求代理。例如：<code>-P http://someurl.com</code></td><td></td></tr><tr><td><code>--proxy-options</code></td><td>使用嵌套的虚线对象传递代理选项。例如：<code>--proxy-options.secure false</code></td><td></td></tr><tr><td><code>--username</code></td><td>用于基本身份验证的用户名</td><td></td></tr><tr><td><code>--password</code></td><td>基本认证密码</td><td></td></tr><tr><td><code>-S</code> 或<code>--ssl</code></td><td>启用 https。</td><td><code>false</code></td></tr><tr><td><code>-C</code> 或<code>--certssl</code></td><td>证书文件的路径</td><td><code>cert.pem</code></td></tr><tr><td><code>-K</code> 或<code>--keyssl</code></td><td>密钥文件的路径</td><td><code>key.pem</code></td></tr><tr><td><code>-r</code> 或<code>--robots</code></td><td>提供一个/robots.txt（其内容默认为’User-agent：* \ nDisallow：/‘）</td><td><code>false</code></td></tr><tr><td><code>--no-dotfiles</code></td><td>不显示点文件</td><td></td></tr><tr><td><code>--mimetypes</code></td><td>自定义 mimetype 定义的 .types 文件的路径</td><td></td></tr><tr><td><code>-h</code> 或<code>--help</code></td><td>打印此列表并退出。</td><td></td></tr><tr><td><code>-v</code> 或<code>--version</code></td><td>打印版本并退出。</td></tr></tbody></table><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><a href="https://blog.csdn.net/qq_30100043/article/details/73105362">使用 http-server 零配置在本地开启 http 服务器</a></li><li><a href="https://www.npmjs.com/package/http-server">npm http-server</a></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2021/12/09/ofeKKK.jpg&quot; alt=&quot;首屏图&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术积累" scheme="https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/"/>
+    
+    <category term="nodejs" scheme="https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/nodejs/"/>
+    
+    <category term="http服务器" scheme="https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/nodejs/http%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+    <category term="技术积累" scheme="https://www.gaotianyang.top/tags/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/"/>
+    
+    <category term="nodejs" scheme="https://www.gaotianyang.top/tags/nodejs/"/>
+    
+    <category term="http服务器" scheme="https://www.gaotianyang.top/tags/http%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>整数反转</title>
@@ -546,29 +575,6 @@
     <category term="游记" scheme="https://www.gaotianyang.top/tags/%E6%B8%B8%E8%AE%B0/"/>
     
     <category term="天坛" scheme="https://www.gaotianyang.top/tags/%E5%A4%A9%E5%9D%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>坡峰岭</title>
-    <link href="https://www.gaotianyang.top/archives/202010251ed01ebb/"/>
-    <id>https://www.gaotianyang.top/archives/202010251ed01ebb/</id>
-    <published>2020-10-25T08:57:11.000Z</published>
-    <updated>2021-10-20T04:15:54.567Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://z3.ax1x.com/2021/01/13/sNBGx1.jpg" alt="首屏图"></p><a id="more"></a><blockquote><p>停车坐爱枫林晚——坡峰岭红叶节我来了。金秋即将来临，坡峰岭是观赏红叶、登山的最佳之选。漫山红叶、风景秀丽。</p></blockquote><p><img src="https://z3.ax1x.com/2021/01/13/sNDdO0.jpg" alt="你好拾月"><br><img src="https://z3.ax1x.com/2021/01/13/sNDDTU.jpg" alt="走没走过的路"><br><img src="https://z3.ax1x.com/2021/01/13/sND0mV.jpg" alt="看没看过的风景"><br><img src="https://z3.ax1x.com/2021/01/13/sNDskF.jpg" alt="小径通幽"><br><img src="https://z3.ax1x.com/2021/01/13/sNDayq.jpg" alt="云湖"><br><img src="https://z3.ax1x.com/2021/01/13/sNDyY4.jpg" alt="叶落知秋"><br><img src="https://z3.ax1x.com/2021/01/13/sND6fJ.jpg" alt="红叶"><br><img src="https://z3.ax1x.com/2021/01/13/sNDBwT.jpg" alt="夕阳西沉"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/01/13/sNBGx1.jpg&quot; alt=&quot;首屏图&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="游记" scheme="https://www.gaotianyang.top/categories/%E6%B8%B8%E8%AE%B0/"/>
-    
-    
-    <category term="游记" scheme="https://www.gaotianyang.top/tags/%E6%B8%B8%E8%AE%B0/"/>
-    
-    <category term="坡峰岭" scheme="https://www.gaotianyang.top/tags/%E5%9D%A1%E5%B3%B0%E5%B2%AD/"/>
     
   </entry>
   
