@@ -217,182 +217,6 @@
   <div class="article-entry" itemprop="articleBody">
     
     <p><img src="https://s4.ax1x.com/2022/01/05/TXBKnH.jpg" alt="首屏图"></p>
-<h2 id="Lighthouse-简介"><a href="#Lighthouse-简介" class="headerlink" title="Lighthouse 简介"></a>Lighthouse 简介</h2><p>Lighthouse 是一个开源的自动化工具，用于改进网络应用的质量。只要为 Lighthouse 提供一个需要审查的网址，它将针对此页面运行一连串的测试，然后生成一个有关页面性能的报告。</p>
-<h2 id="Lighthouse-使用方式"><a href="#Lighthouse-使用方式" class="headerlink" title="Lighthouse 使用方式"></a>Lighthouse 使用方式</h2><p>目前官方提供了 4 种使用方式：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/GoogleChrome/lighthouse#using-lighthouse-in-chrome-devtools">Chrome 开发者工具（DevTools）</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/GoogleChrome/lighthouse#using-the-chrome-extension">Chrome 扩展</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/GoogleChrome/lighthouse#using-the-node-cli">Node CLI</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/GoogleChrome/lighthouse#using-the-node-module">Node Module</a></li>
-</ul>
-<p>以 Chrome 开发者工具为例，在 Lighthouse 面板下，用户可以配置测试平台、测试类目、限速方式等，可以方便快捷地发起一次测试。</p>
-<p><img src="https://s4.ax1x.com/2022/01/06/TxXM7D.png" alt="Lighthouse"></p>
-<h2 id="Lighthouse-测试报告"><a href="#Lighthouse-测试报告" class="headerlink" title="Lighthouse 测试报告"></a>Lighthouse 测试报告</h2><p>测试结束后，默认会生成 HTML 格式的报告，如下图所示，在报告中涵盖了 5 大类别（categories）的测试评分：</p>
-<p><img src="https://s4.ax1x.com/2022/01/05/TXB84P.jpg" alt="categories"></p>
-<p>每个类别都包含一系列的审计项（audit），针对审计项的运行结果，Lighthouse 会给出特定的优化建议与诊断结果帮助开发者有针对性地进行优化。</p>
-<h3 id="First-Contentful-Paint-首次内容绘制-FCP"><a href="#First-Contentful-Paint-首次内容绘制-FCP" class="headerlink" title="First Contentful Paint 首次内容绘制(FCP)"></a>First Contentful Paint 首次内容绘制(FCP)</h3><p>首次内容绘制 (FCP) 是测量感知加载速度的一个以用户为中心的重要指标，因为该项指标会在用户首次在屏幕上看到任何内容时，<br>在页面加载时间轴中标记出相应的点，迅捷的 FCP 有助于让用户确信某些事情正在进行。</p>
-<h4 id="什么是-FCP"><a href="#什么是-FCP" class="headerlink" title="什么是 FCP"></a>什么是 FCP</h4><p>首次内容绘制 (FCP) 指标测量页面从开始加载到页面内容的任何部分在屏幕上完成渲染的时间。对于该指标，”内容”指的是文本、图像（包括背景图像）、<code>&lt;svg&gt;</code>元素或非白色的<code>&lt;canvas&gt;</code>元素。</p>
-<p><img src="https://s4.ax1x.com/2022/01/05/TXBxUI.png" alt="FCP"></p>
-<p>在上方的加载时间轴中，FCP 发生在第二帧，因为那是首批文本和图像元素在屏幕上完成渲染的时间点。</p>
-<p>您会注意到，虽然部分内容已完成渲染，但并非所有内容都已经完成渲染。<br>这是首次内容绘制 (FCP) 与<em>Largest Contentful Paint 最大内容绘制 (LCP)</em>（旨在测量页面的主要内容何时完成加载）之间的重要区别。</p>
-<h4 id="如何改进-FCP"><a href="#如何改进-FCP" class="headerlink" title="如何改进 FCP"></a>如何改进 FCP</h4><p><a target="_blank" rel="noopener" href="https://web.dev/i18n/zh/fcp/">常见解决方案:</a></p>
-<ul>
-<li>消除阻塞渲染的资源</li>
-<li>缩小 CSS</li>
-<li>移除未使用的 CSS</li>
-<li>预连接到所需的来源</li>
-<li>减少服务器响应时间 (TTFB)</li>
-<li>避免多个页面重定向</li>
-<li>预加载关键请求</li>
-<li>避免巨大的网络负载</li>
-<li>使用高效的缓存策略服务静态资产</li>
-<li>避免 DOM 过大</li>
-<li>最小化关键请求深度</li>
-<li>确保文本在网页字体加载期间保持可见</li>
-<li>保持较低的请求数和较小的传输大小</li>
-</ul>
-<h3 id="Time-to-Interactive-可交互时间-TTI"><a href="#Time-to-Interactive-可交互时间-TTI" class="headerlink" title="Time to Interactive 可交互时间(TTI)"></a>Time to Interactive 可交互时间(TTI)</h3><p>可交互时间 (TTI) 是测量加载响应度的重要实验室指标。该指标有助于识别看起来具备交互性但实际上并非如此的页面情况。迅捷的 TTI 有助于确保页面的有效性。</p>
-<h4 id="什么是-TTI"><a href="#什么是-TTI" class="headerlink" title="什么是 TTI"></a>什么是 TTI</h4><p>TTI 指标测量页面从开始加载到主要子资源完成渲染，并能够快速、可靠地响应用户输入所需的时间。</p>
-<p>如需根据网页的性能跟踪计算 TTI，请执行以下步骤：</p>
-<ul>
-<li>先进行 First Contentful Paint 首次内容绘制 (FCP)。</li>
-<li>沿时间轴正向搜索时长至少为 5 秒的安静窗口，其中，安静窗口的定义为：没有长任务且不超过两个正在处理的网络 GET 请求。</li>
-<li>沿时间轴反向搜索安静窗口之前的最后一个长任务，如果没有找到长任务，则在 FCP 步骤停止执行。</li>
-<li>TTI 是安静窗口之前最后一个长任务的结束时间（如果没有找到长任务，则与 FCP 值相同）。</li>
-</ul>
-<p>下图将有助于您更直观地理解上述步骤：</p>
-<p><img src="https://web-dev.imgix.net/image/admin/WZM0n4aXah67lEyZugOT.svg" alt="显示 TTI 计算方式的页面加载时间轴"></p>
-<p>长久以来，开发者为了追求更快的渲染速度而对页面进行了优化，但有时，这会以牺牲 TTI 为代价。</p>
-<p>服务器端渲染 (SSR) 等技术可能会导致页面看似具备交互性（即，链接和按钮在屏幕上可见），<br>但实际上并不能进行交互，因为主线程被阻塞或是因为控制这些元素的 JavaScript 代码尚未完成加载。</p>
-<p>当用户尝试与看似具备交互性但实际上并非如此的页面进行交互时，他们可能会有如下两种反应：</p>
-<ul>
-<li>在最好的情况下，他们会因为页面响应缓慢而感到恼火。</li>
-<li>在最坏的情况下，他们会认为页面已损坏，因此很可能直接离开。他们甚至可能对您的品牌价值丧失信心或信任。</li>
-</ul>
-<p>为了避免这个问题，请尽一切努力将 FCP 和 TTI 之间的差值降至最低。如果两者在某些情况下确实存在明显差异，请通过视觉指示器清楚表明页面上的组件还无法进行交互。</p>
-<h4 id="如何改进-TTI"><a href="#如何改进-TTI" class="headerlink" title="如何改进 TTI"></a>如何改进 TTI</h4><p><a target="_blank" rel="noopener" href="https://web.dev/i18n/zh/tti/">常见解决方案:</a></p>
-<ul>
-<li>缩小 JavaScript</li>
-<li>预连接到所需的来源</li>
-<li>预加载关键请求</li>
-<li>减少第三方代码的影响</li>
-<li>最小化关键请求深度</li>
-<li>减少 JavaScript 执行时间</li>
-<li>最小化主线程工作</li>
-<li>保持较低的请求数和较小的传输大小</li>
-</ul>
-<h3 id="Speed-Index-速度指数"><a href="#Speed-Index-速度指数" class="headerlink" title="Speed Index 速度指数"></a>Speed Index 速度指数</h3><p>速度指数是 Lighthouse 报告的“性能”部分中跟踪的六个指标之一。每个指标都捕获页面加载速度的某些方面。</p>
-<p>Lighthouse 以秒为单位显示速度指数：</p>
-<p><img src="https://s4.ax1x.com/2022/01/06/TzSAQs.png" alt="Speed Index"></p>
-<h4 id="什么是速度指数"><a href="#什么是速度指数" class="headerlink" title="什么是速度指数"></a>什么是速度指数</h4><p>速度指数衡量页面加载期间内容的视觉显示速度。 Lighthouse 首先捕获浏览器中页面加载的视频，并计算帧之间的视觉进展。<br>Lighthouse 然后使用 Speedline Node.js 模块生成速度指数分数。</p>
-<h4 id="如何改进速度指数"><a href="#如何改进速度指数" class="headerlink" title="如何改进速度指数"></a>如何改进速度指数</h4><p><a target="_blank" rel="noopener" href="https://web.dev/speed-index/">常见解决方案:</a></p>
-<ul>
-<li>最小化主线程工作</li>
-<li>减少 JavaScript 执行时间</li>
-<li>确保文本在字体文件加载期间保持可见</li>
-</ul>
-<h3 id="Total-Blocking-Time-总阻塞时间-TBT"><a href="#Total-Blocking-Time-总阻塞时间-TBT" class="headerlink" title="Total Blocking Time 总阻塞时间(TBT)"></a>Total Blocking Time 总阻塞时间(TBT)</h3><p>总阻塞时间 (TBT) 是测量加载响应度的重要实验室指标，因为该项指标有助于量化在页面交互性变为可靠前，不可交互程度的严重性，较低的 TBT 有助于确保页面的可用性。</p>
-<h4 id="什么是-TBT"><a href="#什么是-TBT" class="headerlink" title="什么是 TBT"></a>什么是 TBT</h4><p>总阻塞时间 (TBT) 指标测量 First Contentful Paint 首次内容绘制 (FCP)与 Time to Interactive 可交互时间 (TTI)之间的总时间，<br>这期间，主线程被阻塞的时间过长，无法作出输入响应。</p>
-<p>每当出现长任务（在主线程上运行超过 50 毫秒的任务）时，主线程都被视作”阻塞状态”。我们说主线程处于”阻塞状态”是因为浏览器无法中断正在进行的任务。<br>因此，如果用户在某个长任务运行期间与页面进行交互，那么浏览器必须等到任务完成后才能作出响应。</p>
-<p>如果任务时长足够长（例如超过 50 毫秒），那么用户很可能会注意到延迟，并认为页面缓慢或卡顿。</p>
-<p>某个给定长任务的阻塞时间是该任务持续时间超过 50 毫秒的部分。一个页面的总阻塞时间是在 FCP 和 TTI 之间发生的每个长任务的阻塞时间总和。</p>
-<p>例如，请看以下这张页面加载期间浏览器主线程的图表：</p>
-<p><img src="https://web-dev.imgix.net/image/admin/clHG8Yv239lXsGWD6Iu6.svg" alt="主线程上的任务时间轴"></p>
-<p>上方的时间轴上有五个任务，其中三个是长任务，因为这些任务的持续时间超过 50 毫秒。下图显示了各个长任务的阻塞时间：</p>
-<p><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/xKxwKagiz8RliuOI2Xtc.svg" alt="显示阻塞时间的主线程任务时间轴"></p>
-<p>因此，虽然在主线程上运行任务的总时间为 560 毫秒，但其中只有 345 毫秒被视为阻塞时间。</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th style="text-align:center">任务持续时间</th>
-<th style="text-align:center">任务阻塞时间</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>任务一</td>
-<td style="text-align:center">250 毫秒</td>
-<td style="text-align:center">200 毫秒</td>
-</tr>
-<tr>
-<td>任务二</td>
-<td style="text-align:center">90 毫秒</td>
-<td style="text-align:center">40 毫秒</td>
-</tr>
-<tr>
-<td>任务三</td>
-<td style="text-align:center">35 毫秒</td>
-<td style="text-align:center">0 毫秒</td>
-</tr>
-<tr>
-<td>任务四</td>
-<td style="text-align:center">30 毫秒</td>
-<td style="text-align:center">0 毫秒</td>
-</tr>
-<tr>
-<td>任务五</td>
-<td style="text-align:center">155 毫秒</td>
-<td style="text-align:center">105 毫秒</td>
-</tr>
-<tr>
-<td>总阻塞时间</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">345 毫秒</td>
-</tr>
-</tbody>
-</table>
-<h4 id="TBT-与-TTI-有什么关系"><a href="#TBT-与-TTI-有什么关系" class="headerlink" title="TBT 与 TTI 有什么关系"></a>TBT 与 TTI 有什么关系</h4><p>TBT 是 TTI 的一个出色的配套指标，因为 TBT 有助于量化在页面交互性变为可靠前，不可交互程度的严重性。</p>
-<p>TTI 会在主线程至少有五秒钟没有长任务时，认为页面具备”可靠交互性”。也就是说，<br>分布在 10 秒钟里的三个 51 毫秒长的任务与单个 10 秒长的任务对 TTI 的影响是相同的，但对于试图与页面进行交互的用户来说，这两种情况给人的感觉是截然不同的。</p>
-<p>在第一种情况下，三个 51 毫秒的任务的 TBT 为 3 毫秒。而单个 10 秒长的任务的 TBT 为 9950 毫秒。第二种情况下较大的 TBT 值对较差的体验进行了量化。</p>
-<h4 id="如何改进-TBT"><a href="#如何改进-TBT" class="headerlink" title="如何改进 TBT"></a>如何改进 TBT</h4><p><a target="_blank" rel="noopener" href="https://web.dev/i18n/zh/tbt/">常见解决方案:</a></p>
-<ul>
-<li>减少第三方代码的影响</li>
-<li>减少 JavaScript 执行时间</li>
-<li>最小化主线程工作</li>
-<li>保持较低的请求数和较小的传输大小</li>
-</ul>
-<h3 id="Largest-Contentful-Paint-最大内容绘制-LCP"><a href="#Largest-Contentful-Paint-最大内容绘制-LCP" class="headerlink" title="Largest Contentful Paint 最大内容绘制(LCP)"></a>Largest Contentful Paint 最大内容绘制(LCP)</h3><p>最大内容绘制 (LCP) 是测量感知加载速度的一个以用户为中心的重要指标，因为该项指标会在页面的主要内容基本加载完成时，<br>在页面加载时间轴中标记出相应的点，迅捷的 LCP 有助于让用户确信页面是有效的。</p>
-<p>长久以来，对于网页开发者来说，测量网页主要内容的加载速度和内容对用户的显示速度一直是一个挑战。</p>
-<p>诸如 load（加载）或 DOMContentLoaded（DOM 内容加载完毕）这样的旧有指标并不是很好，因为这些指标不一定与用户在屏幕上看到的内容相对应。<br>而像 First Contentful Paint 首次内容绘制 (FCP)这类以用户为中心的较新性能指标只会捕获加载体验最开始的部分。<br>如果某个页面显示的是一段启动画面或加载指示，那么这些时刻与用户的关联性并不大。</p>
-<p>我们以往推荐过一些性能指标，例如 First Meaningful Paint 首次有效绘制 (FMP)和 Speed Index 速度指数 (SI) （两个指标都包含在灯塔工具中），<br>这些指标有助于捕获到更多初始绘制后的加载体验，但这些指标十分复杂、难以解释，而且常常出错，也就意味着这些指标仍然无法识别出页面主要内容加载完毕的时间点。</p>
-<p>有时候简胜于繁。根据 W3C Web 性能工作组的讨论以及 Google 进行的研究，我们发现更准确地测量页面主要内容加载完毕的时间点的方法是查看最大元素完成渲染的时间点。</p>
-<h4 id="什么是-LCP"><a href="#什么是-LCP" class="headerlink" title="什么是 LCP"></a>什么是 LCP</h4><p>最大内容绘制 (LCP) 指标会根据页面首次开始加载的时间点来报告可视区域内可见的最大图像或文本块完成渲染的相对时间。</p>
-<p><img src="https://web-dev.imgix.net/image/tcFciHGuF3MxnTr1y5ue01OGLBn2/elqsdYqQEefWJbUM2qMO.svg" alt="良好的 LCP 值为 2.5 秒，较差的值大于 4.0 秒，两者之间的任何东西都需要改进"></p>
-<h4 id="如何改进-LCP"><a href="#如何改进-LCP" class="headerlink" title="如何改进 LCP"></a>如何改进 LCP</h4><p>LCP 主要受四个因素影响：</p>
-<ul>
-<li>缓慢的服务器响应速度</li>
-<li>JavaScript 和 CSS 渲染阻塞</li>
-<li>资源加载时间</li>
-<li>客户端渲染</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://web.dev/i18n/zh/lcp/">常见解决方案:</a></p>
-<ul>
-<li>使用 PRPL 模式做到即时加载</li>
-<li>优化关键渲染路径</li>
-<li>优化您的 CSS</li>
-<li>优化您的图像</li>
-<li>优化网页字体</li>
-<li>优化您的 JavaScript（针对客户端渲染的网站）</li>
-</ul>
-<h3 id="Cumulative-Layout-Shift-累积布局偏移-CLS"><a href="#Cumulative-Layout-Shift-累积布局偏移-CLS" class="headerlink" title="Cumulative Layout Shift 累积布局偏移 (CLS)"></a>Cumulative Layout Shift 累积布局偏移 (CLS)</h3><p>重要词汇: 累积布局偏移 (CLS) 是测量视觉稳定性的一个以用户为中心的重要指标，因为该项指标有助于量化用户经历意外布局偏移的频率，较低的 CLS 有助于确保一个页面是令人愉悦的。</p>
-<p>您是否曾经历过在网上阅读一篇文章，结果页面上的某些内容突然发生改变？文本在毫无预警的情况下移位，导致您找不到先前阅读的位置。<br>或者更糟糕的情况：您正要点击一个链接或一个按钮，但在您手指落下的瞬间，诶？链接移位了，结果您点到了别的东西！</p>
-<p>大多数情况下，这些体验只是令人恼火，但在某些情况下，却可能带来真正的破坏。</p>
-<p><img src="https://s4.ax1x.com/2022/01/06/TzmqMV.gif" alt="截屏视频说明了布局不稳定性会对用户产生怎样的负面影响。"></p>
-<p>页面内容的意外移动通常是由于异步加载资源，或者动态添加 DOM 元素到页面现有内容的上方。<br>罪魁祸首可能是未知尺寸的图像或视频、实际渲染后比后备字体更大或更小的字体，或者是动态调整自身大小的第三方广告或小组件。</p>
-<p>让这个问题变得更加棘手的是，网站在开发环境中的运作方式通常与用户在网站上的实际体验大不相同。<br>个性化或第三方内容在开发环境中的表现通常与其在实际情况中的表现不同，测试图像通常已经在开发者的浏览器缓存中了，并且本地调用 API 的速度一般非常快，几乎察觉不到延迟。</p>
-<p>累积布局偏移 (CLS) 指标通过测量真实用户体验中发生偏移的频率来帮助您解决这一问题。</p>
-<h4 id="什么是-CLS"><a href="#什么是-CLS" class="headerlink" title="什么是 CLS"></a>什么是 CLS</h4><p>CLS 测量整个页面生命周期内发生的所有意外布局偏移中最大一连串的布局偏移分数。</p>
-<p>每当一个可见元素的位置从一个已渲染帧变更到下一个已渲染帧时，就发生了布局偏移 。（有关单次布局偏移分数计算方式的详细信息，请参阅下文。）</p>
-<p>一连串的布局偏移，也叫会话窗口，是指一个或多个快速连续发生的单次布局偏移，每次偏移相隔的时间少于 1 秒，且整个窗口的最大持续时长为 5 秒。</p>
-<p>最大的一连串是指窗口内所有布局偏移累计分数最大的会话窗口。</p>
-<p><img src="https://s4.ax1x.com/2022/01/06/TznXlt.gif" alt="会话窗口示例。蓝色竖条代表每个单次布局偏移的分数。"></p>
-<h4 id="如何改进-CLS"><a href="#如何改进-CLS" class="headerlink" title="如何改进 CLS"></a>如何改进 CLS</h4><p><a target="_blank" rel="noopener" href="https://web.dev/i18n/zh/cls/">常见解决方案:</a></p>
-<ul>
-<li><strong>始终在您的图像和视频元素上包含尺寸属性，或者通过使用 CSS 长宽比容器之类的方式预留所需的空间。</strong>这种方法可以确保浏览器能够在加载图像期间在文档中分配正确的空间大小。请注意，您还可以使用 unsized-media 功能策略在支持功能策略的浏览器中强制执行此行为。</li>
-<li><strong>除非是对用户交互做出响应，否则切勿在现有内容的上方插入内容。</strong>这样能够确保发生的任何布局偏移都在预期之内。</li>
-<li><strong>首选转换动画，而不是触发布局偏移的属性动画。</strong>动画过渡的目标是提供状态与状态之间的上下文连续性。</li>
-</ul>
     
     
 
@@ -410,11 +234,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">chrome</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">chrome</a>
         		</li>
       		
 		</ul>
@@ -1568,7 +1392,7 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color2">chrome</a>
+              <a href="javascript:void(0)" class="js-tag color3">前端</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -1576,15 +1400,11 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">前端</a>
-            </li>
-            
-            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">js</a>
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">UI-Grid</a>
+              <a href="javascript:void(0)" class="js-tag color2">chrome</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -1596,7 +1416,7 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              <a href="javascript:void(0)" class="js-tag color3">UI-Grid</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -1616,6 +1436,10 @@
             </li>
             
             <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+            </li>
+            
+            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
             </li>
             
@@ -1628,10 +1452,6 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color1">react</a>
-            </li>
-            
-            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">游记</a>
             </li>
             
@@ -1640,7 +1460,7 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color3">故宫</a>
+              <a href="javascript:void(0)" class="js-tag color1">react</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -1653,6 +1473,10 @@
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color5">两数相加</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">故宫</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -1680,6 +1504,10 @@
             </li>
             
             <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color4">坡峰岭</a>
+            </li>
+            
+            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color4">SSO</a>
             </li>
             
@@ -1689,10 +1517,6 @@
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color5">单一登录</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color4">坡峰岭</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -1712,15 +1536,19 @@
             </li>
             
             <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color1">无重复字符的最长子串</a>
-            </li>
-            
-            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color5">整数反转</a>
             </li>
             
             <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color1">无重复字符的最长子串</a>
+            </li>
+            
+            <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color3">算法</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color2">最长回文子串</a>
             </li>
             
             <li class="article-tag-list-item">
@@ -1745,10 +1573,6 @@
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color4">阳台山</a>
-            </li>
-            
-            <li class="article-tag-list-item">
-              <a href="javascript:void(0)" class="js-tag color2">最长回文子串</a>
             </li>
             
             <li class="article-tag-list-item">
