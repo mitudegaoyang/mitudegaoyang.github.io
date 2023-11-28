@@ -11,18 +11,18 @@ menu:
 
 # SubNav
 subnav:
-  github: "https://github.com/mitudegaoyang"
+  github: 'https://github.com/mitudegaoyang'
   #weibo: "#"
   #rss: "#"
   #zhihu: "#"
   #qq: "#"
-  weixin: "/img/timg.jpeg"
+  weixin: '/img/avatar.png'
   #jianshu: "#"
   #douban: "#"
   #segmentfault: "#"
   #bilibili: "#"
   #acfun: "#"
-  mail: "mailto:13683265113@163.com"
+  mail: 'mailto:13683265113@163.com'
   #gitbook: "https://www.gitbook.com/@mitudegaoyang"
   #facebook: "#"
   #google: "#"
@@ -74,7 +74,7 @@ google_analytics: ''
 favicon: /favicon.ico
 
 #你的头像url
-avatar: /img/timg.jpeg
+avatar: /img/avatar.png
 
 #是否开启分享
 share_jia: true
@@ -97,11 +97,11 @@ changyan_conf: false
 disqus: false
 
 #5、Gitment
-gitment_owner: false      #你的 GitHub ID
-gitment_repo: ''          #存储评论的 repo
+gitment_owner: false #你的 GitHub ID
+gitment_repo: '' #存储评论的 repo
 gitment_oauth:
-  client_id: ''           #client ID
-  client_secret: ''       #client secret
+  client_id: '' #client ID
+  client_secret: '' #client secret
 
 # 样式定制 - 一般不需要修改，除非有很强的定制欲望…
 style:
