@@ -6,7 +6,7 @@
   <link href="https://www.gaotianyang.top/atom.xml" rel="self"/>
   
   <link href="https://www.gaotianyang.top/"/>
-  <updated>2023-11-28T08:26:44.980Z</updated>
+  <updated>2023-11-29T03:00:24.150Z</updated>
   <id>https://www.gaotianyang.top/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>react个人站建站总结</title>
+    <link href="https://www.gaotianyang.top/archives/202311282f46f162/"/>
+    <id>https://www.gaotianyang.top/archives/202311282f46f162/</id>
+    <published>2023-11-28T09:02:14.000Z</published>
+    <updated>2023-11-29T03:00:24.150Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://z1.ax1x.com/2023/11/29/piDNnQf.png" alt="首屏图"></p><a id="more"></a><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>基于 react-antd-admin 搭建的前端简历网站 <a href="https://me.gaotianyang.top">预览地址</a></p><h2 id="技术总结"><a href="#技术总结" class="headerlink" title="技术总结"></a>技术总结</h2><ul><li><strong>react-antd-admin-template</strong> 基于 <code>React</code> 和 <code>Ant Design</code> 的后台管理系统模板</li><li><strong>antd</strong> <code>Web</code> <code>UI</code> 组件库</li><li><strong>echarts</strong> <code>echarts-wordcloud</code> 词云库</li><li><strong>仿钉钉官网动效</strong> 基于 <code>JavaScript</code> <code>Css</code> 的滚动动效</li><li><strong>仿 antd 图片预览</strong> 基于 <code>Ant Design</code> <code>Modal</code> 的图片预览功能</li><li><strong>axios</strong> 基于 <code>promise</code> 的 <code>HTTP</code> 库</li><li><strong>mockjs</strong> 模拟数据生成器</li><li><strong>lodash</strong> <code>JavaScript</code> 实用工具库</li><li><strong>dayjs</strong> <code>JavaScript</code> 时间处理工具库</li></ul><h2 id="功能与问题"><a href="#功能与问题" class="headerlink" title="功能与问题"></a>功能与问题</h2><h3 id="Mockjs-实现数据过滤"><a href="#Mockjs-实现数据过滤" class="headerlink" title="Mockjs 实现数据过滤"></a>Mockjs 实现数据过滤</h3><p>基于 Mockjs，在<code>项目列表</code>接口请求时，实现了数据的过滤、分页等功能。</p><p><img src="https://z1.ax1x.com/2023/11/29/piDU8BD.png" alt="mockjs"></p><h3 id="仿钉钉官网动效"><a href="#仿钉钉官网动效" class="headerlink" title="仿钉钉官网动效"></a>仿钉钉官网动效</h3><p>在实现此动效的时候，遇到了一些问题。例如原 demo 为原生 <code>html</code> <code>css</code> <code>js</code> 实现的，需要对其进行 react 的迁移与改造。另外，因为在项目中的使用场景为 dashboard 页面下使用，因此原本监听页面滚动事件，触发动效将不再生效。解决方案为将滚动监听，变更为 antd layout 组件，并将监听结果挂载于 window 自定义变量中。页面根据挂载的自定义变量，进行页面的重绘。</p><p><img src="https://z1.ax1x.com/2023/11/29/piDNnQf.png" alt="dashboard"></p><h3 id="echarts-词云"><a href="#echarts-词云" class="headerlink" title="echarts 词云"></a>echarts 词云</h3><p>在使用词云效果的自定义词云形状时，会遇到因背景图加载原因，导致的首次渲染白屏的问题。解决方案为，将词云首次绘制，执行于背景图加载完毕后(<code>maskImage.onload</code>)。</p><p><img src="https://z1.ax1x.com/2023/11/29/piDUtNd.png" alt="wordcloud"></p><h3 id="仿-antd-图片预览"><a href="#仿-antd-图片预览" class="headerlink" title="仿 antd 图片预览"></a>仿 antd 图片预览</h3><p>本项目的 <code>Ant Design</code> 版本为 V3.X，尚未加入图片预览功能，因此基于 <code>Ant Design</code> 的 <code>Modal</code> 组件二次封装了图片预览组件，并基于 <code>css</code> <code>js</code> 实现了缩放、翻转、旋转这些功能。</p><p><img src="https://z1.ax1x.com/2023/11/29/piDUGHe.png" alt="imagePreview"></p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><a href="https://github.com/NLRX-WJC/react-antd-admin-template">react-antd-admin-template</a></li><li><a href="https://www.bilibili.com/video/BV12z4y1s7nE/?vd_source=2e6014e07f90a9d8b3424eb1c055a867">复刻钉钉官网滚动动画</a></li><li><a href="https://gitee.com/vary-space/hello-world/tree/12z4y1s7nE">代码仓库-复刻钉钉官网滚动动画</a></li><li><a href="https://www.npmjs.com/package/echarts-wordcloud">echarts-wordcloud npm 词云</a></li><li><a href="https://www.cnblogs.com/art-poet/p/13936076.html">react 项目使用 echarts-wordcloud（文字云）</a></li><li><a href="https://blog.csdn.net/Zeng__Yi/article/details/106197891">react+typeScript 框架 config-overrides 中设置 Alias 路径 报错的解决方法</a></li><li><a href="https://blog.csdn.net/m0_47670683/article/details/124025972">最优雅解决 typescript 报错：“元素隐式具有 “any“ 类型，因为类型为 “string“ 的表达式不能用于索引类型”</a></li><li><a href="https://cloud.tencent.com/developer/article/2233289">react antd 实现图片自定义预览</a></li><li><a href="https://github.com/liuguanhua/liuguanhua.github.io">刘关化的前端简历 参考</a></li><li><a href="https://github.com/sunniejs/sunniejs.github.io">宋楠的前端简历 参考</a></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://z1.ax1x.com/2023/11/29/piDNnQf.png&quot; alt=&quot;首屏图&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术积累" scheme="https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/"/>
+    
+    <category term="前端" scheme="https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="React" scheme="https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/%E5%89%8D%E7%AB%AF/React/"/>
+    
+    
+    <category term="技术积累" scheme="https://www.gaotianyang.top/tags/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/"/>
+    
+    <category term="前端" scheme="https://www.gaotianyang.top/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="React" scheme="https://www.gaotianyang.top/tags/React/"/>
+    
+  </entry>
   
   <entry>
     <title>医院预算管理项目技术栈</title>
@@ -552,35 +581,6 @@
     <category term="flutter" scheme="https://www.gaotianyang.top/tags/flutter/"/>
     
     <category term="dart" scheme="https://www.gaotianyang.top/tags/dart/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MV*模式</title>
-    <link href="https://www.gaotianyang.top/archives/20210216de93538b/"/>
-    <id>https://www.gaotianyang.top/archives/20210216de93538b/</id>
-    <published>2021-02-16T01:47:20.000Z</published>
-    <updated>2021-10-20T04:15:54.797Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://z3.ax1x.com/2021/03/15/6BreZF.jpg" alt="首屏图"></p><a id="more"></a><h2 id="MV-模式"><a href="#MV-模式" class="headerlink" title="MV*模式"></a>MV*模式</h2><p>MV*模式主要解决的问题就是 View 代码难以维护的问题。</p><p>MV*模式将 View 中的逻辑分离出去，形成一个弱逻辑的易于维护的视图。</p><p>MV<em>中的</em>是 Model 和 View 的桥梁，负责保持 Model 和 View 的同步。</p><h3 id="MVC-模式"><a href="#MVC-模式" class="headerlink" title="MVC 模式"></a>MVC 模式</h3><p>Model，View，Controler，Controler 负责视图逻辑，数据流向为 View -&gt; Controler，Controler -&gt; Model，Model -&gt; View，三种呈环形结构</p><p><img src="https://z3.ax1x.com/2021/03/15/6BDy59.png" alt="MVC"></p><h3 id="MVC-缺陷"><a href="#MVC-缺陷" class="headerlink" title="MVC 缺陷"></a>MVC 缺陷</h3><p><img src="https://z3.ax1x.com/2021/03/15/6BD4bD.png" alt="MVC缺陷"></p><h3 id="MVP-模式"><a href="#MVP-模式" class="headerlink" title="MVP 模式"></a>MVP 模式</h3><p>Model，View，Presenter，Presenter 负责视图逻辑，数据流向为 View <-> Presentrer, Presenter <-> Model, Persenter 成为 View 和 Model 的中介，不允许 Model 和 View 直接通信，MVP 一定程度上解决了 MVC 的问题，但是 Presenter 将会非常复杂</p><p><img src="https://z3.ax1x.com/2021/03/15/6BDT5d.png" alt="MVP"></p><h3 id="MVVM-模式"><a href="#MVVM-模式" class="headerlink" title="MVVM 模式"></a>MVVM 模式</h3><p>Model，View，ViewModel，ViewModel 负责视图逻辑，数据流向 View <-> ViewModel, ViewModel <-> Model, 进化版的 MVP 模式，将 Presenter 改为 ViewModel。<br>其中的 Model 为纯数据，不包括视图元素状态(显示/隐藏，高亮，禁用/启用等)。<br>而多数的 MVVM 框架，ViewModel 包含 Model，ViewModel 是数据和业务逻辑的集合体，<br>View 和 ViewModel 的同步是采用 data-binding 的形式。<br>实际上，形成如下演变模式， View <-> ViewModel，<br>说是 VVM 模式也许更贴切，目前这种方式被推崇为前端领域的最佳实践。</p><p><img src="https://z3.ax1x.com/2021/03/15/6BDjr8.png" alt="MVVM"></p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><a href="https://www.cnblogs.com/mengff/p/5964902.html">MV*模式的个人理解</a></li><li><a href="https://www.jianshu.com/p/6250177941f2">深入了解 MV*模式</a></li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/03/15/6BreZF.jpg&quot; alt=&quot;首屏图&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="技术积累" scheme="https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/"/>
-    
-    <category term="前端" scheme="https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="js" scheme="https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/%E5%89%8D%E7%AB%AF/js/"/>
-    
-    
-    <category term="技术积累" scheme="https://www.gaotianyang.top/tags/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/"/>
-    
-    <category term="前端" scheme="https://www.gaotianyang.top/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-    <category term="js" scheme="https://www.gaotianyang.top/tags/js/"/>
     
   </entry>
   
