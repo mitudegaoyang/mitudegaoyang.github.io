@@ -127,28 +127,33 @@
               var target = src + (type === 'video' ? '.mp4' : '.jpg');
               var size = datas[i].size;
               src += '.jpg';
-
-              liTmpl +=
-                '<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">\
-                <a href="' +
-                src +
-                '" itemprop="contentUrl" data-size="' +
-                size +
-                '" data-type="' +
-                type +
-                '" data-target="' +
-                target +
-                '">\
-                  <img class="reward-img" data-type="' +
-                type +
-                '" data-src="' +
-                minSrc +
-                '" src="/assets/img/empty.png" itemprop="thumbnail" onload="lzld(this)">\
-                </a>\
-                <figcaption style="display:none" itemprop="caption description">' +
-                datas[i].text +
-                '</figcaption>\
-            </figure>';
+              liTmpl += `<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                <a href="${src}" itemprop="contentUrl" data-size="${size}" data-type="${type}" data-target="${target}">
+                  <img class="reward-img" data-type="${type}" data-src="${minSrc}" src="/assets/img/empty.png" itemprop="thumbnail" onload="lzld(this)">
+                </a>
+                <figcaption style="display:none" itemprop="caption description">${datas[i].text}</figcaption>
+              </figure>`;
+              //   liTmpl +=
+              //     '<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">\
+              //     <a href="' +
+              //     src +
+              //     '" itemprop="contentUrl" data-size="' +
+              //     size +
+              //     '" data-type="' +
+              //     type +
+              //     '" data-target="' +
+              //     target +
+              //     '">\
+              //       <img class="reward-img" data-type="' +
+              //     type +
+              //     '" data-src="' +
+              //     minSrc +
+              //     '" src="/assets/img/empty.png" itemprop="thumbnail" onload="lzld(this)">\
+              //     </a>\
+              //     <figcaption style="display:none" itemprop="caption description">' +
+              //     datas[i].text +
+              //     '</figcaption>\
+              // </figure>';
             }
           } else {
             for (var i = 0, len = data.link.length; i < len; i++) {
@@ -159,28 +164,33 @@
               var target = src + (type === 'video' ? '.mp4' : '.jpg');
               var size = data.size[i];
               src += '.jpg';
-
-              liTmpl +=
-                '<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">\
-                <a href="' +
-                src +
-                '" itemprop="contentUrl" data-size="' +
-                size +
-                '" data-type="' +
-                type +
-                '" data-target="' +
-                target +
-                '">\
-                  <img class="reward-img" data-type="' +
-                type +
-                '" data-src="' +
-                minSrc +
-                '" src="/assets/img/empty.png" itemprop="thumbnail" onload="lzld(this)">\
-                </a>\
-                <figcaption style="display:none" itemprop="caption description">' +
-                data.text[i] +
-                '</figcaption>\
-            </figure>';
+              liTmpl += `<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
+                <a href="${src}" itemprop="contentUrl" data-size="${size}" data-type="${type}" data-target="${target}">
+                  <img class="reward-img" data-type="${type}" data-src="${minSrc}" src="/assets/img/empty.png" itemprop="thumbnail" onload="lzld(this)">
+                </a>
+                <figcaption style="display:none" itemprop="caption description">${data.text[i]}</figcaption>
+              </figure>`;
+              //   liTmpl +=
+              //     '<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">\
+              //     <a href="' +
+              //     src +
+              //     '" itemprop="contentUrl" data-size="' +
+              //     size +
+              //     '" data-type="' +
+              //     type +
+              //     '" data-target="' +
+              //     target +
+              //     '">\
+              //       <img class="reward-img" data-type="' +
+              //     type +
+              //     '" data-src="' +
+              //     minSrc +
+              //     '" src="/assets/img/empty.png" itemprop="thumbnail" onload="lzld(this)">\
+              //     </a>\
+              //     <figcaption style="display:none" itemprop="caption description">' +
+              //     data.text[i] +
+              //     '</figcaption>\
+              // </figure>';
             }
           }
           ulTmpl =
