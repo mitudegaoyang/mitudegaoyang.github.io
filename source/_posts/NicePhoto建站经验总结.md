@@ -13,7 +13,7 @@ categories:
 toc: true
 ---
 
-![首屏图](https://s1.ax1x.com/2022/06/06/Xwo0Mt.jpg)
+![首屏图](https://z1.ax1x.com/2022/06/06/XwoBsP.jpg)
 
 <!-- more -->
 

@@ -117,7 +117,7 @@
         for (var j = 0, len2 = res.list.length; j < len2; j++) {
           let data = res.list[j].arr;
           let { data: datas } = data;
-          var liTmpl = '';
+          let liTmpl = '';
           if (datas) {
             for (var i = 0, len = datas.length; i < len; i++) {
               var host = res.hostList[datas[i].hostNum];
@@ -133,27 +133,6 @@
                 </a>
                 <figcaption style="display:none" itemprop="caption description">${datas[i].text}</figcaption>
               </figure>`;
-              //   liTmpl +=
-              //     '<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">\
-              //     <a href="' +
-              //     src +
-              //     '" itemprop="contentUrl" data-size="' +
-              //     size +
-              //     '" data-type="' +
-              //     type +
-              //     '" data-target="' +
-              //     target +
-              //     '">\
-              //       <img class="reward-img" data-type="' +
-              //     type +
-              //     '" data-src="' +
-              //     minSrc +
-              //     '" src="/assets/img/empty.png" itemprop="thumbnail" onload="lzld(this)">\
-              //     </a>\
-              //     <figcaption style="display:none" itemprop="caption description">' +
-              //     datas[i].text +
-              //     '</figcaption>\
-              // </figure>';
             }
           } else {
             for (var i = 0, len = data.link.length; i < len; i++) {
@@ -170,43 +149,34 @@
                 </a>
                 <figcaption style="display:none" itemprop="caption description">${data.text[i]}</figcaption>
               </figure>`;
-              //   liTmpl +=
-              //     '<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">\
-              //     <a href="' +
-              //     src +
-              //     '" itemprop="contentUrl" data-size="' +
-              //     size +
-              //     '" data-type="' +
-              //     type +
-              //     '" data-target="' +
-              //     target +
-              //     '">\
-              //       <img class="reward-img" data-type="' +
-              //     type +
-              //     '" data-src="' +
-              //     minSrc +
-              //     '" src="/assets/img/empty.png" itemprop="thumbnail" onload="lzld(this)">\
-              //     </a>\
-              //     <figcaption style="display:none" itemprop="caption description">' +
-              //     data.text[i] +
-              //     '</figcaption>\
-              // </figure>';
             }
           }
-          ulTmpl =
-            ulTmpl +
-            '<section class="archives album"><h1 class="year">' +
-            data.year +
-            '<em>' +
-            data.month +
-            '月</em></h1>\
-        <ul class="img-box-ul">' +
-            liTmpl +
-            '</ul>\
-        </section>';
+          ulTmpl = `${ulTmpl}
+          <section class="archives album">
+            <h1 class="year">
+              ${data.year}
+              <em>${data.month}月</em>
+            </h1>
+            <ul class="img-box-ul">
+              ${liTmpl}
+            </ul>
+          </section>`;
+          //   ulTmpl =
+          //     ulTmpl +
+          //     '<section class="archives album"><h1 class="year">' +
+          //     data.year +
+          //     '<em>' +
+          //     data.month +
+          //     '月</em></h1>\
+          // <ul class="img-box-ul">' +
+          //     liTmpl +
+          //     '</ul>\
+          // </section>';
         }
-        document.querySelector('.instagram').innerHTML =
-          '<div class="photos" itemscope="">' + ulTmpl + '</div>';
+        document.querySelector(
+          '.instagram'
+        ).innerHTML = `<div class="photos" itemscope="">${ulTmpl}</div>`;
+        // '<div class="photos" itemscope="">' + ulTmpl + '</div>';
         createVideoIncon();
         _view2.default.init();
       };
