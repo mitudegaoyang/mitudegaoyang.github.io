@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "hexo s",
-    "build": "hexo c && hexo g && hexo d"
+    "s": "hexo s",
+    "build": "hexo c && hexo g && hexo d",
+    "b": "hexo c && hexo g && hexo d"
   },
   "hexo": {
     "version": "5.0.2"
