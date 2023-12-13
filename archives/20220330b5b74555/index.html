@@ -16,7 +16,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s1.ax1x.com/2022/06/06/Xwo0Mt.jpg">
 <meta property="article:published_time" content="2022-03-30T06:56:56.000Z">
-<meta property="article:modified_time" content="2023-12-12T11:31:28.670Z">
+<meta property="article:modified_time" content="2023-12-13T02:36:19.856Z">
 <meta property="article:author" content="迷途的羔羊">
 <meta property="article:tag" content="技术积累">
 <meta property="article:tag" content="前端">
@@ -439,6 +439,7 @@
 <li>箭头函数没有原型 prototype</li>
 <li>箭头函数不能用作 Generator 函数，不能使用 yeild 关键字</li>
 </ol>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903805960585224">ES6 - 箭头函数、箭头函数与普通函数的区别</a></p>
 <h4 id="箭头函数为什么不能当做构造函数"><a href="#箭头函数为什么不能当做构造函数" class="headerlink" title="箭头函数为什么不能当做构造函数"></a>箭头函数为什么不能当做构造函数</h4><ul>
 <li>从上面的运行结果也可以看到箭头函数与构造函数相比，缺少了很多东西，比如：caller，arguments，prototype，但同时也可以看到，箭头函数是有<strong>proto</strong>属性的，所以箭头函数本身是存在原型链的，他也是有自己的构造函数的，但是原型链到箭头函数这一环就停止了，因为它自己没有 prototype 属性，没法让他的实例的<strong>proto</strong>属性指向，所以箭头函数也就无法作为构造函数。</li>
 <li>同时我们可以看到，由于箭头函数没有自己的 this 指针，通过 call() 或 apply() 方法调用一个函数时，只能传递参数，不能绑定 this，所以 call()和 apply()的第一个参数会被忽略。</li>
@@ -512,10 +513,18 @@
 <h4 id="CDN-的原理是什么"><a href="#CDN-的原理是什么" class="headerlink" title="CDN 的原理是什么"></a>CDN 的原理是什么</h4><p>CDN 的原理是: 基于分布式架构，通过将源服务器上的内容分发到多个节点服务器上，使用户能够从最近的服务器中获取所需内容。<br>这些节点服务器被称为 边缘服务器，它们通常位于不同的地理位置，并通过高速互联网连接互相交换数据。<br>用户通过接入离他们最近的 边缘服务器 来获取所需的内容，从而降低了响应时间和延迟，提高了网站的访问速度。</p>
 <p><a target="_blank" rel="noopener" href="https://www.51cto.com/article/750758.html">CDN 原理入门，你学会了吗？</a></p>
 <h3 id="react-相关"><a href="#react-相关" class="headerlink" title="react 相关"></a>react 相关</h3><h4 id="React-函数组件和类组件的区别"><a href="#React-函数组件和类组件的区别" class="headerlink" title="React 函数组件和类组件的区别"></a>React 函数组件和类组件的区别</h4><ol>
-<li>语法上</li>
+<li>语法上<ol>
+<li>函数组件它接收一个 <code>props</code> 对象返回一个 <code>react</code> 元素</li>
+<li>类组件需要去继承 <code>React.Component</code> 并且创建 <code>render</code> 函数返回 <code>react</code> 元素</li>
+</ol>
+</li>
 <li><del>状态管理</del> 使用 hooks 解决</li>
 <li><del>生命周期钩子</del> 使用 hooks 解决</li>
-<li>调用方式</li>
+<li>调用方式<ol>
+<li>函数组件直接调用函数使用</li>
+<li>类组件需要先用 <code>new</code> 操作符将其实例化，然后调用刚才生成实例的 <code>render</code> 方法</li>
+</ol>
+</li>
 <li>获取渲染时的值</li>
 </ol>
 <ul>
@@ -584,6 +593,26 @@
 <li>不用再去考虑 this 的指向问题</li>
 </ol>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/392191865">为什么要使用 Hooks？</a></p>
+<ul>
+<li>优点：<ul>
+<li>更容易复用代码</li>
+<li>代码量更少</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>响应式的 useEffect</li>
+<li>hooks 不擅长异步的代码</li>
+<li>custom hooks 有时严重依赖参数的不可变性</li>
+</ul>
+</li>
+<li>解决方案：<ul>
+<li>不要在 useEffect 里面写太多的依赖项，划分这些依赖项成多个单一功能的 useEffect。其实这点是遵循了软件设计的“单一职责模式”。</li>
+<li>如果你碰到状态不同步的问题，可以考虑下手动传递参数到函数。</li>
+<li>拆分组件，细化组件的粒度。复杂业务场景中使用 hooks，应尽可能地细分组件，使得组件的功能尽可能单一，这样的 hooks 组件更好维护。</li>
+</ul>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/88593858">谈谈 react hooks 的优缺点</a></p>
 <h4 id="usestate-赋值操作是同步的还是异步的，多次赋值，界面会渲染几次"><a href="#usestate-赋值操作是同步的还是异步的，多次赋值，界面会渲染几次" class="headerlink" title="usestate 赋值操作是同步的还是异步的，多次赋值，界面会渲染几次"></a>usestate 赋值操作是同步的还是异步的，多次赋值，界面会渲染几次</h4><p>严格来说，不是异步也不是同步。setState 有时候不会即时更新是因为 React 的优化机制，在事件处理器中批量处理更新。<br>而在某些时候，setState 会同步更新。分别看一下这两种情况。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> onClick = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">this</span>.setState(&#123; <span class="attr">a</span>: <span class="number">1</span> &#125;);</span><br><span class="line">  <span class="built_in">this</span>.setState(&#123; <span class="attr">a</span>: <span class="number">2</span> &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>组件只会更新一次</p>
