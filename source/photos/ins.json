@@ -2355,7 +2355,7 @@
                         "hostNum": 2,
                         "link": "2024/01/13/pFPn0gS",
                         "size": "3024x3779",
-                        "text": "一眼千年蜀道",
+                        "text": "绢本：一眼千年",
                         "type": "image"
                     },
                     {
@@ -2363,7 +2363,7 @@
                         "hostNum": 2,
                         "link": "2024/01/13/pFPnw38",
                         "size": "3024x3780",
-                        "text": "东方娇子",
+                        "text": "水墨：东方娇子",
                         "type": "image"
                     },
                     {
@@ -2371,7 +2371,7 @@
                         "hostNum": 2,
                         "link": "2024/01/13/pFPnruQ",
                         "size": "3024x3780",
-                        "text": "身边的非遗",
+                        "text": "国画：身边的非遗",
                         "type": "image"
                     },
                     {
@@ -2379,7 +2379,7 @@
                         "hostNum": 2,
                         "link": "2024/01/13/pFPnBjg",
                         "size": "2268x4032",
-                        "text": "出嫁",
+                        "text": "国画：出嫁",
                         "type": "image"
                     },
                     {
@@ -2387,7 +2387,7 @@
                         "hostNum": 2,
                         "link": "2024/01/13/pFPnd9f",
                         "size": "2237x3978",
-                        "text": "唐卡",
+                        "text": "唐卡：德格吉祥多门大法库",
                         "type": "image"
                     },
                     {
@@ -2395,7 +2395,7 @@
                         "hostNum": 2,
                         "link": "2024/01/13/pFPnyHs",
                         "size": "2268x4032",
-                        "text": "寂静的夜",
+                        "text": "版画：祈福系列之寂静的夜",
                         "type": "image"
                     },
                     {
@@ -2404,6 +2404,262 @@
                         "link": "2024/01/13/pFPnsBj",
                         "size": "4032x2268",
                         "text": "星与火",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/17/pFFjpgx",
+                        "size": "2226x3957",
+                        "text": "版画：怒吼吧中国",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/17/pFFjS81",
+                        "size": "2268x4032",
+                        "text": "水墨：蜀山晴岚",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/17/pFFj9v6",
+                        "size": "4032x2268",
+                        "text": "水墨：巴蜀秘境雅拉神山",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/17/pFFXzCR",
+                        "size": "2268x4032",
+                        "text": "书法：闲吟",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/17/pFFjiDO",
+                        "size": "3024x3779",
+                        "text": "版画：来自老百姓",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/17/pFFjPKK",
+                        "size": "3024x3779",
+                        "text": "油画：姐弟",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/17/pFFjFbD",
+                        "size": "4032x2268",
+                        "text": "油画：初春",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/17/pFFjAVe",
+                        "size": "3774x3019",
+                        "text": "油画：远山的呼唤",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/17/pFFxrC9",
+                        "size": "4032x2268",
+                        "text": "油画：闲暇时光",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/17/pFFxwEF",
+                        "size": "4032x2268",
+                        "text": "油画：丰收",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/17/pFFxNuV",
+                        "size": "2268x4032",
+                        "text": "雕塑：心向自由",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/17/pFFxaHU",
+                        "size": "2997x2997",
+                        "text": "油画：气球",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/17/pFFxUBT",
+                        "size": "4032x2268",
+                        "text": "水墨：一桥飞架南北天堑变通途",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/17/pFFxs3R",
+                        "size": "2787x3484",
+                        "text": "大江东去",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/17/pFFxB4J",
+                        "size": "3024x3780",
+                        "text": "幺妹",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/17/pFFx0N4",
+                        "size": "4032x2268",
+                        "text": "川流不息",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/18/pFkog1S",
+                        "size": "2787x3484",
+                        "text": "清晨的宽窄巷子",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/18/pFko26g",
+                        "size": "3019x3019",
+                        "text": "宽居",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/18/pFkofmj",
+                        "size": "2268x4032",
+                        "text": "石狮子",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/18/pFkoRXQ",
+                        "size": "4032x2268",
+                        "text": "一只白鹭踏水面",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/18/pFkoh0s",
+                        "size": "4032x2268",
+                        "text": "城市水系",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/18/pFkoIkq",
+                        "size": "4032x2269",
+                        "text": "青羊宫文化公园",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/18/pFko47n",
+                        "size": "2268x4032",
+                        "text": "青铜人面具",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/18/pFkoot0",
+                        "size": "2268x4032",
+                        "text": "西周象首耳卷体夔纹铜罍",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/18/pFkbP3V",
+                        "size": "2683x4025",
+                        "text": "牛首耳大铜罍",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/18/pFkbFjU",
+                        "size": "3019x3019",
+                        "text": "唐代十二生肖八卦纹铜镜",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/18/pFkbicT",
+                        "size": "3015x3015",
+                        "text": "清代无款花果玉兔山水册",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/18/pFkbphq",
+                        "size": "4032x2268",
+                        "text": "康熙花卉十二纹杯",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/18/pFkbC90",
+                        "size": "2268x4032",
+                        "text": "唐三彩骆驼",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/18/pFkbAuF",
+                        "size": "2268x4032",
+                        "text": "唐观音菩萨石头造像",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/18/pFkbVHJ",
+                        "size": "2268x4032",
+                        "text": "清碧玉菊花纹扁瓶",
+                        "type": "image"
+                    },
+                    {
+                        "src": "",
+                        "hostNum": 2,
+                        "link": "2024/01/18/pFkbEB4",
+                        "size": "2688x4032",
+                        "text": "清代雕漆山水人物开光葵花式盒",
                         "type": "image"
                     }
                 ]
