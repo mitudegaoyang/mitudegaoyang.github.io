@@ -7,7 +7,7 @@ comments: 'false'
 abbrlink: e26d1860
 ---
 
-<link rel="stylesheet" href="./ins.css">
+<link rel="stylesheet" href="./ins.css" />
 <div class="photos-btn-wrap">
   <span class="photos-btn active">摄影</span>
   <span class="photos-btn" target="_blank">待续</span>
@@ -18,12 +18,13 @@ abbrlink: e26d1860
 <script>
   (function () {
     var loadScript = function (path) {
-      var $script = document.createElement('script')
-      document.getElementsByTagName('body')[0].appendChild($script)
-      $script.setAttribute('src', path)
-    }
+      var $script = document.createElement('script');
+      document.getElementsByTagName('body')[0].appendChild($script);
+      $script.setAttribute('src', path);
+    };
     setTimeout(function () {
-      loadScript('./ins.js')
-    }, 0)
-  })()
+      loadScript('./ins.js');
+    }, 0);
+  })();
 </script>
+<script src="./photo.js"></script>
