@@ -146,7 +146,13 @@
     border: 1px solid #e5e5e5;
     border-bottom: 5px solid #fff;
 }
+.tabs-album {
+    display: none;
+}
 
+.tabs-album.active {
+    display: block;
+}
 @media screen and (max-width:600px) {
     .instagram .thumb {
         width: 50%;

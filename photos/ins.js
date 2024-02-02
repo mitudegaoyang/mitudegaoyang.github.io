@@ -65,7 +65,7 @@
     /* 0 */
     /***/
     function (module, exports, __webpack_require__) {
-      'use strict';
+      ('use strict');
 
       __webpack_require__(1);
 
@@ -112,8 +112,48 @@
           addMask($videoImg[i]);
         }
       };
+
+      // 创建年份tabs
+      let createTabs = (res) => {
+        let tabs = '<div class="photos-btn-wrap">';
+        let years = Array.from(
+          new Set(
+            res.list.map((item) => {
+              return item.arr.year;
+            })
+          )
+        );
+        years.map((item) => {
+          tabs += `<span class="photos-tab photos-btn" attr_name="${item}" onclick="attrTabs(${item})">${item}</span> `;
+        });
+        tabs += '</div>';
+        return tabs;
+      };
+
+      // 切换tab
+      let initTabs = () => {
+        let $tabs = document.querySelectorAll('.photos-btn-wrap .photos-tab');
+        let defaultAttr = $tabs[0].getAttribute('attr_name');
+        for (let i = 0, len = $tabs.length; i < len; i++) {
+          let $tab = $tabs[i];
+          if ($tab.getAttribute('attr_name') === defaultAttr) {
+            $tab.classList.add('active');
+          }
+        }
+        let $albums = document.querySelectorAll('.photos .tabs-album');
+        for (let i = 0, len = $albums.length; i < len; i++) {
+          let $album = $albums[i];
+          $album.classList.remove('active');
+          if ($album.getAttribute('attr_name') === defaultAttr) {
+            $album.classList.add('active');
+          }
+        }
+      };
+
       var render = function render(res) {
         var ulTmpl = '';
+        let tabs = createTabs(res);
+        ulTmpl += tabs;
         for (var j = 0, len2 = res.list.length; j < len2; j++) {
           let data = res.list[j].arr;
           let { data: datas } = data;
@@ -152,7 +192,7 @@
             }
           }
           ulTmpl = `${ulTmpl}
-          <section class="archives album">
+          <section class="archives album tabs-album" attr_name="${data.year}">
             <h1 class="year">
               ${data.year}
               <em>${data.month}月</em>
@@ -179,6 +219,7 @@
         // '<div class="photos" itemscope="">' + ulTmpl + '</div>';
         createVideoIncon();
         _view2.default.init();
+        initTabs();
       };
 
       var replacer = function replacer(str) {

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.gaotianyang.top/photos/index.html</loc>
+    
+    <lastmod>2024-02-02</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.gaotianyang.top/photos/ins.json</loc>
     
     <lastmod>2024-02-02</lastmod>
@@ -488,13 +495,6 @@
     <loc>https://www.gaotianyang.top/archives/20200814f023bd8e/</loc>
     
     <lastmod>2020-12-30</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.gaotianyang.top/photos/index.html</loc>
-    
-    <lastmod>2020-08-12</lastmod>
     
   </url>
   
