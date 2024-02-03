@@ -130,7 +130,7 @@
         return tabs;
       };
 
-      // 切换tab
+      // 初始化默认tab
       let initTabs = () => {
         let $tabs = document.querySelectorAll('.photos-btn-wrap .photos-tab');
         let defaultAttr = $tabs[0].getAttribute('attr_name');
@@ -150,7 +150,40 @@
         }
       };
 
+      // 切换tab
+      let attrTabs = (a) => {
+        let active = a.toString();
+        let $tabs = document.querySelectorAll('.photos-btn-wrap .photos-tab');
+        for (let i = 0, len = $tabs.length; i < len; i++) {
+          let $tab = $tabs[i];
+          $tab.classList.remove('active');
+          if (!active && i === 0) {
+            $tab.classList.add('active');
+          } else if (active === $tab.getAttribute('attr_name')) {
+            $tab.classList.add('active');
+          }
+        }
+        let $albums = document.querySelectorAll('.photos .tabs-album');
+        for (let i = 0, len = $albums.length; i < len; i++) {
+          let $album = $albums[i];
+          $album.classList.remove('active');
+          if (!active && i === 0) {
+            $album.classList.add('active');
+          } else if (active === $album.getAttribute('attr_name')) {
+            $album.classList.add('active');
+          }
+        }
+      };
+
+      let appendFunction = () => {
+        let script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.appendChild(document.createTextNode(`let attrTabs = ${attrTabs}`));
+        document.body.appendChild(script);
+      };
+
       var render = function render(res) {
+        appendFunction();
         var ulTmpl = '';
         let tabs = createTabs(res);
         ulTmpl += tabs;
@@ -174,22 +207,6 @@
                 <figcaption style="display:none" itemprop="caption description">${datas[i].text}</figcaption>
               </figure>`;
             }
-          } else {
-            for (var i = 0, len = data.link.length; i < len; i++) {
-              var host = res.hostList[data.hostNum];
-              var minSrc = host + data.link[i] + '.th.jpg';
-              var src = host + data.link[i];
-              var type = data.type[i];
-              var target = src + (type === 'video' ? '.mp4' : '.jpg');
-              var size = data.size[i];
-              src += '.jpg';
-              liTmpl += `<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
-                <a href="${src}" itemprop="contentUrl" data-size="${size}" data-type="${type}" data-target="${target}">
-                  <img class="reward-img" data-type="${type}" data-src="${minSrc}" src="/assets/img/empty.png" itemprop="thumbnail" onload="lzld(this)">
-                </a>
-                <figcaption style="display:none" itemprop="caption description">${data.text[i]}</figcaption>
-              </figure>`;
-            }
           }
           ulTmpl = `${ulTmpl}
           <section class="archives album tabs-album" attr_name="${data.year}">
@@ -201,22 +218,10 @@
               ${liTmpl}
             </ul>
           </section>`;
-          //   ulTmpl =
-          //     ulTmpl +
-          //     '<section class="archives album"><h1 class="year">' +
-          //     data.year +
-          //     '<em>' +
-          //     data.month +
-          //     '月</em></h1>\
-          // <ul class="img-box-ul">' +
-          //     liTmpl +
-          //     '</ul>\
-          // </section>';
         }
         document.querySelector(
           '.instagram'
         ).innerHTML = `<div class="photos" itemscope="">${ulTmpl}</div>`;
-        // '<div class="photos" itemscope="">' + ulTmpl + '</div>';
         createVideoIncon();
         _view2.default.init();
         initTabs();
