@@ -6,7 +6,7 @@
   <link href="https://www.gaotianyang.top/atom.xml" rel="self"/>
   
   <link href="https://www.gaotianyang.top/"/>
-  <updated>2024-01-16T01:34:54.809Z</updated>
+  <updated>2024-02-04T01:15:57.517Z</updated>
   <id>https://www.gaotianyang.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>官庄公园2024</title>
+    <link href="https://www.gaotianyang.top/archives/20240203f8486685/"/>
+    <id>https://www.gaotianyang.top/archives/20240203f8486685/</id>
+    <published>2024-02-03T00:07:52.000Z</published>
+    <updated>2024-02-04T01:15:57.517Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://s11.ax1x.com/2024/02/04/pFlMIu8.jpg" alt="首屏图"></p><a id="more"></a><blockquote><p>一家人庆祝媳妇的生日，来到山河屯吃排骨铁锅炖，饭后和媳妇儿去官庄公园饭后遛弯，转了一大圈再回家，还挺累的，腿都溜细了哈哈哈~</p></blockquote><p><img src="https://s11.ax1x.com/2024/02/04/pFlKRyT.jpg" alt="山河屯铁锅炖"><br><img src="https://s11.ax1x.com/2024/02/04/pFlKgS0.jpg" alt="冰淇淋女王"><br><img src="https://s11.ax1x.com/2024/02/04/pFlK2lV.jpg" alt="干杯"><br><img src="https://s11.ax1x.com/2024/02/04/pFlMjg0.jpg" alt="美女探头"><br><img src="https://s11.ax1x.com/2024/02/04/pFlMbNj.jpg" alt="家长请看护好小孩~"><br><img src="https://s11.ax1x.com/2024/02/04/pFlMHEQ.jpg" alt="凛冬将至"><br><img src="https://s11.ax1x.com/2024/02/04/pFlMTHg.jpg" alt="你看那冰面的沟壑"><br><img src="https://s11.ax1x.com/2024/02/04/pFlMIu8.jpg" alt="冰面的碎冰有我出的一份力"><br><img src="https://s11.ax1x.com/2024/02/04/pFlMq4s.jpg" alt="冰洞"><br><img src="https://s11.ax1x.com/2024/02/04/pFlMX3q.jpg" alt="跳一跳"><br><img src="https://s11.ax1x.com/2024/02/04/pFlMOCn.jpg" alt="扭一扭"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s11.ax1x.com/2024/02/04/pFlMIu8.jpg&quot; alt=&quot;首屏图&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="游记" scheme="https://www.gaotianyang.top/categories/%E6%B8%B8%E8%AE%B0/"/>
+    
+    
+    <category term="游记" scheme="https://www.gaotianyang.top/tags/%E6%B8%B8%E8%AE%B0/"/>
+    
+    <category term="官庄公园" scheme="https://www.gaotianyang.top/tags/%E5%AE%98%E5%BA%84%E5%85%AC%E5%9B%AD/"/>
+    
+    <category term="山河屯铁锅炖" scheme="https://www.gaotianyang.top/tags/%E5%B1%B1%E6%B2%B3%E5%B1%AF%E9%93%81%E9%94%85%E7%82%96/"/>
+    
+  </entry>
   
   <entry>
     <title>北京城市图书馆</title>
@@ -510,35 +535,6 @@
     <category term="游记" scheme="https://www.gaotianyang.top/tags/%E6%B8%B8%E8%AE%B0/"/>
     
     <category term="水裹汤泉" scheme="https://www.gaotianyang.top/tags/%E6%B0%B4%E8%A3%B9%E6%B1%A4%E6%B3%89/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NicePhoto建站经验总结</title>
-    <link href="https://www.gaotianyang.top/archives/202303104356a8d7/"/>
-    <id>https://www.gaotianyang.top/archives/202303104356a8d7/</id>
-    <published>2023-03-10T09:43:09.000Z</published>
-    <updated>2023-12-04T08:27:15.733Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://z1.ax1x.com/2022/06/06/XwoBsP.jpg" alt="首屏图"></p><a id="more"></a><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>无论你是摄影师、设计师、艺术家还是创作者，在线电子相册都可以满足你的需求。通过这个平台，可以建立自己的个人品牌，并与更多的人建立起联系和合作。此项目共分为门户网站、前台展示、后台管理、数据大屏四部分。</p><p><img src="https://s1.ax1x.com/2023/03/13/ppMxywR.png" alt="NicePhoto"></p><h2 id="技术总结"><a href="#技术总结" class="headerlink" title="技术总结"></a>技术总结</h2><ul><li><strong>Next</strong> react 应用程序框架，构建高性能、可扩展和易于维护的 Web 应用程序</li><li><strong>surrealdb</strong> 分布式多模型数据库</li><li><strong>swr</strong> 用于数据请求的 React Hooks 库</li><li><strong>tinytime</strong> 时间处理</li><li><strong>xbytes</strong> 字节格式转换</li><li><strong>tailwindcss</strong> css 样式库</li><li><strong>tremor</strong> UI 库</li><li><strong>vercel</strong> 代码托管平台</li></ul><h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><h3 id="nice-photo-site-门户"><a href="#nice-photo-site-门户" class="headerlink" title="nice-photo-site 门户"></a>nice-photo-site 门户</h3><p><a href="https://nice-photo.xiangshi.app/">门户网址链接</a></p><p><img src="https://s1.ax1x.com/2023/03/13/ppQZA9H.png" alt="门户项目"></p><h4 id="会员服务"><a href="#会员服务" class="headerlink" title="会员服务"></a>会员服务</h4><table><thead><tr><th>限制</th><th>免费版</th><th>高级版</th><th>独立部署</th></tr></thead><tbody><tr><td>专辑数量限制</td><td>2</td><td>无限</td><td>无限</td></tr><tr><td>相册数量限制</td><td>4</td><td>无限</td><td>无限</td></tr><tr><td>图片空间限制</td><td>100MB</td><td>1000MB</td><td>无限</td></tr><tr><td>图片访问流量</td><td>500MB/月</td><td>4G/月</td><td>无限</td></tr><tr><td>销售线索</td><td>禁用</td><td>支持</td><td>支持</td></tr><tr><td>服务价格</td><td>禁用</td><td>支持</td><td>支持</td></tr><tr><td>自定义域名前缀</td><td>禁用</td><td>支持</td><td>支持</td></tr><tr><td>私有部署</td><td>-</td><td>-</td><td>支持</td></tr><tr><td>定价</td><td>免费</td><td>¥99/年</td><td>¥899/年</td></tr></tbody></table><h3 id="nice-photo-client-前台项目"><a href="#nice-photo-client-前台项目" class="headerlink" title="nice-photo-client 前台项目"></a>nice-photo-client 前台项目</h3><p><a href="https://flavor-magic.np.xiangshi.app/">前台网址链接</a></p><p><img src="https://s1.ax1x.com/2023/03/13/ppQVvcR.png" alt="前台项目"></p><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>NicePhoto 是一个功能强大的在线照片展示平台，为用户提供了丰富的展示、管理、销售照片的工具和功能。我们致力于打造一个简单易用、高效可靠、安全稳定的产品，帮助用户快速创建和发布自己的照片展示网站，并与客户进行交流和合作。NicePhoto 不仅可以用于个人摄影师、艺术家、设计师等行业，也可以服务于各种商业和非营利机构，帮助他们展示和推广自己的品牌和形象。无论您是需要展示照片、卖照片、展示作品、销售商品还是拓展业务，NicePhoto 都能为您提供定制化的解决方案和优质的服务，让您的想象力得到最大的释放和发挥。</p><h4 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h4><ul><li><strong>多种展示方式</strong> 多种照片和作品展示方式，包括幻灯片、画廊、网格等多种形式，让你的作品展示更加独特和个性化。</li><li><strong>高效上传和管理</strong> 高效、便捷的上传和管理功能，让你可以轻松地上传、编辑、删除你的作品。</li><li><strong>销售线索收集</strong> 销售线索收集功能，可以让你通过网站访问者的注册信息、留言信息等途径收集潜在客户的联系信息，为你的业务销售提供有力支持。</li><li><strong>服务介绍</strong> 提供了服务介绍功能，可以详细介绍您能提供的各种服务及其优势，方便您的客户了解服务内容。</li><li><strong>摄影专业化</strong> 我们的产品针对摄影行业进行了更多的优化，使网站更具有摄影专业性和个性化。</li><li><strong>灵活性</strong> 我们的产品功能非常灵活，您可以根据自己的需求自由选择需要展示的功能，使网站更加个性化和专业化。</li></ul><h3 id="nice-photo-manage-后台管理"><a href="#nice-photo-manage-后台管理" class="headerlink" title="nice-photo-manage 后台管理"></a>nice-photo-manage 后台管理</h3><p><a href="https://nice-photo-manage.xiangshi.app/">后台网址链接</a></p><p>后台管理共分为概览、专辑管理、相册管理、首页特效、销售线索、介绍信息、套系价格、系统设置几大模块。</p><h4 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h4><p>在系统中，您可以通过系统概览页面快速查看各个模块的概要信息、空间总占用情况以及最新的销售线索信息等。</p><p><img src="https://s1.ax1x.com/2023/03/13/ppQkDXV.png" alt="概览"></p><p>如果您需要对销售线索进行快速操作，则可以在概览模块中进行相关设置。</p><p>此外，我们建议您经常查看系统概览页面，因为它可以提供有关系统使用状况的重要信息。</p><h4 id="专辑管理"><a href="#专辑管理" class="headerlink" title="专辑管理"></a>专辑管理</h4><p>在“作品展示”菜单下的第一个模块是“专辑管理”，这是本系统的重要模块之一。在设置完站点的基本信息后，首先您需要在这里创建一个专辑。</p><p><img src="https://s1.ax1x.com/2023/03/13/ppQAVcq.png" alt="专辑管理"></p><p>添加专辑非常简单，只需点击“添加专辑”按钮即可，然后在弹出的表单中填写主标题、副标题和选择一个展示效果即可。</p><p>展示效果包括：轮播、滑轨、瀑布流、网格等五大类，在每个大类下还有对应的细节参数可以进行设置。</p><p>成功添加专辑后，您可以在当前页面看到刚刚添加的专辑。如果您需要排序多个专辑，仅需将左侧的十字图标拖动到您想要放置的位置即可。</p><p>对于每个已创建的专辑，右侧分别有三个按钮：进入专辑下的相册管理模块、编辑专辑信息、删除专辑。您可以根据需要单击这些按钮执行不同的操作。</p><h4 id="相册管理"><a href="#相册管理" class="headerlink" title="相册管理"></a>相册管理</h4><p>创建了第一个专辑后，左侧的“作品管理”菜单下会多出一个“相册管理”。进入相册管理，默认显示的是最新一个专辑下的所有相册。如果您需要切换到其他专辑，请在页面左上角的下拉菜单中进行选择。</p><p><img src="https://s1.ax1x.com/2023/03/13/ppQAVcq.png" alt="相册管理"></p><p>添加相册非常简单，只需点击“添加相册”按钮即可，然后在弹出的表单中填写主标题、副标题和选择一个展示效果即可。</p><p>展示效果包括：轮播、滑轨、瀑布流、网格、自适应等七大类，在每个大类下还有对应的细节参数可以进行设置。</p><p>成功添加相册后，您可以在当前页面看到刚刚添加的相册。如果您需要排序多个相册，仅需将卡片底部的十字图标拖动到您想要放置的位置即可。单击卡片中间的编辑按钮，即可对相册的封面图片进行设置。</p><p>对于每个已创建的相册，卡片底部分别有三个按钮：进入相册下的照片管理模块、编辑相册信息、删除相册。您可以根据需要单击这些按钮执行不同的操作。</p><p>点击相册卡片底部的绿色“照片”按钮即可进入照片模块。在照片模块中，只需将要上传的图片拖到上传文件区域即可，同时您也可以一次性上传多张图片。</p><p>一旦图片上传完成，您可以对它们的顺序进行排列以满足您自己的需求。您可以将鼠标悬停在照片上方以显示一个“移动”图标，然后单击并拖动该图标以调整照片的顺序。点击红色的删除按钮可删除这个图片。</p><h4 id="首页特效"><a href="#首页特效" class="headerlink" title="首页特效"></a>首页特效</h4><p>在首页特效模块中有两个子模块，分别是“首页作品”和“首页背景”。</p><p><img src="https://s1.ax1x.com/2023/03/13/ppQANDK.png" alt="首页特效"></p><p>在相册管理模块中，用户可以点击黄色的编辑按钮，并在弹出框中选择发布至首页，这样就可以在“首页作品”子模块中看到对应的相册了。</p><p>在“首页作品”子模块页面下方的简介卡片上，用户可以点击编辑按钮并为首页需要展示的作品添加一段简要的介绍。</p><p>在系统设置模块的站点导航卡片上，用户可以点击编辑按钮将“首页浏览作品”改为显示，这样用户就可以在首页上快速地看到了对应的作品。</p><p>在“首页背景”子模块中，用户可以快速地上传多张背景图。这些图片将以淡入淡出并加上稍微放大的效果在首页背景轮流显示。</p><h4 id="销售线索"><a href="#销售线索" class="headerlink" title="销售线索"></a>销售线索</h4><p>销售线索模块会展示所有在网站上给您留言咨询的信息。</p><p><img src="https://s1.ax1x.com/2023/03/13/ppQAHK0.png" alt="销售线索"></p><p>后台界面上会有明显的未读提示，让您可以清晰地了解哪些信息尚未被查看过。</p><p>该模块还提供接入飞书 APP 提醒的能力，方便您及时跟进销售线索的动态。</p><p>您也可以便捷地设置这些线索是否已经被跟踪过，以便于管理和追踪。</p><h4 id="介绍信息"><a href="#介绍信息" class="headerlink" title="介绍信息"></a>介绍信息</h4><p>介绍信息模块下设关于我们、工作室、精修照片三个子模块。</p><p><img src="https://s1.ax1x.com/2023/03/13/ppQAxPJ.png" alt="关于我们"></p><p>关于我们模块：该模块用于编辑公司/工作室的介绍信息，上传对应的 VI 图。在此模块内，用户可以添加、编辑和删除介绍信息，并上传一张符合 VI 形象的图片。具体操作流程如下：</p><p>点击“关于我们”模块，添加/编辑介绍信息，可以选择字体样式、大小和颜色等属性，上传 VI 图。</p><p><img src="https://s1.ax1x.com/2023/03/13/ppQAzG9.png" alt="工作室"></p><p>工作室模块：该模块用于展示工作室的办公场景和体现企业文化。在此模块内，用户可以添加和删除工作室场景照片。</p><p><img src="https://s1.ax1x.com/2023/03/13/ppQES2R.png" alt="精修照片"></p><p>精修照片模块：该模块用于展示照片精修前后的对比效果。针对摄影工作室而言，该模块非常实用。在此模块内，用户可以上传精修前后的照片。</p><h4 id="套系价格"><a href="#套系价格" class="headerlink" title="套系价格"></a>套系价格</h4><p>在此模块内，用户可以添加、编辑和删除服务套系的资料，并设置相关价格和描述信息等。具体操作流程如下：</p><ul><li>点击“套系价格”模块</li><li>添加/编辑服务套系资料，包括名称、价格、描述等信息</li><li>删除服务套系资料</li></ul><p><img src="https://s1.ax1x.com/2023/03/13/ppQEDdU.png" alt="套系价格"></p><h4 id="系统设置"><a href="#系统设置" class="headerlink" title="系统设置"></a>系统设置</h4><p>本软件的系统设置模块提供编辑站点信息、上传标识图标、自定义二级域名等功能，有助于网站的优化和定制。</p><p><img src="https://s1.ax1x.com/2023/03/13/ppQEroF.png" alt="系统设置"></p><p>网站的基本信息包括网站的名称、描述、关键字、版权信息等，这些信息对于搜索引擎优化(SEO)来说非常重要。具体操作流程如下：</p><ul><li>点击“站点信息”卡片</li><li>填写站点的基本信息：网站标题、描述、关键字、版权等。</li><li>确认并保存修改</li></ul><hr><p>站点图标卡片：该卡片可上传网站的 favicon，使得用户可以在浏览器书签栏、标签页或收藏夹中看到网站的标识。具体操作流程如下：</p><ul><li>点击“站点图标”卡片</li><li>上传 favicon 图片，建议大小为 16x16 像素或 32x32 像素</li><li>确认并保存修改</li></ul><hr><p>站点 LOGO 卡片：该卡片可上传位于网站左上角的 LOGO，方便用户在浏览网站时更加直观地了解该网站的品牌和主题。具体操作流程如下：</p><ul><li>点击“站点 LOGO”卡片</li><li>上传 LOGO 图片，建议大小为 60x60 像素</li><li>确认并保存修改</li></ul><hr><p>备案信息卡片的使用方法和操作流程</p><ul><li>点击“备案信息”卡片</li><li>填写备案所需信息：备案号、单位名称、网站名称、主办单位等。</li><li>填写备案连接</li><li>确认并保存修改</li></ul><hr><p>自定义域名卡片：该卡片可让用户自定义一个二级域名，方便用户记忆和分享。具体操作流程如下：</p><ul><li>点击“帮到域名”卡片</li><li>输入想要的二级域名</li><li>确认并保存修改</li></ul><hr><p>站点导航可控制各个模块的展示状态，包括首页、作品、套系价格、关于我们、联系我们等，在网站的导航栏中进行显示。</p><ul><li>首页：左上角导航首页按钮的显示状态</li><li>作品：左上角导航作品按钮的显示状态</li><li>套系价格：左上角导航套系价格按钮的显示状态</li><li>关于我们：左上角导航关于我们按钮的显示状态</li><li>联系我们：左上角导航联系我们按钮的显示状态</li><li>介绍侧边栏：左上角导航 “…”按钮的显示状态</li><li>首页浏览作品：是否在首页左半部分区域展示首页作品集</li><li>首页联系我们：是否在首页右半部分区域展示联系我们按钮</li></ul><hr><p>许可密钥是一种授权码，可用于购买和激活软件的高级版，也称为 License。</p><p>许可密钥和 License 是用于购买和使用软件的重要凭证，具体操作流程如下：</p><ul><li>购买软件高级版</li><li>在购买过程中获取许可密钥</li><li>打开软件并输入许可密钥</li><li>完成激活升级至高级版</li></ul><p>注意：每个许可密钥只能激活一次，因此请务必妥善保管。</p><h3 id="nice-photo-dashboard-数据大屏"><a href="#nice-photo-dashboard-数据大屏" class="headerlink" title="nice-photo-dashboard 数据大屏"></a>nice-photo-dashboard 数据大屏</h3><p>数据大屏是一种用于展示和分析数据的可视化工具，通过对数据进行多维度的汇总和展示，可以为用户提供全面、直观、清晰的数据信息。除了方便运维人员对平台运行状态进行快速了解之外，数据大屏还可以扩展以下作用：</p><p>监控业务数据：数据大屏可以实时监控平台的各项业务数据，如注册量、用户活跃度、转化率等，帮助运营人员了解业务状况，及时调整策略，提高运营效率和用户满意度。</p><p>优化资源配置：通过数据大屏可以了解到平台各项资源的使用情况，包括图片资源存储、当日新增图片、当日新增资源大小、资源使用量用户排名等，从而根据数据分析结果进行资源的优化配置，减少浪费，提高资源利用率，降低运营成本。</p><p>数据大屏作为一种数据可视化工具，具有方便、直观、全面、清晰等优点，对于运营、管理、决策等方面都有着重要的作用。</p><h2 id="上线和优化"><a href="#上线和优化" class="headerlink" title="上线和优化"></a>上线和优化</h2><p>项目依托于 nextjs 进行代码的封装加密与构建。并通过使用环境变量来存储一些敏感值，并在代码中引用它们。针对富文本数据，需要使用 js 的编码与转码对数据进行处理。方便后续维护时的数据库迁移，导入导出操作。</p><p>数据库响应超时问题优化，目前暂时先通过使用免费版进行托管，后续如果用户量提升了，再考虑进行付费版服务迁移。</p><h2 id="推广经验"><a href="#推广经验" class="headerlink" title="推广经验"></a>推广经验</h2><p>目前主要的客群是摄影师、设计师、艺术家还是创作者，想成立自己的工作室，有推广建站诉求，但又不希望过多投入。</p><p>社交媒体宣传：在 v2ex、小红书、朋友圈等平台，发布关于 NicePhoto 的信息和案例，并与感兴趣的目标客户建立联系。</p><p>创意营销活动：通过各种创意营销活动，例如比赛、抽奖、推荐奖励等，吸引更多的潜在客户关注并尝试 NicePhoto。</p><p>提供试用版：提供免费试用版、正式会员体验券，让潜在客户可以尝试使用 NicePhoto，感受电子相册带来的便利和优势。</p><p>与其他行业协作：与相关行业如摄影器材厂商、艺术教育机构等协作，共同推广 NicePhoto。</p><p>通过口碑宣传：口碑宣传是营销的重要方式之一，因此建议与现有用户建立良好的关系，促进他们分享他们的使用经验和推荐。</p><p>利用 SEO 优化：使用搜索引擎优化（SEO）的技巧，优化您的网站和内容，以便更多的潜在客户可以找到您的 NicePhoto 服务。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://z1.ax1x.com/2022/06/06/XwoBsP.jpg&quot; alt=&quot;首屏图&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="技术积累" scheme="https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/"/>
-    
-    <category term="nicephoto" scheme="https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/nicephoto/"/>
-    
-    <category term="next" scheme="https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/nicephoto/next/"/>
-    
-    
-    <category term="技术积累" scheme="https://www.gaotianyang.top/tags/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/"/>
-    
-    <category term="nicephoto" scheme="https://www.gaotianyang.top/tags/nicephoto/"/>
-    
-    <category term="next" scheme="https://www.gaotianyang.top/tags/next/"/>
     
   </entry>
   

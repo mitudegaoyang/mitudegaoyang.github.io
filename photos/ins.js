@@ -119,7 +119,7 @@
         let years = Array.from(
           new Set(
             res.list.map((item) => {
-              return item.arr.year;
+              return item.year;
             })
           )
         );
@@ -188,31 +188,31 @@
         let tabs = createTabs(res);
         ulTmpl += tabs;
         for (var j = 0, len2 = res.list.length; j < len2; j++) {
-          let data = res.list[j].arr;
-          let { data: datas } = data;
+          let monthData = res.list[j];
+          let { data: photos } = monthData;
           let liTmpl = '';
-          if (datas) {
-            for (var i = 0, len = datas.length; i < len; i++) {
-              var host = res.hostList[datas[i].hostNum];
-              var minSrc = host + datas[i].link + '.th.jpg';
-              var src = host + datas[i].link;
-              var type = datas[i].type;
-              var target = src + (type === 'video' ? '.mp4' : '.jpg');
-              var size = datas[i].size;
-              src += '.jpg';
+          if (photos) {
+            for (var i = 0, len = photos.length; i < len; i++) {
+              var host = res.hostList[photos[i].hostNum];
+              var type = photos[i].type;
+              let suffix = type === 'jpg' ? '.jpg' : type === 'png' ? '.png' : '.mp4';
+              var minSrc = host + photos[i].link + '.th' + suffix;
+              var src = host + photos[i].link + suffix;
+              var target = src + suffix;
+              var size = photos[i].size;
               liTmpl += `<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">
                 <a href="${src}" itemprop="contentUrl" data-size="${size}" data-type="${type}" data-target="${target}">
                   <img class="reward-img" data-type="${type}" data-src="${minSrc}" src="/assets/img/empty.png" itemprop="thumbnail" onload="lzld(this)">
                 </a>
-                <figcaption style="display:none" itemprop="caption description">${datas[i].text}</figcaption>
+                <figcaption style="display:none" itemprop="caption description">${photos[i].text}</figcaption>
               </figure>`;
             }
           }
           ulTmpl = `${ulTmpl}
-          <section class="archives album tabs-album" attr_name="${data.year}">
+          <section class="archives album tabs-album" attr_name="${monthData.year}">
             <h1 class="year">
-              ${data.year}
-              <em>${data.month}月</em>
+              ${monthData.year}
+              <em>${monthData.month}月</em>
             </h1>
             <ul class="img-box-ul">
               ${liTmpl}
