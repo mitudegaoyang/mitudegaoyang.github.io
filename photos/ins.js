@@ -124,7 +124,7 @@
           )
         );
         years.map((item) => {
-          tabs += `<span class="photos-tab photos-btn" attr_name="${item}" onclick="attrTabs(${item})">${item}</span> `;
+          tabs += `<span class="photos-tab photos-btn" attr_name="${item}" onclick="attrTabs(${item})"> ${item}</span> `;
         });
         tabs += '</div>';
         return tabs;
