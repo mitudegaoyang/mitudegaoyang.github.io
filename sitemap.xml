@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.gaotianyang.top/archives/201903013717c93/</loc>
+    
+    <lastmod>2024-02-29</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.gaotianyang.top/photos/ins.json</loc>
     
     <lastmod>2024-02-29</lastmod>
@@ -11,7 +18,14 @@
   <url>
     <loc>https://www.gaotianyang.top/archives/2018122344e444f8/</loc>
     
-    <lastmod>2024-02-28</lastmod>
+    <lastmod>2024-02-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.gaotianyang.top/archives/20191130dfffae14/</loc>
+    
+    <lastmod>2024-02-29</lastmod>
     
   </url>
   
@@ -1608,6 +1622,13 @@
   
   <url>
     <loc>https://www.gaotianyang.top/tags/%E4%B8%AD%E5%B1%B1%E5%85%AC%E5%9B%AD/</loc>
+    <lastmod>2024-02-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.gaotianyang.top/tags/%E8%8A%B1%E6%9E%9C%E5%B1%B1%E7%B2%BE%E9%85%BF/</loc>
     <lastmod>2024-02-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
