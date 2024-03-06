@@ -2,7 +2,8 @@
     "hostList": [
         "https://s1.ax1x.com/",
         "https://z3.ax1x.com/",
-        "https://z1.ax1x.com/"
+        "https://z1.ax1x.com/",
+        "https://s21.ax1x.com/"
     ],
     "list": [
         {
@@ -8603,7 +8604,7 @@
                 },
                 {
                     "src": "",
-                    "hostNum": 2,
+                    "hostNum": 3,
                     "link": "2024/03/06/pFrpiTK",
                     "size": "3781x3024",
                     "text": "仰望最高点",
@@ -8611,7 +8612,7 @@
                 },
                 {
                     "src": "",
-                    "hostNum": 2,
+                    "hostNum": 3,
                     "link": "2024/03/06/pFrpZSH",
                     "size": "3781x3024",
                     "text": "会当凌绝顶",
@@ -8627,7 +8628,7 @@
                 },
                 {
                     "src": "",
-                    "hostNum": 2,
+                    "hostNum": 3,
                     "link": "2024/03/06/pFrpAYD",
                     "size": "3781x3024",
                     "text": "一览众山小",
@@ -8651,7 +8652,7 @@
                 },
                 {
                     "src": "",
-                    "hostNum": 2,
+                    "hostNum": 3,
                     "link": "2024/03/06/pFrpEfe",
                     "size": "3019x3019",
                     "text": "自由奔跑",
@@ -8667,7 +8668,7 @@
                 },
                 {
                     "src": "",
-                    "hostNum": 2,
+                    "hostNum": 3,
                     "link": "2024/03/06/pFrpkFO",
                     "size": "4032x2269",
                     "text": "点亮北京",
@@ -8675,7 +8676,7 @@
                 },
                 {
                     "src": "",
-                    "hostNum": 2,
+                    "hostNum": 3,
                     "link": "2024/03/06/pFrpeld",
                     "size": "4032x3024",
                     "text": "月儿明",
@@ -8683,7 +8684,7 @@
                 },
                 {
                     "src": "",
-                    "hostNum": 2,
+                    "hostNum": 3,
                     "link": "2024/03/06/pFrpnOI",
                     "size": "3024x3780",
                     "text": "思考",
@@ -8699,7 +8700,7 @@
                 },
                 {
                     "src": "",
-                    "hostNum": 2,
+                    "hostNum": 3,
                     "link": "2024/03/06/pFrpm6A",
                     "size": "7170x3916",
                     "text": "北京夜色全景",
