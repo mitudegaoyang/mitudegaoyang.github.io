@@ -13,7 +13,7 @@ categories:
 toc: true
 ---
 
-![首屏图](https://z1.ax1x.com/2023/11/29/piDNnQf.png)
+![首屏图](https://s11.ax1x.com/2023/11/29/piDNnQf.png)
 
 <!-- more -->
 
@@ -39,25 +39,25 @@ toc: true
 
 基于 Mockjs，在`项目列表`接口请求时，实现了数据的过滤、分页等功能。
 
-![mockjs](https://z1.ax1x.com/2023/11/29/piDU8BD.png)
+![mockjs](https://s11.ax1x.com/2023/11/29/piDU8BD.png)
 
 ### 仿钉钉官网动效
 
 在实现此动效的时候，遇到了一些问题。例如原 demo 为原生 `html` `css` `js` 实现的，需要对其进行 react 的迁移与改造。另外，因为在项目中的使用场景为 dashboard 页面下使用，因此原本监听页面滚动事件，触发动效将不再生效。解决方案为将滚动监听，变更为 antd layout 组件，并将监听结果挂载于 window 自定义变量中。页面根据挂载的自定义变量，进行页面的重绘。
 
-![dashboard](https://z1.ax1x.com/2023/11/29/piDNnQf.png)
+![dashboard](https://s11.ax1x.com/2023/11/29/piDNnQf.png)
 
 ### echarts 词云
 
 在使用词云效果的自定义词云形状时，会遇到因背景图加载原因，导致的首次渲染白屏的问题。解决方案为，将词云首次绘制，执行于背景图加载完毕后(`maskImage.onload`)。
 
-![wordcloud](https://z1.ax1x.com/2023/11/29/piDUtNd.png)
+![wordcloud](https://s11.ax1x.com/2023/11/29/piDUtNd.png)
 
 ### 仿 antd 图片预览
 
 本项目的 `Ant Design` 版本为 V3.X，尚未加入图片预览功能，因此基于 `Ant Design` 的 `Modal` 组件二次封装了图片预览组件，并基于 `css` `js` 实现了缩放、翻转、旋转这些功能。
 
-![imagePreview](https://z1.ax1x.com/2023/11/29/piDUGHe.png)
+![imagePreview](https://s11.ax1x.com/2023/11/29/piDUGHe.png)
 
 ## 参考资料
 
