@@ -17,19 +17,19 @@
 <meta property="og:url" content="https://www.gaotianyang.top/archives/202311282f46f162/index.html">
 <meta property="og:site_name" content="Blog-Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://z1.ax1x.com/2023/11/29/piDNnQf.png">
-<meta property="og:image" content="https://z1.ax1x.com/2023/11/29/piDU8BD.png">
-<meta property="og:image" content="https://z1.ax1x.com/2023/11/29/piDNnQf.png">
-<meta property="og:image" content="https://z1.ax1x.com/2023/11/29/piDUtNd.png">
-<meta property="og:image" content="https://z1.ax1x.com/2023/11/29/piDUGHe.png">
+<meta property="og:image" content="https://s11.ax1x.com/2023/11/29/piDNnQf.png">
+<meta property="og:image" content="https://s11.ax1x.com/2023/11/29/piDU8BD.png">
+<meta property="og:image" content="https://s11.ax1x.com/2023/11/29/piDNnQf.png">
+<meta property="og:image" content="https://s11.ax1x.com/2023/11/29/piDUtNd.png">
+<meta property="og:image" content="https://s11.ax1x.com/2023/11/29/piDUGHe.png">
 <meta property="article:published_time" content="2023-11-28T09:02:14.000Z">
-<meta property="article:modified_time" content="2023-11-29T03:00:24.150Z">
+<meta property="article:modified_time" content="2025-02-06T02:18:24.102Z">
 <meta property="article:author" content="迷途的羔羊">
 <meta property="article:tag" content="技术积累">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="React">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://z1.ax1x.com/2023/11/29/piDNnQf.png"> 
+<meta name="twitter:image" content="https://s11.ax1x.com/2023/11/29/piDNnQf.png"> 
     <link
       rel="alternative"
       href="/atom.xml"
@@ -236,7 +236,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p><img src="https://z1.ax1x.com/2023/11/29/piDNnQf.png" alt="首屏图"></p>
+    <p><img src="https://s11.ax1x.com/2023/11/29/piDNnQf.png" alt="首屏图"></p>
 <a id="more"></a>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>基于 react-antd-admin 搭建的前端简历网站 <a target="_blank" rel="noopener" href="https://me.gaotianyang.top">预览地址</a></p>
 <h2 id="技术总结"><a href="#技术总结" class="headerlink" title="技术总结"></a>技术总结</h2><ul>
@@ -251,13 +251,13 @@
 <li><strong>dayjs</strong> <code>JavaScript</code> 时间处理工具库</li>
 </ul>
 <h2 id="功能与问题"><a href="#功能与问题" class="headerlink" title="功能与问题"></a>功能与问题</h2><h3 id="Mockjs-实现数据过滤"><a href="#Mockjs-实现数据过滤" class="headerlink" title="Mockjs 实现数据过滤"></a>Mockjs 实现数据过滤</h3><p>基于 Mockjs，在<code>项目列表</code>接口请求时，实现了数据的过滤、分页等功能。</p>
-<p><img src="https://z1.ax1x.com/2023/11/29/piDU8BD.png" alt="mockjs"></p>
+<p><img src="https://s11.ax1x.com/2023/11/29/piDU8BD.png" alt="mockjs"></p>
 <h3 id="仿钉钉官网动效"><a href="#仿钉钉官网动效" class="headerlink" title="仿钉钉官网动效"></a>仿钉钉官网动效</h3><p>在实现此动效的时候，遇到了一些问题。例如原 demo 为原生 <code>html</code> <code>css</code> <code>js</code> 实现的，需要对其进行 react 的迁移与改造。另外，因为在项目中的使用场景为 dashboard 页面下使用，因此原本监听页面滚动事件，触发动效将不再生效。解决方案为将滚动监听，变更为 antd layout 组件，并将监听结果挂载于 window 自定义变量中。页面根据挂载的自定义变量，进行页面的重绘。</p>
-<p><img src="https://z1.ax1x.com/2023/11/29/piDNnQf.png" alt="dashboard"></p>
+<p><img src="https://s11.ax1x.com/2023/11/29/piDNnQf.png" alt="dashboard"></p>
 <h3 id="echarts-词云"><a href="#echarts-词云" class="headerlink" title="echarts 词云"></a>echarts 词云</h3><p>在使用词云效果的自定义词云形状时，会遇到因背景图加载原因，导致的首次渲染白屏的问题。解决方案为，将词云首次绘制，执行于背景图加载完毕后(<code>maskImage.onload</code>)。</p>
-<p><img src="https://z1.ax1x.com/2023/11/29/piDUtNd.png" alt="wordcloud"></p>
+<p><img src="https://s11.ax1x.com/2023/11/29/piDUtNd.png" alt="wordcloud"></p>
 <h3 id="仿-antd-图片预览"><a href="#仿-antd-图片预览" class="headerlink" title="仿 antd 图片预览"></a>仿 antd 图片预览</h3><p>本项目的 <code>Ant Design</code> 版本为 V3.X，尚未加入图片预览功能，因此基于 <code>Ant Design</code> 的 <code>Modal</code> 组件二次封装了图片预览组件，并基于 <code>css</code> <code>js</code> 实现了缩放、翻转、旋转这些功能。</p>
-<p><img src="https://z1.ax1x.com/2023/11/29/piDUGHe.png" alt="imagePreview"></p>
+<p><img src="https://s11.ax1x.com/2023/11/29/piDUGHe.png" alt="imagePreview"></p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/NLRX-WJC/react-antd-admin-template">react-antd-admin-template</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV12z4y1s7nE/?vd_source=2e6014e07f90a9d8b3424eb1c055a867">复刻钉钉官网滚动动画</a></li>
@@ -526,7 +526,7 @@
 	<div class="outer">
 		<div id="footer-info">
 			<div class="footer-left">
-				&copy; 2024 迷途的羔羊
+				&copy; 2025 迷途的羔羊
 			</div>
 			<div class="footer-right">
 				<a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a
@@ -1094,6 +1094,10 @@
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color1">花果山精酿</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color2">北京工业大学</a>
             </li>
             
             <div class="clearfix"></div>
