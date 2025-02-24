@@ -350,3 +350,223 @@ def calculate_extremes():
             print(f"发生错误: {e}")
 calculate_extremes()
 ```
+
+## 1. 条件语句（if、elif、else）
+
+### [题目 1：根据分数计算等级](/archives/20250226d92cbff1/#题目-1：根据分数计算等级)
+
+- 编写一个程序，根据用户输入的分数，输出相应的等级（例如，90 分以上为 A，80-89 分为 B，依此类推）。
+
+```python
+number = int(input("请输入一个数字: "))
+if(number>=90):
+    print("A")
+elif(number>80 and number<90):
+    print("B")
+elif(number>70 and number<80):
+    print("C")
+elif(number>60 and number<70):
+    print("D")
+else:
+    print("E")
+```
+
+> 优化一下
+
+- 变量命名：将 number 改为 score，使变量名更具描述性。
+- 条件表达式：使用 80 <= score < 90 这样的链式比较，使条件判断更简洁和易读。
+- 空格：在运算符两边添加空格，符合 PEP 8 风格指南，提高代码可读性。
+
+```python
+score = int(input("请输入一个分数: "))
+
+if score >= 90:
+    print("A")
+elif 80 <= score < 90:
+    print("B")
+elif 70 <= score < 80:
+    print("C")
+elif 60 <= score < 70:
+    print("D")
+else:
+    print("E")
+```
+
+### [题目 2：判断闰年](/archives/20250226d92cbff1/#题目-2：判断闰年)
+
+- 编写一个程序，判断一个年份是否为闰年。
+
+```python
+year = int(input("请输入一个年份: "))
+if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
+    print("闰年")
+else:
+    print("平年")
+```
+
+> 优化一下
+
+- 逻辑表达式：在 if 条件中使用括号来明确逻辑关系，确保 year % 4 == 0 and year % 100 != 0 和 year % 400 == 0 是两个独立的条件，通过 or 连接。
+- 空格：在运算符两边添加空格，符合 PEP 8 风格指南，提高代码可读性。
+
+```python
+year = int(input("请输入一个年份: "))
+
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print("闰年")
+else:
+    print("平年")
+```
+
+### [题目 3：计算月份天数](/archives/20250226d92cbff1/#题目-3：计算月份天数)
+
+- 编写一个程序，根据用户输入的月份，输出该月份的天数。
+
+```python
+mouth = int(input("请输入月份: "))
+if(mouth==1 or mouth==3 or mouth==5 or mouth==7 or mouth==8 or mouth==10 or mouth==12):
+    print("31天")
+elif(mouth==4 or mouth==6 or mouth==9 or mouth==11):
+    print("30天")
+else:
+    print("28天")
+```
+
+> 优化一下
+
+- 使用集合进行条件判断：使用集合 {1, 3, 5, 7, 8, 10, 12} 和 {4, 6, 9, 11} 来判断月份，使代码更简洁和易读。
+- 处理 2 月特殊情况：虽然题目没有要求处理闰年 2 月的情况，但可以在输出中提示用户 2 月可能是 28 天或 29 天。
+- 添加无效月份检查：增加对无效月份的检查，提高程序的健壮性。
+
+```python
+month = int(input("请输入月份: "))
+
+if month in {1, 3, 5, 7, 8, 10, 12}:
+    print("31天")
+elif month in {4, 6, 9, 11}:
+    print("30天")
+elif month == 2:
+    print("28天（或29天，如果是闰年）")
+else:
+    print("无效的月份")
+```
+
+## 2. 循环
+
+### [题目 1: 循环输出平方(初级)](/archives/20250226d92cbff1/#题目-1-循环输出平方-初级)
+
+- 编写一个程序，使用 for 循环打印 1 到 10 的平方。
+
+```python
+for i in range(1, 11):
+    square = i * i
+    print(square)
+```
+
+> 优化一下
+
+- 简化变量命名：去掉 pingfang 变量，直接在 print 语句中计算平方，减少不必要的变量。
+- 提高可读性：使用格式化字符串 f"{i} 的平方是 {i \* i}" 来输出结果，使输出更清晰易读。
+
+```python
+for i in range(1, 11):
+    print(f"{i} 的平方是 {i * i}")
+```
+
+### [题目 2: 计算累加值(中级)](/archives/20250226d92cbff1/#题目-2-计算累加值-中级)
+
+- 编写一个程序，使用 while 循环计算 1 到 100 的和。
+
+```python
+count = 1
+sum = 0
+while count <= 100:
+    sum += count
+    count += 1
+print(sum)
+```
+
+> 优化一下
+
+- 变量命名
+  - 将 sum 改为 total，因为 sum 是 Python 内置函数的名称，使用它作为变量名可能会导致潜在的冲突或混淆。
+  - 将 count 改为 number，使变量名更具描述性。
+
+```python
+total = 0
+number = 1
+
+while number <= 100:
+    total += number
+    number += 1
+
+print(total)
+```
+
+### [题目 3: 打印列表中的偶数(高级)](/archives/20250226d92cbff1/#题目-3-打印列表中的偶数-高级)
+
+- 编写一个程序，使用 for 循环遍历一个列表，并打印出列表中所有偶数。
+
+```python
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+for number in numbers:
+    if number % 2 == 0:
+        print(number)
+```
+
+> 优化一下
+
+- 添加注释
+
+```python
+# 编写一个程序，使用 for 循环遍历一个列表，并打印出列表中所有偶数。
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+for number in numbers:
+    if number % 2 == 0:  # 检查数字是否为偶数
+        print(number)    # 打印偶数
+```
+
+## 3. break 和 continue
+
+### [题目 1: 找到第一个负数](/archives/20250226d92cbff1/#题目-1-找到第一个负数)
+
+- 编写一个程序，使用 for 循环遍历一个列表，找到第一个负数并打印出来，然后退出循环。
+
+```python
+
+```
+
+> 优化一下
+
+```python
+
+```
+
+### [题目 2: 使用 while 找到奇数](/archives/20250226d92cbff1/#题目-2-使用-while-找到奇数)
+
+- 编写一个程序，使用 while 循环打印 1 到 20 之间的所有奇数。
+
+```python
+
+```
+
+> 优化一下
+
+```python
+
+```
+
+### [题目 3: 使用 for 找到奇数](/archives/20250226d92cbff1/#题目-3-使用-for-找到奇数)
+
+- 编写一个程序，使用 for 循环遍历一个列表，跳过所有偶数，打印所有奇数。
+
+```python
+
+```
+
+> 优化一下
+
+```python
+
+```
