@@ -534,13 +534,24 @@ for number in numbers:
 - 编写一个程序，使用 for 循环遍历一个列表，找到第一个负数并打印出来，然后退出循环。
 
 ```python
-
+numbers = [1, 2, -3, 4, -5, 6, -7, 8, -9, 10]
+for number in numbers:
+    if number < 0:
+        print(number)
+        break
 ```
 
 > 优化一下
 
-```python
+- 添加注释
 
+```python
+numbers = [1, 2, -3, 4, -5, 6, -7, 8, -9, 10]
+
+for number in numbers:
+    if number < 0:  # 检查数字是否为负数
+        print(number)  # 打印第一个负数
+        break  # 退出循环
 ```
 
 ### [题目 2: 使用 while 找到奇数](/archives/20250226d92cbff1/#题目-2-使用-while-找到奇数)
@@ -548,13 +559,23 @@ for number in numbers:
 - 编写一个程序，使用 while 循环打印 1 到 20 之间的所有奇数。
 
 ```python
-
+number = 1
+while number <= 20:
+    if number % 2 != 0:
+        print(number)
+    number += 1
 ```
 
 > 优化一下
 
-```python
+- 添加注释
 
+```python
+number = 1
+while number <= 20:
+    if number % 2 != 0:  # 检查数字是否为奇数
+        print(number)    # 打印奇数
+    number += 1          # 增加计数器
 ```
 
 ### [题目 3: 使用 for 找到奇数](/archives/20250226d92cbff1/#题目-3-使用-for-找到奇数)
@@ -562,11 +583,23 @@ for number in numbers:
 - 编写一个程序，使用 for 循环遍历一个列表，跳过所有偶数，打印所有奇数。
 
 ```python
-
+number = 1
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+for number in numbers:
+    if number % 2 == 0:
+        continue
+    print(number)
 ```
 
 > 优化一下
 
-```python
+- 添加注释
 
+```python
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+for number in numbers:
+    if number % 2 == 0:  # 检查数字是否为偶数
+        continue         # 跳过偶数
+    print(number)        # 打印奇数
 ```
