@@ -611,15 +611,36 @@ for number in numbers:
 - 创建计算矩形周长的函数，参数为长和宽
 
 ```python
-
+def rectangle_perimeter(length, width):
+    return 2 * (length + width)
 ```
 
 > 优化一下
 
-- XXX
+- 参数类型检查：确保传入的参数是数值类型（如整数或浮点数），以避免无效输入导致的错误。
+- 异常处理：使用 try-except 块来捕获可能的异常，例如当传入非数值类型的参数时给出友好提示。
+- 文档字符串 (docstring)：为函数添加描述性注释，说明函数的功能、参数及返回值，便于他人理解代码。
+- 正负数验证：确保长度和宽度为非负数，因为矩形的尺寸不能为负。
 
 ```python
+def rectangle_perimeter(length, width):
+    try:
+        # 将输入转换为浮点数，并去除可能存在的多余空格
+        length = float(str(length).strip())
+        width = float(str(width).strip())
 
+        # 检查是否为非负数
+        if length < 0 or width < 0:
+            raise ValueError("长度和宽度必须是非负数。")
+
+        return 2 * (length + width)
+
+    except ValueError as ve:
+        print(f"值错误: {ve}")
+        return None
+    except TypeError:
+        print("类型错误: 长度和宽度必须是数字类型。")
+        return None
 ```
 
 ### [题目 2: 计算平均值(中级)](/archives/20250228c8f562d1/#题目-2-计算平均值-中级)
@@ -627,15 +648,30 @@ for number in numbers:
 - 编写支持可变数量参数的函数，计算任意个数数字的平均值
 
 ```python
-
+def average(*args):
+    return sum(args) / len(args)
 ```
 
 > 优化一下
 
-- XXX
+- 处理空参数：如果用户没有传入任何参数，len(args)将为 0，导致除以零的错误。需要添加检查以处理这种情况。
+- 参数类型检查：确保传入的参数是数值类型（如整数或浮点数），以避免无效输入导致的错误。
+- 异常处理：使用 try-except 块来捕获可能的异常，例如当传入非数值类型的参数时给出友好提示。
+- 文档字符串 (docstring)：为函数添加描述性注释，说明函数的功能、参数及返回值，便于他人理解代码。
 
 ```python
+def average(*args):
+    if not args:
+        raise ValueError("至少需要传入一个数字参数。")
 
+    try:
+        total = sum(args)
+        count = len(args)
+        return total / count
+
+    except TypeError:
+        print("类型错误: 所有参数必须是数字类型。")
+        return None
 ```
 
 ### [题目 3: 生成斐波那契数列(高级)](/archives/20250228c8f562d1/#题目-3-生成斐波那契数列-高级)
@@ -643,15 +679,32 @@ for number in numbers:
 - 实现记忆化（memoization）的斐波那契数列生成函数，要求通过装饰器实现缓存
 
 ```python
-
+def fibonacci_with_memoization(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci_with_memoization(n-1) + fibonacci_with_memoization(n-2)
 ```
 
 > 优化一下
 
-- XXX
+- 使用 lru_cache 装饰器：
+  - lru_cache 是 Python 标准库 functools 模块中的一个装饰器，它可以自动为函数添加缓存功能，避免重复计算。
+  - maxsize=None 表示缓存没有大小限制，可以缓存所有计算过的斐波那契数。
 
 ```python
+from functools import lru_cache
 
+@lru_cache(maxsize=None)
+def fibonacci_with_memoization(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci_with_memoization(n-1) + fibonacci_with_memoization(n-2)
 ```
 
 ## 2. 函数参数与返回值
@@ -661,15 +714,39 @@ for number in numbers:
 - 编写函数`greet(name, greeting="Hello")`，返回拼接的问候字符串（如`"Hello, Alice!"`）
 
 ```python
+def greet(name, greeting="Hello"):
+    return f"{greeting}, {name}!"
 
+print(greet("Alice"))
+print(greet("Alice", 'Good morning'))
 ```
 
 > 优化一下
 
-- XXX
+- 函数注释：为函数添加注释，说明函数的作用、参数和返回值。
+- 类型提示：为函数参数添加类型提示，提高代码可读性和可维护性。
+- 常量使用：将默认问候语定义为常量，便于管理和修改。
 
 ```python
+# 定义默认问候语常量
+DEFAULT_GREETING = "Hello"
 
+def greet(name: str, greeting: str = DEFAULT_GREETING) -> str:
+    """
+    返回拼接的问候字符串。
+
+    参数:
+    name (str): 被问候的人的名字。
+    greeting (str): 问候语，默认为"Hello"。
+
+    返回:
+    str: 拼接后的问候字符串。
+    """
+    return f"{greeting}, {name}!"
+
+# 测试函数
+print(greet("Alice"))
+print(greet("Alice", 'Good morning'))
 ```
 
 ### [题目 2 任意参数求和(中级)](/archives/20250228c8f562d1/#题目-2-任意参数求和-中级)
@@ -677,15 +754,50 @@ for number in numbers:
 - 实现函数`sum_numbers(*args)`，接受任意数量的数字参数并返回总和，若无参数返回 0
 
 ```python
+def sum_numbers(*args):
+    total = 0
+    for num in args:
+        total += num
+    return total
 
+print(sum_numbers(1, 2, 3, 4, 5))
+print(sum_numbers())
 ```
 
 > 优化一下
 
-- XXX
+- 类型提示：为函数参数和返回值添加类型提示，提高代码的可读性和可维护性。
+- 函数注释：为函数添加注释，说明函数的作用、参数和返回值。
+- 异常处理：使用 try-except 块来捕获可能的异常，例如当传入非数字类型的参数时给出友好提示。
+- 简洁性：使用了内置的 sum() 函数来计算总和，代码更简洁。
+- 可读性：使用了 sum() 函数，这是 Python 中计算总和的标准方法。
+- 性能：使用了内置函数 sum()，通常会有更好的性能优化。
 
 ```python
+def sum_numbers(*args: float) -> float:
+    """
+    接受任意数量的数字参数并返回总和，若无参数返回 0。
 
+    参数:
+    *args: 任意数量的数字参数。
+
+    返回:
+    float: 数字参数的总和，若无参数返回 0。
+
+    异常:
+    TypeError: 如果参数中包含非数字类型。
+    """
+    if not args:
+        return 0
+
+    try:
+        return sum(args)
+    except TypeError:
+        raise TypeError("所有参数必须是数字类型。")
+
+# 测试函数
+print(sum_numbers(1, 2, 3, 4, 5))
+print(sum_numbers())
 ```
 
 ### [题目 3 任意参数求积(高级)](/archives/20250228c8f562d1/#题目-3-任意参数求积-高级)
@@ -693,15 +805,57 @@ for number in numbers:
 - 设计函数`apply_operation(func, *args, **kwargs)`，接受一个函数和其参数，执行后返回结果（如调用`apply_operation(pow, 2, 3)`返回 8）
 
 ```python
+def apply_operation(func, *args, **kwargs):
+    """
+    接受一个函数和其参数，执行后返回结果。
 
+    参数:
+    func: 要执行的函数。
+    *args: 函数的参数。
+    **kwargs: 函数的关键字参数。
+
+    返回:
+    执行函数的结果。
+    """
+    return func(*args, **kwargs)
+
+print(f"{apply_operation(pow, 2, 3)}")
 ```
 
 > 优化一下
 
-- XXX
+- 类型提示：为函数参数和返回值添加类型提示，提高代码的可读性和可维护性。
+- 错误处理：添加对传入函数和参数的错误处理，确保函数的健壮性。
+- 文档字符串：进一步完善文档字符串，使其更加清晰和详细。
 
 ```python
+from typing import Callable, Any
 
+def apply_operation(func: Callable, *args: Any, **kwargs: Any) -> Any:
+    """
+    接受一个函数和其参数，执行后返回结果。
+
+    参数:
+    func (Callable): 要执行的函数。
+    *args (Any): 函数的位置参数。
+    **kwargs (Any): 函数的关键字参数。
+
+    返回:
+    Any: 执行函数的结果。
+
+    异常:
+    TypeError: 如果传入的参数不是函数或参数不匹配。
+    """
+    if not callable(func):
+        raise TypeError("第一个参数必须是一个可调用的函数。")
+
+    try:
+        return func(*args, **kwargs)
+    except TypeError as te:
+        raise TypeError(f"调用函数时发生类型错误: {te}")
+
+# 测试函数
+print(f"{apply_operation(pow, 2, 3)}")
 ```
 
 ## 3. 局部变量与全局变量
