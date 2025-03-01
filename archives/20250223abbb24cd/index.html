@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s21.ax1x.com/2025/02/23/pElDufP.jpg">
 <meta property="article:published_time" content="2025-02-23T13:12:52.000Z">
-<meta property="article:modified_time" content="2025-03-01T01:53:19.962Z">
+<meta property="article:modified_time" content="2025-03-01T14:28:10.618Z">
 <meta property="article:author" content="迷途的羔羊">
 <meta property="article:tag" content="技术积累">
 <meta property="article:tag" content="后端">
@@ -603,6 +603,105 @@
 <li>返回函数的命名：为返回的函数添加一个更具描述性的名称。</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_multiplier</span>(<span class="params">n: float</span>) -&gt; callable:</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    返回一个新函数，该函数能将输入参数乘以 n。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数:</span></span><br><span class="line"><span class="string">    n (float): 乘数。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    返回:</span></span><br><span class="line"><span class="string">    callable: 一个函数，接受一个数字参数并返回该数字乘以 n 的结果。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">multiplier</span>(<span class="params">x: float</span>) -&gt; float:</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        将输入参数乘以 n。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        参数:</span></span><br><span class="line"><span class="string">        x (float): 要乘以 n 的数字。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        返回:</span></span><br><span class="line"><span class="string">        float: x 乘以 n 的结果。</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> x * n</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> multiplier</span><br></pre></td></tr></table></figure>
+<h2 id="1-列表"><a href="#1-列表" class="headerlink" title="1. 列表"></a>1. 列表</h2><h3 id="题目-1-计算平均值-初级"><a href="#题目-1-计算平均值-初级" class="headerlink" title="题目 1:计算平均值(初级)"></a><a href="/archives/2025030222c892e4/#题目-1-计算平均值-初级">题目 1:计算平均值(初级)</a></h3><ul>
+<li>创建包含 10 个随机整数的列表（范围 1-100），计算它们的平均值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>优化一下</p>
+</blockquote>
+<ul>
+<li>xxxx</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="题目-2-合并列表并排序-中级"><a href="#题目-2-合并列表并排序-中级" class="headerlink" title="题目 2:合并列表并排序(中级)"></a><a href="/archives/2025030222c892e4/#题目-2-合并列表并排序-中级">题目 2:合并列表并排序(中级)</a></h3><ul>
+<li>合并两个已排序列表（如[1,3,5]和[2,4,6]），保持结果列表有序</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>优化一下</p>
+</blockquote>
+<ul>
+<li>xxxx</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="题目-3-矩阵转置-高级"><a href="#题目-3-矩阵转置-高级" class="headerlink" title="题目 3:矩阵转置(高级)"></a><a href="/archives/2025030222c892e4/#题目-3-矩阵转置-高级">题目 3:矩阵转置(高级)</a></h3><ul>
+<li>实现矩阵转置函数，输入如[[1,2],[3,4],[5,6]]，返回[[1,3,5],[2,4,6]]</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>优化一下</p>
+</blockquote>
+<ul>
+<li>xxxx</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-字典"><a href="#2-字典" class="headerlink" title="2. 字典"></a>2. 字典</h2><h3 id="题目-1-统计字符出现次数-初级"><a href="#题目-1-统计字符出现次数-初级" class="headerlink" title="题目 1: 统计字符出现次数(初级)"></a><a href="/archives/2025030222c892e4/#题目-1-统计字符出现次数-初级">题目 1: 统计字符出现次数(初级)</a></h3><ul>
+<li>编写函数统计字符串中各字符出现次数（如”hello”返回{‘h’:1, ‘e’:1, ‘l’:2, ‘o’:1}）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>优化一下</p>
+</blockquote>
+<ul>
+<li>xxxx</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="题目-2-合并字典-中级"><a href="#题目-2-合并字典-中级" class="headerlink" title="题目 2: 合并字典(中级)"></a><a href="/archives/2025030222c892e4/#题目-2-合并字典-中级">题目 2: 合并字典(中级)</a></h3><ul>
+<li>合并两个字典，若键冲突则保留第二个字典的值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>优化一下</p>
+</blockquote>
+<ul>
+<li>xxxx</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="题目-3-扁平化-高级"><a href="#题目-3-扁平化-高级" class="headerlink" title="题目 3: 扁平化(高级)"></a><a href="/archives/2025030222c892e4/#题目-3-扁平化-高级">题目 3: 扁平化(高级)</a></h3><ul>
+<li>实现嵌套字典的扁平化，将<code>&#123;&#39;a&#39;:1, &#39;b&#39;:&#123;&#39;c&#39;:2, &#39;d&#39;:&#123;&#39;e&#39;:3&#125;&#125;&#125;</code>转换为<code>&#123;&#39;a&#39;:1, &#39;b.c&#39;:2, &#39;b.d.e&#39;:3&#125;</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>优化一下</p>
+</blockquote>
+<ul>
+<li>xxxx</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="3-元组和集合"><a href="#3-元组和集合" class="headerlink" title="3. 元组和集合"></a>3. 元组和集合</h2><h3 id="题目-1-集合去重-初级"><a href="#题目-1-集合去重-初级" class="headerlink" title="题目 1: 集合去重(初级)"></a><a href="/archives/2025030222c892e4/#题目-1-集合去重-初级">题目 1: 集合去重(初级)</a></h3><ul>
+<li>将列表<code>[&quot;cat&quot;, &quot;dog&quot;, &quot;cat&quot;, &quot;bird&quot;]</code>转换为集合去重，再转回排序后的列表</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>优化一下</p>
+</blockquote>
+<ul>
+<li>xxxx</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="题目-2-变位词判断-中级"><a href="#题目-2-变位词判断-中级" class="headerlink" title="题目 2: 变位词判断(中级)"></a><a href="/archives/2025030222c892e4/#题目-2-变位词判断-中级">题目 2: 变位词判断(中级)</a></h3><ul>
+<li>编写函数判断两个字符串是否为变位词（字母组成相同），使用集合优化效率</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>优化一下</p>
+</blockquote>
+<ul>
+<li>xxxx</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="题目-3-不可变元组存储实验数据-高级"><a href="#题目-3-不可变元组存储实验数据-高级" class="headerlink" title="题目 3: 不可变元组存储实验数据(高级)"></a><a href="/archives/2025030222c892e4/#题目-3-不可变元组存储实验数据-高级">题目 3: 不可变元组存储实验数据(高级)</a></h3><ul>
+<li>实现多组实验数据的不可变存储结构，每个实验包含（实验名称，时间戳，温度值元组）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>优化一下</p>
+</blockquote>
+<ul>
+<li>xxxx</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 
     
 
@@ -799,7 +898,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%8F%98%E9%87%8F%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">1. 变量与数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0"><span class="toc-number">1.1.</span> <span class="toc-text">题目 1：基础练习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.2.</span> <span class="toc-text">题目 2：数据类型转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3%EF%BC%9A%E5%A4%8D%E6%9D%82%E9%80%BB%E8%BE%91"><span class="toc-number">1.3.</span> <span class="toc-text">题目 3：复杂逻辑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8F%98%E9%87%8F%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">2. 变量与数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E5%B1%95%E7%A4%BA%E8%BE%93%E5%85%A5-%E5%88%9D%E7%BA%A7"><span class="toc-number">2.1.</span> <span class="toc-text">题目 1: 展示输入(初级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E8%AE%A1%E7%AE%97%E8%BE%93%E5%85%A5-%E4%B8%AD%E7%BA%A7"><span class="toc-number">2.2.</span> <span class="toc-text">题目 2: 计算输入(中级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E5%A4%84%E7%90%86%E8%BE%93%E5%85%A5-%E9%AB%98%E7%BA%A7"><span class="toc-number">2.3.</span> <span class="toc-text">题目 3: 处理输入(高级)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.</span> <span class="toc-text">3. 基本运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E8%AE%A1%E7%AE%97%E5%92%8C%E3%80%81%E5%B7%AE%E3%80%81%E7%A7%AF%E5%92%8C%E5%95%86-%E5%88%9D%E7%BA%A7"><span class="toc-number">3.1.</span> <span class="toc-text">题目 1: 计算和、差、积和商(初级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E5%88%A4%E6%96%AD%E9%97%B0%E5%B9%B4-%E4%B8%AD%E7%BA%A7"><span class="toc-number">3.2.</span> <span class="toc-text">题目 2: 判断闰年(中级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E8%AE%A1%E7%AE%97%E6%9E%81%E5%80%BC-%E9%AB%98%E7%BA%A7"><span class="toc-number">3.3.</span> <span class="toc-text">题目 3: 计算极值(高级)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5%EF%BC%88if%E3%80%81elif%E3%80%81else%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">1. 条件语句（if、elif、else）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1%EF%BC%9A%E6%A0%B9%E6%8D%AE%E5%88%86%E6%95%B0%E8%AE%A1%E7%AE%97%E7%AD%89%E7%BA%A7"><span class="toc-number">4.1.</span> <span class="toc-text">题目 1：根据分数计算等级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2%EF%BC%9A%E5%88%A4%E6%96%AD%E9%97%B0%E5%B9%B4"><span class="toc-number">4.2.</span> <span class="toc-text">题目 2：判断闰年</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%88%E4%BB%BD%E5%A4%A9%E6%95%B0"><span class="toc-number">4.3.</span> <span class="toc-text">题目 3：计算月份天数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BE%AA%E7%8E%AF"><span class="toc-number">5.</span> <span class="toc-text">2. 循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E5%BE%AA%E7%8E%AF%E8%BE%93%E5%87%BA%E5%B9%B3%E6%96%B9-%E5%88%9D%E7%BA%A7"><span class="toc-number">5.1.</span> <span class="toc-text">题目 1: 循环输出平方(初级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E8%AE%A1%E7%AE%97%E7%B4%AF%E5%8A%A0%E5%80%BC-%E4%B8%AD%E7%BA%A7"><span class="toc-number">5.2.</span> <span class="toc-text">题目 2: 计算累加值(中级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E6%89%93%E5%8D%B0%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E5%81%B6%E6%95%B0-%E9%AB%98%E7%BA%A7"><span class="toc-number">5.3.</span> <span class="toc-text">题目 3: 打印列表中的偶数(高级)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-break-%E5%92%8C-continue"><span class="toc-number">6.</span> <span class="toc-text">3. break 和 continue</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E6%89%BE%E5%88%B0%E7%AC%AC%E4%B8%80%E4%B8%AA%E8%B4%9F%E6%95%B0"><span class="toc-number">6.1.</span> <span class="toc-text">题目 1: 找到第一个负数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E4%BD%BF%E7%94%A8-while-%E6%89%BE%E5%88%B0%E5%A5%87%E6%95%B0"><span class="toc-number">6.2.</span> <span class="toc-text">题目 2: 使用 while 找到奇数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E4%BD%BF%E7%94%A8-for-%E6%89%BE%E5%88%B0%E5%A5%87%E6%95%B0"><span class="toc-number">6.3.</span> <span class="toc-text">题目 3: 使用 for 找到奇数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-number">7.</span> <span class="toc-text">1. 定义函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E8%AE%A1%E7%AE%97%E7%9F%A9%E5%BD%A2%E5%91%A8%E9%95%BF-%E5%88%9D%E7%BA%A7"><span class="toc-number">7.1.</span> <span class="toc-text">题目 1: 计算矩形周长(初级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E8%AE%A1%E7%AE%97%E5%B9%B3%E5%9D%87%E5%80%BC-%E4%B8%AD%E7%BA%A7"><span class="toc-number">7.2.</span> <span class="toc-text">题目 2: 计算平均值(中级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E7%94%9F%E6%88%90%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97-%E9%AB%98%E7%BA%A7"><span class="toc-number">7.3.</span> <span class="toc-text">题目 3: 生成斐波那契数列(高级)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E4%B8%8E%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">8.</span> <span class="toc-text">2. 函数参数与返回值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%88%9D%E7%BA%A7"><span class="toc-number">8.1.</span> <span class="toc-text">题目 1 拼接字符串(初级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E4%BB%BB%E6%84%8F%E5%8F%82%E6%95%B0%E6%B1%82%E5%92%8C-%E4%B8%AD%E7%BA%A7"><span class="toc-number">8.2.</span> <span class="toc-text">题目 2 任意参数求和(中级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E4%BB%BB%E6%84%8F%E5%8F%82%E6%95%B0%E6%B1%82%E7%A7%AF-%E9%AB%98%E7%BA%A7"><span class="toc-number">8.3.</span> <span class="toc-text">题目 3 任意参数求积(高级)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-number">9.</span> <span class="toc-text">3. 局部变量与全局变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E5%B9%B3%E6%96%B9%E5%92%8C-%E5%88%9D%E7%BA%A7"><span class="toc-number">9.1.</span> <span class="toc-text">题目 1 平方和(初级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E6%89%93%E5%8D%B0%E6%B6%88%E6%81%AF-%E4%B8%AD%E7%BA%A7"><span class="toc-number">9.2.</span> <span class="toc-text">题目 2 打印消息(中级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E9%97%AD%E5%8C%85%E4%BF%9D%E5%AD%98-n-%E9%AB%98%E7%BA%A7"><span class="toc-number">9.3.</span> <span class="toc-text">题目 3 闭包保存 n(高级)</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%8F%98%E9%87%8F%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">1. 变量与数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0"><span class="toc-number">1.1.</span> <span class="toc-text">题目 1：基础练习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.2.</span> <span class="toc-text">题目 2：数据类型转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3%EF%BC%9A%E5%A4%8D%E6%9D%82%E9%80%BB%E8%BE%91"><span class="toc-number">1.3.</span> <span class="toc-text">题目 3：复杂逻辑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8F%98%E9%87%8F%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">2. 变量与数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E5%B1%95%E7%A4%BA%E8%BE%93%E5%85%A5-%E5%88%9D%E7%BA%A7"><span class="toc-number">2.1.</span> <span class="toc-text">题目 1: 展示输入(初级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E8%AE%A1%E7%AE%97%E8%BE%93%E5%85%A5-%E4%B8%AD%E7%BA%A7"><span class="toc-number">2.2.</span> <span class="toc-text">题目 2: 计算输入(中级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E5%A4%84%E7%90%86%E8%BE%93%E5%85%A5-%E9%AB%98%E7%BA%A7"><span class="toc-number">2.3.</span> <span class="toc-text">题目 3: 处理输入(高级)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.</span> <span class="toc-text">3. 基本运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E8%AE%A1%E7%AE%97%E5%92%8C%E3%80%81%E5%B7%AE%E3%80%81%E7%A7%AF%E5%92%8C%E5%95%86-%E5%88%9D%E7%BA%A7"><span class="toc-number">3.1.</span> <span class="toc-text">题目 1: 计算和、差、积和商(初级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E5%88%A4%E6%96%AD%E9%97%B0%E5%B9%B4-%E4%B8%AD%E7%BA%A7"><span class="toc-number">3.2.</span> <span class="toc-text">题目 2: 判断闰年(中级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E8%AE%A1%E7%AE%97%E6%9E%81%E5%80%BC-%E9%AB%98%E7%BA%A7"><span class="toc-number">3.3.</span> <span class="toc-text">题目 3: 计算极值(高级)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5%EF%BC%88if%E3%80%81elif%E3%80%81else%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">1. 条件语句（if、elif、else）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1%EF%BC%9A%E6%A0%B9%E6%8D%AE%E5%88%86%E6%95%B0%E8%AE%A1%E7%AE%97%E7%AD%89%E7%BA%A7"><span class="toc-number">4.1.</span> <span class="toc-text">题目 1：根据分数计算等级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2%EF%BC%9A%E5%88%A4%E6%96%AD%E9%97%B0%E5%B9%B4"><span class="toc-number">4.2.</span> <span class="toc-text">题目 2：判断闰年</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%88%E4%BB%BD%E5%A4%A9%E6%95%B0"><span class="toc-number">4.3.</span> <span class="toc-text">题目 3：计算月份天数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BE%AA%E7%8E%AF"><span class="toc-number">5.</span> <span class="toc-text">2. 循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E5%BE%AA%E7%8E%AF%E8%BE%93%E5%87%BA%E5%B9%B3%E6%96%B9-%E5%88%9D%E7%BA%A7"><span class="toc-number">5.1.</span> <span class="toc-text">题目 1: 循环输出平方(初级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E8%AE%A1%E7%AE%97%E7%B4%AF%E5%8A%A0%E5%80%BC-%E4%B8%AD%E7%BA%A7"><span class="toc-number">5.2.</span> <span class="toc-text">题目 2: 计算累加值(中级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E6%89%93%E5%8D%B0%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E5%81%B6%E6%95%B0-%E9%AB%98%E7%BA%A7"><span class="toc-number">5.3.</span> <span class="toc-text">题目 3: 打印列表中的偶数(高级)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-break-%E5%92%8C-continue"><span class="toc-number">6.</span> <span class="toc-text">3. break 和 continue</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E6%89%BE%E5%88%B0%E7%AC%AC%E4%B8%80%E4%B8%AA%E8%B4%9F%E6%95%B0"><span class="toc-number">6.1.</span> <span class="toc-text">题目 1: 找到第一个负数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E4%BD%BF%E7%94%A8-while-%E6%89%BE%E5%88%B0%E5%A5%87%E6%95%B0"><span class="toc-number">6.2.</span> <span class="toc-text">题目 2: 使用 while 找到奇数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E4%BD%BF%E7%94%A8-for-%E6%89%BE%E5%88%B0%E5%A5%87%E6%95%B0"><span class="toc-number">6.3.</span> <span class="toc-text">题目 3: 使用 for 找到奇数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-number">7.</span> <span class="toc-text">1. 定义函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E8%AE%A1%E7%AE%97%E7%9F%A9%E5%BD%A2%E5%91%A8%E9%95%BF-%E5%88%9D%E7%BA%A7"><span class="toc-number">7.1.</span> <span class="toc-text">题目 1: 计算矩形周长(初级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E8%AE%A1%E7%AE%97%E5%B9%B3%E5%9D%87%E5%80%BC-%E4%B8%AD%E7%BA%A7"><span class="toc-number">7.2.</span> <span class="toc-text">题目 2: 计算平均值(中级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E7%94%9F%E6%88%90%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97-%E9%AB%98%E7%BA%A7"><span class="toc-number">7.3.</span> <span class="toc-text">题目 3: 生成斐波那契数列(高级)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E4%B8%8E%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">8.</span> <span class="toc-text">2. 函数参数与返回值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%88%9D%E7%BA%A7"><span class="toc-number">8.1.</span> <span class="toc-text">题目 1 拼接字符串(初级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E4%BB%BB%E6%84%8F%E5%8F%82%E6%95%B0%E6%B1%82%E5%92%8C-%E4%B8%AD%E7%BA%A7"><span class="toc-number">8.2.</span> <span class="toc-text">题目 2 任意参数求和(中级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E4%BB%BB%E6%84%8F%E5%8F%82%E6%95%B0%E6%B1%82%E7%A7%AF-%E9%AB%98%E7%BA%A7"><span class="toc-number">8.3.</span> <span class="toc-text">题目 3 任意参数求积(高级)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E4%B8%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-number">9.</span> <span class="toc-text">3. 局部变量与全局变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E5%B9%B3%E6%96%B9%E5%92%8C-%E5%88%9D%E7%BA%A7"><span class="toc-number">9.1.</span> <span class="toc-text">题目 1 平方和(初级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E6%89%93%E5%8D%B0%E6%B6%88%E6%81%AF-%E4%B8%AD%E7%BA%A7"><span class="toc-number">9.2.</span> <span class="toc-text">题目 2 打印消息(中级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E9%97%AD%E5%8C%85%E4%BF%9D%E5%AD%98-n-%E9%AB%98%E7%BA%A7"><span class="toc-number">9.3.</span> <span class="toc-text">题目 3 闭包保存 n(高级)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%97%E8%A1%A8"><span class="toc-number">10.</span> <span class="toc-text">1. 列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E8%AE%A1%E7%AE%97%E5%B9%B3%E5%9D%87%E5%80%BC-%E5%88%9D%E7%BA%A7"><span class="toc-number">10.1.</span> <span class="toc-text">题目 1:计算平均值(初级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E5%90%88%E5%B9%B6%E5%88%97%E8%A1%A8%E5%B9%B6%E6%8E%92%E5%BA%8F-%E4%B8%AD%E7%BA%A7"><span class="toc-number">10.2.</span> <span class="toc-text">题目 2:合并列表并排序(中级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E7%9F%A9%E9%98%B5%E8%BD%AC%E7%BD%AE-%E9%AB%98%E7%BA%A7"><span class="toc-number">10.3.</span> <span class="toc-text">题目 3:矩阵转置(高级)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AD%97%E5%85%B8"><span class="toc-number">11.</span> <span class="toc-text">2. 字典</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E7%BB%9F%E8%AE%A1%E5%AD%97%E7%AC%A6%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0-%E5%88%9D%E7%BA%A7"><span class="toc-number">11.1.</span> <span class="toc-text">题目 1: 统计字符出现次数(初级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E5%90%88%E5%B9%B6%E5%AD%97%E5%85%B8-%E4%B8%AD%E7%BA%A7"><span class="toc-number">11.2.</span> <span class="toc-text">题目 2: 合并字典(中级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E6%89%81%E5%B9%B3%E5%8C%96-%E9%AB%98%E7%BA%A7"><span class="toc-number">11.3.</span> <span class="toc-text">题目 3: 扁平化(高级)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%85%83%E7%BB%84%E5%92%8C%E9%9B%86%E5%90%88"><span class="toc-number">12.</span> <span class="toc-text">3. 元组和集合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E9%9B%86%E5%90%88%E5%8E%BB%E9%87%8D-%E5%88%9D%E7%BA%A7"><span class="toc-number">12.1.</span> <span class="toc-text">题目 1: 集合去重(初级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E5%8F%98%E4%BD%8D%E8%AF%8D%E5%88%A4%E6%96%AD-%E4%B8%AD%E7%BA%A7"><span class="toc-number">12.2.</span> <span class="toc-text">题目 2: 变位词判断(中级)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E4%B8%8D%E5%8F%AF%E5%8F%98%E5%85%83%E7%BB%84%E5%AD%98%E5%82%A8%E5%AE%9E%E9%AA%8C%E6%95%B0%E6%8D%AE-%E9%AB%98%E7%BA%A7"><span class="toc-number">12.3.</span> <span class="toc-text">题目 3: 不可变元组存储实验数据(高级)</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -1527,6 +1626,66 @@
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color5">参考答案</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color5">文件操作</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color5">文件读写</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color5">模块与库</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color1">导入模块import</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">常用标准库os</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">安装和使用第三方库pip</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color2">面向对象编程</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color5">类与对象</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color1">属性与方法</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color1">继承与多态</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">项目规划与工具</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color2">项目结构规划</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color5">使用版本控制git</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color4">虚拟环境venv</a>
             </li>
             
             <div class="clearfix"></div>

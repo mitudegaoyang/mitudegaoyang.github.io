@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s21.ax1x.com/2025/02/23/pElDl6S.jpg">
 <meta property="article:published_time" content="2025-03-02T01:05:00.000Z">
-<meta property="article:modified_time" content="2025-02-23T13:15:51.811Z">
+<meta property="article:modified_time" content="2025-03-01T14:33:41.829Z">
 <meta property="article:author" content="迷途的羔羊">
 <meta property="article:tag" content="技术积累">
 <meta property="article:tag" content="后端">
@@ -237,14 +237,109 @@
   <div class="article-entry" itemprop="articleBody">
     
     <p><img src="https://s21.ax1x.com/2025/02/23/pElDl6S.jpg" alt="首屏图"></p>
-<!--
-<https://s21.ax1x.com/2025/02/23/pElDQl8.jpg>
--->
 <a id="more"></a>
 <p><a href="/archives/202502214537ccef/#Day-7：数据结构">返回</a></p>
-<h2 id="1-列表"><a href="#1-列表" class="headerlink" title="1. 列表"></a>1. 列表</h2><p><a href="/archives/202502214537ccef/#Day-7：数据结构">返回</a></p>
-<h2 id="2-字典"><a href="#2-字典" class="headerlink" title="2. 字典"></a>2. 字典</h2><p><a href="/archives/202502214537ccef/#Day-7：数据结构">返回</a></p>
-<h2 id="3-元组和集合"><a href="#3-元组和集合" class="headerlink" title="3. 元组和集合"></a>3. 元组和集合</h2><p><a href="/archives/202502214537ccef/#Day-7：数据结构">返回</a></p>
+<h2 id="1-列表"><a href="#1-列表" class="headerlink" title="1. 列表"></a>1. 列表</h2><h3 id="1-1-列表的解释"><a href="#1-1-列表的解释" class="headerlink" title="1.1. 列表的解释"></a>1.1. 列表的解释</h3><p><strong>列表</strong>是 Python 中的有序可变容器，可存储任意数据类型（包括其他列表）。元素通过方括号<code>[]</code>定义，用逗号分隔。</p>
+<ul>
+<li><strong>用途</strong>：批量存储/管理数据、动态增删元素、排序/过滤数据</li>
+<li><strong>常见场景</strong>：临时存储用户输入、处理 CSV 文件内容、保存算法中间结果</li>
+</ul>
+<h3 id="1-2-代码示例"><a href="#1-2-代码示例" class="headerlink" title="1.2. 代码示例"></a>1.2. 代码示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建混合类型列表</span></span><br><span class="line">my_list = [<span class="number">3</span>, <span class="string">&quot;apple&quot;</span>, <span class="literal">True</span>, <span class="number">2.5</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 访问和修改元素</span></span><br><span class="line">print(my_list[<span class="number">1</span>])  <span class="comment"># 输出：apple</span></span><br><span class="line">my_list[<span class="number">0</span>] = <span class="number">99</span>    <span class="comment"># 修改第一个元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加/删除元素</span></span><br><span class="line">my_list.append(<span class="string">&quot;new_item&quot;</span>)</span><br><span class="line">popped = my_list.pop(<span class="number">2</span>)  <span class="comment"># 移除并返回第三个元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切片操作</span></span><br><span class="line">sub_list = my_list[<span class="number">1</span>:<span class="number">3</span>]  <span class="comment"># 获取索引1到2的元素</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-3-常见错误与避免方法"><a href="#1-3-常见错误与避免方法" class="headerlink" title="1.3. 常见错误与避免方法"></a>1.3. 常见错误与避免方法</h3><h4 id="错误-1：索引越界"><a href="#错误-1：索引越界" class="headerlink" title="错误 1：索引越界"></a>错误 1：索引越界</h4><p>尝试访问<code>list[5]</code>但列表只有 3 个元素<br>→ 使用前检查长度：<code>if index &lt; len(my_list)</code></p>
+<h4 id="错误-2：混淆引用复制与值复制"><a href="#错误-2：混淆引用复制与值复制" class="headerlink" title="错误 2：混淆引用复制与值复制"></a>错误 2：混淆引用复制与值复制</h4><p>直接<code>new_list = old_list</code>会导致两个列表关联<br>→ 使用<code>new_list = old_list.copy()</code>或切片<code>new_list = old_list[:]</code></p>
+<h4 id="错误-3：在循环中修改列表长度"><a href="#错误-3：在循环中修改列表长度" class="headerlink" title="错误 3：在循环中修改列表长度"></a>错误 3：在循环中修改列表长度</h4><p>遍历时删除元素会导致索引错乱<br>→ 遍历副本：<code>for item in list.copy():</code></p>
+<h3 id="1-4-实际应用场景"><a href="#1-4-实际应用场景" class="headerlink" title="1.4. 实际应用场景"></a>1.4. 实际应用场景</h3><h4 id="场景-1：数据预处理"><a href="#场景-1：数据预处理" class="headerlink" title="场景 1：数据预处理"></a>场景 1：数据预处理</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 过滤温度数据中异常值</span></span><br><span class="line">temperatures = [<span class="number">22</span>, <span class="number">35</span>, <span class="number">-5</span>, <span class="number">18</span>, <span class="number">45</span>]</span><br><span class="line">valid_temps = [t <span class="keyword">for</span> t <span class="keyword">in</span> temperatures <span class="keyword">if</span> <span class="number">0</span> &lt;= t &lt;= <span class="number">40</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="场景-2：游戏开发"><a href="#场景-2：游戏开发" class="headerlink" title="场景 2：游戏开发"></a>场景 2：游戏开发</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 管理玩家背包物品</span></span><br><span class="line">inventory = [<span class="string">&quot;sword&quot;</span>, <span class="string">&quot;potion&quot;</span>, <span class="string">&quot;key&quot;</span>]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">use_item</span>(<span class="params">item</span>):</span></span><br><span class="line">    <span class="keyword">if</span> item <span class="keyword">in</span> inventory:</span><br><span class="line">        inventory.remove(item)</span><br><span class="line">        print(<span class="string">f&quot;Used <span class="subst">&#123;item&#125;</span>!&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="1-5-递进练习题"><a href="#1-5-递进练习题" class="headerlink" title="1.5. 递进练习题"></a>1.5. 递进练习题</h3><h4 id="题目-1-计算平均值-初级"><a href="#题目-1-计算平均值-初级" class="headerlink" title="题目 1:计算平均值(初级)"></a>题目 1:计算平均值(初级)</h4><ul>
+<li>创建包含 10 个随机整数的列表（范围 1-100），计算它们的平均值</li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-1-计算平均值-初级">参考答案</a></p>
+</blockquote>
+<h4 id="题目-2-合并列表并排序-中级"><a href="#题目-2-合并列表并排序-中级" class="headerlink" title="题目 2:合并列表并排序(中级)"></a>题目 2:合并列表并排序(中级)</h4><ul>
+<li>合并两个已排序列表（如[1,3,5]和[2,4,6]），保持结果列表有序</li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-2-合并列表并排序-中级">参考答案</a></p>
+</blockquote>
+<h4 id="题目-3-矩阵转置-高级"><a href="#题目-3-矩阵转置-高级" class="headerlink" title="题目 3:矩阵转置(高级)"></a>题目 3:矩阵转置(高级)</h4><ul>
+<li>实现矩阵转置函数，输入如[[1,2],[3,4],[5,6]]，返回[[1,3,5],[2,4,6]]</li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-3-矩阵转置-高级">参考答案</a></p>
+</blockquote>
+<h3 id="1-6-深度思考问题"><a href="#1-6-深度思考问题" class="headerlink" title="1.6. 深度思考问题"></a>1.6. 深度思考问题</h3><p>当列表存储超过 100 万条数据时，频繁在列表开头插入/删除元素（时间复杂度 O(n)）会导致性能问题。如何通过选择其他数据结构（如<code>collections.deque</code>）优化这类操作？这种取舍体现了计算机科学中哪些底层原理？</p>
+<p><a href="/archives/202502214537ccef/#Day-7：数据结构">返回</a></p>
+<h2 id="2-字典"><a href="#2-字典" class="headerlink" title="2. 字典"></a>2. 字典</h2><h3 id="2-1-字典的解释"><a href="#2-1-字典的解释" class="headerlink" title="2.1. 字典的解释"></a>2.1. 字典的解释</h3><p><strong>字典</strong>是 Python 中的无序键值对集合，用花括号<code>&#123;&#125;</code>表示，通过唯一键（不可变类型）快速访问值。</p>
+<ul>
+<li><strong>用途</strong>：快速数据查找、存储结构化数据、配置参数管理</li>
+<li><strong>常见场景</strong>：JSON 数据处理、数据库查询结果缓存、替代多个<code>if-else</code>的条件映射</li>
+</ul>
+<h3 id="2-2-代码示例"><a href="#2-2-代码示例" class="headerlink" title="2.2. 代码示例"></a>2.2. 代码示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建学生信息字典</span></span><br><span class="line">student = &#123;</span><br><span class="line">    <span class="string">&quot;id&quot;</span>: <span class="number">101</span>,</span><br><span class="line">    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;Alice&quot;</span>,</span><br><span class="line">    <span class="string">&quot;courses&quot;</span>: [<span class="string">&quot;Math&quot;</span>, <span class="string">&quot;Physics&quot;</span>],</span><br><span class="line">    <span class="string">&quot;active&quot;</span>: <span class="literal">True</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 访问/修改值</span></span><br><span class="line">print(student.get(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;Unknown&quot;</span>))  <span class="comment"># 安全获取值</span></span><br><span class="line">student[<span class="string">&quot;graduated&quot;</span>] = <span class="literal">False</span>           <span class="comment"># 新增键值对</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历字典</span></span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> student.items():</span><br><span class="line">    print(<span class="string">f&quot;<span class="subst">&#123;key&#125;</span>: <span class="subst">&#123;value&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字典推导式</span></span><br><span class="line">squared = &#123;x: x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">5</span>)&#125;  <span class="comment"># &#123;0:0, 1:1, 2:4...&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-3-常见错误与避免方法"><a href="#2-3-常见错误与避免方法" class="headerlink" title="2.3. 常见错误与避免方法"></a>2.3. 常见错误与避免方法</h3><h4 id="错误-1：直接访问不存在的键"><a href="#错误-1：直接访问不存在的键" class="headerlink" title="错误 1：直接访问不存在的键"></a>错误 1：直接访问不存在的键</h4><p><code>print(student[&quot;age&quot;])</code> 会引发<code>KeyError</code><br>→ 用<code>student.get(&quot;age&quot;, 0)</code>或<code>if &quot;age&quot; in student</code></p>
+<h4 id="错误-2：误认为字典有序"><a href="#错误-2：误认为字典有序" class="headerlink" title="错误 2：误认为字典有序"></a>错误 2：误认为字典有序</h4><p>在 Python 3.7 之前字典不保证顺序<br>→ 需要有序时使用<code>collections.OrderedDict</code></p>
+<h4 id="错误-3：使用可变类型作为键"><a href="#错误-3：使用可变类型作为键" class="headerlink" title="错误 3：使用可变类型作为键"></a>错误 3：使用可变类型作为键</h4><p>如<code>dict_key = &#123;[1,2]: &quot;value&quot;&#125;</code>会报错<br>→ 键必须为不可变类型（数字/字符串/元组）</p>
+<h3 id="2-4-实际应用场景"><a href="#2-4-实际应用场景" class="headerlink" title="2.4. 实际应用场景"></a>2.4. 实际应用场景</h3><h4 id="场景-1：缓存计算结果"><a href="#场景-1：缓存计算结果" class="headerlink" title="场景 1：缓存计算结果"></a>场景 1：缓存计算结果</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cache = &#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fibonacci</span>(<span class="params">n</span>):</span></span><br><span class="line">    <span class="keyword">if</span> n <span class="keyword">in</span> cache: <span class="keyword">return</span> cache[n]</span><br><span class="line">    <span class="keyword">if</span> n &lt;= <span class="number">1</span>: <span class="keyword">return</span> n</span><br><span class="line">    cache[n] = fibonacci(n<span class="number">-1</span>) + fibonacci(n<span class="number">-2</span>)</span><br><span class="line">    <span class="keyword">return</span> cache[n]</span><br></pre></td></tr></table></figure>
+<h4 id="场景-2：数据分组统计"><a href="#场景-2：数据分组统计" class="headerlink" title="场景 2：数据分组统计"></a>场景 2：数据分组统计</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按城市分组统计销售额</span></span><br><span class="line">sales = [</span><br><span class="line">    &#123;<span class="string">&quot;city&quot;</span>: <span class="string">&quot;Beijing&quot;</span>, <span class="string">&quot;amount&quot;</span>: <span class="number">200</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;city&quot;</span>: <span class="string">&quot;Shanghai&quot;</span>, <span class="string">&quot;amount&quot;</span>: <span class="number">300</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;city&quot;</span>: <span class="string">&quot;Beijing&quot;</span>, <span class="string">&quot;amount&quot;</span>: <span class="number">150</span>&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">city_stats = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> record <span class="keyword">in</span> sales:</span><br><span class="line">    key = record[<span class="string">&quot;city&quot;</span>]</span><br><span class="line">    city_stats[key] = city_stats.get(key, <span class="number">0</span>) + record[<span class="string">&quot;amount&quot;</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="2-5-递进练习题"><a href="#2-5-递进练习题" class="headerlink" title="2.5. 递进练习题"></a>2.5. 递进练习题</h3><h4 id="题目-1-统计字符出现次数-初级"><a href="#题目-1-统计字符出现次数-初级" class="headerlink" title="题目 1: 统计字符出现次数(初级)"></a>题目 1: 统计字符出现次数(初级)</h4><ul>
+<li>编写函数统计字符串中各字符出现次数（如”hello”返回{‘h’:1, ‘e’:1, ‘l’:2, ‘o’:1}）</li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-1-统计字符出现次数-初级">参考答案</a></p>
+</blockquote>
+<h4 id="题目-2-合并字典-中级"><a href="#题目-2-合并字典-中级" class="headerlink" title="题目 2: 合并字典(中级)"></a>题目 2: 合并字典(中级)</h4><ul>
+<li>合并两个字典，若键冲突则保留第二个字典的值</li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-2-合并字典-中级">参考答案</a></p>
+</blockquote>
+<h4 id="题目-3-扁平化-高级"><a href="#题目-3-扁平化-高级" class="headerlink" title="题目 3: 扁平化(高级)"></a>题目 3: 扁平化(高级)</h4><ul>
+<li>实现嵌套字典的扁平化，将<code>&#123;&#39;a&#39;:1, &#39;b&#39;:&#123;&#39;c&#39;:2, &#39;d&#39;:&#123;&#39;e&#39;:3&#125;&#125;&#125;</code>转换为<code>&#123;&#39;a&#39;:1, &#39;b.c&#39;:2, &#39;b.d.e&#39;:3&#125;</code></li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-3-扁平化-高级">参考答案</a></p>
+</blockquote>
+<h3 id="2-6-思考问题"><a href="#2-6-思考问题" class="headerlink" title="2.6. 思考问题"></a>2.6. 思考问题</h3><p>Python 字典底层采用哈希表实现，当字典扩容时会发生 rehash 操作。如果字典被用作全局缓存且包含百万级键值对，频繁的 rehash 会带来性能问题。如何通过预分配空间（如<code>dict.fromkeys</code>预先填充键）优化性能？这反映了数据结构设计中哪些重要原则？</p>
+<p><a href="/archives/202502214537ccef/#Day-7：数据结构">返回</a></p>
+<h2 id="3-元组和集合"><a href="#3-元组和集合" class="headerlink" title="3. 元组和集合"></a>3. 元组和集合</h2><h3 id="3-1-元组和集合的解释"><a href="#3-1-元组和集合的解释" class="headerlink" title="3.1. 元组和集合的解释"></a>3.1. 元组和集合的解释</h3><h4 id="元组（Tuple）"><a href="#元组（Tuple）" class="headerlink" title="元组（Tuple）"></a>元组（Tuple）</h4><ul>
+<li>不可变有序序列，用圆括号<code>()</code>定义</li>
+<li><strong>用途</strong>：存储不可修改的数据（如坐标/日期）、作为字典键、函数多返回值</li>
+<li><strong>场景</strong>：数据库查询结果、常量集合、保护敏感数据不被修改</li>
+</ul>
+<h4 id="集合（Set）"><a href="#集合（Set）" class="headerlink" title="集合（Set）"></a>集合（Set）</h4><ul>
+<li>可变无序容器，元素唯一且不可重复，用花括号<code>&#123;&#125;</code>或<code>set()</code>创建</li>
+<li><strong>用途</strong>：快速成员检测、数据去重、集合运算（交/并/差）</li>
+<li><strong>场景</strong>：用户行为日志去重、好友关系计算、屏蔽词过滤</li>
+</ul>
+<h3 id="3-2-代码示例"><a href="#3-2-代码示例" class="headerlink" title="3.2. 代码示例"></a>3.2. 代码示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 元组操作示例</span></span><br><span class="line">coordinates = (<span class="number">40.7128</span>, <span class="number">-74.0060</span>)  <span class="comment"># 经纬度元组</span></span><br><span class="line">print(coordinates[<span class="number">0</span>])              <span class="comment"># 访问元素 → 40.7128</span></span><br><span class="line">rgb = tuple([<span class="number">255</span>, <span class="number">128</span>, <span class="number">64</span>])        <span class="comment"># 将列表转为元组</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 集合操作示例</span></span><br><span class="line">unique_nums = &#123;<span class="number">2</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">5</span>&#125;      <span class="comment"># 自动去重 → &#123;2,5,8&#125;</span></span><br><span class="line">setA = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">setB = &#123;<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line">print(setA | setB)                 <span class="comment"># 并集 → &#123;1,2,3,4,5&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-3-常见错误与避免方法"><a href="#3-3-常见错误与避免方法" class="headerlink" title="3.3. 常见错误与避免方法"></a>3.3. 常见错误与避免方法</h3><h4 id="元组相关错误"><a href="#元组相关错误" class="headerlink" title="元组相关错误"></a>元组相关错误</h4><h5 id="错误-1：尝试修改元组元素"><a href="#错误-1：尝试修改元组元素" class="headerlink" title="错误 1：尝试修改元组元素"></a>错误 1：尝试修改元组元素</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">t[<span class="number">0</span>] = <span class="number">5</span>  <span class="comment"># TypeError</span></span><br></pre></td></tr></table></figure>
+<p>→ 重新创建新元组：<code>t = (5,) + t[1:]</code></p>
+<h5 id="错误-2：忽略单元素元组的逗号"><a href="#错误-2：忽略单元素元组的逗号" class="headerlink" title="错误 2：忽略单元素元组的逗号"></a>错误 2：忽略单元素元组的逗号</h5><p><code>single = (5)</code> 实际是 int 类型 → 正确写法：<code>single = (5,)</code></p>
+<h4 id="集合相关错误"><a href="#集合相关错误" class="headerlink" title="集合相关错误"></a>集合相关错误</h4><h5 id="错误-1：用索引访问集合元素"><a href="#错误-1：用索引访问集合元素" class="headerlink" title="错误 1：用索引访问集合元素"></a>错误 1：用索引访问集合元素</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = &#123;<span class="number">5</span>,<span class="number">2</span>,<span class="number">7</span>&#125;</span><br><span class="line">print(s[<span class="number">0</span>])  <span class="comment"># TypeError: &#x27;set&#x27; is not subscriptable</span></span><br></pre></td></tr></table></figure>
+<p>→ 先转为列表：<code>list(s)[0]</code>（但会破坏无序特性）</p>
+<h5 id="错误-2：混淆集合与字典语法"><a href="#错误-2：混淆集合与字典语法" class="headerlink" title="错误 2：混淆集合与字典语法"></a>错误 2：混淆集合与字典语法</h5><p><code>&#123;&#125;</code>表示空字典 → 创建空集合必须用<code>set()</code></p>
+<h3 id="3-4-实际应用场景"><a href="#3-4-实际应用场景" class="headerlink" title="3.4. 实际应用场景"></a>3.4. 实际应用场景</h3><h4 id="场景-1：用户权限组管理（集合）"><a href="#场景-1：用户权限组管理（集合）" class="headerlink" title="场景 1：用户权限组管理（集合）"></a>场景 1：用户权限组管理（集合）</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">admin_roles = &#123;<span class="string">&quot;superuser&quot;</span>, <span class="string">&quot;editor&quot;</span>&#125;</span><br><span class="line">user_roles = &#123;<span class="string">&quot;viewer&quot;</span>, <span class="string">&quot;editor&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查权限交集</span></span><br><span class="line"><span class="keyword">if</span> admin_roles &amp; user_roles:</span><br><span class="line">    print(<span class="string">&quot;有部分管理权限&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="场景-2：股票交易记录（元组）"><a href="#场景-2：股票交易记录（元组）" class="headerlink" title="场景 2：股票交易记录（元组）"></a>场景 2：股票交易记录（元组）</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不可变的交易记录</span></span><br><span class="line">transaction = (</span><br><span class="line">    <span class="string">&quot;AAPL&quot;</span>,</span><br><span class="line">    datetime(<span class="number">2023</span>,<span class="number">8</span>,<span class="number">15</span>),</span><br><span class="line">    (<span class="string">&quot;buy&quot;</span>, <span class="number">175.50</span>, <span class="number">100</span>)</span><br><span class="line">)</span><br><span class="line"><span class="comment"># 作为字典键</span></span><br><span class="line">history = &#123;transaction: <span class="string">&quot;pending&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-5-递进练习题"><a href="#3-5-递进练习题" class="headerlink" title="3.5. 递进练习题"></a>3.5. 递进练习题</h3><h4 id="题目-1-集合去重-初级"><a href="#题目-1-集合去重-初级" class="headerlink" title="题目 1: 集合去重(初级)"></a>题目 1: 集合去重(初级)</h4><ul>
+<li>将列表<code>[&quot;cat&quot;, &quot;dog&quot;, &quot;cat&quot;, &quot;bird&quot;]</code>转换为集合去重，再转回排序后的列表</li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-1-集合去重-初级">参考答案</a></p>
+</blockquote>
+<h4 id="题目-2-变位词判断-中级"><a href="#题目-2-变位词判断-中级" class="headerlink" title="题目 2: 变位词判断(中级)"></a>题目 2: 变位词判断(中级)</h4><ul>
+<li>编写函数判断两个字符串是否为变位词（字母组成相同），使用集合优化效率</li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-2-变位词判断-中级">参考答案</a></p>
+</blockquote>
+<h4 id="题目-3-不可变元组存储实验数据-高级"><a href="#题目-3-不可变元组存储实验数据-高级" class="headerlink" title="题目 3: 不可变元组存储实验数据(高级)"></a>题目 3: 不可变元组存储实验数据(高级)</h4><ul>
+<li>实现多组实验数据的不可变存储结构，每个实验包含（实验名称，时间戳，温度值元组）</li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-3-不可变元组存储实验数据-高级">参考答案</a></p>
+</blockquote>
+<h3 id="3-6-思考问题"><a href="#3-6-思考问题" class="headerlink" title="3.6. 思考问题"></a>3.6. 思考问题</h3><p>元组的不可变特性使其在并发编程中具有线程安全优势，而集合的哈希表实现带来 O(1)查询时间复杂度。当处理 10 亿级数据时，如何利用元组的内存优化特性（相比列表节省约 20%内存）和集合的快速去重能力协同提升系统性能？这反映了冯·诺依曼体系结构中哪些关键特性的取舍？</p>
+<p><a href="/archives/202502214537ccef/#Day-7：数据结构">返回</a></p>
 <h2 id="4-课后练习"><a href="#4-课后练习" class="headerlink" title="4. 课后练习"></a>4. 课后练习</h2><ul>
 <li>编写一个程序，统计一段文本中每个单词的出现次数。</li>
 <li>编写一个程序，合并两个列表并去重。</li>
@@ -419,6 +514,15 @@
 
 <nav id="article-nav">
   
+    <a href="/archives/20250303d948b0f0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Python文件操作与异常处理
+        
+      </div>
+    </a>
+  
   
     <a href="/archives/20250228c8f562d1/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Python函数</div>
@@ -448,7 +552,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%97%E8%A1%A8"><span class="toc-number">1.</span> <span class="toc-text">1. 列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AD%97%E5%85%B8"><span class="toc-number">2.</span> <span class="toc-text">2. 字典</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%85%83%E7%BB%84%E5%92%8C%E9%9B%86%E5%90%88"><span class="toc-number">3.</span> <span class="toc-text">3. 元组和集合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%AF%BE%E5%90%8E%E7%BB%83%E4%B9%A0"><span class="toc-number">4.</span> <span class="toc-text">4. 课后练习</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%97%E8%A1%A8"><span class="toc-number">1.</span> <span class="toc-text">1. 列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%88%97%E8%A1%A8%E7%9A%84%E8%A7%A3%E9%87%8A"><span class="toc-number">1.1.</span> <span class="toc-text">1.1. 列表的解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.2.</span> <span class="toc-text">1.2. 代码示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E4%B8%8E%E9%81%BF%E5%85%8D%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">1.3. 常见错误与避免方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-1%EF%BC%9A%E7%B4%A2%E5%BC%95%E8%B6%8A%E7%95%8C"><span class="toc-number">1.3.1.</span> <span class="toc-text">错误 1：索引越界</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-2%EF%BC%9A%E6%B7%B7%E6%B7%86%E5%BC%95%E7%94%A8%E5%A4%8D%E5%88%B6%E4%B8%8E%E5%80%BC%E5%A4%8D%E5%88%B6"><span class="toc-number">1.3.2.</span> <span class="toc-text">错误 2：混淆引用复制与值复制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-3%EF%BC%9A%E5%9C%A8%E5%BE%AA%E7%8E%AF%E4%B8%AD%E4%BF%AE%E6%94%B9%E5%88%97%E8%A1%A8%E9%95%BF%E5%BA%A6"><span class="toc-number">1.3.3.</span> <span class="toc-text">错误 3：在循环中修改列表长度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.4.</span> <span class="toc-text">1.4. 实际应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF-1%EF%BC%9A%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">1.4.1.</span> <span class="toc-text">场景 1：数据预处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF-2%EF%BC%9A%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91"><span class="toc-number">1.4.2.</span> <span class="toc-text">场景 2：游戏开发</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E9%80%92%E8%BF%9B%E7%BB%83%E4%B9%A0%E9%A2%98"><span class="toc-number">1.5.</span> <span class="toc-text">1.5. 递进练习题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E8%AE%A1%E7%AE%97%E5%B9%B3%E5%9D%87%E5%80%BC-%E5%88%9D%E7%BA%A7"><span class="toc-number">1.5.1.</span> <span class="toc-text">题目 1:计算平均值(初级)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E5%90%88%E5%B9%B6%E5%88%97%E8%A1%A8%E5%B9%B6%E6%8E%92%E5%BA%8F-%E4%B8%AD%E7%BA%A7"><span class="toc-number">1.5.2.</span> <span class="toc-text">题目 2:合并列表并排序(中级)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E7%9F%A9%E9%98%B5%E8%BD%AC%E7%BD%AE-%E9%AB%98%E7%BA%A7"><span class="toc-number">1.5.3.</span> <span class="toc-text">题目 3:矩阵转置(高级)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%97%AE%E9%A2%98"><span class="toc-number">1.6.</span> <span class="toc-text">1.6. 深度思考问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AD%97%E5%85%B8"><span class="toc-number">2.</span> <span class="toc-text">2. 字典</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AD%97%E5%85%B8%E7%9A%84%E8%A7%A3%E9%87%8A"><span class="toc-number">2.1.</span> <span class="toc-text">2.1. 字典的解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.2.</span> <span class="toc-text">2.2. 代码示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E4%B8%8E%E9%81%BF%E5%85%8D%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.</span> <span class="toc-text">2.3. 常见错误与避免方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-1%EF%BC%9A%E7%9B%B4%E6%8E%A5%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84%E9%94%AE"><span class="toc-number">2.3.1.</span> <span class="toc-text">错误 1：直接访问不存在的键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-2%EF%BC%9A%E8%AF%AF%E8%AE%A4%E4%B8%BA%E5%AD%97%E5%85%B8%E6%9C%89%E5%BA%8F"><span class="toc-number">2.3.2.</span> <span class="toc-text">错误 2：误认为字典有序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-3%EF%BC%9A%E4%BD%BF%E7%94%A8%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B%E4%BD%9C%E4%B8%BA%E9%94%AE"><span class="toc-number">2.3.3.</span> <span class="toc-text">错误 3：使用可变类型作为键</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.4.</span> <span class="toc-text">2.4. 实际应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF-1%EF%BC%9A%E7%BC%93%E5%AD%98%E8%AE%A1%E7%AE%97%E7%BB%93%E6%9E%9C"><span class="toc-number">2.4.1.</span> <span class="toc-text">场景 1：缓存计算结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF-2%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%88%86%E7%BB%84%E7%BB%9F%E8%AE%A1"><span class="toc-number">2.4.2.</span> <span class="toc-text">场景 2：数据分组统计</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E9%80%92%E8%BF%9B%E7%BB%83%E4%B9%A0%E9%A2%98"><span class="toc-number">2.5.</span> <span class="toc-text">2.5. 递进练习题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E7%BB%9F%E8%AE%A1%E5%AD%97%E7%AC%A6%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0-%E5%88%9D%E7%BA%A7"><span class="toc-number">2.5.1.</span> <span class="toc-text">题目 1: 统计字符出现次数(初级)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E5%90%88%E5%B9%B6%E5%AD%97%E5%85%B8-%E4%B8%AD%E7%BA%A7"><span class="toc-number">2.5.2.</span> <span class="toc-text">题目 2: 合并字典(中级)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E6%89%81%E5%B9%B3%E5%8C%96-%E9%AB%98%E7%BA%A7"><span class="toc-number">2.5.3.</span> <span class="toc-text">题目 3: 扁平化(高级)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E6%80%9D%E8%80%83%E9%97%AE%E9%A2%98"><span class="toc-number">2.6.</span> <span class="toc-text">2.6. 思考问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%85%83%E7%BB%84%E5%92%8C%E9%9B%86%E5%90%88"><span class="toc-number">3.</span> <span class="toc-text">3. 元组和集合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%85%83%E7%BB%84%E5%92%8C%E9%9B%86%E5%90%88%E7%9A%84%E8%A7%A3%E9%87%8A"><span class="toc-number">3.1.</span> <span class="toc-text">3.1. 元组和集合的解释</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%83%E7%BB%84%EF%BC%88Tuple%EF%BC%89"><span class="toc-number">3.1.1.</span> <span class="toc-text">元组（Tuple）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E5%90%88%EF%BC%88Set%EF%BC%89"><span class="toc-number">3.1.2.</span> <span class="toc-text">集合（Set）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.2.</span> <span class="toc-text">3.2. 代码示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E4%B8%8E%E9%81%BF%E5%85%8D%E6%96%B9%E6%B3%95"><span class="toc-number">3.3.</span> <span class="toc-text">3.3. 常见错误与避免方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%83%E7%BB%84%E7%9B%B8%E5%85%B3%E9%94%99%E8%AF%AF"><span class="toc-number">3.3.1.</span> <span class="toc-text">元组相关错误</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-1%EF%BC%9A%E5%B0%9D%E8%AF%95%E4%BF%AE%E6%94%B9%E5%85%83%E7%BB%84%E5%85%83%E7%B4%A0"><span class="toc-number">3.3.1.1.</span> <span class="toc-text">错误 1：尝试修改元组元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-2%EF%BC%9A%E5%BF%BD%E7%95%A5%E5%8D%95%E5%85%83%E7%B4%A0%E5%85%83%E7%BB%84%E7%9A%84%E9%80%97%E5%8F%B7"><span class="toc-number">3.3.1.2.</span> <span class="toc-text">错误 2：忽略单元素元组的逗号</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E7%9B%B8%E5%85%B3%E9%94%99%E8%AF%AF"><span class="toc-number">3.3.2.</span> <span class="toc-text">集合相关错误</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-1%EF%BC%9A%E7%94%A8%E7%B4%A2%E5%BC%95%E8%AE%BF%E9%97%AE%E9%9B%86%E5%90%88%E5%85%83%E7%B4%A0"><span class="toc-number">3.3.2.1.</span> <span class="toc-text">错误 1：用索引访问集合元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-2%EF%BC%9A%E6%B7%B7%E6%B7%86%E9%9B%86%E5%90%88%E4%B8%8E%E5%AD%97%E5%85%B8%E8%AF%AD%E6%B3%95"><span class="toc-number">3.3.2.2.</span> <span class="toc-text">错误 2：混淆集合与字典语法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">3.4.</span> <span class="toc-text">3.4. 实际应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF-1%EF%BC%9A%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E7%BB%84%E7%AE%A1%E7%90%86%EF%BC%88%E9%9B%86%E5%90%88%EF%BC%89"><span class="toc-number">3.4.1.</span> <span class="toc-text">场景 1：用户权限组管理（集合）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF-2%EF%BC%9A%E8%82%A1%E7%A5%A8%E4%BA%A4%E6%98%93%E8%AE%B0%E5%BD%95%EF%BC%88%E5%85%83%E7%BB%84%EF%BC%89"><span class="toc-number">3.4.2.</span> <span class="toc-text">场景 2：股票交易记录（元组）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E9%80%92%E8%BF%9B%E7%BB%83%E4%B9%A0%E9%A2%98"><span class="toc-number">3.5.</span> <span class="toc-text">3.5. 递进练习题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E9%9B%86%E5%90%88%E5%8E%BB%E9%87%8D-%E5%88%9D%E7%BA%A7"><span class="toc-number">3.5.1.</span> <span class="toc-text">题目 1: 集合去重(初级)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E5%8F%98%E4%BD%8D%E8%AF%8D%E5%88%A4%E6%96%AD-%E4%B8%AD%E7%BA%A7"><span class="toc-number">3.5.2.</span> <span class="toc-text">题目 2: 变位词判断(中级)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E4%B8%8D%E5%8F%AF%E5%8F%98%E5%85%83%E7%BB%84%E5%AD%98%E5%82%A8%E5%AE%9E%E9%AA%8C%E6%95%B0%E6%8D%AE-%E9%AB%98%E7%BA%A7"><span class="toc-number">3.5.3.</span> <span class="toc-text">题目 3: 不可变元组存储实验数据(高级)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E6%80%9D%E8%80%83%E9%97%AE%E9%A2%98"><span class="toc-number">3.6.</span> <span class="toc-text">3.6. 思考问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%AF%BE%E5%90%8E%E7%BB%83%E4%B9%A0"><span class="toc-number">4.</span> <span class="toc-text">4. 课后练习</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1176,6 +1280,66 @@
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color5">参考答案</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color5">文件操作</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color5">异常处理</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color5">文件读写</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color5">模块与库</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color1">导入模块import</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">常用标准库os</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">安装和使用第三方库pip</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color2">面向对象编程</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color5">类与对象</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color1">属性与方法</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color1">继承与多态</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color3">项目规划与工具</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color2">项目结构规划</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color5">使用版本控制git</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color4">虚拟环境venv</a>
             </li>
             
             <div class="clearfix"></div>
