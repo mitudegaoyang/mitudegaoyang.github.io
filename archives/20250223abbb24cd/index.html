@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s21.ax1x.com/2025/02/23/pElDufP.jpg">
 <meta property="article:published_time" content="2025-02-23T13:12:52.000Z">
-<meta property="article:modified_time" content="2025-02-27T15:02:50.233Z">
+<meta property="article:modified_time" content="2025-03-01T01:53:19.962Z">
 <meta property="article:author" content="迷途的羔羊">
 <meta property="article:tag" content="技术积累">
 <meta property="article:tag" content="后端">
@@ -563,36 +563,46 @@
 <h2 id="3-局部变量与全局变量"><a href="#3-局部变量与全局变量" class="headerlink" title="3. 局部变量与全局变量"></a>3. 局部变量与全局变量</h2><h3 id="题目-1-平方和-初级"><a href="#题目-1-平方和-初级" class="headerlink" title="题目 1 平方和(初级)"></a><a href="/archives/20250228c8f562d1/#题目-1-平方和-初级">题目 1 平方和(初级)</a></h3><ul>
 <li>编写函数<code>sum_squares(a, b)</code>，计算 a² + b²，要求使用局部变量存储中间结果</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_squares</span>(<span class="params">a, b</span>):</span></span><br><span class="line">    square_sum = a ** <span class="number">2</span> + b ** <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> square_sum</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>优化一下</p>
 </blockquote>
 <ul>
-<li>XXX</li>
+<li>类型提示：为函数参数和返回值添加类型提示，提高代码的可读性和可维护性。</li>
+<li>文档字符串：为函数添加注释，说明函数的作用、参数和返回值。</li>
+<li>代码格式：确保代码格式符合 PEP 8 风格指南，提高代码的可读性。</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_squares</span>(<span class="params">a: float, b: float</span>) -&gt; float:</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    计算 a² + b²。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数:</span></span><br><span class="line"><span class="string">    a (float): 第一个数字。</span></span><br><span class="line"><span class="string">    b (float): 第二个数字。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    返回:</span></span><br><span class="line"><span class="string">    float: a² + b² 的结果。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    square_sum = a ** <span class="number">2</span> + b ** <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> square_sum</span><br></pre></td></tr></table></figure>
 <h3 id="题目-2-打印消息-中级"><a href="#题目-2-打印消息-中级" class="headerlink" title="题目 2 打印消息(中级)"></a><a href="/archives/20250228c8f562d1/#题目-2-打印消息-中级">题目 2 打印消息(中级)</a></h3><ul>
 <li>创建全局变量<code>LOG_LEVEL=&quot;INFO&quot;</code>，编写函数<code>log(message)</code>，仅在 LOG_LEVEL 为”DEBUG”时打印消息</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LOG_LEVEL=<span class="string">&quot;INFO&quot;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span>(<span class="params">message</span>):</span></span><br><span class="line">    <span class="keyword">if</span> LOG_LEVEL == <span class="string">&quot;DEBUG&quot;</span>:</span><br><span class="line">        print(message)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> message</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>优化一下</p>
 </blockquote>
 <ul>
-<li>XXX</li>
+<li>类型提示：为函数参数和返回值添加类型提示，提高代码的可读性和可维护性。</li>
+<li>文档字符串：为函数添加注释，说明函数的作用、参数和返回值。</li>
+<li>代码格式：确保代码格式符合 PEP 8 风格指南，提高代码的可读性。</li>
+<li>全局变量管理：确保全局变量的使用是清晰和可控的。</li>
+<li>返回值一致性：确保函数在不同情况下返回一致的类型，避免混淆。</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">LOG_LEVEL = <span class="string">&quot;INFO&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span>(<span class="params">message: str</span>) -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    打印消息，仅在 LOG_LEVEL 为 &quot;DEBUG&quot; 时输出。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数:</span></span><br><span class="line"><span class="string">    message (str): 要打印的消息。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    返回:</span></span><br><span class="line"><span class="string">    None</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> LOG_LEVEL == <span class="string">&quot;DEBUG&quot;</span>:</span><br><span class="line">        print(message)</span><br></pre></td></tr></table></figure>
 <h3 id="题目-3-闭包保存-n-高级"><a href="#题目-3-闭包保存-n-高级" class="headerlink" title="题目 3 闭包保存 n(高级)"></a><a href="/archives/20250228c8f562d1/#题目-3-闭包保存-n-高级">题目 3 闭包保存 n(高级)</a></h3><ul>
 <li>实现函数<code>create_multiplier(n)</code>，返回一个新函数，该函数能将输入参数乘以 n（使用闭包保存 n 的值）</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_multiplier</span>(<span class="params">n</span>):</span></span><br><span class="line">    n = n</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">multiplier</span>(<span class="params">x</span>):</span></span><br><span class="line">        <span class="keyword">return</span> x * n</span><br><span class="line">    <span class="keyword">return</span> multiplier</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>优化一下</p>
 </blockquote>
 <ul>
-<li>XXX</li>
+<li>类型提示：为函数参数和返回值添加类型提示，提高代码的可读性和可维护性。</li>
+<li>文档字符串：为函数添加注释，说明函数的作用、参数和返回值。</li>
+<li>代码格式：确保代码格式符合 PEP 8 风格指南，提高代码的可读性。</li>
+<li>闭包使用：确保闭包的使用是清晰和正确的。</li>
+<li>返回函数的命名：为返回的函数添加一个更具描述性的名称。</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_multiplier</span>(<span class="params">n: float</span>) -&gt; callable:</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    返回一个新函数，该函数能将输入参数乘以 n。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数:</span></span><br><span class="line"><span class="string">    n (float): 乘数。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    返回:</span></span><br><span class="line"><span class="string">    callable: 一个函数，接受一个数字参数并返回该数字乘以 n 的结果。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">multiplier</span>(<span class="params">x: float</span>) -&gt; float:</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        将输入参数乘以 n。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        参数:</span></span><br><span class="line"><span class="string">        x (float): 要乘以 n 的数字。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        返回:</span></span><br><span class="line"><span class="string">        float: x 乘以 n 的结果。</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> x * n</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> multiplier</span><br></pre></td></tr></table></figure>
 
     
 
