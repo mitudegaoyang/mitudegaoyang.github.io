@@ -865,15 +865,31 @@ print(f"{apply_operation(pow, 2, 3)}")
 - 编写函数`sum_squares(a, b)`，计算 a² + b²，要求使用局部变量存储中间结果
 
 ```python
-
+def sum_squares(a, b):
+    square_sum = a ** 2 + b ** 2
+    return square_sum
 ```
 
 > 优化一下
 
-- XXX
+- 类型提示：为函数参数和返回值添加类型提示，提高代码的可读性和可维护性。
+- 文档字符串：为函数添加注释，说明函数的作用、参数和返回值。
+- 代码格式：确保代码格式符合 PEP 8 风格指南，提高代码的可读性。
 
 ```python
+def sum_squares(a: float, b: float) -> float:
+    """
+    计算 a² + b²。
 
+    参数:
+    a (float): 第一个数字。
+    b (float): 第二个数字。
+
+    返回:
+    float: a² + b² 的结果。
+    """
+    square_sum = a ** 2 + b ** 2
+    return square_sum
 ```
 
 ### [题目 2 打印消息(中级)](/archives/20250228c8f562d1/#题目-2-打印消息-中级)
@@ -881,15 +897,37 @@ print(f"{apply_operation(pow, 2, 3)}")
 - 创建全局变量`LOG_LEVEL="INFO"`，编写函数`log(message)`，仅在 LOG_LEVEL 为"DEBUG"时打印消息
 
 ```python
-
+LOG_LEVEL="INFO"
+def log(message):
+    if LOG_LEVEL == "DEBUG":
+        print(message)
+    else:
+        return message
 ```
 
 > 优化一下
 
-- XXX
+- 类型提示：为函数参数和返回值添加类型提示，提高代码的可读性和可维护性。
+- 文档字符串：为函数添加注释，说明函数的作用、参数和返回值。
+- 代码格式：确保代码格式符合 PEP 8 风格指南，提高代码的可读性。
+- 全局变量管理：确保全局变量的使用是清晰和可控的。
+- 返回值一致性：确保函数在不同情况下返回一致的类型，避免混淆。
 
 ```python
+LOG_LEVEL = "INFO"
 
+def log(message: str) -> None:
+    """
+    打印消息，仅在 LOG_LEVEL 为 "DEBUG" 时输出。
+
+    参数:
+    message (str): 要打印的消息。
+
+    返回:
+    None
+    """
+    if LOG_LEVEL == "DEBUG":
+        print(message)
 ```
 
 ### [题目 3 闭包保存 n(高级)](/archives/20250228c8f562d1/#题目-3-闭包保存-n-高级)
@@ -897,13 +935,43 @@ print(f"{apply_operation(pow, 2, 3)}")
 - 实现函数`create_multiplier(n)`，返回一个新函数，该函数能将输入参数乘以 n（使用闭包保存 n 的值）
 
 ```python
-
+def create_multiplier(n):
+    n = n
+    def multiplier(x):
+        return x * n
+    return multiplier
 ```
 
 > 优化一下
 
-- XXX
+- 类型提示：为函数参数和返回值添加类型提示，提高代码的可读性和可维护性。
+- 文档字符串：为函数添加注释，说明函数的作用、参数和返回值。
+- 代码格式：确保代码格式符合 PEP 8 风格指南，提高代码的可读性。
+- 闭包使用：确保闭包的使用是清晰和正确的。
+- 返回函数的命名：为返回的函数添加一个更具描述性的名称。
 
 ```python
+def create_multiplier(n: float) -> callable:
+    """
+    返回一个新函数，该函数能将输入参数乘以 n。
 
+    参数:
+    n (float): 乘数。
+
+    返回:
+    callable: 一个函数，接受一个数字参数并返回该数字乘以 n 的结果。
+    """
+    def multiplier(x: float) -> float:
+        """
+        将输入参数乘以 n。
+
+        参数:
+        x (float): 要乘以 n 的数字。
+
+        返回:
+        float: x 乘以 n 的结果。
+        """
+        return x * n
+
+    return multiplier
 ```
