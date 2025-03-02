@@ -54,18 +54,21 @@ sub_list = my_list[1:3]  # 获取索引1到2的元素
 
 #### 错误 1：索引越界
 
-尝试访问`list[5]`但列表只有 3 个元素  
-→ 使用前检查长度：`if index < len(my_list)`
+尝试访问`list[5]`但列表只有 3 个元素
+
+**修正**：使用前检查长度：`if index < len(my_list)`
 
 #### 错误 2：混淆引用复制与值复制
 
-直接`new_list = old_list`会导致两个列表关联  
-→ 使用`new_list = old_list.copy()`或切片`new_list = old_list[:]`
+直接`new_list = old_list`会导致两个列表关联
+
+**修正**：使用`new_list = old_list.copy()`或切片`new_list = old_list[:]`
 
 #### 错误 3：在循环中修改列表长度
 
-遍历时删除元素会导致索引错乱  
-→ 遍历副本：`for item in list.copy():`
+遍历时删除元素会导致索引错乱
+
+**修正**：遍历副本：`for item in list.copy():`
 
 ### 1.4. 实际应用场景
 
@@ -150,18 +153,21 @@ squared = {x: x**2 for x in range(5)}  # {0:0, 1:1, 2:4...}
 
 #### 错误 1：直接访问不存在的键
 
-`print(student["age"])` 会引发`KeyError`  
-→ 用`student.get("age", 0)`或`if "age" in student`
+`print(student["age"])` 会引发`KeyError`
+
+**修正**：用`student.get("age", 0)`或`if "age" in student`
 
 #### 错误 2：误认为字典有序
 
-在 Python 3.7 之前字典不保证顺序  
-→ 需要有序时使用`collections.OrderedDict`
+在 Python 3.7 之前字典不保证顺序
+
+**修正**：需要有序时使用`collections.OrderedDict`
 
 #### 错误 3：使用可变类型作为键
 
-如`dict_key = {[1,2]: "value"}`会报错  
-→ 键必须为不可变类型（数字/字符串/元组）
+如`dict_key = {[1,2]: "value"}`会报错
+
+**修正**：键必须为不可变类型（数字/字符串/元组）
 
 ### 2.4. 实际应用场景
 
@@ -260,7 +266,7 @@ t = (1,2,3)
 t[0] = 5  # TypeError
 ```
 
-→ 重新创建新元组：`t = (5,) + t[1:]`
+**修正**： 重新创建新元组：`t = (5,) + t[1:]`
 
 ##### 错误 2：忽略单元素元组的逗号
 
@@ -275,7 +281,7 @@ s = {5,2,7}
 print(s[0])  # TypeError: 'set' is not subscriptable
 ```
 
-→ 先转为列表：`list(s)[0]`（但会破坏无序特性）
+**修正**：先转为列表：`list(s)[0]`（但会破坏无序特性）
 
 ##### 错误 2：混淆集合与字典语法
 

@@ -983,15 +983,37 @@ def create_multiplier(n: float) -> callable:
 - 创建包含 10 个随机整数的列表（范围 1-100），计算它们的平均值
 
 ```python
+import random
+numbers = [random.randint(1, 100) for _ in range(10)]
 
+def calculate_average(numbers):
+    return sum(numbers) / len(numbers)
+
+print(f"数组{numbers}的平均值是{calculate_average(numbers)}")
 ```
 
 > 优化一下
 
-- xxxx
+- 代码可读性：在格式化字符串中增加空格以提高可读性。
+- 函数注释：为 calculate_average 函数添加注释，说明其功能。
+- 避免重复计算：将 calculate_average(numbers) 的结果存储在一个变量中，避免重复计算。
+- 代码注释：保持代码注释清晰，确保每个部分的功能明确。
 
 ```python
+import random
 
+# 生成包含10个1到100之间随机整数的列表
+numbers = [random.randint(1, 100) for _ in range(10)]
+
+def calculate_average(numbers):
+    """计算并返回数字列表的平均值"""
+    return sum(numbers) / len(numbers)
+
+# 计算平均值并存储在变量中
+average = calculate_average(numbers)
+
+# 打印结果，使用格式化字符串提高可读性
+print(f"数组 {numbers} 的平均值是 {average}")
 ```
 
 ### [题目 2:合并列表并排序(中级)](/archives/2025030222c892e4/#题目-2-合并列表并排序-中级)
@@ -999,15 +1021,63 @@ def create_multiplier(n: float) -> callable:
 - 合并两个已排序列表（如[1,3,5]和[2,4,6]），保持结果列表有序
 
 ```python
+list1 = [1, 3, 5]
+list2 = [2, 4, 6]
+def merge_sorted_lists(list1, list2):
+    """合并两个已排序列表，保持结果列表有序
 
+    参数：
+    list1 (list): 已排序的列表1
+    list2 (list): 已排序的列表2
+
+    返回值：
+    list: 合并后的已排序列表
+    """
+    merged_list = list1 + list2
+    return sorted(merged_list)
+
+print(merge_sorted_lists(list1, list2))
 ```
 
 > 优化一下
 
-- xxxx
+- 算法效率：当前的 merge_sorted_lists 函数使用了 list1 + list2 和 sorted(listall)，时间复杂度为 O(n log n)。可以使用双指针方法将时间复杂度优化为 O(n)。
+- 代码可读性：保持代码注释清晰，确保每个部分的功能明确。
+- 函数注释：确保函数注释详细且准确。
 
 ```python
+list1 = [1, 3, 5]
+list2 = [2, 4, 6]
 
+def merge_sorted_lists(list1, list2):
+    """合并两个已排序列表，保持结果列表有序
+
+    参数：
+    list1 (list): 已排序的列表1
+    list2 (list): 已排序的列表2
+
+    返回值：
+    list: 合并后的已排序列表
+    """
+    merged_list = []
+    i, j = 0, 0
+
+    # 使用双指针合并两个列表
+    while i < len(list1) and j < len(list2):
+        if list1[i] < list2[j]:
+            merged_list.append(list1[i])
+            i += 1
+        else:
+            merged_list.append(list2[j])
+            j += 1
+
+    # 添加剩余元素
+    merged_list.extend(list1[i:])
+    merged_list.extend(list2[j:])
+
+    return merged_list
+
+print(merge_sorted_lists(list1, list2))
 ```
 
 ### [题目 3:矩阵转置(高级)](/archives/2025030222c892e4/#题目-3-矩阵转置-高级)
@@ -1015,15 +1085,54 @@ def create_multiplier(n: float) -> callable:
 - 实现矩阵转置函数，输入如[[1,2],[3,4],[5,6]]，返回[[1,3,5],[2,4,6]]
 
 ```python
+def transpose_matrix(matrix):
+    """
+    实现矩阵转置函数
 
+    参数：
+    matrix (list): 输入的矩阵
+
+    返回值：
+    list: 转置后的矩阵
+    """
+    # 获取矩阵的行数和列数
+    rows = len(matrix)
+    cols = len(matrix[0])
+    transposed = [[] for _ in range(cols)]
+
+    for i in range(rows):
+        for j in range(cols):
+            transposed[j].append(matrix[i][j])
+    return transposed
+
+matrix = [[1, 2], [3, 4], [5, 6]]
+print(transpose_matrix(matrix))
 ```
 
 > 优化一下
 
-- xxxx
+- 代码可读性：使用更具描述性的变量名。
+- 简化逻辑：使用列表推导式简化代码。
+- 函数注释：确保函数注释详细且准确。
+- 移除不必要的注释：移除不必要的注释，使代码更简洁。
 
 ```python
+def transpose_matrix(matrix):
+    """
+    实现矩阵转置函数
 
+    参数：
+    matrix (list): 输入的矩阵
+
+    返回值：
+    list: 转置后的矩阵
+    """
+    # 使用列表推导式简化转置逻辑
+    transposed = [[matrix[i][j] for i in range(len(matrix))] for j in range(len(matrix[0]))]
+    return transposed
+
+matrix = [[1, 2], [3, 4], [5, 6]]
+print(transpose_matrix(matrix))
 ```
 
 ## 2. 字典
@@ -1033,15 +1142,35 @@ def create_multiplier(n: float) -> callable:
 - 编写函数统计字符串中各字符出现次数（如"hello"返回{'h':1, 'e':1, 'l':2, 'o':1}）
 
 ```python
-
+def get_char_counts(s):
+    char_counts = {}
+    for char in s:
+        char_counts[char] = char_counts.get(char, 0) + 1
+    return char_counts
+print(get_char_counts('hello'))
 ```
 
 > 优化一下
 
-- xxxx
+- 函数注释：保持函数注释详细且准确，说明参数和返回值。
+- 代码格式：保持代码格式一致，提高可读性。
 
 ```python
+def get_char_counts(str):
+    """
+    统计字符串中各字符出现次数
 
+    参数：
+    str (str): 输入的字符串
+
+    返回值：
+    dict: 字符及其出现次数的字典
+    """
+    char_counts = {}
+    for char in str:
+        char_counts[char] = char_counts.get(char, 0) + 1
+    return char_counts
+print(get_char_counts('hello'))
 ```
 
 ### [题目 2: 合并字典(中级)](/archives/2025030222c892e4/#题目-2-合并字典-中级)
@@ -1049,15 +1178,51 @@ def create_multiplier(n: float) -> callable:
 - 合并两个字典，若键冲突则保留第二个字典的值
 
 ```python
+dict1 = {'a': 1, 'b': 2}
+dica2 = {'b': 3, 'c': 4}
+def merge_dicts(dict1, dict2):
+    """
+    合并两个字典，若键冲突则保留第二个字典的值
 
+    参数：
+    dict1 (dict): 第一个字典
+    dict2 (dict): 第二个字典
+
+    返回值：
+    dict: 合并后的字典
+    """
+    merged_dict = dict1.copy()
+    for key in dict2:
+        merged_dict[key] = dict2[key]
+    return merged_dict
+
+print(merge_dicts(dict1, dict2))
 ```
 
 > 优化一下
 
-- xxxx
+- 使用字典解包（Dictionary Unpacking）：Python 3.5 及以上版本支持字典解包，可以更简洁地合并字典。
+- 函数注释：确保函数注释详细且准确。
+- 代码格式：保持代码格式一致，提高可读性
 
 ```python
+dict1 = {'a': 1, 'b': 2}
+dict2 = {'b': 3, 'c': 4}
 
+def merge_dicts(dict1, dict2):
+    """
+    合并两个字典，若键冲突则保留第二个字典的值
+
+    参数：
+    dict1 (dict): 第一个字典
+    dict2 (dict): 第二个字典
+
+    返回值：
+    dict: 合并后的字典
+    """
+    return {**dict1, **dict2}
+
+print(merge_dicts(dict1, dict2))
 ```
 
 ### [题目 3: 扁平化(高级)](/archives/2025030222c892e4/#题目-3-扁平化-高级)
@@ -1065,7 +1230,21 @@ def create_multiplier(n: float) -> callable:
 - 实现嵌套字典的扁平化，将`{'a':1, 'b':{'c':2, 'd':{'e':3}}}`转换为`{'a':1, 'b.c':2, 'b.d.e':3}`
 
 ```python
+def flatten_dict(d, parent_key='', sep='.'):
+    flattened = {}
+    for key, value in d.items():
+        if parent_key:
+            new_key = parent_key + sep + key
+        else:
+            new_key = key
+        if isinstance(value, dict):
+            flattened.update(flatten_dict(value, new_key, sep))
+        else:
+            flattened[new_key] = value
+    return flattened
 
+dict1 = {'a':1, 'b':{'c':2, 'd':{'e':3}}}
+print(flatten_dict(dict1))
 ```
 
 > 优化一下
@@ -1073,7 +1252,32 @@ def create_multiplier(n: float) -> callable:
 - xxxx
 
 ```python
+def flatten_dict(d, parent_key='', sep='.'):
+    """
+    实现嵌套字典的扁平化，将`{'a':1, 'b':{'c':2, 'd':{'e':3}}}`转换为`{'a':1, 'b.c':2, 'b.d.e':3}`
 
+    参数：
+    d (dict): 需要扁平化的嵌套字典
+    parent_key (str): 父层级传递下来的key，默认为空字符串
+    sep (str): 分隔符，默认为'.'
+
+    返回值：
+    dict: 扁平化后的字典
+    """
+    if not isinstance(d, dict):
+        raise ValueError("Input must be a dictionary")
+
+    flattened = {}
+    for key, value in d.items():
+        new_key = f"{parent_key}{sep}{key}" if parent_key else key
+        if isinstance(value, dict):
+            flattened.update(flatten_dict(value, new_key, sep))
+        else:
+            flattened[new_key] = value
+    return flattened
+
+dict1 = {'a': 1, 'b': {'c': 2, 'd': {'e': 3}}}
+print(flatten_dict(dict1))
 ```
 
 ## 3. 元组和集合
@@ -1083,15 +1287,54 @@ def create_multiplier(n: float) -> callable:
 - 将列表`["cat", "dog", "cat", "bird"]`转换为集合去重，再转回排序后的列表
 
 ```python
+lst = ["cat", "dog", "cat", "bird"]
+def convert_to_set(lst):
+    """
+    将列表转换为集合并去重
 
+    参数：
+    lst (list): 输入的列表
+
+    返回值：
+    set: 去重后的集合
+    """
+    return set(lst)
+def convert_to_list(s):
+    """
+    将集合转换为排序后的列表
+
+    参数：
+    s (set): 输入的集合
+
+    返回值：
+    list: 排序后的列表
+    """
+    return sorted(list(s))
+print(convert_to_list(convert_to_set(lst)))
 ```
 
 > 优化一下
 
-- xxxx
+- 合并函数：将 convert_to_set 和 convert_to_list 合并为一个函数 convert_to_sort_list，减少函数调用的复杂性。
+- 函数注释：确保函数注释详细且准确。
+- 代码格式：保持代码格式一致，提高可读性。
 
 ```python
+lst = ["cat", "dog", "cat", "bird"]
 
+def convert_to_sort_list(lst):
+    """
+    将列表转换为集合并去重，再转换为排序后的列表
+
+    参数：
+    lst (list): 输入的列表
+
+    返回值：
+    list: 去重并排序后的列表
+    """
+    return sorted(set(lst))
+
+print(convert_to_sort_list(lst))
 ```
 
 ### [题目 2: 变位词判断(中级)](/archives/2025030222c892e4/#题目-2-变位词判断-中级)
@@ -1099,15 +1342,72 @@ def create_multiplier(n: float) -> callable:
 - 编写函数判断两个字符串是否为变位词（字母组成相同），使用集合优化效率
 
 ```python
+def is_anagram(str1, str2):
+    """
+    判断两个字符串是否为变位词（字母组成相同）
 
+    参数：
+    str1 (str): 第一个字符串
+    str2 (str): 第二个字符串
+
+    返回值：
+    bool: 如果两个字符串是变位词则返回True，否则返回False
+    """
+   # 如果长度不同，直接返回 False
+    if len(str1) != len(str2):
+        return False
+
+    # 使用 set 获取所有唯一的字符
+    unique_chars = set(str1)
+
+    # 统计 str1 中每个字符的出现次数
+    count1 = {char: str1.count(char) for char in unique_chars}
+
+    # 统计 str2 中每个字符的出现次数
+    count2 = {char: str2.count(char) for char in unique_chars}
+
+    # 比较两个字典中的字符出现次数是否相同
+    return count1 == count2
+
+print(is_anagram('room', 'morr'))  # 输出: False
+print(is_anagram('good', 'dog'))   # 输出: False
+print(is_anagram('good', 'dogs'))  # 输出: False
+print(is_anagram('good', 'goad')) # 输出: False
+print(is_anagram('listen', 'silent')) # 输出: True
+print(is_anagram('good', 'good')) # 输出: True
 ```
 
 > 优化一下
 
-- xxxx
+- 使用 collections.Counter：
+  - Counter(str1)：统计 str1 中每个字符的出现次数。
+  - Counter(str2)：统计 str2 中每个字符的出现次数。
+  - Counter(str1) == Counter(str2)：比较两个计数器是否相等。
+- 函数注释：保持函数注释详细且准确，说明参数和返回值。
+- 代码格式：保持代码格式一致，提高可读性。
 
 ```python
+from collections import Counter
 
+def is_anagram(str1, str2):
+    """
+    判断两个字符串是否为变位词（字母组成相同）
+
+    参数：
+    str1 (str): 第一个字符串
+    str2 (str): 第二个字符串
+
+    返回值：
+    bool: 如果两个字符串是变位词则返回True，否则返回False
+    """
+    return Counter(str1) == Counter(str2)
+
+print(is_anagram('room', 'morr'))  # 输出: False
+print(is_anagram('good', 'dog'))   # 输出: False
+print(is_anagram('good', 'dogs'))  # 输出: False
+print(is_anagram('good', 'goad')) # 输出: False
+print(is_anagram('listen', 'silent')) # 输出: True
+print(is_anagram('good', 'good')) # 输出: True
 ```
 
 ### [题目 3: 不可变元组存储实验数据(高级)](/archives/2025030222c892e4/#题目-3-不可变元组存储实验数据-高级)
@@ -1115,13 +1415,76 @@ def create_multiplier(n: float) -> callable:
 - 实现多组实验数据的不可变存储结构，每个实验包含（实验名称，时间戳，温度值元组）
 
 ```python
+experiments = []
+def add_experiment(name, timestamp, temperature):
+    """
+    添加一组实验数据到不可变存储结构中，每个实验包含（实验名称，时间戳，温度值元组）
 
+    参数：
+    name (str): 实验名称
+    timestamp (str): 时间戳
+    temperature (tuple): 温度值元组
+
+    返回值：
+    None
+    """
+    experiment = (name, timestamp, temperature)
+    experiments.append(experiment)
+
+add_experiment('实验1', '2023-07-01', (25, 30, 35))
+add_experiment('实验2', '2023-07-02', (28, 32, 36))
+print(experiments)
 ```
 
 > 优化一下
 
-- xxxx
+- 使用类来管理实验数据：
+  - 使用一个类来封装实验数据的存储和管理，避免使用全局变量。
+- 函数设计：
+  - 将 add_experiment 方法作为类的方法，而不是直接操作全局变量。
+- 返回值：
+  - 返回添加的实验数据，提高函数的灵活性和可测试性。
 
 ```python
+class ExperimentManager:
+    def __init__(self):
+        """
+        初始化实验管理器，存储实验数据的列表
+        """
+        self.experiments = []
 
+    def add_experiment(self, name, timestamp, temperature):
+        """
+        添加一组实验数据到不可变存储结构中，每个实验包含（实验名称，时间戳，温度值元组）
+
+        参数：
+        name (str): 实验名称
+        timestamp (str): 时间戳
+        temperature (tuple): 温度值元组
+
+        返回值：
+        tuple: 添加的实验数据元组
+        """
+        experiment = (name, timestamp, temperature)
+        self.experiments.append(experiment)
+        return experiment
+
+    def get_experiments(self):
+        """
+        获取所有实验数据
+
+        返回值：
+        list: 包含所有实验数据的列表
+        """
+        return self.experiments
+
+# 创建实验管理器实例
+experiment_manager = ExperimentManager()
+
+# 添加实验数据
+experiment1 = experiment_manager.add_experiment('实验1', '2023-07-01', (25, 30, 35))
+experiment2 = experiment_manager.add_experiment('实验2', '2023-07-02', (28, 32, 36))
+
+# 打印所有实验数据
+print(experiment_manager.get_experiments())
 ```
