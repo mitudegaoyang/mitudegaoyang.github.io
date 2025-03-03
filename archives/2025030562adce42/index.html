@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s21.ax1x.com/2025/03/01/pE8qrPs.jpg">
 <meta property="article:published_time" content="2025-03-05T14:50:18.000Z">
-<meta property="article:modified_time" content="2025-03-01T15:02:49.822Z">
+<meta property="article:modified_time" content="2025-03-03T14:46:55.246Z">
 <meta property="article:author" content="迷途的羔羊">
 <meta property="article:tag" content="技术积累">
 <meta property="article:tag" content="后端">
@@ -239,9 +239,181 @@
     <p><img src="https://s21.ax1x.com/2025/03/01/pE8qrPs.jpg" alt="首屏图"></p>
 <a id="more"></a>
 <p><a href="/archives/202502214537ccef/#Day-3-4：模块与库">返回</a></p>
-<h2 id="1-导入模块（import）"><a href="#1-导入模块（import）" class="headerlink" title="1. 导入模块（import）"></a>1. 导入模块（<code>import</code>）</h2><p><a href="/archives/202502214537ccef/#Day-3-4：模块与库">返回</a></p>
-<h2 id="2-常用标准库（os、sys、math、random）"><a href="#2-常用标准库（os、sys、math、random）" class="headerlink" title="2. 常用标准库（os、sys、math、random）"></a>2. 常用标准库（<code>os</code>、<code>sys</code>、<code>math</code>、<code>random</code>）</h2><p><a href="/archives/202502214537ccef/#Day-3-4：模块与库">返回</a></p>
-<h2 id="3-安装和使用第三方库（pip）"><a href="#3-安装和使用第三方库（pip）" class="headerlink" title="3. 安装和使用第三方库（pip）"></a>3. 安装和使用第三方库（<code>pip</code>）</h2><p><a href="/archives/202502214537ccef/#Day-3-4：模块与库">返回</a></p>
+<h2 id="1-导入模块（import）"><a href="#1-导入模块（import）" class="headerlink" title="1. 导入模块（import）"></a>1. 导入模块（<code>import</code>）</h2><h3 id="1-1-模块导入（import）简明解释"><a href="#1-1-模块导入（import）简明解释" class="headerlink" title="1.1. 模块导入（import）简明解释"></a>1.1. 模块导入（<code>import</code>）简明解释</h3><p><strong>用途</strong>：</p>
+<ul>
+<li><strong>代码复用</strong>：将功能封装为模块，避免重复造轮子</li>
+<li><strong>命名空间管理</strong>：通过模块隔离变量/函数名，防止全局污染</li>
+<li><strong>项目结构化</strong>：通过模块化拆分提升代码可维护性</li>
+<li><strong>动态加载</strong>：运行时按需加载资源（如插件系统）</li>
+</ul>
+<p><strong>常见场景</strong>：</p>
+<ul>
+<li>使用标准库（如<code>import math</code>）</li>
+<li>导入第三方库（如<code>import numpy as np</code>）</li>
+<li>组织大型项目（自定义模块分层导入）</li>
+</ul>
+<h3 id="1-2-代码示例"><a href="#1-2-代码示例" class="headerlink" title="1.2. 代码示例"></a>1.2. 代码示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入整个模块</span></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line">print(math.sqrt(<span class="number">16</span>))  <span class="comment"># 4.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入特定对象</span></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line">print(datetime.now().year)  <span class="comment"># 2023</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 别名导入</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.DataFrame()</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-常见错误及避免方法"><a href="#1-3-常见错误及避免方法" class="headerlink" title="1.3. 常见错误及避免方法"></a>1.3. 常见错误及避免方法</h3><h4 id="错误-1：循环导入"><a href="#错误-1：循环导入" class="headerlink" title="错误 1：循环导入"></a>错误 1：循环导入</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># module_a.py</span></span><br><span class="line"><span class="keyword">import</span> module_b  <span class="comment"># module_b同时导入module_a → 死锁</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># module_b.py</span></span><br><span class="line"><span class="keyword">import</span> module_a</span><br></pre></td></tr></table></figure>
+<p><strong>修正</strong>：</p>
+<ul>
+<li>重构代码结构，提取公共逻辑到新模块</li>
+<li>延迟导入（在函数内部导入）</li>
+</ul>
+<h4 id="错误-2：通配符导入污染命名空间"><a href="#错误-2：通配符导入污染命名空间" class="headerlink" title="错误 2：通配符导入污染命名空间"></a>错误 2：通配符导入污染命名空间</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *  <span class="comment"># 导入所有对象，可能覆盖已有变量</span></span><br></pre></td></tr></table></figure>
+<p><strong>修正</strong>：</p>
+<ul>
+<li>明确导入所需对象：<code>from numpy import array, linspace</code></li>
+<li>使用模块别名：<code>import numpy as np</code></li>
+</ul>
+<h4 id="错误-3：相对导入路径错误"><a href="#错误-3：相对导入路径错误" class="headerlink" title="错误 3：相对导入路径错误"></a>错误 3：相对导入路径错误</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 项目结构：</span></span><br><span class="line"><span class="comment"># project/</span></span><br><span class="line"><span class="comment">#   main.py</span></span><br><span class="line"><span class="comment">#   utils/</span></span><br><span class="line"><span class="comment">#     __init__.py</span></span><br><span class="line"><span class="comment">#     helpers.py</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># main.py中错误写法：</span></span><br><span class="line"><span class="keyword">from</span> .utils.helpers <span class="keyword">import</span> foo  <span class="comment"># 引发 ImportError</span></span><br></pre></td></tr></table></figure>
+<p><strong>修正</strong>：</p>
+<ul>
+<li>使用绝对导入：<code>from utils.helpers import foo</code></li>
+<li>确保项目根目录在 Python 路径中</li>
+</ul>
+<h3 id="1-4-实际应用场景"><a href="#1-4-实际应用场景" class="headerlink" title="1.4. 实际应用场景"></a>1.4. 实际应用场景</h3><h4 id="场景-1：插件架构"><a href="#场景-1：插件架构" class="headerlink" title="场景 1：插件架构"></a>场景 1：插件架构</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 动态加载模块实现插件系统</span></span><br><span class="line"><span class="keyword">import</span> importlib</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_plugin</span>(<span class="params">plugin_name</span>):</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        module = importlib.import_module(<span class="string">f&quot;plugins.<span class="subst">&#123;plugin_name&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> module.Plugin()</span><br><span class="line">    <span class="keyword">except</span> ImportError:</span><br><span class="line">        print(<span class="string">f&quot;插件 <span class="subst">&#123;plugin_name&#125;</span> 未找到&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载不同实现的插件</span></span><br><span class="line">image_plugin = load_plugin(<span class="string">&quot;image_processor&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="场景-2：配置分离"><a href="#场景-2：配置分离" class="headerlink" title="场景 2：配置分离"></a>场景 2：配置分离</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># config.py</span></span><br><span class="line">API_KEY = <span class="string">&quot;xxx&quot;</span></span><br><span class="line">DEBUG = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># main.py</span></span><br><span class="line"><span class="keyword">import</span> config</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">connect_api</span>():</span></span><br><span class="line">    <span class="keyword">if</span> config.DEBUG:</span><br><span class="line">        print(<span class="string">&quot;调试模式启动&quot;</span>)</span><br><span class="line">    <span class="comment"># 使用 config.API_KEY</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-5-递进练习题"><a href="#1-5-递进练习题" class="headerlink" title="1.5. 递进练习题"></a>1.5. 递进练习题</h3><h4 id="题目-1-生成随机整数-初级"><a href="#题目-1-生成随机整数-初级" class="headerlink" title="题目 1: 生成随机整数(初级)"></a>题目 1: 生成随机整数(初级)</h4><ul>
+<li>编写脚本导入<code>random</code>模块，生成 10 个 1-100 的随机整数</li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-1-生成随机整数-初级">参考答案</a></p>
+</blockquote>
+<h4 id="题目-2-导入并使用函数-中级"><a href="#题目-2-导入并使用函数-中级" class="headerlink" title="题目 2: 导入并使用函数(中级)"></a>题目 2: 导入并使用函数(中级)</h4><ul>
+<li>创建自定义模块<code>geometry.py</code>，包含计算圆面积的函数<code>circle_area(r)</code>，在主程序中导入并使用</li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-2-导入并使用函数-中级">参考答案</a></p>
+</blockquote>
+<h4 id="题目-3-动态更新模块代码-高级"><a href="#题目-3-动态更新模块代码-高级" class="headerlink" title="题目 3: 动态更新模块代码(高级)"></a>题目 3: 动态更新模块代码(高级)</h4><ul>
+<li>实现模块热重载功能：通过<code>importlib.reload()</code>动态更新正在运行的模块代码</li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-3-动态更新模块代码-高级">参考答案</a></p>
+</blockquote>
+<h3 id="1-6-深度思考问题"><a href="#1-6-深度思考问题" class="headerlink" title="1.6. 深度思考问题"></a>1.6. 深度思考问题</h3><p>当模块化程度过高（如将每个小功能都拆分为独立模块）时，是提升了代码质量还是引入了新的复杂性？模块化设计的边界应当如何权衡？</p>
+<p>（思考方向：模块内聚性、依赖管理、维护成本、启动性能、分布式系统下的模块通信代价）</p>
+<p><a href="/archives/202502214537ccef/#Day-3-4：模块与库">返回</a></p>
+<h2 id="2-常用标准库（os、sys、math、random）"><a href="#2-常用标准库（os、sys、math、random）" class="headerlink" title="2. 常用标准库（os、sys、math、random）"></a>2. 常用标准库（<code>os</code>、<code>sys</code>、<code>math</code>、<code>random</code>）</h2><h3 id="2-1-常用标准库简明解释"><a href="#2-1-常用标准库简明解释" class="headerlink" title="2.1. 常用标准库简明解释"></a>2.1. 常用标准库简明解释</h3><p><strong>核心模块及用途</strong>：</p>
+<ul>
+<li><p><strong><code>os</code></strong>：操作系统交互</p>
+<ul>
+<li>文件/目录操作（路径拼接、删除/创建文件夹）</li>
+<li>环境变量管理（<code>os.environ</code>）</li>
+<li>执行系统命令（<code>os.system</code>）</li>
+</ul>
+</li>
+<li><p><strong><code>sys</code></strong>：解释器交互</p>
+<ul>
+<li>获取命令行参数（<code>sys.argv</code>）</li>
+<li>控制程序退出（<code>sys.exit</code>）</li>
+<li>标准输入/输出重定向</li>
+</ul>
+</li>
+<li><p><strong><code>math</code></strong>：数学运算</p>
+<ul>
+<li>基础数学函数（<code>sqrt</code>/<code>sin</code>/<code>log</code>）</li>
+<li>常数（<code>math.pi</code>/<code>math.e</code>）</li>
+<li>浮点精度处理（<code>math.isclose</code>）</li>
+</ul>
+</li>
+<li><p><strong><code>random</code></strong>：随机生成</p>
+<ul>
+<li>随机数生成（<code>random.randint</code>/<code>random.uniform</code>）</li>
+<li>序列随机化（<code>random.shuffle</code>/<code>random.choice</code>）</li>
+</ul>
+</li>
+</ul>
+<p><strong>常见场景</strong>：</p>
+<ul>
+<li>文件批量处理（<code>os.walk</code>遍历目录树）</li>
+<li>命令行工具开发（<code>sys.argv</code>解析参数）</li>
+<li>数据科学计算（<code>math</code>数学支持）</li>
+<li>游戏开发/抽奖逻辑（<code>random</code>随机行为）</li>
+</ul>
+<h3 id="2-2-代码示例"><a href="#2-2-代码示例" class="headerlink" title="2.2. 代码示例"></a>2.2. 代码示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># os示例：创建目录并检测存在性</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">dir_path = <span class="string">&quot;data/logs&quot;</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(dir_path):</span><br><span class="line">    os.makedirs(dir_path)  <span class="comment"># 递归创建多级目录</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># sys示例：命令行参数处理</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">if</span> len(sys.argv) &gt; <span class="number">1</span>:</span><br><span class="line">    print(<span class="string">f&quot;接收参数: <span class="subst">&#123;sys.argv[<span class="number">1</span>]&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># math示例：球体体积计算</span></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sphere_volume</span>(<span class="params">r</span>):</span></span><br><span class="line">    <span class="keyword">return</span> (<span class="number">4</span>/<span class="number">3</span>) * math.pi * r**<span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># random示例：密码生成器</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line">chars = <span class="string">&#x27;abcdefghijkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ23456789&#x27;</span></span><br><span class="line">password = <span class="string">&#x27;&#x27;</span>.join(random.sample(chars, <span class="number">8</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-常见错误及避免方法"><a href="#2-3-常见错误及避免方法" class="headerlink" title="2.3. 常见错误及避免方法"></a>2.3. 常见错误及避免方法</h3><h4 id="错误-1：路径拼接用字符串拼接"><a href="#错误-1：路径拼接用字符串拼接" class="headerlink" title="错误 1：路径拼接用字符串拼接"></a>错误 1：路径拼接用字符串拼接</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path = <span class="string">&quot;data&quot;</span> + <span class="string">&quot;/&quot;</span> + <span class="string">&quot;file.txt&quot;</span>  <span class="comment"># Windows/Linux路径兼容性问题</span></span><br></pre></td></tr></table></figure>
+<p><strong>修正</strong>：使用<code>os.path.join(&quot;data&quot;, &quot;file.txt&quot;)</code></p>
+<h4 id="错误-2：误用sys-exit"><a href="#错误-2：误用sys-exit" class="headerlink" title="错误 2：误用sys.exit()"></a>错误 2：误用<code>sys.exit()</code></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> error_occurred:</span><br><span class="line">    print(<span class="string">&quot;错误发生&quot;</span>)</span><br><span class="line">    sys.exit()  <span class="comment"># 默认返回码0（表示成功）</span></span><br></pre></td></tr></table></figure>
+<p><strong>修正</strong>：明确返回非零错误码：<code>sys.exit(1)</code></p>
+<h4 id="错误-3：random种子管理疏忽"><a href="#错误-3：random种子管理疏忽" class="headerlink" title="错误 3：random种子管理疏忽"></a>错误 3：<code>random</code>种子管理疏忽</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">random.seed(<span class="number">42</span>)</span><br><span class="line">a = random.randint(<span class="number">1</span>,<span class="number">100</span>)</span><br><span class="line">b = random.randint(<span class="number">1</span>,<span class="number">100</span>)  <span class="comment"># 每次运行a和b相同，可能非预期</span></span><br></pre></td></tr></table></figure>
+<p><strong>修正</strong>：仅在需要可重复实验时设置种子</p>
+<h3 id="2-4-实际应用场景"><a href="#2-4-实际应用场景" class="headerlink" title="2.4. 实际应用场景"></a>2.4. 实际应用场景</h3><h4 id="场景-1：自动化文件整理"><a href="#场景-1：自动化文件整理" class="headerlink" title="场景 1：自动化文件整理"></a>场景 1：自动化文件整理</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os, shutil</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">organize_files</span>(<span class="params">source_dir</span>):</span></span><br><span class="line">    <span class="keyword">for</span> filename <span class="keyword">in</span> os.listdir(source_dir):</span><br><span class="line">        <span class="keyword">if</span> filename.endswith(<span class="string">&quot;.jpg&quot;</span>):</span><br><span class="line">            target = os.path.join(<span class="string">&quot;Images&quot;</span>, filename)</span><br><span class="line">            shutil.move(os.path.join(source_dir, filename), target)</span><br></pre></td></tr></table></figure>
+<h4 id="场景-2：科学计算辅助"><a href="#场景-2：科学计算辅助" class="headerlink" title="场景 2：科学计算辅助"></a>场景 2：科学计算辅助</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math, random</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">monte_carlo_pi</span>(<span class="params">samples</span>):</span></span><br><span class="line">    inside = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(samples):</span><br><span class="line">        x, y = random.random(), random.random()</span><br><span class="line">        <span class="keyword">if</span> math.sqrt(x**<span class="number">2</span> + y**<span class="number">2</span>) &lt;= <span class="number">1</span>:</span><br><span class="line">            inside +=<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">4</span> * inside / samples</span><br></pre></td></tr></table></figure>
+<h3 id="2-5-递进练习题"><a href="#2-5-递进练习题" class="headerlink" title="2.5. 递进练习题"></a>2.5. 递进练习题</h3><h4 id="题目-1-二次方程求根公式-初级"><a href="#题目-1-二次方程求根公式-初级" class="headerlink" title="题目 1: 二次方程求根公式(初级)"></a>题目 1: 二次方程求根公式(初级)</h4><ul>
+<li>使用<code>math</code>模块实现二次方程求根公式</li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-1-二次方程求根公式-初级">参考答案</a></p>
+</blockquote>
+<h4 id="题目-2-当前目录代码行数-中级"><a href="#题目-2-当前目录代码行数-中级" class="headerlink" title="题目 2: 当前目录代码行数(中级)"></a>题目 2: 当前目录代码行数(中级)</h4><ul>
+<li>编写脚本用<code>os</code>遍历当前目录，统计所有.py 文件的行数</li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-2-当前目录代码行数-中级">参考答案</a></p>
+</blockquote>
+<h4 id="题目-3-文本过滤器-高级"><a href="#题目-3-文本过滤器-高级" class="headerlink" title="题目 3: 文本过滤器(高级)"></a>题目 3: 文本过滤器(高级)</h4><ul>
+<li>利用<code>sys.stdin</code>实现一个支持管道操作的文本过滤器（如将输入转为大写）</li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-3-文本过滤器-高级">参考答案</a></p>
+</blockquote>
+<h3 id="2-6-深度思考问题"><a href="#2-6-深度思考问题" class="headerlink" title="2.6. 深度思考问题"></a>2.6. 深度思考问题</h3><p>当 Python 标准库提供<code>pathlib</code>等更现代的路径操作方式后，为什么很多项目仍然坚持使用<code>os.path</code>？标准库的设计如何在「保持向后兼容」与「拥抱新特性」之间取得平衡？</p>
+<p>（思考方向：历史代码维护成本、开发者习惯迁移、API 设计哲学、性能权衡）</p>
+<p><a href="/archives/202502214537ccef/#Day-3-4：模块与库">返回</a></p>
+<h2 id="3-安装和使用第三方库（pip）"><a href="#3-安装和使用第三方库（pip）" class="headerlink" title="3. 安装和使用第三方库（pip）"></a>3. 安装和使用第三方库（<code>pip</code>）</h2><h3 id="3-1-安装和使用第三方库（pip）简明解释"><a href="#3-1-安装和使用第三方库（pip）简明解释" class="headerlink" title="3.1. 安装和使用第三方库（pip）简明解释"></a>3.1. 安装和使用第三方库（<code>pip</code>）简明解释</h3><p><strong>用途</strong>：</p>
+<ul>
+<li><strong>依赖管理</strong>：安装、升级、卸载第三方库</li>
+<li><strong>生态扩展</strong>：接入 Python 庞大生态系统（如科学计算、Web 开发、机器学习等领域的库）</li>
+<li><strong>版本控制</strong>：指定库的版本号以保持环境一致性</li>
+</ul>
+<p><strong>常见场景</strong>：</p>
+<ul>
+<li>安装项目依赖（如<code>pip install -r requirements.txt</code>）</li>
+<li>快速验证新工具（如<code>pip install jupyterlab</code>启动交互式笔记本）</li>
+<li>开发并分发自己的 Python 包</li>
+</ul>
+<h3 id="3-2-代码示例"><a href="#3-2-代码示例" class="headerlink" title="3.2. 代码示例"></a>3.2. 代码示例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令行操作（非Python代码，但属于pip核心使用场景）</span></span><br><span class="line"><span class="comment"># 安装最新版本库</span></span><br><span class="line">pip install requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装指定版本</span></span><br><span class="line">pip install numpy==1.21.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从本地文件安装</span></span><br><span class="line">pip install ./mypackage</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装后Python代码中使用</span></span><br><span class="line">import requests</span><br><span class="line">response = requests.get(<span class="string">&quot;https://api.example.com&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-常见错误及避免方法"><a href="#3-3-常见错误及避免方法" class="headerlink" title="3.3. 常见错误及避免方法"></a>3.3. 常见错误及避免方法</h3><h4 id="错误-1：全局环境污染"><a href="#错误-1：全局环境污染" class="headerlink" title="错误 1：全局环境污染"></a>错误 1：全局环境污染</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pandas  <span class="comment"># 直接安装到系统Python环境 → 可能引发版本冲突</span></span><br></pre></td></tr></table></figure>
+<p><strong>修正</strong>：</p>
+<ul>
+<li>使用虚拟环境：<code>python -m venv myenv &amp;&amp; source myenv/bin/activate</code></li>
+<li>用户级安装：<code>pip install --user pandas</code></li>
+</ul>
+<h4 id="错误-2：依赖版本冲突"><a href="#错误-2：依赖版本冲突" class="headerlink" title="错误 2：依赖版本冲突"></a>错误 2：依赖版本冲突</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PackageA 需要 PackageB&gt;=2.0</span><br><span class="line">PackageC 需要 PackageB&lt;1.8  <span class="comment"># 无法同时满足</span></span><br></pre></td></tr></table></figure>
+<p><strong>修正</strong>：</p>
+<ul>
+<li>使用<code>pip freeze &gt; requirements.txt</code>精确记录版本</li>
+<li>借助依赖管理工具（如<code>pipenv</code>/<code>poetry</code>）</li>
+</ul>
+<h4 id="错误-3：权限问题（Linux-macOS）"><a href="#错误-3：权限问题（Linux-macOS）" class="headerlink" title="错误 3：权限问题（Linux/macOS）"></a>错误 3：权限问题（Linux/macOS）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermissionError: [Errno 13] Permission denied: <span class="string">&#x27;/usr/local/lib/python3.9/site-packages&#x27;</span></span><br></pre></td></tr></table></figure>
+<p><strong>修正</strong>：</p>
+<ul>
+<li>避免使用<code>sudo pip install</code> → 改用虚拟环境或<code>--user</code>模式</li>
+</ul>
+<h3 id="3-4-实际应用场景"><a href="#3-4-实际应用场景" class="headerlink" title="3.4. 实际应用场景"></a>3.4. 实际应用场景</h3><h4 id="场景-1：快速构建-REST-API-客户端"><a href="#场景-1：快速构建-REST-API-客户端" class="headerlink" title="场景 1：快速构建 REST API 客户端"></a>场景 1：快速构建 REST API 客户端</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装依赖</span></span><br><span class="line"><span class="comment"># pip install requests</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_weather</span>(<span class="params">city</span>):</span></span><br><span class="line">    url = <span class="string">f&quot;http://api.weatherapi.com/v1/current.json?key=YOUR_KEY&amp;q=<span class="subst">&#123;city&#125;</span>&quot;</span></span><br><span class="line">    <span class="keyword">return</span> requests.get(url).json()</span><br><span class="line"></span><br><span class="line">pprint(get_weather(<span class="string">&quot;Beijing&quot;</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="场景-2：数据科学工作流"><a href="#场景-2：数据科学工作流" class="headerlink" title="场景 2：数据科学工作流"></a>场景 2：数据科学工作流</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装依赖</span></span><br><span class="line"><span class="comment"># pip install pandas matplotlib</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">df = pd.read_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br><span class="line">df.plot(kind=<span class="string">&quot;bar&quot;</span>, x=<span class="string">&quot;category&quot;</span>, y=<span class="string">&quot;value&quot;</span>)</span><br><span class="line">plt.savefig(<span class="string">&quot;output.png&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="3-5-递进练习题"><a href="#3-5-递进练习题" class="headerlink" title="3.5. 递进练习题"></a>3.5. 递进练习题</h3><h4 id="题目-1-图片转为灰度图-初级"><a href="#题目-1-图片转为灰度图-初级" class="headerlink" title="题目 1: 图片转为灰度图(初级)"></a>题目 1: 图片转为灰度图(初级)</h4><ul>
+<li>安装<code>pillow</code>库并编写脚本将图片转为灰度图</li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-1-图片转为灰度图-初级">参考答案</a></p>
+</blockquote>
+<h4 id="题目-2-项目依赖-中级"><a href="#题目-2-项目依赖-中级" class="headerlink" title="题目 2: 项目依赖(中级)"></a>题目 2: 项目依赖(中级)</h4><ul>
+<li>创建<code>requirements.txt</code>文件管理项目依赖，包含<code>flask&gt;=2.0</code>和<code>sqlalchemy&lt;1.4</code></li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-2-项目依赖-中级">参考答案</a></p>
+</blockquote>
+<h4 id="题目-3-模块打包上传-高级"><a href="#题目-3-模块打包上传-高级" class="headerlink" title="题目 3: 模块打包上传(高级)"></a>题目 3: 模块打包上传(高级)</h4><ul>
+<li>将自己编写的 Python 模块打包上传至 PyPI，并通过<code>pip</code>安装测试</li>
+</ul>
+<blockquote>
+<p><a href="/archives/20250223abbb24cd/#题目-3-模块打包上传-高级">参考答案</a></p>
+</blockquote>
+<h3 id="3-6-深度思考问题"><a href="#3-6-深度思考问题" class="headerlink" title="3.6. 深度思考问题"></a>3.6. 深度思考问题</h3><p>当开源库的维护者突然删除或恶意篡改 PyPI 上的包时，<code>pip</code>的依赖链机制可能引发怎样的供应链攻击风险？在享受开源便利的同时，开发者应当建立哪些安全防护措施？</p>
+<p>（思考方向：依赖审计工具、镜像源管理、哈希值校验、Lockfile 机制、最小化依赖原则）</p>
+<p><a href="/archives/202502214537ccef/#Day-3-4：模块与库">返回</a></p>
 <h2 id="4-课后练习"><a href="#4-课后练习" class="headerlink" title="4. 课后练习"></a>4. 课后练习</h2><ul>
 <li>编写一个程序，使用 <code>random</code> 模块生成随机密码。</li>
 <li>编写一个程序，使用 <code>os</code> 模块列出当前目录下的所有文件。</li>
@@ -454,7 +626,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9D%97%EF%BC%88import%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">1. 导入模块（import）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%B8%B8%E7%94%A8%E6%A0%87%E5%87%86%E5%BA%93%EF%BC%88os%E3%80%81sys%E3%80%81math%E3%80%81random%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">2. 常用标准库（os、sys、math、random）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88pip%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">3. 安装和使用第三方库（pip）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%AF%BE%E5%90%8E%E7%BB%83%E4%B9%A0"><span class="toc-number">4.</span> <span class="toc-text">4. 课后练习</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9D%97%EF%BC%88import%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">1. 导入模块（import）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5%EF%BC%88import%EF%BC%89%E7%AE%80%E6%98%8E%E8%A7%A3%E9%87%8A"><span class="toc-number">1.1.</span> <span class="toc-text">1.1. 模块导入（import）简明解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.2.</span> <span class="toc-text">1.2. 代码示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%8F%8A%E9%81%BF%E5%85%8D%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">1.3. 常见错误及避免方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-1%EF%BC%9A%E5%BE%AA%E7%8E%AF%E5%AF%BC%E5%85%A5"><span class="toc-number">1.3.1.</span> <span class="toc-text">错误 1：循环导入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-2%EF%BC%9A%E9%80%9A%E9%85%8D%E7%AC%A6%E5%AF%BC%E5%85%A5%E6%B1%A1%E6%9F%93%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="toc-number">1.3.2.</span> <span class="toc-text">错误 2：通配符导入污染命名空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-3%EF%BC%9A%E7%9B%B8%E5%AF%B9%E5%AF%BC%E5%85%A5%E8%B7%AF%E5%BE%84%E9%94%99%E8%AF%AF"><span class="toc-number">1.3.3.</span> <span class="toc-text">错误 3：相对导入路径错误</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.4.</span> <span class="toc-text">1.4. 实际应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF-1%EF%BC%9A%E6%8F%92%E4%BB%B6%E6%9E%B6%E6%9E%84"><span class="toc-number">1.4.1.</span> <span class="toc-text">场景 1：插件架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF-2%EF%BC%9A%E9%85%8D%E7%BD%AE%E5%88%86%E7%A6%BB"><span class="toc-number">1.4.2.</span> <span class="toc-text">场景 2：配置分离</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E9%80%92%E8%BF%9B%E7%BB%83%E4%B9%A0%E9%A2%98"><span class="toc-number">1.5.</span> <span class="toc-text">1.5. 递进练习题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B4%E6%95%B0-%E5%88%9D%E7%BA%A7"><span class="toc-number">1.5.1.</span> <span class="toc-text">题目 1: 生成随机整数(初级)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E5%AF%BC%E5%85%A5%E5%B9%B6%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0-%E4%B8%AD%E7%BA%A7"><span class="toc-number">1.5.2.</span> <span class="toc-text">题目 2: 导入并使用函数(中级)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E5%8A%A8%E6%80%81%E6%9B%B4%E6%96%B0%E6%A8%A1%E5%9D%97%E4%BB%A3%E7%A0%81-%E9%AB%98%E7%BA%A7"><span class="toc-number">1.5.3.</span> <span class="toc-text">题目 3: 动态更新模块代码(高级)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%97%AE%E9%A2%98"><span class="toc-number">1.6.</span> <span class="toc-text">1.6. 深度思考问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%B8%B8%E7%94%A8%E6%A0%87%E5%87%86%E5%BA%93%EF%BC%88os%E3%80%81sys%E3%80%81math%E3%80%81random%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">2. 常用标准库（os、sys、math、random）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%B8%B8%E7%94%A8%E6%A0%87%E5%87%86%E5%BA%93%E7%AE%80%E6%98%8E%E8%A7%A3%E9%87%8A"><span class="toc-number">2.1.</span> <span class="toc-text">2.1. 常用标准库简明解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.2.</span> <span class="toc-text">2.2. 代码示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%8F%8A%E9%81%BF%E5%85%8D%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.</span> <span class="toc-text">2.3. 常见错误及避免方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-1%EF%BC%9A%E8%B7%AF%E5%BE%84%E6%8B%BC%E6%8E%A5%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5"><span class="toc-number">2.3.1.</span> <span class="toc-text">错误 1：路径拼接用字符串拼接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-2%EF%BC%9A%E8%AF%AF%E7%94%A8sys-exit"><span class="toc-number">2.3.2.</span> <span class="toc-text">错误 2：误用sys.exit()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-3%EF%BC%9Arandom%E7%A7%8D%E5%AD%90%E7%AE%A1%E7%90%86%E7%96%8F%E5%BF%BD"><span class="toc-number">2.3.3.</span> <span class="toc-text">错误 3：random种子管理疏忽</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.4.</span> <span class="toc-text">2.4. 实际应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF-1%EF%BC%9A%E8%87%AA%E5%8A%A8%E5%8C%96%E6%96%87%E4%BB%B6%E6%95%B4%E7%90%86"><span class="toc-number">2.4.1.</span> <span class="toc-text">场景 1：自动化文件整理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF-2%EF%BC%9A%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E8%BE%85%E5%8A%A9"><span class="toc-number">2.4.2.</span> <span class="toc-text">场景 2：科学计算辅助</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E9%80%92%E8%BF%9B%E7%BB%83%E4%B9%A0%E9%A2%98"><span class="toc-number">2.5.</span> <span class="toc-text">2.5. 递进练习题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E4%BA%8C%E6%AC%A1%E6%96%B9%E7%A8%8B%E6%B1%82%E6%A0%B9%E5%85%AC%E5%BC%8F-%E5%88%9D%E7%BA%A7"><span class="toc-number">2.5.1.</span> <span class="toc-text">题目 1: 二次方程求根公式(初级)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%BB%A3%E7%A0%81%E8%A1%8C%E6%95%B0-%E4%B8%AD%E7%BA%A7"><span class="toc-number">2.5.2.</span> <span class="toc-text">题目 2: 当前目录代码行数(中级)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E6%96%87%E6%9C%AC%E8%BF%87%E6%BB%A4%E5%99%A8-%E9%AB%98%E7%BA%A7"><span class="toc-number">2.5.3.</span> <span class="toc-text">题目 3: 文本过滤器(高级)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%97%AE%E9%A2%98"><span class="toc-number">2.6.</span> <span class="toc-text">2.6. 深度思考问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88pip%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">3. 安装和使用第三方库（pip）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88pip%EF%BC%89%E7%AE%80%E6%98%8E%E8%A7%A3%E9%87%8A"><span class="toc-number">3.1.</span> <span class="toc-text">3.1. 安装和使用第三方库（pip）简明解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.2.</span> <span class="toc-text">3.2. 代码示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%8F%8A%E9%81%BF%E5%85%8D%E6%96%B9%E6%B3%95"><span class="toc-number">3.3.</span> <span class="toc-text">3.3. 常见错误及避免方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-1%EF%BC%9A%E5%85%A8%E5%B1%80%E7%8E%AF%E5%A2%83%E6%B1%A1%E6%9F%93"><span class="toc-number">3.3.1.</span> <span class="toc-text">错误 1：全局环境污染</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-2%EF%BC%9A%E4%BE%9D%E8%B5%96%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81"><span class="toc-number">3.3.2.</span> <span class="toc-text">错误 2：依赖版本冲突</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%99%E8%AF%AF-3%EF%BC%9A%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98%EF%BC%88Linux-macOS%EF%BC%89"><span class="toc-number">3.3.3.</span> <span class="toc-text">错误 3：权限问题（Linux&#x2F;macOS）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">3.4.</span> <span class="toc-text">3.4. 实际应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF-1%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA-REST-API-%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">3.4.1.</span> <span class="toc-text">场景 1：快速构建 REST API 客户端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%BA%E6%99%AF-2%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-number">3.4.2.</span> <span class="toc-text">场景 2：数据科学工作流</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E9%80%92%E8%BF%9B%E7%BB%83%E4%B9%A0%E9%A2%98"><span class="toc-number">3.5.</span> <span class="toc-text">3.5. 递进练习题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1-%E5%9B%BE%E7%89%87%E8%BD%AC%E4%B8%BA%E7%81%B0%E5%BA%A6%E5%9B%BE-%E5%88%9D%E7%BA%A7"><span class="toc-number">3.5.1.</span> <span class="toc-text">题目 1: 图片转为灰度图(初级)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2-%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96-%E4%B8%AD%E7%BA%A7"><span class="toc-number">3.5.2.</span> <span class="toc-text">题目 2: 项目依赖(中级)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-3-%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85%E4%B8%8A%E4%BC%A0-%E9%AB%98%E7%BA%A7"><span class="toc-number">3.5.3.</span> <span class="toc-text">题目 3: 模块打包上传(高级)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%83%E9%97%AE%E9%A2%98"><span class="toc-number">3.6.</span> <span class="toc-text">3.6. 深度思考问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%AF%BE%E5%90%8E%E7%BB%83%E4%B9%A0"><span class="toc-number">4.</span> <span class="toc-text">4. 课后练习</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1242,6 +1414,10 @@
             
             <li class="article-tag-list-item">
               <a href="javascript:void(0)" class="js-tag color4">虚拟环境venv</a>
+            </li>
+            
+            <li class="article-tag-list-item">
+              <a href="javascript:void(0)" class="js-tag color4">首钢园</a>
             </li>
             
             <div class="clearfix"></div>
