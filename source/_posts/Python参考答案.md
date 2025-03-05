@@ -1496,15 +1496,75 @@ print(experiment_manager.get_experiments())
 - 编写函数`count_lines(filename)`，统计指定文本文件的行数
 
 ```python
-
+def count_lines(filename):
+    with open(filename, 'r') as f:
+        return sum(1 for _ in f)
 ```
 
 > 优化一下
 
-- XXX
+- 参数验证：确保传入的 filename 参数是一个有效的字符串，并且文件存在。
+- 日志记录：使用日志记录来代替简单的 print 语句，以便更好地管理和分析日志信息。
+- 代码注释：增加更多的注释，以提高代码的可读性和可维护性。
+- 异常处理：增加更多的异常处理，以应对各种可能的错误情况。
+- 返回值：在函数成功执行后返回一个有意义的值，例如文件的行数。
+- 性能优化：确保每次读取的块大小合理，避免内存占用过高。
 
 ```python
+import logging
+import os
 
+# 配置日志记录
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def count_lines(filename):
+    """
+    统计指定文本文件的行数。
+
+    参数:
+    filename (str): 文件路径。
+
+    返回:
+    int: 文件的行数。
+
+    异常:
+    ValueError: 如果 filename 不是字符串。
+    FileNotFoundError: 如果文件不存在。
+    PermissionError: 如果文件读取权限不足。
+    """
+    # 验证参数是否为字符串
+    if not isinstance(filename, str):
+        raise ValueError("filename 参数必须是一个字符串")
+
+    # 验证文件是否存在且为文件
+    if not os.path.isfile(filename):
+        raise FileNotFoundError(f"文件 '{filename}' 不存在或不是文件")
+
+    try:
+        with open(filename, 'r', encoding='utf-8') as f:
+            line_count = sum(1 for _ in f)
+        logging.info(f"文件 '{filename}' 的行数是 {line_count}")
+        return line_count
+    except PermissionError as e:
+        logging.error(f"权限错误：无法读取文件 '{filename}'：{e}")
+        raise PermissionError(f"权限错误：无法读取文件 '{filename}'：{e}")
+    except Exception as e:
+        logging.error(f"未知错误：无法读取文件 '{filename}'：{e}")
+        raise Exception(f"未知错误：无法读取文件 '{filename}'：{e}")
+
+# 使用示例
+if __name__ == "__main__":
+    try:
+        result = count_lines("example.txt")
+        print(f"文件 'example.txt' 的行数是: {result}")
+    except ValueError as e:
+        print(f"参数错误：{e}")
+    except FileNotFoundError as e:
+        print(f"操作失败：{e}")
+    except PermissionError as e:
+        print(f"权限错误：{e}")
+    except Exception as e:
+        print(f"未知错误：{e}")
 ```
 
 ### [题目 2: 合并文本文件(中级)](/archives/20250303d948b0f0/#题目-2-合并文本文件-中级)
@@ -1512,15 +1572,94 @@ print(experiment_manager.get_experiments())
 - 创建函数`merge_files(files, output)`，将多个文本文件内容合并到新文件中
 
 ```python
+def merge_files(files, output):
+    """将多个文本文件的内容合并到新文件中。
 
+    Args:
+        files (list): 需要合并的文件路径列表。
+        output (str): 合并后的输出文件路径。
+    """
+    with open(output, 'w', encoding='utf-8') as outfile:
+        for filename in files:
+            with open(filename, 'r', encoding='utf-8') as infile:
+                outfile.write(infile.read())
+                outfile.write("\n")  # 可选：在文件内容间添加空行分隔
 ```
 
 > 优化一下
 
-- XXX
+- 参数验证：确保传入的 files 参数是一个列表，并且列表中的每个元素都是有效的文件路径。
+- 日志记录：使用日志记录来代替简单的 print 语句，以便更好地管理和分析日志信息。
+- 代码注释：增加更多的注释，以提高代码的可读性和可维护性。
+- 异常处理：增加更多的异常处理，以应对各种可能的错误情况。
+- 性能优化：确保每次读取和写入的块大小合理，避免内存占用过高。
+- 返回值：在函数成功执行后返回一个有意义的值，例如目标文件路径。
 
 ```python
+import logging
+import os
 
+# 配置日志记录
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def merge_files(files, output):
+    """
+    将多个文本文件的内容合并到新文件中。
+
+    参数:
+    files (list): 需要合并的文件路径列表。
+    output (str): 合并后的输出文件路径。
+
+    返回:
+    str: 成功合并后的目标文件路径
+
+    异常:
+    ValueError: 如果 files 不是列表或列表中的元素不是字符串。
+    FileNotFoundError: 如果源文件不存在。
+    PermissionError: 如果文件读取或写入权限不足。
+    """
+    # 验证参数是否为列表
+    if not isinstance(files, list):
+        raise ValueError("files 参数必须是一个列表")
+
+    # 验证列表中的每个元素是否为字符串
+    for filename in files:
+        if not isinstance(filename, str):
+            raise ValueError("files 列表中的每个元素必须是字符串")
+
+    # 验证每个文件是否存在且为文件
+    for filename in files:
+        if not os.path.isfile(filename):
+            raise FileNotFoundError(f"源文件 '{filename}' 不存在或不是文件")
+
+    try:
+        with open(output, 'w', encoding='utf-8') as outfile:
+            for filename in files:
+                with open(filename, 'r', encoding='utf-8') as infile:
+                    outfile.write(infile.read())
+                    outfile.write("\n")  # 可选：在文件内容间添加空行分隔
+        logging.info(f"文件合并成功：从 {files} 到 {output}")
+        return output
+    except PermissionError as e:
+        logging.error(f"权限错误：无法读取源文件或写入目标文件 '{output}'：{e}")
+        raise PermissionError(f"权限错误：无法读取源文件或写入目标文件 '{output}'：{e}")
+    except Exception as e:
+        logging.error(f"未知错误：无法合并文件 {files} 到 '{output}'：{e}")
+        raise Exception(f"未知错误：无法合并文件 {files} 到 '{output}'：{e}")
+
+# 使用示例
+if __name__ == "__main__":
+    try:
+        result = merge_files(["file1.txt", "file2.txt"], "merged_file.txt")
+        print(f"文件合并成功，目标路径为: {result}")
+    except ValueError as e:
+        print(f"参数错误：{e}")
+    except FileNotFoundError as e:
+        print(f"操作失败：{e}")
+    except PermissionError as e:
+        print(f"权限错误：{e}")
+    except Exception as e:
+        print(f"未知错误：{e}")
 ```
 
 ### [题目 3: 文件内容加密保存(高级)](/archives/20250303d948b0f0/#题目-3-文件内容加密保存-高级)
@@ -1528,15 +1667,136 @@ print(experiment_manager.get_experiments())
 - 实现`encrypted_copy(src, dst, key)`，通过异或运算对文件内容进行加密后写入新文件（处理二进制模式）
 
 ```python
+def encrypted_copy(src, dst, key):
+    """使用异或运算加密二进制文件并保存到新路径
 
+    Args:
+        src (str): 源文件路径
+        dst (str): 目标文件路径
+        key (str/bytes): 加密密钥（字符串或字节序列）
+
+    Raises:
+        ValueError: 密钥为空时抛出异常
+    """
+    # 将密钥统一转换为字节序列
+    if isinstance(key, str):
+        key_bytes = key.encode("utf-8")
+    else:
+        key_bytes = key
+
+    if not key_bytes:
+        raise ValueError("密钥不能为空")
+
+    key_length = len(key_bytes)
+
+    with open(src, "rb") as f_in, open(dst, "wb") as f_out:
+        global_index = 0  # 跟踪全局字节位置
+        while True:
+            chunk = f_in.read(4096)  # 每次读取4KB的块
+            if not chunk:
+                break
+            # 对每个字节进行异或加密
+            encrypted_chunk = bytes(
+                byte ^ key_bytes[(global_index + i) % key_length]
+                for i, byte in enumerate(chunk)
+            )
+            f_out.write(encrypted_chunk)
+            global_index += len(chunk)  # 更新全局索引
 ```
 
 > 优化一下
 
-- XXX
+- 参数验证：确保传入的路径参数是有效的字符串，并且文件路径存在。
+- 日志记录：使用日志记录来代替简单的 print 语句，以便更好地管理和分析日志信息。
+- 代码注释：增加更多的注释，以提高代码的可读性和可维护性。
+- 异常处理：增加更多的异常处理，以应对各种可能的错误情况。
+- 性能优化：确保每次读取和写入的块大小合理，避免内存占用过高。
+- 返回值：在函数成功执行后返回一个有意义的值，例如目标文件路径。
 
 ```python
+import logging
+import os
 
+# 配置日志记录
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def encrypted_copy(src, dst, key):
+    """
+    使用异或运算加密二进制文件并保存到新路径
+
+    参数:
+    src (str): 源文件路径
+    dst (str): 目标文件路径
+    key (str/bytes): 加密密钥（字符串或字节序列）
+
+    返回:
+    str: 成功加密后的目标文件路径
+
+    异常:
+    ValueError: 密钥为空时抛出异常
+    FileNotFoundError: 源文件不存在时抛出异常
+    PermissionError: 文件读取或写入权限不足时抛出异常
+    TypeError: 参数类型不正确时抛出异常
+    """
+    # 验证参数是否为字符串
+    if not isinstance(src, str) or not isinstance(dst, str):
+        raise TypeError("源文件路径和目标文件路径必须是字符串")
+
+    # 验证源文件是否存在且为文件
+    if not os.path.isfile(src):
+        raise FileNotFoundError(f"源文件 '{src}' 不存在或不是文件")
+
+    # 将密钥统一转换为字节序列
+    if isinstance(key, str):
+        key_bytes = key.encode("utf-8")
+    elif isinstance(key, bytes):
+        key_bytes = key
+    else:
+        raise TypeError("密钥必须是字符串或字节序列")
+
+    if not key_bytes:
+        raise ValueError("密钥不能为空")
+
+    key_length = len(key_bytes)
+
+    try:
+        with open(src, "rb") as f_in, open(dst, "wb") as f_out:
+            global_index = 0  # 跟踪全局字节位置
+            while True:
+                chunk = f_in.read(4096)  # 每次读取4KB的块
+                if not chunk:
+                    break
+                # 对每个字节进行异或加密
+                encrypted_chunk = bytes(
+                    byte ^ key_bytes[(global_index + i) % key_length]
+                    for i, byte in enumerate(chunk)
+                )
+                f_out.write(encrypted_chunk)
+                global_index += len(chunk)  # 更新全局索引
+            logging.info(f"文件加密成功：从 '{src}' 到 '{dst}'")
+            return dst
+    except PermissionError as e:
+        logging.error(f"权限错误：无法读取源文件 '{src}' 或写入目标文件 '{dst}'：{e}")
+        raise PermissionError(f"权限错误：无法读取源文件 '{src}' 或写入目标文件 '{dst}'：{e}")
+    except Exception as e:
+        logging.error(f"未知错误：无法加密文件 '{src}' 到 '{dst}'：{e}")
+        raise Exception(f"未知错误：无法加密文件 '{src}' 到 '{dst}'：{e}")
+
+# 使用示例
+if __name__ == "__main__":
+    try:
+        result = encrypted_copy("source.bin", "encrypted.bin", "mysecretkey")
+        print(f"文件加密成功，目标路径为: {result}")
+    except FileNotFoundError as e:
+        print(f"操作失败：{e}")
+    except PermissionError as e:
+        print(f"权限错误：{e}")
+    except ValueError as e:
+        print(f"参数错误：{e}")
+    except TypeError as e:
+        print(f"类型错误：{e}")
+    except Exception as e:
+        print(f"未知错误：{e}")
 ```
 
 ## 2. 异常处理
@@ -1546,15 +1806,69 @@ print(experiment_manager.get_experiments())
 - 编写读取用户年龄的函数，处理非数字输入异常
 
 ```python
+def get_valid_age():
+    """循环获取用户输入的年龄，确保输入为有效整数"""
+    while True:
+        try:
+            age = int(input("请输入年龄（整数）："))
+            return age  # 输入有效时返回年龄
+        except ValueError:
+            print("⚠️ 输入无效，请确保输入的是整数（如 25）")
 
+# 使用示例
+if __name__ == "__main__":
+    age = get_valid_age()
+    print(f"您输入的年龄是：{age} 岁")
 ```
 
 > 优化一下
 
-- XXX
+- 输入范围验证：确保输入的年龄在合理的范围内（例如，0 到 120 岁）。
+- 日志记录：使用日志记录来代替简单的 print 语句，以便更好地管理和分析日志信息。
+- 代码注释：增加更多的注释，以提高代码的可读性和可维护性。
+- 异常处理：增加更多的异常处理，以应对各种可能的错误情况。
+- 返回值：在函数成功执行后返回一个有意义的值，例如有效的年龄。
+- 用户提示：在用户输入无效时，提供更详细的提示信息。
 
 ```python
+import logging
 
+# 配置日志记录
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def get_valid_age():
+    """
+    循环获取用户输入的年龄，确保输入为有效整数，并在合理范围内（0 到 120 岁）。
+
+    返回:
+    int: 用户输入的有效年龄
+
+    异常:
+    ValueError: 如果输入的年龄不在合理范围内
+    """
+    while True:
+        try:
+            age_input = input("请输入年龄（整数，0 到 120 岁）：").strip()
+            age = int(age_input)
+
+            # 检查年龄是否在合理范围内
+            if 0 <= age <= 120:
+                logging.info(f"用户输入的有效年龄: {age}")
+                return age
+            else:
+                logging.warning(f"输入的年龄 {age} 不在合理范围内（0 到 120 岁）")
+                print("⚠️ 输入的年龄不在合理范围内（0 到 120 岁），请重新输入。")
+        except ValueError:
+            logging.warning(f"输入无效: {age_input} 不是有效的整数")
+            print("⚠️ 输入无效，请确保输入的是整数（如 25）。")
+
+# 使用示例
+if __name__ == "__main__":
+    try:
+        age = get_valid_age()
+        print(f"您输入的年龄是：{age} 岁")
+    except Exception as e:
+        print(f"发生错误: {e}")
 ```
 
 ### [题目 2: 文件复制函数(中级)](/archives/20250303d948b0f0/#题目-2-文件复制函数-中级)
@@ -1562,15 +1876,131 @@ print(experiment_manager.get_experiments())
 - 创建文件复制函数，处理源文件不存在和目标路径无权限的情况
 
 ```python
+import os
+import shutil
 
+def copy_file(src_path, dst_path):
+    """安全复制文件并处理常见异常
+
+    Args:
+        src_path (str): 源文件路径
+        dst_path (str): 目标文件路径
+
+    Raises:
+        FileNotFoundError: 源文件不存在时抛出
+        PermissionError: 目录创建或文件写入权限不足时抛出
+        IsADirectoryError: 目标路径是目录时抛出
+    """
+    # 验证源文件存在且为文件
+    if not os.path.isfile(src_path):
+        raise FileNotFoundError(f"源文件 '{src_path}' 不存在或不是文件")
+
+    # 创建目标目录（自动处理路径不存在的情况）
+    dst_dir = os.path.dirname(dst_path)
+    if dst_dir:  # 避免空路径情况
+        os.makedirs(dst_dir, exist_ok=True)  # 自动处理目录已存在的情况
+
+    # 执行文件复制操作
+    shutil.copy2(src_path, dst_path)  # 保留文件元数据
+
+# 使用示例
+if __name__ == "__main__":
+    try:
+        copy_file("source.txt", "backup/copy.txt")
+        print("文件复制成功")
+    except FileNotFoundError as e:
+        print(f"操作失败：{e}")
+    except PermissionError as e:
+        print(f"权限错误：{e}")
+    except IsADirectoryError as e:
+        print(f"路径错误：目标位置是目录")
+    except Exception as e:
+        print(f"未知错误：{e}")
 ```
 
 > 优化一下
 
-- XXX
+- 增强异常处理：增加更多的异常处理，以应对各种可能的错误情况，例如目标文件已存在的情况。
+- 日志记录：使用日志记录来代替简单的 print 语句，以便更好地管理和分析日志信息。
+- 代码注释：增加更多的注释，以提高代码的可读性和可维护性。
+- 参数验证：确保传入的路径参数是有效的字符串。
+- 返回值：在函数成功执行后返回一个有意义的值，例如目标文件路径。
 
 ```python
+import os
+import shutil
+import logging
 
+# 配置日志记录
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def copy_file(src_path, dst_path):
+    """
+    安全复制文件并处理常见异常
+
+    参数:
+    src_path (str): 源文件路径
+    dst_path (str): 目标文件路径
+
+    返回:
+    str: 成功复制后的目标文件路径
+
+    异常:
+    FileNotFoundError: 源文件不存在时抛出
+    PermissionError: 目录创建或文件写入权限不足时抛出
+    IsADirectoryError: 目标路径是目录时抛出
+    FileExistsError: 目标文件已存在时抛出
+    ValueError: 参数不是有效的字符串时抛出
+    """
+    # 验证参数是否为字符串
+    if not isinstance(src_path, str) or not isinstance(dst_path, str):
+        raise ValueError("源文件路径和目标文件路径必须是字符串")
+
+    # 验证源文件存在且为文件
+    if not os.path.isfile(src_path):
+        raise FileNotFoundError(f"源文件 '{src_path}' 不存在或不是文件")
+
+    # 创建目标目录（自动处理路径不存在的情况）
+    dst_dir = os.path.dirname(dst_path)
+    if dst_dir:  # 避免空路径情况
+        try:
+            os.makedirs(dst_dir, exist_ok=True)  # 自动处理目录已存在的情况
+        except PermissionError as e:
+            raise PermissionError(f"无法创建目标目录 '{dst_dir}'：{e}")
+
+    # 检查目标文件是否已存在
+    if os.path.exists(dst_path):
+        raise FileExistsError(f"目标文件 '{dst_path}' 已存在")
+
+    # 执行文件复制操作
+    try:
+        shutil.copy2(src_path, dst_path)  # 保留文件元数据
+        logging.info(f"文件复制成功：从 '{src_path}' 到 '{dst_path}'")
+        return dst_path
+    except PermissionError as e:
+        logging.error(f"权限错误：无法复制文件 '{src_path}' 到 '{dst_path}'：{e}")
+        raise PermissionError(f"权限错误：无法复制文件 '{src_path}' 到 '{dst_path}'：{e}")
+    except Exception as e:
+        logging.error(f"未知错误：无法复制文件 '{src_path}' 到 '{dst_path}'：{e}")
+        raise Exception(f"未知错误：无法复制文件 '{src_path}' 到 '{dst_path}'：{e}")
+
+# 使用示例
+if __name__ == "__main__":
+    try:
+        result = copy_file("source.txt", "backup/copy.txt")
+        print(f"文件复制成功，目标路径为: {result}")
+    except FileNotFoundError as e:
+        print(f"操作失败：{e}")
+    except PermissionError as e:
+        print(f"权限错误：{e}")
+    except IsADirectoryError as e:
+        print(f"路径错误：目标位置是目录")
+    except FileExistsError as e:
+        print(f"文件已存在：{e}")
+    except ValueError as e:
+        print(f"参数错误：{e}")
+    except Exception as e:
+        print(f"未知错误：{e}")
 ```
 
 ### [题目 3: 用户注册验证(高级)](/archives/20250303d948b0f0/#题目-3-用户注册验证-高级)
@@ -1578,15 +2008,148 @@ print(experiment_manager.get_experiments())
 - 实现带有自定义异常类（`InvalidEmailError`）的用户注册验证系统
 
 ```python
+import re
 
+# 定义自定义异常类
+class InvalidEmailError(Exception):
+    """自定义异常类，用于表示无效的电子邮件地址"""
+    def __init__(self, message="无效的电子邮件地址"):
+        self.message = message
+        super().__init__(self.message)
+
+# 验证电子邮件地址的正则表达式
+EMAIL_REGEX = re.compile(
+    r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+)
+
+def validate_email(email):
+    """
+    验证电子邮件地址的有效性
+
+    参数:
+    email (str): 电子邮件地址
+
+    异常:
+    InvalidEmailError: 如果电子邮件地址无效
+    """
+    if not EMAIL_REGEX.match(email):
+        raise InvalidEmailError(f"无效的电子邮件地址: {email}")
+
+def register_user(username, email):
+    """
+    注册用户
+
+    参数:
+    username (str): 用户名
+    email (str): 电子邮件地址
+
+    异常:
+    InvalidEmailError: 如果电子邮件地址无效
+    """
+    try:
+        validate_email(email)
+        print(f"用户 {username} 注册成功，电子邮件地址为 {email}")
+    except InvalidEmailError as e:
+        print(e)
+
+# 主程序
+if __name__ == "__main__":
+    # 测试有效的电子邮件地址
+    register_user("Alice", "alice@example.com")
+
+    # 测试无效的电子邮件地址
+    register_user("Bob", "bob@example")
 ```
 
 > 优化一下
 
-- XXX
+- 增强电子邮件验证：使用更严格的正则表达式来验证电子邮件地址。
+- 用户输入验证：确保用户名和电子邮件地址不为空。
+- 日志记录：使用日志记录来代替简单的 print 语句，以便更好地管理和分析日志信息。
+- 异常处理：增加更多的异常处理，以应对各种可能的错误情况。
+- 代码注释：增加更多的注释，以提高代码的可读性和可维护性。
 
 ```python
+import re
+import logging
 
+# 配置日志记录
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+# 定义自定义异常类
+class InvalidEmailError(Exception):
+    """自定义异常类，用于表示无效的电子邮件地址"""
+    def __init__(self, message="无效的电子邮件地址"):
+        self.message = message
+        super().__init__(self.message)
+
+# 验证电子邮件地址的正则表达式
+EMAIL_REGEX = re.compile(
+    r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+)
+
+def validate_email(email):
+    """
+    验证电子邮件地址的有效性
+
+    参数:
+    email (str): 电子邮件地址
+
+    异常:
+    InvalidEmailError: 如果电子邮件地址无效
+    """
+    if not email:
+        raise InvalidEmailError("电子邮件地址不能为空")
+    if not EMAIL_REGEX.match(email):
+        raise InvalidEmailError(f"无效的电子邮件地址: {email}")
+
+def validate_username(username):
+    """
+    验证用户名的有效性
+
+    参数:
+    username (str): 用户名
+
+    异常:
+    ValueError: 如果用户名无效
+    """
+    if not username:
+        raise ValueError("用户名不能为空")
+
+def register_user(username, email):
+    """
+    注册用户
+
+    参数:
+    username (str): 用户名
+    email (str): 电子邮件地址
+
+    异常:
+    InvalidEmailError: 如果电子邮件地址无效
+    ValueError: 如果用户名无效
+    """
+    try:
+        validate_username(username)
+        validate_email(email)
+        logging.info(f"用户 {username} 注册成功，电子邮件地址为 {email}")
+    except InvalidEmailError as e:
+        logging.error(e)
+    except ValueError as e:
+        logging.error(e)
+
+# 主程序
+if __name__ == "__main__":
+    # 测试有效的电子邮件地址
+    register_user("Alice", "alice@example.com")
+
+    # 测试无效的电子邮件地址
+    register_user("Bob", "bob@example")
+
+    # 测试空用户名
+    register_user("", "bob@example.com")
+
+    # 测试空电子邮件地址
+    register_user("Bob", "")
 ```
 
 ## 1. 导入模块（`import`）
