@@ -2159,15 +2159,46 @@ if __name__ == "__main__":
 - 编写脚本导入`random`模块，生成 10 个 1-100 的随机整数
 
 ```python
+import random
 
+# 生成 10 个随机整数
+random_numbers = [random.randint(1, 100) for _ in range(10)]
+
+# 打印结果（可选两种格式）
+print("生成的随机数:", random_numbers)        # 列表格式输出
+# print("生成的随机数:", *random_numbers)     # 展开平铺输出
 ```
 
 > 优化一下
 
-- XXX
+- 函数封装：将生成随机整数的逻辑封装到一个函数 generate_random_numbers 中，提高代码的可重用性和可读性。
+- 参数化：允许用户指定生成随机整数的数量、起始范围和结束范围，使函数更加灵活。
+- 文档字符串：为函数添加了详细的文档字符串，说明函数的作用、参数和返回值，便于他人理解和使用。
+- 注释：增加了注释，解释代码的主要部分，提高代码的可读性。
 
 ```python
+import random
 
+def generate_random_numbers(count=10, start=1, end=100):
+    """
+    生成指定数量的随机整数。
+
+    参数:
+    count (int): 生成的随机整数数量，默认为 10。
+    start (int): 随机整数的起始范围，默认为 1。
+    end (int): 随机整数的结束范围，默认为 100。
+
+    返回:
+    list: 包含生成的随机整数的列表。
+    """
+    return [random.randint(start, end) for _ in range(count)]
+
+# 生成 10 个随机整数
+random_numbers = generate_random_numbers()
+
+# 打印结果（可选两种格式）
+print("生成的随机数:", random_numbers)        # 列表格式输出
+# print("生成的随机数:", *random_numbers)     # 展开平铺输出
 ```
 
 ### [题目 2: 导入并使用函数(中级)](/archives/2025030562adce42/#题目-2-导入并使用函数-中级)
@@ -2175,15 +2206,109 @@ if __name__ == "__main__":
 - 创建自定义模块`geometry.py`，包含计算圆面积的函数`circle_area(r)`，在主程序中导入并使用
 
 ```python
+# geometry.py
+import math
 
+def circle_area(r):
+    """计算圆的面积
+
+    Args:
+        r (float/int): 圆的半径（必须为非负数）
+
+    Returns:
+        float: 圆的面积
+
+    Raises:
+        ValueError: 当半径 r 为负数时触发异常
+    """
+    if r < 0:
+        raise ValueError("半径不能为负数")
+    return math.pi * (r ** 2)
+```
+
+```python
+# main.py
+from geometry import circle_area
+
+# 计算半径为5的圆面积
+radius = 5
+area = circle_area(radius)
+print(f"半径为 {radius} 的圆面积: {area:.2f}")
+
+# 尝试非法输入（负数半径）
+try:
+    circle_area(-3)
+except ValueError as e:
+    print("错误捕获:", e)
 ```
 
 > 优化一下
 
-- XXX
+- 类型检查：
+  - 在 circle_area 函数中添加了类型检查，确保传入的半径是数字类型（整数或浮点数），否则抛出 TypeError。
+- 函数封装：
+  - 在 main.py 中将计算和打印圆面积的逻辑封装到 calculate_and_print_circle_area 函数中，提高代码的可重用性和可读性。
+- 异常处理：
+  - 在 main.py 中增加了对 TypeError 的捕获，确保程序在用户输入非数字类型的半径时不会崩溃，并给出友好的错误提示。
+- 代码注释：
+  - 增加了更多的注释，解释代码的主要部分，提高代码的可读性和可维护性。
+- 文档字符串：
+  - 为 circle_area 函数添加了详细的文档字符串，说明函数的作用、参数、返回值和可能抛出的异常，便于他人理解和使用。
 
 ```python
+# geometry.py
+import math
 
+def circle_area(r):
+    """
+    计算圆的面积。
+
+    参数:
+    r (float/int): 圆的半径（必须为非负数）。
+
+    返回:
+    float: 圆的面积。
+
+    异常:
+    ValueError: 如果半径 r 为负数。
+    TypeError: 如果半径 r 不是数字类型。
+    """
+    if not isinstance(r, (int, float)):
+        raise TypeError("半径必须是数字类型")
+    if r < 0:
+        raise ValueError("半径不能为负数")
+    return math.pi * (r ** 2)
+```
+
+main.py
+
+```python
+# main.py
+from geometry import circle_area
+
+def calculate_and_print_circle_area(radius):
+    """
+    计算并打印给定半径的圆的面积。
+
+    参数:
+    radius (float/int): 圆的半径。
+    """
+    try:
+        area = circle_area(radius)
+        print(f"半径为 {radius} 的圆面积: {area:.2f}")
+    except ValueError as e:
+        print(f"值错误: {e}")
+    except TypeError as e:
+        print(f"类型错误: {e}")
+
+# 计算半径为5的圆面积
+calculate_and_print_circle_area(5)
+
+# 尝试非法输入（负数半径）
+calculate_and_print_circle_area(-3)
+
+# 尝试非法输入（非数字类型）
+calculate_and_print_circle_area("abc")
 ```
 
 ### [题目 3: 动态更新模块代码(高级)](/archives/2025030562adce42/#题目-3-动态更新模块代码-高级)
@@ -2191,7 +2316,94 @@ if __name__ == "__main__":
 - 实现模块热重载功能：通过`importlib.reload()`动态更新正在运行的模块代码
 
 ```python
+# hot_reload_demo.py
+import importlib
+import sys
+import time
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
 
+# ---------------------------
+# 热重载核心控制器
+# ---------------------------
+class HotReloader(FileSystemEventHandler):
+    def __init__(self, module_names):
+        self.module_names = module_names
+        self.last_reload = time.time()
+
+    def on_modified(self, event):
+        """文件修改事件处理器"""
+        if time.time() - self.last_reload < 1:  # 防抖处理
+            return
+
+        if event.src_path.endswith('.py'):
+            print(f"\n检测到文件变动: {event.src_path}")
+            self.reload_modules()
+            self.last_reload = time.time()
+
+    def reload_modules(self):
+        """执行模块重载"""
+        for name in self.module_names:
+            if name in sys.modules:
+                print(f"重新加载模块: {name}")
+                module = sys.modules[name]
+                importlib.reload(module)
+                self.update_references(module)
+
+    def update_references(self, module):
+        """更新全局引用（演示动态替换函数和类）"""
+        # 如果模块中存在需要热替换的函数
+        if hasattr(module, 'dynamic_function'):
+            globals()['dynamic_function'] = module.dynamic_function
+
+        # 如果模块中存在需要热替换的类
+        if hasattr(module, 'DynamicClass'):
+            # 替换类定义
+            globals()['DynamicClass'] = module.DynamicClass
+            # 更新现有实例的方法（高级用法）
+            for obj in list(globals().values()):
+                if isinstance(obj, module.DynamicClass):
+                    obj.__class__ = module.DynamicClass
+
+# ---------------------------
+# 主程序
+# ---------------------------
+def start_hot_reload(modules_to_watch):
+    # 初始化监控器
+    event_handler = HotReloader(modules_to_watch)
+    observer = Observer()
+    observer.schedule(event_handler, path='.', recursive=False)
+    observer.start()
+
+    try:
+        print("热重载监控已启动，修改文件后会自动更新...")
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        observer.stop()
+    observer.join()
+
+if __name__ == "__main__":
+    # 初始加载目标模块
+    import demo_module  # 假设这是需要热重载的模块
+
+    # 启动热重载监控
+    start_hot_reload(['demo_module'])
+```
+
+```Python
+# demo_module.py
+version = "1.0"
+
+def dynamic_function():
+    return "原始函数"
+
+class DynamicClass:
+    def __init__(self):
+        self.data = "初始数据"
+
+    def show(self):
+        print(f"Class version: {version}, Data: {self.data}")
 ```
 
 > 优化一下
@@ -2209,7 +2421,58 @@ if __name__ == "__main__":
 - 使用`math`模块实现二次方程求根公式
 
 ```python
+import math
 
+def quadratic_roots(a: float, b: float, c: float) -> tuple:
+    """计算二次方程 ax² + bx + c = 0 的根
+
+    Args:
+        a: 二次项系数（不能为0）
+        b: 一次项系数
+        c: 常数项
+
+    Returns:
+        tuple: 包含两个根的元组，可能为实数或复数
+
+    Raises:
+        ValueError: 当 a=0 时抛出（非二次方程）
+    """
+    if a == 0:
+        raise ValueError("二次项系数 a 不能为零")
+
+    discriminant = b**2 - 4*a*c  # 计算判别式
+
+    # 根据判别式类型分情况处理
+    if discriminant >= 0:
+        sqrt_d = math.sqrt(discriminant)
+        root1 = (-b + sqrt_d) / (2*a)
+        root2 = (-b - sqrt_d) / (2*a)
+    else:
+        # 处理复数根
+        sqrt_d = math.sqrt(-discriminant)
+        real_part = -b / (2*a)
+        imag_part = sqrt_d / (2*a)
+        root1 = complex(real_part, imag_part)
+        root2 = complex(real_part, -imag_part)
+
+    return (root1, root2)
+
+# 使用示例
+if __name__ == "__main__":
+    # 案例1：两个实数根（x²-5x+6=0）
+    print(quadratic_roots(1, -5, 6))    # 输出 (3.0, 2.0)
+
+    # 案例2：重复根（x²+2x+1=0）
+    print(quadratic_roots(1, 2, 1))     # 输出 (-1.0, -1.0)
+
+    # 案例3：复数根（x²+x+1=0）
+    print(quadratic_roots(1, 1, 1))     # 输出 ((-0.5+0.866j), (-0.5-0.866j))
+
+    # 非法输入测试
+    try:
+        quadratic_roots(0, 2, 3)
+    except ValueError as e:
+        print(e)  # 输出 "二次项系数 a 不能为零"
 ```
 
 > 优化一下
@@ -2225,7 +2488,41 @@ if __name__ == "__main__":
 - 编写脚本用`os`遍历当前目录，统计所有.py 文件的行数
 
 ```python
+import os
 
+def count_lines_in_py_files(directory):
+    """
+    统计指定目录下所有 .py 文件的行数。
+
+    参数:
+    directory (str): 要遍历的目录路径。
+
+    返回:
+    int: 所有 .py 文件的总行数。
+    """
+    total_lines = 0
+
+    # 遍历目录及其子目录中的所有文件
+    for root, _, files in os.walk(directory):
+        for file in files:
+            if file.endswith('.py'):
+                file_path = os.path.join(root, file)
+                try:
+                    with open(file_path, 'r', encoding='utf-8') as f:
+                        total_lines += sum(1 for _ in f)
+                except Exception as e:
+                    print(f"无法读取文件 {file_path}: {e}")
+
+    return total_lines
+
+# 获取当前目录
+current_directory = os.getcwd()
+
+# 统计当前目录下所有 .py 文件的行数
+total_lines = count_lines_in_py_files(current_directory)
+
+# 打印结果
+print(f"当前目录下所有 .py 文件的总行数是: {total_lines}")
 ```
 
 > 优化一下
@@ -2241,7 +2538,21 @@ if __name__ == "__main__":
 - 利用`sys.stdin`实现一个支持管道操作的文本过滤器（如将输入转为大写）
 
 ```python
+import sys
 
+def to_uppercase():
+    """
+    从标准输入读取文本，并将其转换为大写后输出到标准输出。
+    """
+    try:
+        for line in sys.stdin:
+            # 去除行末的换行符，并转换为大写
+            print(line.strip().upper())
+    except Exception as e:
+        print(f"发生错误: {e}", file=sys.stderr)
+
+if __name__ == "__main__":
+    to_uppercase()
 ```
 
 > 优化一下
@@ -2259,7 +2570,60 @@ if __name__ == "__main__":
 - 安装`pillow`库并编写脚本将图片转为灰度图
 
 ```python
+from PIL import Image
+import sys
+import logging
 
+# 配置日志记录
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+def convert_to_grayscale(input_path, output_path):
+    """
+    将指定路径的图片转换为灰度图并保存到指定路径。
+
+    参数:
+    input_path (str): 输入图片的路径。
+    output_path (str): 输出灰度图的路径。
+
+    异常:
+    ValueError: 如果输入路径不是有效的图片文件。
+    FileNotFoundError: 如果输入文件不存在。
+    PermissionError: 如果文件读取或写入权限不足。
+    """
+    try:
+        # 打开输入图片
+        with Image.open(input_path) as img:
+            # 将图片转换为灰度图
+            grayscale_img = img.convert("L")
+            # 保存灰度图到输出路径
+            grayscale_img.save(output_path)
+            logging.info(f"图片已成功转换为灰度图：从 '{input_path}' 到 '{output_path}'")
+    except FileNotFoundError as e:
+        logging.error(f"文件未找到：'{input_path}' 不存在")
+        raise FileNotFoundError(f"文件未找到：'{input_path}' 不存在")
+    except PermissionError as e:
+        logging.error(f"权限错误：无法读取文件 '{input_path}' 或写入文件 '{output_path}'")
+        raise PermissionError(f"权限错误：无法读取文件 '{input_path}' 或写入文件 '{output_path}'")
+    except ValueError as e:
+        logging.error(f"值错误：'{input_path}' 不是有效的图片文件")
+        raise ValueError(f"值错误：'{input_path}' 不是有效的图片文件")
+    except Exception as e:
+        logging.error(f"未知错误：无法转换图片 '{input_path}'：{e}")
+        raise Exception(f"未知错误：无法转换图片 '{input_path}'：{e}")
+
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("使用方法: python script.py <输入图片路径> <输出图片路径>")
+        sys.exit(1)
+
+    input_path = sys.argv[1]
+    output_path = sys.argv[2]
+
+    try:
+        convert_to_grayscale(input_path, output_path)
+        print(f"图片已成功转换为灰度图，保存到: {output_path}")
+    except Exception as e:
+        print(f"操作失败：{e}")
 ```
 
 > 优化一下
