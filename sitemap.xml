@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.gaotianyang.top/photos/ins.json</loc>
+    
+    <lastmod>2025-03-16</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.gaotianyang.top/archives/20241228edb3625e/</loc>
     
     <lastmod>2025-03-16</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://www.gaotianyang.top/archives/20250223abbb24cd/</loc>
     
     <lastmod>2025-03-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.gaotianyang.top/photos/ins.json</loc>
-    
-    <lastmod>2025-03-03</lastmod>
     
   </url>
   
