@@ -6,7 +6,7 @@
   <link href="https://www.gaotianyang.top/atom.xml" rel="self"/>
   
   <link href="https://www.gaotianyang.top/"/>
-  <updated>2025-04-01T13:22:05.002Z</updated>
+  <updated>2025-04-01T14:19:51.402Z</updated>
   <id>https://www.gaotianyang.top/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>screen的使用</title>
+    <link href="https://www.gaotianyang.top/archives/2025040169ea2648/"/>
+    <id>https://www.gaotianyang.top/archives/2025040169ea2648/</id>
+    <published>2025-04-01T13:28:39.000Z</published>
+    <updated>2025-04-01T14:19:51.402Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://s21.ax1x.com/2025/03/01/pE8qB5j.jpg" alt="首屏图"></p><!--首屏图备用![首屏图](https://s21.ax1x.com/2025/03/01/pE8qgMV.jpg)![首屏图](https://s21.ax1x.com/2025/03/01/pE8qy2q.jpg)![首屏图](https://s21.ax1x.com/2025/03/01/pE8q6x0.jpg)![首屏图](https://s21.ax1x.com/2025/03/01/pE8qsGn.jpg)--><a id="more"></a><h2 id="screen-的使用"><a href="#screen-的使用" class="headerlink" title="screen 的使用"></a>screen 的使用</h2><h3 id="基本简介"><a href="#基本简介" class="headerlink" title="基本简介"></a>基本简介</h3><p><code>screen</code>是一个全屏窗口管理器，可以在一个物理终端上创建多个全屏窗口，并且可以在这些窗口之间进行切换。它主要用于在远程服务器上运行长时间的任务，即使网络连接中断，任务也可以继续运行。</p><h3 id="快速使用"><a href="#快速使用" class="headerlink" title="快速使用"></a>快速使用</h3><h4 id="安装-screen"><a href="#安装-screen" class="headerlink" title="安装 screen"></a>安装 screen</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 Debian/Ubuntu 系统上</span></span><br><span class="line">sudo apt-get install screen</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在 CentOS/RHEL 系统上</span></span><br><span class="line">sudo yum install screen</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在 macOS 上</span></span><br><span class="line">brew install screen</span><br></pre></td></tr></table></figure><h4 id="screen-的配置文件说明"><a href="#screen-的配置文件说明" class="headerlink" title="screen 的配置文件说明"></a>screen 的配置文件说明</h4><p>可以通过 <code>~/.screenrc</code> 文件自定义 screen 行为。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 设置默认滚动缓冲区大小</span><br><span class="line">defscrollback 1000</span><br><span class="line"></span><br><span class="line"># 启用状态栏显示</span><br><span class="line">hardstatus alwayslastline &quot;%&#123;= kw&#125;%-w%&#123;=b bw&#125;%n %t%&#123;-b fw&#125;%+w&quot;</span><br><span class="line"></span><br><span class="line"># 自动启动多窗口模式</span><br><span class="line">startup_message off</span><br></pre></td></tr></table></figure><p>通过编辑 <code>~/.screenrc</code> 文件，用户可以定制 screen 的外观和功能。</p><h4 id="启动一个新的-screen-会话"><a href="#启动一个新的-screen-会话" class="headerlink" title="启动一个新的 screen 会话"></a>启动一个新的 screen 会话</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -S &lt;session_name&gt;</span><br></pre></td></tr></table></figure><p>示例：启动一个名为 mysession 的会话。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -S mysession</span><br></pre></td></tr></table></figure><h4 id="重新连接到一个已有的-screen-会话"><a href="#重新连接到一个已有的-screen-会话" class="headerlink" title="重新连接到一个已有的 screen 会话"></a>重新连接到一个已有的 screen 会话</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -r &lt;session_name&gt;</span><br></pre></td></tr></table></figure><p>示例：重新连接到名为 mysession 的会话。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -r mysession</span><br></pre></td></tr></table></figure><h4 id="分离当前-screen-会话"><a href="#分离当前-screen-会话" class="headerlink" title="分离当前 screen 会话"></a>分离当前 screen 会话</h4><p>按下 <code>Ctrl+A</code> 然后按 <code>D</code> 键，可以将当前会话分离，但不会终止会话中的任务。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+A D</span><br></pre></td></tr></table></figure><h4 id="列出所有-screen-会话"><a href="#列出所有-screen-会话" class="headerlink" title="列出所有 screen 会话"></a>列出所有 screen 会话</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -ls</span><br></pre></td></tr></table></figure><p>这将显示所有正在运行的会话及其状态。</p><h4 id="终止一个-screen-会话"><a href="#终止一个-screen-会话" class="headerlink" title="终止一个 screen 会话"></a>终止一个 screen 会话</h4><p>在会话中输入 <code>exit</code> ，或者按下 <code>Ctrl+D</code> ，可以终止当前会话。</p><h3 id="高级功能"><a href="#高级功能" class="headerlink" title="高级功能"></a>高级功能</h3><h4 id="创建新窗口"><a href="#创建新窗口" class="headerlink" title="创建新窗口"></a>创建新窗口</h4><p>按下 <code>Ctrl+A</code> 然后按 <code>C</code> 键，可以在当前会话中创建一个新的窗口。</p><h4 id="切换窗口"><a href="#切换窗口" class="headerlink" title="切换窗口"></a>切换窗口</h4><p>按下 <code>Ctrl+A</code> 然后按数字键（如 0 到 9），可以快速切换到对应的窗口。<br>按下 <code>Ctrl+A</code> 然后按 “ “ 键，可以列出所有窗口并选择切换。</p><h4 id="重命名当前窗口"><a href="#重命名当前窗口" class="headerlink" title="重命名当前窗口"></a>重命名当前窗口</h4><p>按下 <code>Ctrl+A</code> 然后按 <code>A</code> 键，可以为当前窗口重命名，方便识别。</p><h4 id="查看会话日志"><a href="#查看会话日志" class="headerlink" title="查看会话日志"></a>查看会话日志</h4><p>启用日志记录功能，可以将屏幕输出保存到文件中。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl+A H</span><br></pre></td></tr></table></figure><h4 id="复制模式"><a href="#复制模式" class="headerlink" title="复制模式"></a>复制模式</h4><p>按下 <code>Ctrl+A</code> 然后按 <code>[</code> 键，进入复制模式，可以滚动和复制屏幕内容。</p><h4 id="发送命令到后台运行"><a href="#发送命令到后台运行" class="headerlink" title="发送命令到后台运行"></a>发送命令到后台运行</h4><p>如果需要在后台运行某个命令，可以结合 <code>screen</code> 和 <code>-d</code> <code>-m</code> 参数。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -dmS &lt;session_name&gt; &lt;<span class="built_in">command</span>&gt;</span><br></pre></td></tr></table></figure><p>示例：在后台运行 <code>ping</code> 命令。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -dmS ping_test ping www.google.com</span><br></pre></td></tr></table></figure><p>示例：在后台运行定时任务。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -dmS cronjob bash -c <span class="string">&quot;while true; do echo &#x27;Hello World&#x27;; sleep 60; done&quot;</span></span><br></pre></td></tr></table></figure><h4 id="会话共享"><a href="#会话共享" class="headerlink" title="会话共享"></a>会话共享</h4><p>实现多人协作。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启用多用户模式</span></span><br><span class="line">Ctrl+A :multiuser on</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加其他用户访问权限</span></span><br><span class="line">Ctrl+A :acladd &lt;username&gt;</span><br></pre></td></tr></table></figure><h3 id="常见指令"><a href="#常见指令" class="headerlink" title="常见指令"></a>常见指令</h3><h4 id="会话管理"><a href="#会话管理" class="headerlink" title="会话管理"></a>会话管理</h4><table><thead><tr><th>命令/快捷键</th><th>说明</th></tr></thead><tbody><tr><td><code>screen</code></td><td>启动一个新的 screen 会话。</td></tr><tr><td><code>screen -S &lt;name&gt;</code></td><td>创建一个命名的新会话（例如 <code>screen -S mysession</code>）。</td></tr><tr><td><code>screen -r</code></td><td>恢复最近分离（detached）的会话。</td></tr><tr><td><code>screen -r &lt;name/pid&gt;</code></td><td>恢复指定名称或 PID 的会话（例如 <code>screen -r mysession</code>）。</td></tr><tr><td><code>screen -ls</code></td><td>列出所有已存在的 screen 会话（包括分离和附着的）。</td></tr><tr><td><code>screen -X -S &lt;name&gt; quit</code></td><td>强制终止指定会话（不进入会话直接关闭）。</td></tr><tr><td><code>Ctrl+A d</code></td><td><strong>分离当前会话</strong>（Detach），返回原终端，会话在后台运行。</td></tr><tr><td><code>Ctrl+A :quit</code></td><td>关闭当前会话并终止所有窗口。</td></tr></tbody></table><h4 id="窗口（Window）操作"><a href="#窗口（Window）操作" class="headerlink" title="窗口（Window）操作"></a>窗口（Window）操作</h4><table><thead><tr><th>快捷键/命令</th><th>说明</th></tr></thead><tbody><tr><td><code>Ctrl+A c</code></td><td>创建一个新窗口（Create）。</td></tr><tr><td><code>Ctrl+A n</code></td><td>切换到下一个窗口（Next）。</td></tr><tr><td><code>Ctrl+A p</code></td><td>切换到上一个窗口（Previous）。</td></tr><tr><td><code>Ctrl+A 0-9</code></td><td>直接切换到第 0-9 个窗口。</td></tr><tr><td><code>Ctrl+A &quot;</code></td><td>列出所有窗口，可交互选择。</td></tr><tr><td><code>Ctrl+A A</code></td><td>重命名当前窗口。</td></tr><tr><td><code>Ctrl+A k</code></td><td>关闭（Kill）当前窗口。</td></tr><tr><td><code>Ctrl+A \</code></td><td>终止所有窗口并关闭当前会话。</td></tr></tbody></table><h4 id="分屏（Region-Split）"><a href="#分屏（Region-Split）" class="headerlink" title="分屏（Region/Split）"></a>分屏（Region/Split）</h4><table><thead><tr><th>快捷键/命令</th><th>说明</th></tr></thead><tbody><tr><td><code>Ctrl+A S</code></td><td>水平分割当前区域（Split horizontally）。</td></tr><tr><td><code>Ctrl+A</code></td><td>垂直分割当前区域（Split vertically，需注意键盘布局）。</td></tr><tr><td><code>Ctrl+A Tab</code></td><td>切换焦点到下一个区域。</td></tr><tr><td><code>Ctrl+A X</code></td><td>关闭当前焦点所在的区域。</td></tr><tr><td><code>Ctrl+A Q</code></td><td>关闭所有区域，仅保留当前焦点区域。</td></tr></tbody></table><h4 id="其他常用操作"><a href="#其他常用操作" class="headerlink" title="其他常用操作"></a>其他常用操作</h4><table><thead><tr><th>快捷键/命令</th><th>说明</th></tr></thead><tbody><tr><td><code>Ctrl+A ?</code></td><td>查看所有快捷键帮助。</td></tr><tr><td><code>Ctrl+A [</code></td><td>进入<strong>复制模式</strong>（可滚动屏幕内容，按 <code>Esc</code> 退出）。</td></tr><tr><td><code>Ctrl+A ]</code></td><td>粘贴复制模式中选中的内容。</td></tr><tr><td><code>Ctrl+A H</code></td><td>开启/关闭当前窗口的日志记录（保存到 <code>screenlog.n</code> 文件）。</td></tr><tr><td><code>Ctrl+A :scrollback 1000</code></td><td>设置屏幕回滚行数为 1000（调整缓冲区大小）。</td></tr><tr><td><code>Ctrl+A x</code></td><td>锁定会话（需输入用户密码解锁）。</td></tr><tr><td><code>Ctrl+A :sessionname &lt;name&gt;</code></td><td>重命名当前会话。</td></tr></tbody></table><h4 id="多用户共享会话"><a href="#多用户共享会话" class="headerlink" title="多用户共享会话"></a>多用户共享会话</h4><table><thead><tr><th>命令/快捷键</th><th>说明</th></tr></thead><tbody><tr><td><code>screen -x</code></td><td>加入一个已存在的会话（多人共享同一会话）。</td></tr><tr><td><code>Ctrl+A :multiuser on</code></td><td>启用多用户模式。</td></tr><tr><td><code>Ctrl+A :acladd &lt;user&gt;</code></td><td>允许指定用户访问当前会话（需 root 权限）。</td></tr></tbody></table><h3 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h3><ul><li>使用命名会话：为每个会话指定有意义的名字，便于管理和识别。</li><li>定期检查会话状态：使用 screen -ls 查看是否有未关闭的会话。</li><li>避免意外分离：如果网络中断或终端关闭，可以通过 screen -r 重新连接到会话。</li><li>善用多窗口功能：在一个会话中创建多个窗口，分别运行不同的任务。</li><li>启用日志记录：对于重要的任务，启用日志功能以便后续分析。</li></ul><h4 id="示例流程"><a href="#示例流程" class="headerlink" title="示例流程"></a>示例流程</h4><ul><li>创建并命名会话</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -S mywork</span><br></pre></td></tr></table></figure><ul><li>分离会话</li></ul><p>按下 <code>Ctrl+A d</code> 返回原终端。</p><ul><li>恢复会话</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -r mywork</span><br></pre></td></tr></table></figure><ul><li>创建新窗口</li></ul><p>在会话中按下 <code>Ctrl+A c</code>，然后通过 <code>Ctrl+A n/p</code> 切换窗口。</p><ul><li>分屏操作</li></ul><p>按下 <code>Ctrl+A S</code> 水平分屏，用 <code>Ctrl+A Tab</code> 切换区域。</p><h3 id="常见问题解答（FAQ）"><a href="#常见问题解答（FAQ）" class="headerlink" title="常见问题解答（FAQ）"></a>常见问题解答（FAQ）</h3><ul><li><p>Q: 如何解决 screen 无法恢复会话的问题？</p><ul><li><p>A: 如果 screen -r 提示无法恢复会话，可能是会话已经终止或被占用。可以尝试以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">screen -ls <span class="comment"># 查看所有会话</span></span><br><span class="line">screen -r &lt;session_name&gt; <span class="comment"># 恢复指定会话</span></span><br><span class="line">screen -dr &lt;session_name&gt; <span class="comment"># 强制分离并恢复会话</span></span><br></pre></td></tr></table></figure></li></ul></li><li><p>Q: 如何退出复制模式？</p><ul><li>A: 在复制模式下，按下 Esc 键即可退出。</li></ul></li></ul><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>掌握这些命令后，可以高效管理终端任务，尤其适合长时间运行进程或远程服务器操作。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s21.ax1x.com/2025/03/01/pE8qB5j.jpg&quot; alt=&quot;首屏图&quot;&gt;&lt;/p&gt;
+&lt;!--
+首屏图备用
+![首屏图](https://s21.ax1x.com/2025/03/01/pE8qgMV.jpg)
+![首屏图](https://s21.ax1x.com/2025/03/01/pE8qy2q.jpg)
+![首屏图](https://s21.ax1x.com/2025/03/01/pE8q6x0.jpg)
+![首屏图](https://s21.ax1x.com/2025/03/01/pE8qsGn.jpg)
+--&gt;</summary>
+    
+    
+    
+    <category term="技术积累" scheme="https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/"/>
+    
+    <category term="后端" scheme="https://www.gaotianyang.top/categories/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="技术积累" scheme="https://www.gaotianyang.top/tags/%E6%8A%80%E6%9C%AF%E7%A7%AF%E7%B4%AF/"/>
+    
+    <category term="后端" scheme="https://www.gaotianyang.top/tags/%E5%90%8E%E7%AB%AF/"/>
+    
+    <category term="screen" scheme="https://www.gaotianyang.top/tags/screen/"/>
+    
+  </entry>
   
   <entry>
     <title>中国美术馆</title>
@@ -90,17 +124,12 @@
     <link href="https://www.gaotianyang.top/archives/20250309726318bf/"/>
     <id>https://www.gaotianyang.top/archives/20250309726318bf/</id>
     <published>2025-03-09T14:50:57.000Z</published>
-    <updated>2025-03-01T15:07:10.162Z</updated>
+    <updated>2025-04-01T14:19:24.905Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="https://s21.ax1x.com/2025/03/01/pE8q0aQ.jpg" alt="首屏图"></p><!-- ![首屏图](https://s21.ax1x.com/2025/03/01/pE8qB5j.jpg)![首屏图](https://s21.ax1x.com/2025/03/01/pE8qgMV.jpg)![首屏图](https://s21.ax1x.com/2025/03/01/pE8qy2q.jpg)![首屏图](https://s21.ax1x.com/2025/03/01/pE8q6x0.jpg)![首屏图](https://s21.ax1x.com/2025/03/01/pE8qsGn.jpg) --><a id="more"></a><p><a href="/archives/202502214537ccef/#Day-7：项目规划与工具">返回</a></p><h2 id="1-项目结构规划"><a href="#1-项目结构规划" class="headerlink" title="1. 项目结构规划"></a>1. 项目结构规划</h2><p><a href="/archives/202502214537ccef/#Day-7：项目规划与工具">返回</a></p><h2 id="2-使用版本控制（git）"><a href="#2-使用版本控制（git）" class="headerlink" title="2. 使用版本控制（git）"></a>2. 使用版本控制（<code>git</code>）</h2><p><a href="/archives/202502214537ccef/#Day-7：项目规划与工具">返回</a></p><h2 id="3-虚拟环境（venv）"><a href="#3-虚拟环境（venv）" class="headerlink" title="3. 虚拟环境（venv）"></a>3. 虚拟环境（<code>venv</code>）</h2><p><a href="/archives/202502214537ccef/#Day-7：项目规划与工具">返回</a></p><h2 id="4-课后练习"><a href="#4-课后练习" class="headerlink" title="4. 课后练习"></a>4. 课后练习</h2><ul><li>创建一个虚拟环境并安装 Flask。</li><li>初始化一个 <code>git</code> 仓库并提交代码。</li></ul>]]></content>
+    <content type="html"><![CDATA[<p><img src="https://s21.ax1x.com/2025/03/01/pE8q0aQ.jpg" alt="首屏图"></p><a id="more"></a><p><a href="/archives/202502214537ccef/#Day-7：项目规划与工具">返回</a></p><h2 id="1-项目结构规划"><a href="#1-项目结构规划" class="headerlink" title="1. 项目结构规划"></a>1. 项目结构规划</h2><p><a href="/archives/202502214537ccef/#Day-7：项目规划与工具">返回</a></p><h2 id="2-使用版本控制（git）"><a href="#2-使用版本控制（git）" class="headerlink" title="2. 使用版本控制（git）"></a>2. 使用版本控制（<code>git</code>）</h2><p><a href="/archives/202502214537ccef/#Day-7：项目规划与工具">返回</a></p><h2 id="3-虚拟环境（venv）"><a href="#3-虚拟环境（venv）" class="headerlink" title="3. 虚拟环境（venv）"></a>3. 虚拟环境（<code>venv</code>）</h2><p><a href="/archives/202502214537ccef/#Day-7：项目规划与工具">返回</a></p><h2 id="4-课后练习"><a href="#4-课后练习" class="headerlink" title="4. 课后练习"></a>4. 课后练习</h2><ul><li>创建一个虚拟环境并安装 Flask。</li><li>初始化一个 <code>git</code> 仓库并提交代码。</li></ul>]]></content>
     
     
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s21.ax1x.com/2025/03/01/pE8q0aQ.jpg&quot; alt=&quot;首屏图&quot;&gt;&lt;/p&gt;
-&lt;!-- ![首屏图](https://s21.ax1x.com/2025/03/01/pE8qB5j.jpg)
-![首屏图](https://s21.ax1x.com/2025/03/01/pE8qgMV.jpg)
-![首屏图](https://s21.ax1x.com/2025/03/01/pE8qy2q.jpg)
-![首屏图](https://s21.ax1x.com/2025/03/01/pE8q6x0.jpg)
-![首屏图](https://s21.ax1x.com/2025/03/01/pE8qsGn.jpg) --&gt;</summary>
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s21.ax1x.com/2025/03/01/pE8q0aQ.jpg&quot; alt=&quot;首屏图&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -597,29 +626,6 @@
     <category term="游记" scheme="https://www.gaotianyang.top/tags/%E6%B8%B8%E8%AE%B0/"/>
     
     <category term="大同" scheme="https://www.gaotianyang.top/tags/%E5%A4%A7%E5%90%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>南苑森林湿地公园</title>
-    <link href="https://www.gaotianyang.top/archives/20250119454528e8/"/>
-    <id>https://www.gaotianyang.top/archives/20250119454528e8/</id>
-    <published>2025-01-19T14:00:31.000Z</published>
-    <updated>2025-03-13T14:43:46.520Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://s21.ax1x.com/2025/03/13/pEUH1YD.jpg" alt="飘向北方-159"></p><a id="more"></a><p>前方是南苑机场，可以依稀看到跑道。</p><p><img src="https://s21.ax1x.com/2025/03/13/pEUH3fe.jpg" alt="南苑机场-162"></p><p>强烈的阳光洒满地面，让我睁不开眼。</p><p><img src="https://s21.ax1x.com/2025/03/13/pEUHKw6.jpg" alt="阳光好刺眼-164"></p><p>光线穿透云层投射到地面，形成独特的光晕效果。</p><p><img src="https://s21.ax1x.com/2025/03/13/pEUHuex.jpg" alt="光晕-165"></p><p>远眺西山，山脉连绵起伏，今天天气晴朗，视野非常开阔。</p><p><img src="https://s21.ax1x.com/2025/03/13/pEUHmO1.jpg" alt="西山-166"></p><p>从高处远眺北京 CBD，高楼大厦林立，城市天际线清晰可见。</p><p><img src="https://s21.ax1x.com/2025/03/12/pEUYcqO.jpg" alt="远眺CBD-168"></p><p>阳光柔和地洒在窗台上，营造出温馨与宁静的氛围。</p><p><img src="https://s21.ax1x.com/2025/03/12/pEUYRde.jpg" alt="暖暖的阳光洒满窗台-169"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://s21.ax1x.com/2025/03/13/pEUH1YD.jpg&quot; alt=&quot;飘向北方-159&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="游记" scheme="https://www.gaotianyang.top/categories/%E6%B8%B8%E8%AE%B0/"/>
-    
-    
-    <category term="游记" scheme="https://www.gaotianyang.top/tags/%E6%B8%B8%E8%AE%B0/"/>
-    
-    <category term="南苑森林湿地公园" scheme="https://www.gaotianyang.top/tags/%E5%8D%97%E8%8B%91%E6%A3%AE%E6%9E%97%E6%B9%BF%E5%9C%B0%E5%85%AC%E5%9B%AD/"/>
     
   </entry>
   
